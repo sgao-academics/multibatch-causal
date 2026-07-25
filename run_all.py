@@ -24,7 +24,7 @@ from scipy.linalg import expm
 from scipy.optimize import minimize
 from scipy.stats import median_abs_deviation
 
-# ── Paths ──
+# -- Paths --
 BASE = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = r'D:\NO.1\cancer_application\data'
 RESULTS = os.path.join(BASE, 'results')
@@ -51,9 +51,9 @@ def save_ckpt(path, data):
         json.dump(data, f)
     print(f"  Saved: {os.path.basename(path)} ({os.path.getsize(path)//1024}KB)")
 
-# ═══════════════════════════════════════════════════════════
+# ===========================================================
 # STAGE 1: Per-cancer NOTEARS
-# ═══════════════════════════════════════════════════════════
+# ===========================================================
 print("="*70)
 print("STAGE 1: Per-cancer NOTEARS (L-BFGS-B)")
 print("="*70)
@@ -144,9 +144,9 @@ notears_data = json.load(open(CKPT_NOTEARS))
 total_edges = sum(notears_data[c]['edges'] for c in all_cancers if c in notears_data)
 print(f"  Total: {total_edges} edges across {len([c for c in all_cancers if c in notears_data])} cancers")
 
-# ═══════════════════════════════════════════════════════════
+# ===========================================================
 # STAGE 2: Cross-cancer gene-pair analysis
-# ═══════════════════════════════════════════════════════════
+# ===========================================================
 print("\n" + "="*70)
 print("STAGE 2: Cross-cancer gene-pair analysis")
 print("="*70)
@@ -207,9 +207,9 @@ else:
 # Update NOTEARS checkpoint with reuse rates
 save_ckpt(CKPT_NOTEARS, notears_data)
 
-# ═══════════════════════════════════════════════════════════
+# ===========================================================
 # STAGE 3: GENIE3 baseline
-# ═══════════════════════════════════════════════════════════
+# ===========================================================
 print("\n" + "="*70)
 print("STAGE 3: GENIE3 baseline")
 print("="*70)
@@ -289,9 +289,9 @@ overlap = len(nt_pairs & g3_pairs)
 print(f"  GENIE3: {g3_total_edges} edges, {g3_unique} unique, {g3_shared} shared>=3")
 print(f"  Overlap with NOTEARS: {overlap}/{len(nt_pairs)} ({100*overlap/max(len(nt_pairs),1):.1f}%)")
 
-# ═══════════════════════════════════════════════════════════
+# ===========================================================
 # STAGE 4: Pooled NOTEARS
-# ═══════════════════════════════════════════════════════════
+# ===========================================================
 print("\n" + "="*70)
 print("STAGE 4: Pooled NOTEARS")
 print("="*70)
@@ -332,9 +332,9 @@ else:
     save_ckpt(CKPT_POOLED, pooled)
     print(f"  Pooled: {nz} edges, h={h_val:.2e}")
 
-# ═══════════════════════════════════════════════════════════
+# ===========================================================
 # STAGE 5: Synthetic validation (deterministic)
-# ═══════════════════════════════════════════════════════════
+# ===========================================================
 print("\n" + "="*70)
 print("STAGE 5: Synthetic validation (V6 two-stage)")
 print("="*70)
@@ -395,9 +395,9 @@ if 'recovery' not in synth:
     }
     save_ckpt(CKPT_SYNTH, synth)
 
-# ═══════════════════════════════════════════════════════════
+# ===========================================================
 # STAGE 6: Summary
-# ═══════════════════════════════════════════════════════════
+# ===========================================================
 print("\n" + "="*70)
 print("SUMMARY")
 print("="*70)
