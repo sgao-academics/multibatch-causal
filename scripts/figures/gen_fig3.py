@@ -4,8 +4,9 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-FIGDIR = r'C:\Users\高帅东\Desktop\MultiBatch\figures'
-RESULTS = r'C:\Users\高帅东\Desktop\MultiBatch\results'
+BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+RESULTS = os.path.join(BASE, 'results')
+FIGDIR = os.path.join(BASE, 'figures')
 os.makedirs(FIGDIR, exist_ok=True)
 
 d = json.load(open(os.path.join(RESULTS, '_figure_data.json')))
