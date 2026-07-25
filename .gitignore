@@ -1,0 +1,13 @@
+data/
+_archive/
+__pycache__/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.pyc
+.DS_Store
+manuscript.tex
+manuscript.pdf
+MultiBatch_Replication.zip

@@ -1,0 +1,13 @@
+{
+  "genie3_unique_pairs": 1732,
+  "genie3_shared_gte3": 86,
+  "genie3_shared_pct": 5.0,
+  "genie3_n1": 1213,
+  "genie3_n2": 433,
+  "genie3_total_edges": 2445,
+  "notears_total_edges": 2445,
+  "overlap_edges": 701,
+  "overlap_pct_notears": 28.7,
+  "overlap_pct_genie3": 37.0,
+  "note": "GENIE3 with L-BFGS-B NOTEARS per-cancer K values"
+}
