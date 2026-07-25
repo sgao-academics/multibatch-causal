@@ -48,6 +48,12 @@ All stages are idempotent. Re-running resumes from the last checkpoint.
 
 TCGA gene expression data are publicly available from the [UCSC Xena browser](https://xenabrowser.net/) under the HiSeqV2 RSEM pipeline. The 33 cancer types analyzed and their sample sizes are listed in Table 1 of the manuscript.
 
+## Related
+
+The causal discovery engine used in this paper is available as a standalone Python package:
+
+**[causalscale](https://github.com/sgao-academics/causalscale)** — Unified causal discovery API with 7 engines (NOTEARS, DAGMA, Low-Rank, Causal Transformer, Cluster-Aware, Multi-Modal, Ensemble). Handles d=30 to genome-scale (19,215 genes). `pip install causalscale`. MIT license.
+
 ## License
 
 MIT
