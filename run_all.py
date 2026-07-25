@@ -420,4 +420,4 @@ print(f"""
   Manuscript: pdflatex manuscript.tex
 """)
 
-print("Reproducibility: ✅ All experiments checkpointed. Rerun for verification.")
+print("Reproducibility: All experiments checkpointed. Rerun for verification.")
