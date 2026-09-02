@@ -1,0 +1,836 @@
+{
+  "database": "STRING v12",
+  "score_threshold": 700,
+  "string_high_conf_pairs": 472000,
+  "total_edges": 2445,
+  "total_validated": 267,
+  "validation_rate": 10.9,
+  "unique_validated_pairs": 212,
+  "validated_by_pair": {
+    "NR0B2->FABP6": [
+      "ACC"
+    ],
+    "GSTA1->GSTA2": [
+      "ACC",
+      "CHOL"
+    ],
+    "COL10A1->COL11A1": [
+      "BLCA"
+    ],
+    "CEACAM6->CEACAM5": [
+      "BLCA"
+    ],
+    "MAGEA6->MAGEA3": [
+      "BLCA",
+      "LUSC"
+    ],
+    "KRT6C->KRT6A": [
+      "BLCA",
+      "ESCA"
+    ],
+    "KRT6B->KRT6C": [
+      "BLCA"
+    ],
+    "SERPINB3->SERPINB4": [
+      "BLCA",
+      "ESCA"
+    ],
+    "KRT6A->KRT5": [
+      "BLCA",
+      "SKCM"
+    ],
+    "COL17A1->KRT5": [
+      "BRCA"
+    ],
+    "KLK5->KLK7": [
+      "BRCA",
+      "CESC"
+    ],
+    "KLK10->KLK11": [
+      "BRCA"
+    ],
+    "CIDEC->LEP": [
+      "BRCA"
+    ],
+    "CIDEC->CIDEA": [
+      "BRCA"
+    ],
+    "CEACAM5->CEACAM6": [
+      "BRCA"
+    ],
+    "SCGB2A2->SCGB1D2": [
+      "BRCA"
+    ],
+    "DSG1->KRT1": [
+      "CESC"
+    ],
+    "S100A8->S100A7": [
+      "CESC",
+      "ESCA"
+    ],
+    "KLK7->KLK8": [
+      "CESC",
+      "COAD",
+      "READ",
+      "STAD",
+      "UCEC"
+    ],
+    "SPRR1B->SPRR3": [
+      "CESC",
+      "PAAD"
+    ],
+    "SPRR2D->SPRR2A": [
+      "CESC",
+      "LUSC"
+    ],
+    "SPRR2D->SPRR2E": [
+      "CESC"
+    ],
+    "S100A7->S100A7A": [
+      "CESC",
+      "ESCA",
+      "LUSC"
+    ],
+    "SPRR2E->SPRR2A": [
+      "CESC"
+    ],
+    "SPRR1A->SPRR1B": [
+      "CESC"
+    ],
+    "SPRR1A->SPRR2D": [
+      "CESC"
+    ],
+    "CFHR2->CFHR1": [
+      "CHOL"
+    ],
+    "ACSM2B->ACSM2A": [
+      "CHOL"
+    ],
+    "CREB3L3->APOA4": [
+      "CHOL"
+    ],
+    "ADH1C->ADH1A": [
+      "CHOL"
+    ],
+    "SAA4->SAA2": [
+      "CHOL"
+    ],
+    "UGT1A1->UGT1A10": [
+      "CHOL"
+    ],
+    "UGT1A1->GSTA1": [
+      "CHOL"
+    ],
+    "ADH1A->ADH1B": [
+      "CHOL"
+    ],
+    "UGT1A4->UGT1A1": [
+      "CHOL"
+    ],
+    "BHMT->DMGDH": [
+      "CHOL"
+    ],
+    "KNG1->HRG": [
+      "CHOL"
+    ],
+    "SERPINC1->AGXT": [
+      "CHOL"
+    ],
+    "APOA2->F2": [
+      "CHOL"
+    ],
+    "HP->SAA2": [
+      "CHOL"
+    ],
+    "HP->ALB": [
+      "CHOL"
+    ],
+    "KRT6B->KRT6A": [
+      "COAD",
+      "LUAD"
+    ],
+    "SPINK4->REG4": [
+      "COAD"
+    ],
+    "COL10A1->COMP": [
+      "COAD"
+    ],
+    "DEFA5->DEFA6": [
+      "COAD",
+      "READ"
+    ],
+    "REG3A->REG1A": [
+      "COAD",
+      "PAAD",
+      "READ",
+      "STAD"
+    ],
+    "DDX3Y->NLGN4Y": [
+      "COAD",
+      "PAAD",
+      "READ"
+    ],
+    "DDX3Y->UTY": [
+      "COAD",
+      "SKCM"
+    ],
+    "ZFY->PRKY": [
+      "COAD",
+      "SKCM"
+    ],
+    "ZFY->RPS4Y1": [
+      "COAD",
+      "READ"
+    ],
+    "UTY->ZFY": [
+      "COAD"
+    ],
+    "REG1A->REG1B": [
+      "COAD",
+      "READ"
+    ],
+    "KDM5D->NLGN4Y": [
+      "COAD"
+    ],
+    "KDM5D->EIF1AY": [
+      "COAD",
+      "KIRP"
+    ],
+    "KDM5D->RPS4Y1": [
+      "DLBC",
+      "SKCM"
+    ],
+    "MT1H->MT1G": [
+      "DLBC"
+    ],
+    "PRKY->KDM5D": [
+      "DLBC"
+    ],
+    "COL11A1->COL10A1": [
+      "DLBC"
+    ],
+    "ORM1->ORM2": [
+      "DLBC"
+    ],
+    "LGALS7->LGALS7B": [
+      "ESCA",
+      "LUSC",
+      "THYM"
+    ],
+    "KRT6A->KRT6B": [
+      "ESCA",
+      "READ"
+    ],
+    "KRT6A->KRT16": [
+      "ESCA"
+    ],
+    "KRT6A->KRT14": [
+      "ESCA"
+    ],
+    "SPRR1B->SPRR1A": [
+      "ESCA",
+      "LUSC"
+    ],
+    "SPRR2A->SPRR2D": [
+      "ESCA"
+    ],
+    "SPRR2A->SPRR2E": [
+      "ESCA",
+      "LUSC"
+    ],
+    "SPRR1A->SPRR3": [
+      "ESCA",
+      "LUSC"
+    ],
+    "KRT6C->KRT6B": [
+      "ESCA"
+    ],
+    "SPRR2D->SPRR1B": [
+      "ESCA"
+    ],
+    "SERPINB13->SERPINB3": [
+      "ESCA"
+    ],
+    "KRT13->KRT4": [
+      "ESCA",
+      "PRAD"
+    ],
+    "SPRR2E->SPRR2D": [
+      "ESCA"
+    ],
+    "SBSN->KRTDAP": [
+      "ESCA",
+      "LUSC"
+    ],
+    "HP->SAA1": [
+      "GBM"
+    ],
+    "MAG->SOX10": [
+      "GBM"
+    ],
+    "MAG->MOBP": [
+      "GBM"
+    ],
+    "MOG->MAG": [
+      "GBM"
+    ],
+    "PNOC->TAC1": [
+      "GBM"
+    ],
+    "NEFM->NEFL": [
+      "GBM",
+      "LGG",
+      "SARC"
+    ],
+    "GABRA1->GABRG2": [
+      "GBM"
+    ],
+    "SAA1->SAA2": [
+      "GBM",
+      "KIRP"
+    ],
+    "ADH7->UGT1A7": [
+      "HNSC"
+    ],
+    "UGT1A6->UGT1A9": [
+      "HNSC"
+    ],
+    "DSG1->DSC1": [
+      "HNSC"
+    ],
+    "UGT1A9->UGT1A10": [
+      "HNSC"
+    ],
+    "MYLPF->TNNC2": [
+      "HNSC"
+    ],
+    "LTF->PIGR": [
+      "HNSC"
+    ],
+    "SPRR2B->SPRR2F": [
+      "HNSC"
+    ],
+    "SPRR3->KRT13": [
+      "HNSC"
+    ],
+    "SPRR2G->SPRR2B": [
+      "HNSC"
+    ],
+    "MYL2->TNNC1": [
+      "HNSC"
+    ],
+    "MYL2->MYH7": [
+      "HNSC"
+    ],
+    "UGT1A7->UGT1A6": [
+      "HNSC"
+    ],
+    "ACTC1->CASQ2": [
+      "HNSC"
+    ],
+    "PSG5->PSG4": [
+      "KICH"
+    ],
+    "DCN->LUM": [
+      "KICH"
+    ],
+    "UGT1A9->AOX1": [
+      "KICH"
+    ],
+    "PKHD1->CYS1": [
+      "KICH"
+    ],
+    "ADH1B->GSTM1": [
+      "KICH"
+    ],
+    "ZFY->NLGN4Y": [
+      "KICH"
+    ],
+    "ZFY->USP9Y": [
+      "KICH",
+      "THYM"
+    ],
+    "EIF1AY->KDM5D": [
+      "KICH"
+    ],
+    "UTY->EIF1AY": [
+      "KICH",
+      "READ"
+    ],
+    "DDX3Y->RPS4Y1": [
+      "KICH",
+      "PAAD",
+      "SKCM",
+      "UVM"
+    ],
+    "KDM5D->DDX3Y": [
+      "KICH",
+      "PAAD",
+      "READ",
+      "UVM"
+    ],
+    "USP9Y->UTY": [
+      "KICH"
+    ],
+    "RPS4Y1->ZFY": [
+      "KICH"
+    ],
+    "CCL18->CHIT1": [
+      "KIRC",
+      "UVM"
+    ],
+    "SLC12A1->CASR": [
+      "KIRC"
+    ],
+    "ALDOB->G6PC": [
+      "KIRC"
+    ],
+    "FGA->FGB": [
+      "KIRC"
+    ],
+    "FGB->FGG": [
+      "KIRC"
+    ],
+    "RPS4Y1->KDM5D": [
+      "KIRP"
+    ],
+    "EIF1AY->RPS4Y1": [
+      "KIRP",
+      "PAAD",
+      "STAD"
+    ],
+    "GSTA2->GSTA1": [
+      "KIRP"
+    ],
+    "WFDC12->WFDC5": [
+      "KIRP"
+    ],
+    "FGB->FGA": [
+      "KIRP"
+    ],
+    "HBG1->HBG2": [
+      "LAML"
+    ],
+    "S100A9->S100A12": [
+      "LAML"
+    ],
+    "CXCL12->COL1A2": [
+      "LAML"
+    ],
+    "HBG2->HBA1": [
+      "LAML"
+    ],
+    "HOXB3->HOXB6": [
+      "LAML"
+    ],
+    "CD14->S100A9": [
+      "LAML"
+    ],
+    "USP9Y->EIF1AY": [
+      "LAML",
+      "STAD"
+    ],
+    "HOXB6->HOXB5": [
+      "LAML"
+    ],
+    "GABRA1->GABRB2": [
+      "LGG"
+    ],
+    "GAD2->SLC32A1": [
+      "LGG"
+    ],
+    "PNOC->PDYN": [
+      "LGG"
+    ],
+    "CYP2A6->CYP2A7": [
+      "LIHC"
+    ],
+    "INS-IGF2->IGF2": [
+      "LIHC"
+    ],
+    "CYP1A2->CYP1A1": [
+      "LIHC"
+    ],
+    "SFTPA2->SFTPA1": [
+      "LUAD"
+    ],
+    "TEKT1->C9ORF135": [
+      "LUAD"
+    ],
+    "FGA->FGG": [
+      "LUAD"
+    ],
+    "DMBT1->MUC5B": [
+      "LUSC"
+    ],
+    "SPRR1B->SPRR2D": [
+      "LUSC"
+    ],
+    "ADH7->GSTA1": [
+      "LUSC"
+    ],
+    "SFTPA1->SFTPA2": [
+      "LUSC"
+    ],
+    "CKMT1A->CKMT1B": [
+      "MESO"
+    ],
+    "TNNT2->TNNC1": [
+      "MESO"
+    ],
+    "SAA1->SAA4": [
+      "MESO"
+    ],
+    "SAA2->SAA1": [
+      "MESO",
+      "UCEC"
+    ],
+    "HP->HPR": [
+      "MESO"
+    ],
+    "KRT17->KRT14": [
+      "MESO"
+    ],
+    "SPRR2F->SPRR2B": [
+      "MESO"
+    ],
+    "HOXB9->HOXB8": [
+      "OV"
+    ],
+    "OBP2A->OBP2B": [
+      "OV"
+    ],
+    "ZIC4->ZIC1": [
+      "OV"
+    ],
+    "CRP->APCS": [
+      "PAAD"
+    ],
+    "INS->GCG": [
+      "PAAD"
+    ],
+    "MS4A1->CR2": [
+      "PAAD"
+    ],
+    "EIF1AY->TMSB4Y": [
+      "PAAD"
+    ],
+    "G6PC2->IAPP": [
+      "PAAD"
+    ],
+    "SPRR3->SPRR1A": [
+      "PAAD"
+    ],
+    "GCG->G6PC2": [
+      "PAAD"
+    ],
+    "IAPP->INS": [
+      "PAAD"
+    ],
+    "IAPP->PPY": [
+      "PAAD"
+    ],
+    "REG3G->REG3A": [
+      "PAAD"
+    ],
+    "CPA1->PNLIP": [
+      "PAAD"
+    ],
+    "REG1B->REG3A": [
+      "PAAD"
+    ],
+    "CELA3A->CTRB1": [
+      "PAAD"
+    ],
+    "CELA3A->CTRB2": [
+      "PAAD"
+    ],
+    "CTRB1->CTRB2": [
+      "PAAD"
+    ],
+    "PNLIP->AMY2A": [
+      "PAAD"
+    ],
+    "FOXD3->SOX10": [
+      "PCPG"
+    ],
+    "SOX10->PLP1": [
+      "PCPG"
+    ],
+    "NLGN4Y->RPS4Y1": [
+      "PCPG"
+    ],
+    "ZIC2->ZIC5": [
+      "PRAD"
+    ],
+    "CLCA4->CLCA2": [
+      "PRAD"
+    ],
+    "ORM2->ORM1": [
+      "PRAD"
+    ],
+    "PCDHA11->PCDHA1": [
+      "PRAD"
+    ],
+    "UGT1A3->UGT1A9": [
+      "PRAD"
+    ],
+    "OLFM4->LTF": [
+      "PRAD"
+    ],
+    "PYY->CHGA": [
+      "READ"
+    ],
+    "GCG->PYY": [
+      "READ"
+    ],
+    "REG4->SPINK4": [
+      "READ"
+    ],
+    "ZFY->UTY": [
+      "READ"
+    ],
+    "UTY->PRKY": [
+      "READ"
+    ],
+    "DDX3Y->ZFY": [
+      "READ"
+    ],
+    "ZG16->MS4A12": [
+      "READ"
+    ],
+    "KDM5D->USP9Y": [
+      "READ"
+    ],
+    "COL4A6->COL4A5": [
+      "SARC"
+    ],
+    "HMGA2->IGF2BP2": [
+      "SARC"
+    ],
+    "KRT5->KRT14": [
+      "SKCM"
+    ],
+    "KRT14->KRT6A": [
+      "SKCM"
+    ],
+    "UTY->USP9Y": [
+      "SKCM"
+    ],
+    "MAGEC2->MAGEC1": [
+      "SKCM",
+      "TGCT"
+    ],
+    "SST->CHGA": [
+      "STAD"
+    ],
+    "RPS4Y1->UTY": [
+      "STAD"
+    ],
+    "ZIC5->ZIC2": [
+      "STAD"
+    ],
+    "PGA4->PGA3": [
+      "STAD"
+    ],
+    "GKN2->GKN1": [
+      "STAD"
+    ],
+    "MT1G->MT1H": [
+      "TGCT",
+      "THCA"
+    ],
+    "VTN->APOA1": [
+      "TGCT"
+    ],
+    "APOB->AFP": [
+      "TGCT"
+    ],
+    "SOX2->SOX21": [
+      "TGCT"
+    ],
+    "OMD->OGN": [
+      "THCA"
+    ],
+    "KDM5D->ZFY": [
+      "THYM"
+    ],
+    "COL9A3->COL2A1": [
+      "THYM"
+    ],
+    "NEFL->NEFM": [
+      "THYM"
+    ],
+    "KRT16->KRT6A": [
+      "UCEC",
+      "UCS"
+    ],
+    "DLX2->DLX1": [
+      "UCS"
+    ],
+    "MYH8->MYL1": [
+      "UCS"
+    ],
+    "KRT5->KRT16": [
+      "UCS"
+    ],
+    "NPY->PNOC": [
+      "UCS"
+    ],
+    "MYL1->ACTA1": [
+      "UCS"
+    ],
+    "HOXC10->HOXC11": [
+      "UCS"
+    ],
+    "MYOG->MYOD1": [
+      "UCS"
+    ],
+    "TNNT3->CKM": [
+      "UCS"
+    ],
+    "COL11A1->COL2A1": [
+      "UVM"
+    ],
+    "CD2->CD3D": [
+      "UVM"
+    ],
+    "KRT7->MME": [
+      "UVM"
+    ]
+  },
+  "per_cancer": {
+    "ACC": {
+      "n_edges": 127,
+      "n_validated": 2
+    },
+    "BLCA": {
+      "n_edges": 20,
+      "n_validated": 7
+    },
+    "BRCA": {
+      "n_edges": 16,
+      "n_validated": 7
+    },
+    "CESC": {
+      "n_edges": 32,
+      "n_validated": 11
+    },
+    "CHOL": {
+      "n_edges": 183,
+      "n_validated": 16
+    },
+    "COAD": {
+      "n_edges": 48,
+      "n_validated": 14
+    },
+    "DLBC": {
+      "n_edges": 233,
+      "n_validated": 5
+    },
+    "ESCA": {
+      "n_edges": 66,
+      "n_validated": 18
+    },
+    "GBM": {
+      "n_edges": 88,
+      "n_validated": 8
+    },
+    "HNSC": {
+      "n_edges": 33,
+      "n_validated": 13
+    },
+    "KICH": {
+      "n_edges": 154,
+      "n_validated": 13
+    },
+    "KIRC": {
+      "n_edges": 14,
+      "n_validated": 5
+    },
+    "KIRP": {
+      "n_edges": 28,
+      "n_validated": 7
+    },
+    "LAML": {
+      "n_edges": 65,
+      "n_validated": 8
+    },
+    "LGG": {
+      "n_edges": 32,
+      "n_validated": 4
+    },
+    "LIHC": {
+      "n_edges": 16,
+      "n_validated": 3
+    },
+    "LUAD": {
+      "n_edges": 14,
+      "n_validated": 4
+    },
+    "LUSC": {
+      "n_edges": 35,
+      "n_validated": 12
+    },
+    "MESO": {
+      "n_edges": 132,
+      "n_validated": 7
+    },
+    "OV": {
+      "n_edges": 12,
+      "n_validated": 3
+    },
+    "PAAD": {
+      "n_edges": 92,
+      "n_validated": 22
+    },
+    "PCPG": {
+      "n_edges": 51,
+      "n_validated": 3
+    },
+    "PRAD": {
+      "n_edges": 18,
+      "n_validated": 7
+    },
+    "READ": {
+      "n_edges": 205,
+      "n_validated": 17
+    },
+    "SARC": {
+      "n_edges": 13,
+      "n_validated": 3
+    },
+    "SKCM": {
+      "n_edges": 22,
+      "n_validated": 9
+    },
+    "STAD": {
+      "n_edges": 25,
+      "n_validated": 9
+    },
+    "TGCT": {
+      "n_edges": 67,
+      "n_validated": 5
+    },
+    "THCA": {
+      "n_edges": 36,
+      "n_validated": 2
+    },
+    "THYM": {
+      "n_edges": 118,
+      "n_validated": 5
+    },
+    "UCEC": {
+      "n_edges": 54,
+      "n_validated": 3
+    },
+    "UCS": {
+      "n_edges": 229,
+      "n_validated": 9
+    },
+    "UVM": {
+      "n_edges": 167,
+      "n_validated": 6
+    }
+  }
+}

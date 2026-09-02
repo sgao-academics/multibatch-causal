@@ -1,0 +1,206 @@
+{
+  "universe_size": 1775,
+  "global_network_genes": 1248,
+  "global_enrichment": [
+    {
+      "set": "FLECHNER_BIOPSY_KIDNEY_TRANSPLANT_OK_VS_DONOR_UP",
+      "k": 28,
+      "K": 28,
+      "n": 1248,
+      "p": 4.752302065417398e-05,
+      "enrichment": 1.4222756410256412
+    },
+    {
+      "set": "LIU_OVARIAN_CANCER_TUMORS_AND_XENOGRAFTS_XDGS_DN",
+      "k": 147,
+      "K": 179,
+      "n": 1248,
+      "p": 0.00010590022988595799,
+      "enrichment": 1.1680140739149119
+    },
+    {
+      "set": "HSIAO_LIVER_SPECIFIC_GENES",
+      "k": 79,
+      "K": 92,
+      "n": 1248,
+      "p": 0.00030034170100417195,
+      "enrichment": 1.221301909141583
+    },
+    {
+      "set": "SWEET_LUNG_CANCER_KRAS_UP",
+      "k": 47,
+      "K": 52,
+      "n": 1248,
+      "p": 0.0004333489144456556,
+      "enrichment": 1.2855183678500985
+    },
+    {
+      "set": "HOSHIDA_LIVER_CANCER_SUBCLASS_S3",
+      "k": 45,
+      "K": 50,
+      "n": 1248,
+      "p": 0.0007355004214989233,
+      "enrichment": 1.2800480769230769
+    },
+    {
+      "set": "JINESH_BLEBBISHIELD_VS_LIVE_CONTROL_DN",
+      "k": 20,
+      "K": 20,
+      "n": 1248,
+      "p": 0.0008327563723170666,
+      "enrichment": 1.4222756410256407
+    },
+    {
+      "set": "WP_NETWORK_MAP_OF_SARSCOV2_SIGNALING",
+      "k": 26,
+      "K": 27,
+      "n": 1248,
+      "p": 0.0008602311967191168,
+      "enrichment": 1.3695987654320987
+    },
+    {
+      "set": "ENK_UV_RESPONSE_KERATINOCYTE_UP",
+      "k": 42,
+      "K": 47,
+      "n": 1248,
+      "p": 0.0016001513620061698,
+      "enrichment": 1.2709697217675942
+    },
+    {
+      "set": "MA_RAT_AGING_DN",
+      "k": 24,
+      "K": 25,
+      "n": 1248,
+      "p": 0.0016391206094385014,
+      "enrichment": 1.3653846153846154
+    },
+    {
+      "set": "LEE_BMP2_TARGETS_UP",
+      "k": 81,
+      "K": 97,
+      "n": 1248,
+      "p": 0.0016429283632034746,
+      "enrichment": 1.1876734734337828
+    },
+    {
+      "set": "DARWICHE_PAPILLOMA_RISK_HIGH_UP",
+      "k": 18,
+      "K": 18,
+      "n": 1248,
+      "p": 0.001699641173972407,
+      "enrichment": 1.4222756410256412
+    },
+    {
+      "set": "FLECHNER_BIOPSY_KIDNEY_TRANSPLANT_REJECTED_VS_OK_DN",
+      "k": 52,
+      "K": 60,
+      "n": 1248,
+      "p": 0.0022469027796281783,
+      "enrichment": 1.2326388888888888
+    },
+    {
+      "set": "NIKOLSKY_BREAST_CANCER_8Q12_Q22_AMPLICON",
+      "k": 17,
+      "K": 17,
+      "n": 1248,
+      "p": 0.0024272698487761905,
+      "enrichment": 1.422275641025641
+    },
+    {
+      "set": "WEST_ADRENOCORTICAL_TUMOR_DN",
+      "k": 51,
+      "K": 59,
+      "n": 1248,
+      "p": 0.002816492215014185,
+      "enrichment": 1.229424706649283
+    },
+    {
+      "set": "MARTORIATI_MDM4_TARGETS_FETAL_LIVER_DN",
+      "k": 31,
+      "K": 34,
+      "n": 1248,
+      "p": 0.0033242224313354044,
+      "enrichment": 1.2967807315233786
+    },
+    {
+      "set": "BRUECKNER_TARGETS_OF_MIRLET7A3_UP",
+      "k": 16,
+      "K": 16,
+      "n": 1248,
+      "p": 0.003465558168828992,
+      "enrichment": 1.422275641025641
+    },
+    {
+      "set": "WP_COMPLEMENT_SYSTEM",
+      "k": 26,
+      "K": 28,
+      "n": 1248,
+      "p": 0.00395922454039639,
+      "enrichment": 1.3206845238095237
+    },
+    {
+      "set": "REACTOME_ANTIMICROBIAL_PEPTIDES",
+      "k": 21,
+      "K": 22,
+      "n": 1248,
+      "p": 0.004259234207511977,
+      "enrichment": 1.3576267482517481
+    },
+    {
+      "set": "REACTOME_INNATE_IMMUNE_SYSTEM",
+      "k": 85,
+      "K": 104,
+      "n": 1248,
+      "p": 0.004555623187005087,
+      "enrichment": 1.1624368219921104
+    },
+    {
+      "set": "DELASERNA_MYOD_TARGETS_UP",
+      "k": 15,
+      "K": 15,
+      "n": 1248,
+      "p": 0.004946782138798889,
+      "enrichment": 1.4222756410256412
+    },
+    {
+      "set": "DARWICHE_SQUAMOUS_CELL_CARCINOMA_UP",
+      "k": 15,
+      "K": 15,
+      "n": 1248,
+      "p": 0.004946782138798889,
+      "enrichment": 1.4222756410256412
+    },
+    {
+      "set": "YAMASHITA_METHYLATED_IN_PROSTATE_CANCER",
+      "k": 20,
+      "K": 21,
+      "n": 1248,
+      "p": 0.005834039656773981,
+      "enrichment": 1.3545482295482294
+    },
+    {
+      "set": "DARWICHE_PAPILLOMA_RISK_LOW_UP",
+      "k": 20,
+      "K": 21,
+      "n": 1248,
+      "p": 0.005834039656773981,
+      "enrichment": 1.3545482295482294
+    },
+    {
+      "set": "CHIANG_LIVER_CANCER_SUBCLASS_UNANNOTATED_UP",
+      "k": 14,
+      "K": 14,
+      "n": 1248,
+      "p": 0.007059386828545254,
+      "enrichment": 1.4222756410256412
+    },
+    {
+      "set": "KIM_GLIS2_TARGETS_UP",
+      "k": 14,
+      "K": 14,
+      "n": 1248,
+      "p": 0.007059386828545254,
+      "enrichment": 1.4222756410256412
+    }
+  ]
+}

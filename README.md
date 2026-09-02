@@ -2,7 +2,7 @@
 
 **Shuaidong Gao** — Chongqing Institute of Foreign Studies
 
-Replication package for the manuscript submitted to *Theory in Biosciences* (Springer).
+Replication package for the manuscript submitted to *Genes &amp; Genomics* (Springer).
 
 ## Quick Start
 

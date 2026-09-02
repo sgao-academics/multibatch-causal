@@ -1,0 +1,350 @@
+{
+  "taucut": 0.3,
+  "total_edges": 2445,
+  "n_cancers": 33,
+  "rewired": [
+    {
+      "gene_i": "SLC22A7",
+      "gene_j": "CYP4A11",
+      "signs": [
+        "neg",
+        "pos"
+      ],
+      "N": 2,
+      "cancers": [
+        "CHOL",
+        "KIRP"
+      ]
+    },
+    {
+      "gene_i": "RPS4Y1",
+      "gene_j": "GSTM1",
+      "signs": [
+        "neg",
+        "pos"
+      ],
+      "N": 2,
+      "cancers": [
+        "PAAD",
+        "PCPG"
+      ]
+    },
+    {
+      "gene_i": "NLGN4Y",
+      "gene_j": "GSTM1",
+      "signs": [
+        "neg",
+        "pos"
+      ],
+      "N": 2,
+      "cancers": [
+        "PAAD",
+        "PCPG"
+      ]
+    }
+  ],
+  "top_shared": [
+    {
+      "gene_i": "KLK7",
+      "gene_j": "KLK8",
+      "N": 5,
+      "cancers": [
+        "CESC",
+        "COAD",
+        "READ",
+        "STAD",
+        "UCEC"
+      ]
+    },
+    {
+      "gene_i": "CYORF15B",
+      "gene_j": "PRKY",
+      "N": 5,
+      "cancers": [
+        "COAD",
+        "LGG",
+        "PAAD",
+        "READ",
+        "SKCM"
+      ]
+    },
+    {
+      "gene_i": "USP9Y",
+      "gene_j": "TTTY15",
+      "N": 5,
+      "cancers": [
+        "COAD",
+        "LAML",
+        "READ",
+        "SKCM",
+        "THYM"
+      ]
+    },
+    {
+      "gene_i": "XIST",
+      "gene_j": "TSIX",
+      "N": 5,
+      "cancers": [
+        "LAML",
+        "LGG",
+        "LUAD",
+        "PCPG",
+        "SARC"
+      ]
+    },
+    {
+      "gene_i": "CYORF15A",
+      "gene_j": "CYORF15B",
+      "N": 4,
+      "cancers": [
+        "COAD",
+        "READ",
+        "SKCM",
+        "STAD"
+      ]
+    },
+    {
+      "gene_i": "REG3A",
+      "gene_j": "REG1A",
+      "N": 4,
+      "cancers": [
+        "COAD",
+        "PAAD",
+        "READ",
+        "STAD"
+      ]
+    },
+    {
+      "gene_i": "DDX3Y",
+      "gene_j": "RPS4Y1",
+      "N": 4,
+      "cancers": [
+        "KICH",
+        "PAAD",
+        "SKCM",
+        "UVM"
+      ]
+    },
+    {
+      "gene_i": "KDM5D",
+      "gene_j": "DDX3Y",
+      "N": 4,
+      "cancers": [
+        "KICH",
+        "PAAD",
+        "READ",
+        "UVM"
+      ]
+    },
+    {
+      "gene_i": "RPS4Y1",
+      "gene_j": "XIST",
+      "N": 4,
+      "cancers": [
+        "SARC",
+        "SKCM",
+        "STAD",
+        "UVM"
+      ]
+    },
+    {
+      "gene_i": "TSIX",
+      "gene_j": "XIST",
+      "N": 3,
+      "cancers": [
+        "ACC",
+        "CHOL",
+        "DLBC"
+      ]
+    },
+    {
+      "gene_i": "S100A7",
+      "gene_j": "S100A7A",
+      "N": 3,
+      "cancers": [
+        "CESC",
+        "ESCA",
+        "LUSC"
+      ]
+    },
+    {
+      "gene_i": "TMPRSS11D",
+      "gene_j": "TMPRSS11A",
+      "N": 3,
+      "cancers": [
+        "CESC",
+        "ESCA",
+        "LUSC"
+      ]
+    },
+    {
+      "gene_i": "KLK6",
+      "gene_j": "KLK7",
+      "N": 3,
+      "cancers": [
+        "COAD",
+        "READ",
+        "STAD"
+      ]
+    },
+    {
+      "gene_i": "DDX3Y",
+      "gene_j": "NLGN4Y",
+      "N": 3,
+      "cancers": [
+        "COAD",
+        "PAAD",
+        "READ"
+      ]
+    },
+    {
+      "gene_i": "DDX3Y",
+      "gene_j": "XIST",
+      "N": 3,
+      "cancers": [
+        "COAD",
+        "KICH",
+        "SKCM"
+      ]
+    },
+    {
+      "gene_i": "EIF1AY",
+      "gene_j": "CYORF15A",
+      "N": 3,
+      "cancers": [
+        "COAD",
+        "READ",
+        "SKCM"
+      ]
+    },
+    {
+      "gene_i": "LGALS7",
+      "gene_j": "LGALS7B",
+      "N": 3,
+      "cancers": [
+        "ESCA",
+        "LUSC",
+        "THYM"
+      ]
+    },
+    {
+      "gene_i": "NEFM",
+      "gene_j": "NEFL",
+      "N": 3,
+      "cancers": [
+        "GBM",
+        "LGG",
+        "SARC"
+      ]
+    },
+    {
+      "gene_i": "EIF1AY",
+      "gene_j": "RPS4Y1",
+      "N": 3,
+      "cancers": [
+        "KIRP",
+        "PAAD",
+        "STAD"
+      ]
+    },
+    {
+      "gene_i": "FOXL2",
+      "gene_j": "C3ORF72",
+      "N": 2,
+      "cancers": [
+        "ACC",
+        "LUSC"
+      ]
+    },
+    {
+      "gene_i": "GPR98",
+      "gene_j": "CYP11B1",
+      "N": 2,
+      "cancers": [
+        "ACC",
+        "PCPG"
+      ]
+    },
+    {
+      "gene_i": "GSTA1",
+      "gene_j": "GSTA2",
+      "N": 2,
+      "cancers": [
+        "ACC",
+        "CHOL"
+      ]
+    },
+    {
+      "gene_i": "SFRP2",
+      "gene_j": "COL10A1",
+      "N": 2,
+      "cancers": [
+        "BLCA",
+        "READ"
+      ]
+    },
+    {
+      "gene_i": "DES",
+      "gene_j": "ACTC1",
+      "N": 2,
+      "cancers": [
+        "BLCA",
+        "SARC"
+      ]
+    },
+    {
+      "gene_i": "MAGEA6",
+      "gene_j": "MAGEA3",
+      "N": 2,
+      "cancers": [
+        "BLCA",
+        "LUSC"
+      ]
+    },
+    {
+      "gene_i": "KRT6C",
+      "gene_j": "KRT6A",
+      "N": 2,
+      "cancers": [
+        "BLCA",
+        "ESCA"
+      ]
+    },
+    {
+      "gene_i": "SERPINB3",
+      "gene_j": "SERPINB4",
+      "N": 2,
+      "cancers": [
+        "BLCA",
+        "ESCA"
+      ]
+    },
+    {
+      "gene_i": "KRT6A",
+      "gene_j": "KRT5",
+      "N": 2,
+      "cancers": [
+        "BLCA",
+        "SKCM"
+      ]
+    },
+    {
+      "gene_i": "KLK5",
+      "gene_j": "KLK7",
+      "N": 2,
+      "cancers": [
+        "BRCA",
+        "CESC"
+      ]
+    },
+    {
+      "gene_i": "KLK7",
+      "gene_j": "KLK6",
+      "N": 2,
+      "cancers": [
+        "BRCA",
+        "THCA"
+      ]
+    }
+  ]
+}

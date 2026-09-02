@@ -86,12 +86,22 @@ ax4.barh(['Gene-pair overlap'], [ov], color=PURPLE, edgecolor='white',
 ax4.legend(fontsize=6.5, loc='lower left', frameon=False)
 ax4.set_xlabel('Gene-pairs')
 ax4.set_title('d) NOTEARS-GENIE3 overlap', fontweight='bold', fontsize=8.5)
+# Read STRING validation live so figure stays consistent with text
+string_path = os.path.join(RESULTS, '_string_validated_edges.json')
+if os.path.exists(string_path):
+    sv = json.load(open(string_path))
+    string_valid = sv['total_validated']
+    string_total = sv['total_edges']
+    string_rate = sv['validation_rate']
+else:
+    string_valid, string_total, string_rate = 0, total, 0.0
+
 stats = (
     f'Shared: {ov} pairs\n'
     f'  {g3o["overlap_pct_notears"]:.1f}% of NOTEARS\n'
     f'  {g3o["overlap_pct_genie3"]:.1f}% of GENIE3\n'
-    f'STRING: 22/2445 (0.8%)\n'
-    f'TRRUST: 0/2445'
+    f'STRING: {string_valid}/{string_total} ({string_rate:.1f}%)\n'
+    f'TRRUST: 0/{string_total}'
 )
 ax4.text(0.98, 0.97, stats, transform=ax4.transAxes, ha='right', va='top',
          fontsize=6, color=GRAY, fontstyle='italic',

@@ -1,0 +1,118 @@
+[
+  {
+    "A": "NR0B2",
+    "B": "FABP6",
+    "cancers": [
+      "ACC"
+    ],
+    "n_celllines": 1684,
+    "expr_corr": 0.1710942981044659,
+    "expr_p": 1.5708368492065726e-12,
+    "crisprA_median": -0.1998973156770648,
+    "crisprB_median": 0.10921366671496904,
+    "crispr_corr": -0.01268597606921353,
+    "crispr_p": 0.6595903792784142
+  },
+  {
+    "A": "GSTA1",
+    "B": "GSTA2",
+    "cancers": [
+      "ACC",
+      "CHOL"
+    ],
+    "n_celllines": 1684,
+    "expr_corr": 0.5927604301206064,
+    "expr_p": 2.5583991489636146e-160,
+    "crisprA_median": -0.0622363198563029,
+    "crisprB_median": -0.06996926928627076,
+    "crispr_corr": 0.2567658190650619,
+    "crispr_p": 3.166784392092374e-17
+  },
+  {
+    "A": "COL10A1",
+    "B": "COL11A1",
+    "cancers": [
+      "BLCA"
+    ],
+    "n_celllines": 1684,
+    "expr_corr": 0.27947526037423526,
+    "expr_p": 1.3682679126792426e-31,
+    "crisprA_median": 0.12771685442109865,
+    "crisprB_median": -0.083873205952659,
+    "crispr_corr": -0.003739354719988767,
+    "crispr_p": 0.8966993302013565
+  },
+  {
+    "A": "CEACAM6",
+    "B": "CEACAM5",
+    "cancers": [
+      "BLCA"
+    ],
+    "n_celllines": 1684,
+    "expr_corr": 0.8363150529799553,
+    "expr_p": 0.0,
+    "crisprA_median": -0.23292853647945339,
+    "crisprB_median": 0.059846412832004495,
+    "crispr_corr": 0.07445138787808576,
+    "crispr_p": 0.009637573820566086
+  },
+  {
+    "A": "MAGEA6",
+    "B": "MAGEA3",
+    "cancers": [
+      "BLCA",
+      "LUSC"
+    ],
+    "n_celllines": 1684,
+    "expr_corr": 0.9214743972879792,
+    "expr_p": 0.0,
+    "crisprA_median": -0.0370819601672508,
+    "crisprB_median": 0.0311098294054428,
+    "crispr_corr": NaN,
+    "crispr_p": NaN
+  },
+  {
+    "A": "KRT6C",
+    "B": "KRT6A",
+    "cancers": [
+      "BLCA",
+      "ESCA"
+    ],
+    "n_celllines": 1684,
+    "expr_corr": 0.6529968154042016,
+    "expr_p": 2.8900922907109025e-205,
+    "crisprA_median": 0.0308009878612252,
+    "crisprB_median": -0.179144500595943,
+    "crispr_corr": 0.012921626945748945,
+    "crispr_p": 0.6762191439079445
+  },
+  {
+    "A": "KRT6B",
+    "B": "KRT6C",
+    "cancers": [
+      "BLCA"
+    ],
+    "n_celllines": 1684,
+    "expr_corr": 0.6246674033361862,
+    "expr_p": 6.759626694258644e-183,
+    "crisprA_median": 0.02005334765150195,
+    "crisprB_median": 0.0308009878612252,
+    "crispr_corr": 0.05799675271298355,
+    "crispr_p": 0.06066071714100321
+  },
+  {
+    "A": "SERPINB3",
+    "B": "SERPINB4",
+    "cancers": [
+      "BLCA",
+      "ESCA"
+    ],
+    "n_celllines": 1684,
+    "expr_corr": 0.7318432427227568,
+    "expr_p": 1.9273968316839878e-282,
+    "crisprA_median": 0.1483004145134311,
+    "crisprB_median": 0.180249059417665,
+    "crispr_corr": 0.20908350189881394,
+    "crispr_p": 5.652401552860835e-13
+  }
+]

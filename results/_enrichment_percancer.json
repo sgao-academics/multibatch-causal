@@ -1,0 +1,984 @@
+{
+  "tau": 0.3,
+  "d": 100,
+  "per_cancer": {
+    "CHOL": {
+      "n_test_genes": 94,
+      "n_universe": 100,
+      "enrichment": [
+        {
+          "set": "YOSHIMURA_MAPK8_TARGETS_UP",
+          "k": 25,
+          "K": 25,
+          "n": 94,
+          "p": 0.1689183713736074,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "MEBARKI_HCC_PROGENITOR_FZD8CRD_DN",
+          "k": 19,
+          "K": 19,
+          "n": 94,
+          "p": 0.2722533136966126,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "FLECHNER_BIOPSY_KIDNEY_TRANSPLANT_REJECTED_VS_OK_DN",
+          "k": 19,
+          "K": 19,
+          "n": 94,
+          "p": 0.2722533136966126,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "HOSHIDA_LIVER_CANCER_SUBCLASS_S3",
+          "k": 19,
+          "K": 19,
+          "n": 94,
+          "p": 0.2722533136966126,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "REACTOME_DRUG_ADME",
+          "k": 18,
+          "K": 18,
+          "n": 94,
+          "p": 0.2937469963568715,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "KEGG_METABOLISM_OF_XENOBIOTICS_BY_CYTOCHROME_P450",
+          "k": 12,
+          "K": 12,
+          "n": 94,
+          "p": 0.45462031367077493,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "SERVITJA_LIVER_HNF1A_TARGETS_DN",
+          "k": 12,
+          "K": 12,
+          "n": 94,
+          "p": 0.45462031367077493,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "CAIRO_HEPATOBLASTOMA_CLASSES_DN",
+          "k": 11,
+          "K": 11,
+          "n": 94,
+          "p": 0.4874844327313127,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "REACTOME_PHASE_II_CONJUGATION_OF_COMPOUNDS",
+          "k": 10,
+          "K": 10,
+          "n": 94,
+          "p": 0.5223047493549781,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "REACTOME_METABOLISM_OF_AMINO_ACIDS_AND_DERIVATIVES",
+          "k": 10,
+          "K": 10,
+          "n": 94,
+          "p": 0.5223047493549781,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "ACEVEDO_LIVER_CANCER_DN",
+          "k": 23,
+          "K": 24,
+          "n": 94,
+          "p": 0.5553573819405925,
+          "enrichment": 1.0195035460992907
+        },
+        {
+          "set": "MARTENS_TRETINOIN_RESPONSE_UP",
+          "k": 9,
+          "K": 9,
+          "n": 94,
+          "p": 0.5591733198976825,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "REACTOME_ASPIRIN_ADME",
+          "k": 9,
+          "K": 9,
+          "n": 94,
+          "p": 0.5591733198976825,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "WP_NETWORK_MAP_OF_SARSCOV2_SIGNALING",
+          "k": 9,
+          "K": 9,
+          "n": 94,
+          "p": 0.5591733198976825,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "ACEVEDO_NORMAL_TISSUE_ADJACENT_TO_LIVER_TUMOR_DN",
+          "k": 9,
+          "K": 9,
+          "n": 94,
+          "p": 0.5591733198976825,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "WP_COMPLEMENT_SYSTEM",
+          "k": 8,
+          "K": 8,
+          "n": 94,
+          "p": 0.5981854119835671,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "WP_SELENIUM_MICRONUTRIENT_NETWORK",
+          "k": 8,
+          "K": 8,
+          "n": 94,
+          "p": 0.5981854119835671,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "WP_AMINO_ACID_METABOLISM",
+          "k": 8,
+          "K": 8,
+          "n": 94,
+          "p": 0.5981854119835671,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "VECCHI_GASTRIC_CANCER_EARLY_DN",
+          "k": 8,
+          "K": 8,
+          "n": 94,
+          "p": 0.5981854119835671,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "BLALOCK_ALZHEIMERS_DISEASE_UP",
+          "k": 8,
+          "K": 8,
+          "n": 94,
+          "p": 0.5981854119835671,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "FEVR_CTNNB1_TARGETS_UP",
+          "k": 8,
+          "K": 8,
+          "n": 94,
+          "p": 0.5981854119835671,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "KIM_LIVER_CANCER_POOR_SURVIVAL_DN",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "REACTOME_COMPLEMENT_CASCADE",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "REACTOME_METABOLISM_OF_PORPHYRINS",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "REACTOME_HEME_DEGRADATION",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "WP_VITAMIN_B12_METABOLISM",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "WP_FOLATE_METABOLISM",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "FLECHNER_BIOPSY_KIDNEY_TRANSPLANT_OK_VS_DONOR_UP",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "LEE_LIVER_CANCER_DENA_DN",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "PID_HNF3B_PATHWAY",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "MARTORIATI_MDM4_TARGETS_FETAL_LIVER_DN",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "MARTINEZ_TP53_TARGETS_UP",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "MARTINEZ_RB1_AND_TP53_TARGETS_UP",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "CADWELL_ATG16L1_TARGETS_UP",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "LIU_OVARIAN_CANCER_TUMORS_AND_XENOGRAFTS_XDGS_DN",
+          "k": 7,
+          "K": 7,
+          "n": 94,
+          "p": 0.6394395783272615,
+          "enrichment": 1.0638297872340423
+        },
+        {
+          "set": "SUMI_HNF4A_TARGETS",
+          "k": 6,
+          "K": 6,
+          "n": 94,
+          "p": 0.6830377313950293,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "MINGUEZ_LIVER_CANCER_VASCULAR_INVASION_DN",
+          "k": 6,
+          "K": 6,
+          "n": 94,
+          "p": 0.6830377313950293,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "DESERT_PERIVENOUS_HEPATOCELLULAR_CARCINOMA_SUBCLASS_UP",
+          "k": 6,
+          "K": 6,
+          "n": 94,
+          "p": 0.6830377313950293,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "REACTOME_SLC_MEDIATED_TRANSMEMBRANE_TRANSPORT",
+          "k": 6,
+          "K": 6,
+          "n": 94,
+          "p": 0.6830377313950293,
+          "enrichment": 1.0638297872340425
+        },
+        {
+          "set": "REACTOME_SIGNALING_BY_NUCLEAR_RECEPTORS",
+          "k": 6,
+          "K": 6,
+          "n": 94,
+          "p": 0.6830377313950293,
+          "enrichment": 1.0638297872340425
+        }
+      ]
+    },
+    "LUAD": {
+      "n_test_genes": 22,
+      "n_universe": 100,
+      "enrichment": [
+        {
+          "set": "REACTOME_TOLL_LIKE_RECEPTOR_TLR1_TLR2_CASCADE",
+          "k": 4,
+          "K": 5,
+          "n": 22,
+          "p": 0.007928325969563083,
+          "enrichment": 3.6363636363636362
+        },
+        {
+          "set": "REACTOME_TOLL_LIKE_RECEPTOR_CASCADES",
+          "k": 4,
+          "K": 5,
+          "n": 22,
+          "p": 0.007928325969563083,
+          "enrichment": 3.6363636363636362
+        },
+        {
+          "set": "REACTOME_REGULATION_OF_TLR_BY_ENDOGENOUS_LIGAND",
+          "k": 4,
+          "K": 5,
+          "n": 22,
+          "p": 0.007928325969563083,
+          "enrichment": 3.6363636363636362
+        },
+        {
+          "set": "WP_COMPLEMENT_SYSTEM",
+          "k": 4,
+          "K": 5,
+          "n": 22,
+          "p": 0.007928325969563083,
+          "enrichment": 3.6363636363636362
+        },
+        {
+          "set": "NAKAMURA_LUNG_CANCER_DIFFERENTIATION_MARKERS",
+          "k": 3,
+          "K": 3,
+          "n": 22,
+          "p": 0.009523809523809525,
+          "enrichment": 4.545454545454545
+        },
+        {
+          "set": "REACTOME_SURFACTANT_METABOLISM",
+          "k": 3,
+          "K": 3,
+          "n": 22,
+          "p": 0.009523809523809525,
+          "enrichment": 4.545454545454545
+        },
+        {
+          "set": "REACTOME_DISEASES_ASSOCIATED_WITH_SURFACTANT_METABOLISM",
+          "k": 3,
+          "K": 3,
+          "n": 22,
+          "p": 0.009523809523809525,
+          "enrichment": 4.545454545454545
+        },
+        {
+          "set": "REACTOME_DEFECTIVE_CSF2RB_CAUSES_SMDP5",
+          "k": 3,
+          "K": 3,
+          "n": 22,
+          "p": 0.009523809523809525,
+          "enrichment": 4.545454545454545
+        },
+        {
+          "set": "PID_HNF3A_PATHWAY",
+          "k": 3,
+          "K": 4,
+          "n": 22,
+          "p": 0.03249877270495827,
+          "enrichment": 3.4090909090909087
+        },
+        {
+          "set": "WP_LUNG_FIBROSIS",
+          "k": 3,
+          "K": 4,
+          "n": 22,
+          "p": 0.03249877270495827,
+          "enrichment": 3.4090909090909087
+        },
+        {
+          "set": "WP_METAPATHWAY_BIOTRANSFORMATION_PHASE_I_AND_II",
+          "k": 4,
+          "K": 7,
+          "n": 22,
+          "p": 0.040079016910558915,
+          "enrichment": 2.5974025974025974
+        },
+        {
+          "set": "NABA_ECM_GLYCOPROTEINS",
+          "k": 3,
+          "K": 5,
+          "n": 22,
+          "p": 0.06935444280805104,
+          "enrichment": 2.727272727272727
+        },
+        {
+          "set": "WP_SELENIUM_MICRONUTRIENT_NETWORK",
+          "k": 3,
+          "K": 5,
+          "n": 22,
+          "p": 0.06935444280805104,
+          "enrichment": 2.727272727272727
+        },
+        {
+          "set": "WP_FOLATE_METABOLISM",
+          "k": 3,
+          "K": 5,
+          "n": 22,
+          "p": 0.06935444280805104,
+          "enrichment": 2.727272727272727
+        },
+        {
+          "set": "SCHAEFFER_PROSTATE_DEVELOPMENT_48HR_DN",
+          "k": 3,
+          "K": 5,
+          "n": 22,
+          "p": 0.06935444280805104,
+          "enrichment": 2.727272727272727
+        },
+        {
+          "set": "PILON_KLF1_TARGETS_UP",
+          "k": 3,
+          "K": 5,
+          "n": 22,
+          "p": 0.06935444280805104,
+          "enrichment": 2.727272727272727
+        },
+        {
+          "set": "NABA_ECM_AFFILIATED",
+          "k": 3,
+          "K": 6,
+          "n": 22,
+          "p": 0.11849533627884141,
+          "enrichment": 2.2727272727272725
+        },
+        {
+          "set": "SWEET_LUNG_CANCER_KRAS_DN",
+          "k": 3,
+          "K": 6,
+          "n": 22,
+          "p": 0.11849533627884141,
+          "enrichment": 2.2727272727272725
+        },
+        {
+          "set": "BLANCO_MELO_COVID19_SARS_COV_2_LOW_MOI_INFECTION_A594_ACE2_EXPRESSING_CELLS_UP",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "KUMAR_PATHOGEN_LOAD_BY_MACROPHAGES",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "HEBERT_MATRISOME_TNBC_LIVER_METASTASIS",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "PID_INTEGRIN2_PATHWAY",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_INTEGRIN_CELL_SURFACE_INTERACTIONS",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_INTEGRIN_SIGNALING",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_GRB2_SOS_PROVIDES_LINKAGE_TO_MAPK_SIGNALING_FOR_INTEGRINS",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_P130CAS_LINKAGE_TO_MAPK_SIGNALING_FOR_INTEGRINS",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_DISEASES_OF_IMMUNE_SYSTEM",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_IRAK4_DEFICIENCY_TLR2_4",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_DISEASES_OF_SIGNAL_TRANSDUCTION_BY_GROWTH_FACTOR_RECEPTORS_AND_SECOND_MESSENGERS",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_MAP2K_AND_MAPK_ACTIVATION",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_MAPK_FAMILY_SIGNALING_CASCADES",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_SIGNALING_BY_MODERATE_KINASE_ACTIVITY_BRAF_MUTANTS",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_SIGNALING_BY_BRAF_AND_RAF1_FUSIONS",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_ONCOGENIC_MAPK_SIGNALING",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_PLATELET_ACTIVATION_SIGNALING_AND_AGGREGATION",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_RESPONSE_TO_ELEVATED_PLATELET_CYTOSOLIC_CA2",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_PLATELET_AGGREGATION_PLUG_FORMATION",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "REACTOME_CLASS_I_MHC_MEDIATED_ANTIGEN_PROCESSING_PRESENTATION",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "WP_NETWORK_MAP_OF_SARSCOV2_SIGNALING",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        },
+        {
+          "set": "WP_BURN_WOUND_HEALING",
+          "k": 2,
+          "K": 3,
+          "n": 22,
+          "p": 0.12095238095238095,
+          "enrichment": 3.0303030303030307
+        }
+      ]
+    },
+    "BRCA": {
+      "n_test_genes": 23,
+      "n_universe": 100,
+      "enrichment": [
+        {
+          "set": "REACTOME_DEVELOPMENTAL_BIOLOGY",
+          "k": 8,
+          "K": 13,
+          "n": 23,
+          "p": 0.0015302863267700436,
+          "enrichment": 2.6755852842809364
+        },
+        {
+          "set": "ANDERSEN_CHOLANGIOCARCINOMA_CLASS2",
+          "k": 6,
+          "K": 8,
+          "n": 23,
+          "p": 0.0016913422884596533,
+          "enrichment": 3.260869565217391
+        },
+        {
+          "set": "ONDER_CDH1_TARGETS_1_DN",
+          "k": 4,
+          "K": 4,
+          "n": 23,
+          "p": 0.0022582228767795776,
+          "enrichment": 4.3478260869565215
+        },
+        {
+          "set": "ONDER_CDH1_TARGETS_3_DN",
+          "k": 4,
+          "K": 4,
+          "n": 23,
+          "p": 0.0022582228767795776,
+          "enrichment": 4.3478260869565215
+        },
+        {
+          "set": "HINATA_NFKB_TARGETS_KERATINOCYTE_DN",
+          "k": 4,
+          "K": 4,
+          "n": 23,
+          "p": 0.0022582228767795776,
+          "enrichment": 4.3478260869565215
+        },
+        {
+          "set": "STEGER_ADIPOGENESIS_UP",
+          "k": 4,
+          "K": 4,
+          "n": 23,
+          "p": 0.0022582228767795776,
+          "enrichment": 4.3478260869565215
+        },
+        {
+          "set": "ONDER_CDH1_TARGETS_2_DN",
+          "k": 8,
+          "K": 15,
+          "n": 23,
+          "p": 0.00551593347918503,
+          "enrichment": 2.318840579710145
+        },
+        {
+          "set": "RICKMAN_HEAD_AND_NECK_CANCER_C",
+          "k": 5,
+          "K": 7,
+          "n": 23,
+          "p": 0.006651547436258996,
+          "enrichment": 3.105590062111801
+        },
+        {
+          "set": "SMID_BREAST_CANCER_NORMAL_LIKE_UP",
+          "k": 5,
+          "K": 7,
+          "n": 23,
+          "p": 0.006651547436258996,
+          "enrichment": 3.105590062111801
+        },
+        {
+          "set": "MOREAUX_MULTIPLE_MYELOMA_BY_TACI_UP",
+          "k": 4,
+          "K": 5,
+          "n": 23,
+          "p": 0.009503354606447391,
+          "enrichment": 3.4782608695652173
+        },
+        {
+          "set": "REACTOME_ADIPOGENESIS",
+          "k": 4,
+          "K": 5,
+          "n": 23,
+          "p": 0.009503354606447391,
+          "enrichment": 3.4782608695652173
+        },
+        {
+          "set": "CHARAFE_BREAST_CANCER_LUMINAL_VS_BASAL_DN",
+          "k": 4,
+          "K": 5,
+          "n": 23,
+          "p": 0.009503354606447391,
+          "enrichment": 3.4782608695652173
+        },
+        {
+          "set": "JAEGER_METASTASIS_DN",
+          "k": 7,
+          "K": 13,
+          "n": 23,
+          "p": 0.009704796193647492,
+          "enrichment": 2.3411371237458196
+        },
+        {
+          "set": "LEE_LIVER_CANCER_CIPROFIBRATE_UP",
+          "k": 3,
+          "K": 3,
+          "n": 23,
+          "p": 0.010952380952380951,
+          "enrichment": 4.3478260869565215
+        },
+        {
+          "set": "REACTOME_KERATINIZATION",
+          "k": 3,
+          "K": 3,
+          "n": 23,
+          "p": 0.010952380952380951,
+          "enrichment": 4.3478260869565215
+        },
+        {
+          "set": "REACTOME_FORMATION_OF_THE_CORNIFIED_ENVELOPE",
+          "k": 3,
+          "K": 3,
+          "n": 23,
+          "p": 0.010952380952380951,
+          "enrichment": 4.3478260869565215
+        },
+        {
+          "set": "WP_DIFFERENTIATION_OF_WHITE_AND_BROWN_ADIPOCYTE",
+          "k": 3,
+          "K": 3,
+          "n": 23,
+          "p": 0.010952380952380951,
+          "enrichment": 4.3478260869565215
+        },
+        {
+          "set": "WEST_ADRENOCORTICAL_TUMOR_DN",
+          "k": 3,
+          "K": 3,
+          "n": 23,
+          "p": 0.010952380952380951,
+          "enrichment": 4.3478260869565215
+        },
+        {
+          "set": "KOINUMA_TARGETS_OF_SMAD2_OR_SMAD3",
+          "k": 3,
+          "K": 3,
+          "n": 23,
+          "p": 0.010952380952380951,
+          "enrichment": 4.3478260869565215
+        },
+        {
+          "set": "VECCHI_GASTRIC_CANCER_EARLY_UP",
+          "k": 3,
+          "K": 3,
+          "n": 23,
+          "p": 0.010952380952380951,
+          "enrichment": 4.3478260869565215
+        },
+        {
+          "set": "GERHOLD_ADIPOGENESIS_UP",
+          "k": 3,
+          "K": 3,
+          "n": 23,
+          "p": 0.010952380952380951,
+          "enrichment": 4.3478260869565215
+        },
+        {
+          "set": "MARTINEZ_RB1_TARGETS_UP",
+          "k": 5,
+          "K": 8,
+          "n": 23,
+          "p": 0.014918556015924567,
+          "enrichment": 2.717391304347826
+        },
+        {
+          "set": "MARTINEZ_TP53_TARGETS_DN",
+          "k": 5,
+          "K": 8,
+          "n": 23,
+          "p": 0.014918556015924567,
+          "enrichment": 2.717391304347826
+        },
+        {
+          "set": "BLANCO_MELO_BETA_INTERFERON_TREATED_BRONCHIAL_EPITHELIAL_CELLS_DN",
+          "k": 4,
+          "K": 6,
+          "n": 23,
+          "p": 0.023993618065783016,
+          "enrichment": 2.898550724637681
+        },
+        {
+          "set": "RICKMAN_TUMOR_DIFFERENTIATED_WELL_VS_POORLY_DN",
+          "k": 4,
+          "K": 6,
+          "n": 23,
+          "p": 0.023993618065783016,
+          "enrichment": 2.898550724637681
+        },
+        {
+          "set": "CHARAFE_BREAST_CANCER_BASAL_VS_MESENCHYMAL_UP",
+          "k": 4,
+          "K": 6,
+          "n": 23,
+          "p": 0.023993618065783016,
+          "enrichment": 2.898550724637681
+        },
+        {
+          "set": "CADWELL_ATG16L1_TARGETS_UP",
+          "k": 4,
+          "K": 6,
+          "n": 23,
+          "p": 0.023993618065783016,
+          "enrichment": 2.898550724637681
+        },
+        {
+          "set": "TURASHVILI_BREAST_DUCTAL_CARCINOMA_VS_DUCTAL_NORMAL_DN",
+          "k": 7,
+          "K": 15,
+          "n": 23,
+          "p": 0.025878460563377552,
+          "enrichment": 2.028985507246377
+        },
+        {
+          "set": "REACTOME_TRANSCRIPTIONAL_REGULATION_OF_WHITE_ADIPOCYTE_DIFFERENTIATION",
+          "k": 3,
+          "K": 4,
+          "n": 23,
+          "p": 0.03703485517918507,
+          "enrichment": 3.260869565217391
+        },
+        {
+          "set": "REACTOME_DIFFERENTIATION_OF_KERATINOCYTES_IN_INTERFOLLICULAR_EPIDERMIS_IN_MAMMALIAN_SKIN",
+          "k": 3,
+          "K": 4,
+          "n": 23,
+          "p": 0.03703485517918507,
+          "enrichment": 3.260869565217391
+        },
+        {
+          "set": "WP_FATTY_ACIDS_AND_LIPOPROTEINS_TRANSPORT_IN_HEPATOCYTES",
+          "k": 3,
+          "K": 4,
+          "n": 23,
+          "p": 0.03703485517918507,
+          "enrichment": 3.260869565217391
+        },
+        {
+          "set": "WP_FAMILIAL_PARTIAL_LIPODYSTROPHY",
+          "k": 3,
+          "K": 4,
+          "n": 23,
+          "p": 0.03703485517918507,
+          "enrichment": 3.260869565217391
+        },
+        {
+          "set": "LIU_VAV3_PROSTATE_CARCINOGENESIS_UP",
+          "k": 3,
+          "K": 4,
+          "n": 23,
+          "p": 0.03703485517918507,
+          "enrichment": 3.260869565217391
+        },
+        {
+          "set": "BERTUCCI_INVASIVE_CARCINOMA_DUCTAL_VS_LOBULAR_DN",
+          "k": 3,
+          "K": 4,
+          "n": 23,
+          "p": 0.03703485517918507,
+          "enrichment": 3.260869565217391
+        },
+        {
+          "set": "DURCHDEWALD_SKIN_CARCINOGENESIS_DN",
+          "k": 3,
+          "K": 4,
+          "n": 23,
+          "p": 0.03703485517918507,
+          "enrichment": 3.260869565217391
+        },
+        {
+          "set": "RAY_TUMORIGENESIS_BY_ERBB2_CDC25A_DN",
+          "k": 3,
+          "K": 4,
+          "n": 23,
+          "p": 0.03703485517918507,
+          "enrichment": 3.260869565217391
+        },
+        {
+          "set": "SMID_BREAST_CANCER_RELAPSE_IN_BONE_UP",
+          "k": 5,
+          "K": 10,
+          "n": 23,
+          "p": 0.047420973694066976,
+          "enrichment": 2.1739130434782608
+        },
+        {
+          "set": "SMID_BREAST_CANCER_RELAPSE_IN_LUNG_DN",
+          "k": 5,
+          "K": 10,
+          "n": 23,
+          "p": 0.047420973694066976,
+          "enrichment": 2.1739130434782608
+        },
+        {
+          "set": "SMID_BREAST_CANCER_LUMINAL_A_UP",
+          "k": 5,
+          "K": 11,
+          "n": 23,
+          "p": 0.0730253962534669,
+          "enrichment": 1.976284584980237
+        },
+        {
+          "set": "RICKMAN_TUMOR_DIFFERENTIATED_WELL_VS_MODERATELY_DN",
+          "k": 3,
+          "K": 5,
+          "n": 23,
+          "p": 0.0783321060382916,
+          "enrichment": 2.6086956521739126
+        }
+      ]
+    }
+  }
+}

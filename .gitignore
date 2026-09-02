@@ -11,3 +11,14 @@ __pycache__/
 manuscript.tex
 manuscript.pdf
 MultiBatch_Replication.zip
+
+# Submission-only files (never public)
+cover_letter.tex
+cover_letter.pdf
+VALUE_STATEMENT.md
+MultiBatch_LaTeX_Source.zip
+MultiBatch_*.zip
+*.bak
+GenesGenomics_Scope_Check/
+.playwright-cli/
+_zip_verify/

@@ -1,0 +1,688 @@
+[
+  {
+    "gene": "TFF1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.001105690020998136,
+    "n_total": 1082
+  },
+  {
+    "gene": "CST1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.0028256577133124374,
+    "n_total": 1082
+  },
+  {
+    "gene": "NKAIN1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.0032828723871773636,
+    "n_total": 1082
+  },
+  {
+    "gene": "MS4A15",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.008548411268443318,
+    "n_total": 1082
+  },
+  {
+    "gene": "CLEC3A",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.009725810383980535,
+    "n_total": 1082
+  },
+  {
+    "gene": "LOC728606",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.010794336353731282,
+    "n_total": 1082
+  },
+  {
+    "gene": "PYDC1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.011181799044859272,
+    "n_total": 1082
+  },
+  {
+    "gene": "PI16",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.026071231935023694,
+    "n_total": 1082
+  },
+  {
+    "gene": "MUCL1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.02681189116942085,
+    "n_total": 1082
+  },
+  {
+    "gene": "NAT1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.028476438815948385,
+    "n_total": 1082
+  },
+  {
+    "gene": "CNTNAP2",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.03054724551246714,
+    "n_total": 1082
+  },
+  {
+    "gene": "NLRP2",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.03996138140160572,
+    "n_total": 1082
+  },
+  {
+    "gene": "FABP4",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.046764814309381494,
+    "n_total": 1082
+  },
+  {
+    "gene": "TNNT1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.051084296367517296,
+    "n_total": 1082
+  },
+  {
+    "gene": "UGT2B11",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.0511877391895551,
+    "n_total": 1082
+  },
+  {
+    "gene": "LOC100271831",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.055922443410921625,
+    "n_total": 1082
+  },
+  {
+    "gene": "PLIN1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.06467284046981839,
+    "n_total": 1082
+  },
+  {
+    "gene": "ATP13A5",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.06899810179204996,
+    "n_total": 1082
+  },
+  {
+    "gene": "LEP",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.07358859145306351,
+    "n_total": 1082
+  },
+  {
+    "gene": "GRPR",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.07811727302116603,
+    "n_total": 1082
+  },
+  {
+    "gene": "?|652919",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.09067943203209222,
+    "n_total": 1082
+  },
+  {
+    "gene": "S100P",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.09356720501991056,
+    "n_total": 1082
+  },
+  {
+    "gene": "BMPR1B",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.09362579992287165,
+    "n_total": 1082
+  },
+  {
+    "gene": "SCGB1D2",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.09495208998228034,
+    "n_total": 1082
+  },
+  {
+    "gene": "MMP1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.09568865417490875,
+    "n_total": 1082
+  },
+  {
+    "gene": "NEK10",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.1197000301499514,
+    "n_total": 1082
+  },
+  {
+    "gene": "SYT13",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.1265154310715852,
+    "n_total": 1082
+  },
+  {
+    "gene": "PGR",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.12681466500042549,
+    "n_total": 1082
+  },
+  {
+    "gene": "LTF",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.13384794945382356,
+    "n_total": 1082
+  },
+  {
+    "gene": "PIP",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.14415447254594668,
+    "n_total": 1082
+  },
+  {
+    "gene": "CYP4Z1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.15122112650295985,
+    "n_total": 1082
+  },
+  {
+    "gene": "SYT9",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.17395491656939271,
+    "n_total": 1082
+  },
+  {
+    "gene": "BPIL1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.17607717565607967,
+    "n_total": 1082
+  },
+  {
+    "gene": "MUC5B",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.1777874336629925,
+    "n_total": 1082
+  },
+  {
+    "gene": "CEACAM5",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.17787133210764727,
+    "n_total": 1082
+  },
+  {
+    "gene": "GPD1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.19114743353853256,
+    "n_total": 1082
+  },
+  {
+    "gene": "TCN1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.19613988894030934,
+    "n_total": 1082
+  },
+  {
+    "gene": "HEPACAM2",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.20708009922801984,
+    "n_total": 1082
+  },
+  {
+    "gene": "HMGCS2",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.20817277455575947,
+    "n_total": 1082
+  },
+  {
+    "gene": "TUSC5",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.21264426530827968,
+    "n_total": 1082
+  },
+  {
+    "gene": "CIDEA",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.2155248069100659,
+    "n_total": 1082
+  },
+  {
+    "gene": "KLK5",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.2268298598260715,
+    "n_total": 1082
+  },
+  {
+    "gene": "KCNJ3",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.22811928270390242,
+    "n_total": 1082
+  },
+  {
+    "gene": "STAC2",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.24689040267812948,
+    "n_total": 1082
+  },
+  {
+    "gene": "KLK6",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.2478212649085672,
+    "n_total": 1082
+  },
+  {
+    "gene": "GP2",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.2604459903245475,
+    "n_total": 1082
+  },
+  {
+    "gene": "ADIPOQ",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.26502534993945426,
+    "n_total": 1082
+  },
+  {
+    "gene": "CIDEC",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.2836043114142285,
+    "n_total": 1082
+  },
+  {
+    "gene": "SCGB2A2",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.29683088347745873,
+    "n_total": 1082
+  },
+  {
+    "gene": "PDZK1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.31212202719458876,
+    "n_total": 1082
+  },
+  {
+    "gene": "DSG3",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.3151573763190089,
+    "n_total": 1082
+  },
+  {
+    "gene": "IGSF1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.31688306940240435,
+    "n_total": 1082
+  },
+  {
+    "gene": "GSTM1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.3199331159085805,
+    "n_total": 1082
+  },
+  {
+    "gene": "MUC15",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.3307872520288903,
+    "n_total": 1082
+  },
+  {
+    "gene": "CST9",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.3419396311863371,
+    "n_total": 1082
+  },
+  {
+    "gene": "KLK11",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.3442343838169061,
+    "n_total": 1082
+  },
+  {
+    "gene": "CLCA2",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.3449262253334964,
+    "n_total": 1082
+  },
+  {
+    "gene": "MYBPC1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.3498146114841043,
+    "n_total": 1082
+  },
+  {
+    "gene": "FOLR1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.357324307478074,
+    "n_total": 1082
+  },
+  {
+    "gene": "CPB1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.39202432757198336,
+    "n_total": 1082
+  },
+  {
+    "gene": "NBPF4",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.39979113969644287,
+    "n_total": 1082
+  },
+  {
+    "gene": "KLK10",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.4513668821062016,
+    "n_total": 1082
+  },
+  {
+    "gene": "CALML5",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.46625740386536785,
+    "n_total": 1082
+  },
+  {
+    "gene": "LRRC31",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.4723187151468117,
+    "n_total": 1082
+  },
+  {
+    "gene": "MUC6",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.4743228088643323,
+    "n_total": 1082
+  },
+  {
+    "gene": "PON3",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.48816667617783016,
+    "n_total": 1082
+  },
+  {
+    "gene": "PIGR",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.4890177045971339,
+    "n_total": 1082
+  },
+  {
+    "gene": "ADH1B",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.4900854834428854,
+    "n_total": 1082
+  },
+  {
+    "gene": "SORCS1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.5185795921783379,
+    "n_total": 1082
+  },
+  {
+    "gene": "CEACAM6",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.539064275832726,
+    "n_total": 1082
+  },
+  {
+    "gene": "SLC7A4",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.559846685436671,
+    "n_total": 1082
+  },
+  {
+    "gene": "KRT5",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.5735713121840788,
+    "n_total": 1082
+  },
+  {
+    "gene": "FABP7",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.5972416146431234,
+    "n_total": 1082
+  },
+  {
+    "gene": "KLK7",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.6035220895604481,
+    "n_total": 1082
+  },
+  {
+    "gene": "SFRP1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.6732560347735052,
+    "n_total": 1082
+  },
+  {
+    "gene": "CYP4F8",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.6823956396125792,
+    "n_total": 1082
+  },
+  {
+    "gene": "OLFM4",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.6866477643443634,
+    "n_total": 1082
+  },
+  {
+    "gene": "PTPRZ1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.6968281172288346,
+    "n_total": 1082
+  },
+  {
+    "gene": "PPP2R2C",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.7170683855856795,
+    "n_total": 1082
+  },
+  {
+    "gene": "MIA",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.7315476779715009,
+    "n_total": 1082
+  },
+  {
+    "gene": "COL17A1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.7382329463280743,
+    "n_total": 1082
+  },
+  {
+    "gene": "SLC6A14",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.7387846853703115,
+    "n_total": 1082
+  },
+  {
+    "gene": "VSIG2",
+    "n_high": 542,
+    "n_low": 540,
+    "logrank_p": 0.7429440776507221,
+    "n_total": 1082
+  },
+  {
+    "gene": "FOXI1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.7720485944088387,
+    "n_total": 1082
+  },
+  {
+    "gene": "COL2A1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.7969841665492661,
+    "n_total": 1082
+  },
+  {
+    "gene": "ANKRD30B",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.8079037554631424,
+    "n_total": 1082
+  },
+  {
+    "gene": "SLC34A2",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.8117793991495182,
+    "n_total": 1082
+  },
+  {
+    "gene": "CRABP1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.8124469670294329,
+    "n_total": 1082
+  },
+  {
+    "gene": "TFAP2B",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.8185793838721886,
+    "n_total": 1082
+  },
+  {
+    "gene": "DHRS2",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.8599025267253498,
+    "n_total": 1082
+  },
+  {
+    "gene": "SOX10",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.8922565022168352,
+    "n_total": 1082
+  },
+  {
+    "gene": "GABRP",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.8928407028697907,
+    "n_total": 1082
+  },
+  {
+    "gene": "SLC30A8",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.8979256316784654,
+    "n_total": 1082
+  },
+  {
+    "gene": "OBP2B",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.9147291992015021,
+    "n_total": 1082
+  },
+  {
+    "gene": "PROM1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.9245462671648058,
+    "n_total": 1082
+  },
+  {
+    "gene": "AQP5",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.9577611122138874,
+    "n_total": 1082
+  },
+  {
+    "gene": "MUC16",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.9950819084301129,
+    "n_total": 1082
+  },
+  {
+    "gene": "CYP2B7P1",
+    "n_high": 541,
+    "n_low": 541,
+    "logrank_p": 0.9958634316415865,
+    "n_total": 1082
+  }
+]
