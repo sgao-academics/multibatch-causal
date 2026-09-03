@@ -27,3 +27,5 @@ _zip_verify/
 /_*.txt
 /_*.py
 *.bak_*
+_rep_check/
+_zipcheck/
