@@ -8,6 +8,6 @@
   "notears_total_edges": 2445,
   "overlap_edges": 701,
   "overlap_pct_notears": 28.7,
-  "overlap_pct_genie3": 37.0,
+  "overlap_pct_genie3": 40.5,
   "note": "GENIE3 with L-BFGS-B NOTEARS per-cancer K values"
 }

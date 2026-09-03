@@ -25,9 +25,10 @@ python run_all.py
 |:----------|:---------|
 | `run_all.py` | One-command reproduction: 6 stages with checkpointing |
 | `scripts/figures/` | Figure generation (gen_fig1.py through gen_fig4.py) |
-| `results/` | Pre-computed checkpoints (9 JSON files, 7.9 MB total) |
-| `figures/` | Pre-built figures (PDF + PNG, 8 files) |
-| `refs.bib` | All 36 references in BibTeX format |
+| `scripts/experiments/` | Self-contained V6 synthetic validation (`_synthetic_v6.py`) |
+| `results/` | Pre-computed checkpoints (9 JSON files, ~7.9 MB total) |
+| `figures/` | Pre-built figures (PDF + PNG): fig1–5 and KM survival panels |
+| `refs.bib` | All 38 references in BibTeX format |
 | `sn-jnl.cls` | Springer Nature LaTeX class file |
 | `requirements.txt` | Python dependencies (numpy, scipy, pandas, matplotlib, scikit-learn) |
 
@@ -39,7 +40,7 @@ python run_all.py
 | 2 | Cross-cancer gene-pair analysis | `_pipeline_genepair.json` |
 | 3 | GENIE3 baseline | `_genie3_lbfgs_ckpt.json` |
 | 4 | Pooled NOTEARS | `_pipeline_pooled.json` |
-| 5 | Synthetic validation (two-stage decomposition) | `synth_ckpt.json` |
+| 5 | Synthetic validation (self-contained V6 two-stage pipeline) | `synth_ckpt.json` + `_v6_original_output.json` |
 | 6 | Figure generation | 4 figures in `figures/` |
 
 All stages are idempotent. Re-running resumes from the last checkpoint.

@@ -344,55 +344,21 @@ if os.path.exists(CKPT_SYNTH):
     synth = json.load(open(CKPT_SYNTH))
     print(f"Already cached: {synth.get('recovery','?')}")
 
-if 'recovery' not in synth:
-    np.random.seed(RANDOM_SEED)
-    d_s, K_s = 10, 3
-    n_s = 500
-    
-    # Build ground truth
-    W0_true = np.zeros((d_s, d_s))
-    for i in range(d_s-1):
-        W0_true[i, i+1] = 0.7
-    W0_true[2,5] = 0.5; W0_true[5,8] = -0.4
-    
-    W_trues = [W0_true.copy() for _ in range(K_s)]
-    W_trues[0][2,6] = 0.8; W_trues[0][4,9] = -0.6
-    W_trues[1][2,5] = -0.5; W_trues[1][0,7] = 0.9
-    
-    # Generate data
-    X_list = []
-    for k in range(K_s):
-        eps = np.random.randn(n_s, d_s) * 0.02
-        X_list.append(eps @ np.linalg.inv(np.eye(d_s) - W_trues[k]))
-    
-    # Stage 1: Per-batch NOTEARS
-    W_hats = []
-    for k in range(K_s):
-        W, _ = notears_lbfgs(X_list[k], lam=0.0, max_outer=80)
-        W_hats.append(W)
-    
-    # Stage 2: Median + DAG projection
-    W_med = np.median(np.stack(W_hats), axis=0)
-    W0_rec, _ = notears_lbfgs(X_list[0], lam=0.0, max_outer=30)  # DAG projection via warm start
-    # Simple projection: re-optimize with W_med as init
-    n_s2 = X_list[0].shape[0]
-    cov_s = X_list[0].T @ X_list[0] / n_s2
-    w_init = W_med.flatten()
-    rho_s, alpha_s = 0.05, 0.0
-    
-    # Actually for synthetic, the V6 code already demonstrated 93%. Let's just store the result.
-    # The key insight: Stage 2 produces a DAG-constrained W0 from median.
-    # For run_all.py, we verify the deterministic path exists.
-    
-    # Count recovery
-    gt_shared_edges = int(np.sum(np.abs(W0_true) > 0.01))
-    
-    synth = {
-        'd': d_s, 'K': K_s, 'n_per_batch': n_s,
-        'ground_truth_shared': gt_shared_edges,
-        'note': 'Full V6 validation with 93% recovery requires L-BFGS-B projection. '
-                'See scripts/experiments/_test_v6.py for the complete 93%-verified run.'
-    }
+# Deterministic self-contained V6 synthetic validation.
+# Inlines MultiBatchCausalV6 (per-batch NOTEARS + median augmented-Lagrangian
+# DAG projection + batch-specific decomposition) to reproduce the manuscript
+# numbers h(W0)=5.2e-6, shared 10/11, spec 4/4, TOTAL 14/15 (93%).
+# Refreshes results/_v6_original_output.json + the matching fields of
+# results/synth_ckpt.json. See scripts/experiments/_synthetic_v6.py.
+if 'recovery_pct' not in synth:
+    synth_py = os.path.join(BASE, 'scripts', 'experiments', '_synthetic_v6.py')
+    print("STAGE 5: running self-contained V6 synthetic validation ...")
+    rc = subprocess.run([sys.executable, synth_py]).returncode
+    if rc != 0:
+        raise SystemExit(f"Synthetic V6 validation failed with code {rc}")
+    synth = json.load(open(CKPT_SYNTH))
+    print(f"  -> recovery {synth.get('recovery_pct','?')}%, "
+          f"h(W0)={synth.get('h_W0','?')}")
     save_ckpt(CKPT_SYNTH, synth)
 
 # ===========================================================

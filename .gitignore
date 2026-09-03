@@ -22,3 +22,8 @@ MultiBatch_*.zip
 GenesGenomics_Scope_Check/
 .playwright-cli/
 _zip_verify/
+
+# Root-level temp build logs & probe scripts (not repo artifacts)
+/_*.txt
+/_*.py
+*.bak_*

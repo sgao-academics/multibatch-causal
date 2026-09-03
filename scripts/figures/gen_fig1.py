@@ -14,12 +14,12 @@ synth = json.load(open(os.path.join(RESULTS, 'synth_ckpt.json')))
 d = synth['d']
 W0_true = np.array(synth['W0_true'])
 W_trues = [np.array(W) for W in synth['W_trues']]
-W2_true = W_trues[1]  # Batch 2: rewired + new
+W2_true = W_trues[1]  # Batch 1: rewired + new
 
 # V6 actual output
 v6 = json.load(open(os.path.join(RESULTS, '_v6_original_output.json')))
 W0_rec = np.array(v6['W0'])
-Delta2 = np.array(v6['Deltas'][2])
+D1 = np.array(v6['Deltas'][2])  # deviation of the rewired batch (referred to as Batch 1)
 h0 = v6['h_W0']
 total_ok, total_gt = v6['total_ok'], v6['total_gt']
 
@@ -58,14 +58,14 @@ fig, axes = plt.subplots(2, 2, figsize=(7.0, 6.5))
 # a) Ground truth W0
 plot_matrix(axes[0,0], W0_true, 'a) Ground truth shared backbone W0', show_all=True)
 
-# b) Ground truth Batch 2
-plot_matrix(axes[0,1], W2_true, 'b) Ground truth Batch 2 (rewired 2,5 + new 0,7)', show_all=True)
+# b) Ground truth Batch 1
+plot_matrix(axes[0,1], W2_true, 'b) Ground truth Batch 1 (rewired 2,5 + new 0,7)', show_all=True)
 
 # c) Recovered W0 (real V6 output - shows estimation noise)
 plot_matrix(axes[1,0], W0_rec, 'c) Recovered W0 (10/11 shared edges, h=5.2e-6)', show_all=False)
 
 # d) Delta_2 deviation
-plot_matrix(axes[1,1], Delta2, 'd) Deviation D2 (rewired 2,5=-0.85, new 0,7=+0.76)', show_all=False)
+plot_matrix(axes[1,1], D1, 'd) Deviation D1 (rewired 2,5=-0.85, new 0,7=+0.76)', show_all=False)
 
 # Colorbar
 cbar_ax = fig.add_axes([0.15, 0.02, 0.70, 0.012])
