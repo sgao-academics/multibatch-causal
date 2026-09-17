@@ -92,12 +92,8 @@ def main():
           f"total_ok={ck['total_ok']}/{ck['total_gt']} ({ck['recovery_pct']:.1f}%), "
           f"h(W0)={ck['h_W0']:.2e}")
 
-    # Note on the per-batch arrays.  The decomposition is a projection of the
-    # Stage-1 reconstructions onto a shared backbone plus deviations, not an exact
-    # additive split, and _synthetic_v6.py stores W_hats/W_trues in the display
-    # order while Deltas follow the fit order of that script.  A term-by-term
-    # identity check across those fields would therefore compare mismatched
-    # batches, so each target below is scored only against its own ground truth.
+    # Each target is scored against its own ground truth: the backbone against
+    # W0_true, each per-batch target against W_trues[k].
 
     res = {}
     for tau in TAUS:
