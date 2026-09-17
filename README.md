@@ -40,6 +40,17 @@ pdflatex supplementary_figures.tex  # -> supplementary_figures.pdf (submitted as
 `MULTIBATCH_DATA` environment variable. If neither exists it stops with the download
 instructions instead of a traceback.
 
+### Numerical reproducibility
+
+The checkpoints in `results/` are the ones behind the reported numbers, and `run_all.py`
+reuses a cohort's checkpoint whenever it is already present, so a first run returns the
+manuscript values unchanged. Deleting `results/` forces a full recomputation: NOTEARS is
+solved with L-BFGS-B inside an augmented-Lagrangian loop, and a different SciPy/NumPy
+build can settle on a marginally different solution (in a spot check on one of the 33
+cohorts, 183 edges were rebuilt as 186, with 9 of 10,000 entries of the weighted adjacency
+matrix changing sign about the threshold). Use the shipped checkpoints to verify the
+reported numbers, and a clean run to verify the code.
+
 ## What This Package Contains
 
 | Directory | Contents |

@@ -1,13 +1,11 @@
 # ---------------------------------------------------------------------------
-# MultiBatch replication package -- what must never be published
+# MultiBatch replication package -- build hygiene
 # ---------------------------------------------------------------------------
-# The rule this file follows: the repository ships exactly what the manuscript,
-# the Online Resources and the pipeline in run_all.py need.  Everything else --
-# the submission package, the internal audit notes, the scratch directories and
-# the analyses that did not make it into the paper -- stays local.
-#
-# If you are about to `git add -A`, read this list first: it is what keeps a
-# cover letter, a strategy note or a local username out of a public history.
+# This package ships exactly what the manuscript, the Online Resources and the
+# pipeline in run_all.py need: results/, figures/, supplementary/, scripts/,
+# refs.bib, the class files and requirements.txt.  The rules below keep the
+# local working tree (data, build products, draft sources, scratch files) out
+# of the published history.
 # ---------------------------------------------------------------------------
 
 # --- data: never redistributed (see README, Data Availability) ---
@@ -22,22 +20,16 @@ cover_letter.tex
 cover_letter.pdf
 supplementary_figures.pdf
 VALUE_STATEMENT.md
-MultiBatch_Replication.zip
-MultiBatch_LaTeX_Source.zip
-MultiBatch_*.zip
-FIG_Upload/
-GNG_Upload/
-GenesGenomics_Scope_Check/
-_zip_verify/
+*.zip
+*_Upload/
+*_Scope_Check/
 
-# --- internal audit notes and reviews (working documents, not package files) ---
-GITHUB_REPO_AUDIT.md
+# --- internal working notes ---
+*_AUDIT*.md
+*_CHECKLIST.md
+*_COMPLIANCE.md
+REVIEW_*.md
 FIGURE_AUDIT.md
-FNG_GUIDELINE_COMPLIANCE.md
-FNG_SUBMISSION_CHECKLIST.md
-REFERENCE_AUDIT_vs_MODEL_PAPER.md
-REVIEW_FINAL_WORD_AUDIT.md
-REVIEW_LOGIC_COHERENCE_READABILITY.md
 
 # --- scratch, archives, tooling caches ---
 _archive/
@@ -89,6 +81,17 @@ figures/km_NAT1.png
 figures/km_NKAIN1.png
 figures/km_SCGB2A2.png
 figures/km_TFF1.png
+figures/km_ADH1B.pdf
+figures/km_ADIPOQ.pdf
+figures/km_CEACAM5.pdf
+figures/km_COL17A1.pdf
+figures/km_CST1.pdf
+figures/km_KLK6.pdf
+figures/km_KRT5.pdf
+figures/km_NAT1.pdf
+figures/km_NKAIN1.pdf
+figures/km_SCGB2A2.pdf
+figures/km_TFF1.pdf
 
 # --- analyses that are not part of the manuscript or the Online Resources ---
 # drug-sensitivity screen and single-cell layer, kept locally for future work
