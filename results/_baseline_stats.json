@@ -1,0 +1,70 @@
+{
+  "tau": 0.3,
+  "n_cohorts": 33,
+  "notears": {
+    "total_edges": 2445,
+    "directed": {
+      "unique_pairs": 2334,
+      "pairs_in_1": 2255,
+      "pairs_in_2": 60,
+      "pairs_in_ge3": 19,
+      "pct_ge3": 0.8
+    },
+    "undirected": {
+      "unique_pairs": 2286,
+      "pairs_in_1": 2187,
+      "pairs_in_2": 62,
+      "pairs_in_ge3": 37,
+      "pct_ge3": 1.6
+    }
+  },
+  "genie3": {
+    "total_edges": 2445,
+    "directed": {
+      "unique_pairs": 2236,
+      "pairs_in_1": 2087,
+      "pairs_in_2": 107,
+      "pairs_in_ge3": 42,
+      "pct_ge3": 1.9
+    },
+    "undirected": {
+      "unique_pairs": 1732,
+      "pairs_in_1": 1626,
+      "pairs_in_2": 66,
+      "pairs_in_ge3": 40,
+      "pct_ge3": 2.3
+    }
+  },
+  "overlap": {
+    "directed": {
+      "shared_pairs": 613,
+      "notears_only_pairs": 1721,
+      "genie3_only_pairs": 1623,
+      "pct_of_notears": 26.3,
+      "pct_of_genie3": 27.4,
+      "per_cohort_sum": 629
+    },
+    "undirected": {
+      "shared_pairs": 635,
+      "notears_only_pairs": 1651,
+      "genie3_only_pairs": 1097,
+      "pct_of_notears": 27.8,
+      "pct_of_genie3": 36.7,
+      "per_cohort_sum": 701
+    }
+  },
+  "pooled": {
+    "edges": 37,
+    "h": 0.0016050621810421717,
+    "n": 10459,
+    "fold_vs_per_cancer_total": 66.1,
+    "fold_vs_mean_per_cancer": 2.0
+  },
+  "cross_check_vs_legacy": {
+    "legacy_genie3_unique_pairs": 1732,
+    "here_undirected": 1732,
+    "legacy_genie3_shared_gte3": 86,
+    "here_undirected_ge3": 40,
+    "note": "the legacy file counted GENIE3 disregarding orientation and NOTEARS with orientation; its overlap figure was a per-cohort sum divided by an edge count, while the distinct-pair overlap is reported here"
+  }
+}

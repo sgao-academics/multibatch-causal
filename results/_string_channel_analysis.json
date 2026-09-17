@@ -1,0 +1,2240 @@
+{
+ "n_genes": 1775,
+ "n_string_edges": 4000,
+ "n_causal_pairs": 2286,
+ "n_overlap": 184,
+ "expected_rate_pct": 0.25406100639916157,
+ "observed_rate_pct": 8.048993875765529,
+ "fold_enrichment": 31.68134295713036,
+ "fisher_or": 35.9759488318004,
+ "fisher_p": 7.694214498333537e-206,
+ "channels": [
+  {
+   "tag": "escore",
+   "name": "experiments",
+   "mean_our": 0.19192391304347825,
+   "mean_bg": 0.102517,
+   "n_our_above": 85,
+   "pct_our_above": 46.19565217391305,
+   "n_bg_above": 1602,
+   "pct_bg_above": 40.05
+  },
+  {
+   "tag": "dscore",
+   "name": "curated database",
+   "mean_our": 0.21616304347826087,
+   "mean_bg": 0.306073,
+   "n_our_above": 63,
+   "pct_our_above": 34.23913043478261,
+   "n_bg_above": 1811,
+   "pct_bg_above": 45.275
+  },
+  {
+   "tag": "tscore",
+   "name": "text mining",
+   "mean_our": 0.5336195652173913,
+   "mean_bg": 0.603973,
+   "n_our_above": 184,
+   "pct_our_above": 100.0,
+   "n_bg_above": 3950,
+   "pct_bg_above": 98.75
+  },
+  {
+   "tag": "ascore",
+   "name": "co-expression",
+   "mean_our": 0.5645760869565217,
+   "mean_bg": 0.19467949999999998,
+   "n_our_above": 183,
+   "pct_our_above": 99.45652173913044,
+   "n_bg_above": 3422,
+   "pct_bg_above": 85.55
+  },
+  {
+   "tag": "nscore",
+   "name": "neighbourhood",
+   "mean_our": 0.0003260869565217391,
+   "mean_bg": 0.0012702500000000001,
+   "n_our_above": 1,
+   "pct_our_above": 0.5434782608695652,
+   "n_bg_above": 77,
+   "pct_bg_above": 1.925
+  },
+  {
+   "tag": "fscore",
+   "name": "gene fusion",
+   "mean_our": 0.0005108695652173913,
+   "mean_bg": 0.0013460000000000002,
+   "n_our_above": 1,
+   "pct_our_above": 0.5434782608695652,
+   "n_bg_above": 11,
+   "pct_bg_above": 0.275
+  },
+  {
+   "tag": "pscore",
+   "name": "phylogenetic profile",
+   "mean_our": 0.025179347826086957,
+   "mean_bg": 0.00876475,
+   "n_our_above": 66,
+   "pct_our_above": 35.869565217391305,
+   "n_bg_above": 371,
+   "pct_bg_above": 9.275
+  }
+ ],
+ "evidence_class": {
+  "our_overlaps": {
+   "experimental or curated": 122,
+   "co-expression only": 61,
+   "other channels only": 1,
+   "below channel floor": 0
+  },
+  "string_background": {
+   "experimental or curated": 2689,
+   "co-expression only": 1094,
+   "other channels only": 217,
+   "below channel floor": 0
+  }
+ },
+ "overlap_by_cancer": {
+  "ACC": 2,
+  "CHOL": 16,
+  "KIRP": 7,
+  "BLCA": 7,
+  "DLBC": 5,
+  "BRCA": 7,
+  "LUSC": 12,
+  "ESCA": 18,
+  "SKCM": 9,
+  "CESC": 11,
+  "COAD": 14,
+  "READ": 17,
+  "STAD": 9,
+  "UCEC": 3,
+  "PAAD": 22,
+  "LUAD": 3,
+  "KICH": 13,
+  "TGCT": 5,
+  "THCA": 2,
+  "PRAD": 7,
+  "THYM": 5,
+  "UCS": 9,
+  "GBM": 8,
+  "LGG": 4,
+  "SARC": 3,
+  "MESO": 7,
+  "HNSC": 13,
+  "UVM": 6,
+  "KIRC": 5,
+  "LAML": 8,
+  "LIHC": 3,
+  "OV": 3,
+  "PCPG": 3
+ },
+ "overlaps": {
+  "FABP6|NR0B2": {
+   "score": 0.853,
+   "escore": 0.05,
+   "dscore": 0.0,
+   "tscore": 0.852,
+   "ascore": 0.042,
+   "nscore": 0.0,
+   "cancers": [
+    "ACC"
+   ]
+  },
+  "GSTA1|GSTA2": {
+   "score": 0.987,
+   "escore": 0.61,
+   "dscore": 0.9,
+   "tscore": 0.505,
+   "ascore": 0.435,
+   "nscore": 0.0,
+   "cancers": [
+    "ACC",
+    "CHOL",
+    "KIRP"
+   ]
+  },
+  "COL10A1|COL11A1": {
+   "score": 0.877,
+   "escore": 0.0,
+   "dscore": 0.4,
+   "tscore": 0.472,
+   "ascore": 0.623,
+   "nscore": 0.0,
+   "cancers": [
+    "BLCA",
+    "DLBC"
+   ]
+  },
+  "CEACAM5|CEACAM6": {
+   "score": 0.71,
+   "escore": 0.188,
+   "dscore": 0.0,
+   "tscore": 0.385,
+   "ascore": 0.46,
+   "nscore": 0.0,
+   "cancers": [
+    "BLCA",
+    "BRCA"
+   ]
+  },
+  "MAGEA3|MAGEA6": {
+   "score": 0.999,
+   "escore": 0.424,
+   "dscore": 0.0,
+   "tscore": 0.053,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "BLCA",
+    "LUSC"
+   ]
+  },
+  "KRT6A|KRT6C": {
+   "score": 0.71,
+   "escore": 0.0,
+   "dscore": 0.4,
+   "tscore": 0.051,
+   "ascore": 0.53,
+   "nscore": 0.0,
+   "cancers": [
+    "BLCA",
+    "ESCA"
+   ]
+  },
+  "KRT6B|KRT6C": {
+   "score": 0.772,
+   "escore": 0.0,
+   "dscore": 0.4,
+   "tscore": 0.048,
+   "ascore": 0.631,
+   "nscore": 0.0,
+   "cancers": [
+    "BLCA",
+    "ESCA"
+   ]
+  },
+  "SERPINB3|SERPINB4": {
+   "score": 0.999,
+   "escore": 0.828,
+   "dscore": 0.0,
+   "tscore": 0.384,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "BLCA",
+    "ESCA"
+   ]
+  },
+  "KRT5|KRT6A": {
+   "score": 0.915,
+   "escore": 0.0,
+   "dscore": 0.4,
+   "tscore": 0.39,
+   "ascore": 0.786,
+   "nscore": 0.0,
+   "cancers": [
+    "BLCA",
+    "SKCM"
+   ]
+  },
+  "COL17A1|KRT5": {
+   "score": 0.799,
+   "escore": 0.095,
+   "dscore": 0.0,
+   "tscore": 0.638,
+   "ascore": 0.435,
+   "nscore": 0.0,
+   "cancers": [
+    "BRCA"
+   ]
+  },
+  "KLK5|KLK7": {
+   "score": 0.807,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.113,
+   "ascore": 0.783,
+   "nscore": 0.0,
+   "cancers": [
+    "BRCA",
+    "CESC"
+   ]
+  },
+  "KLK10|KLK11": {
+   "score": 0.825,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.158,
+   "ascore": 0.787,
+   "nscore": 0.0,
+   "cancers": [
+    "BRCA"
+   ]
+  },
+  "CIDEC|LEP": {
+   "score": 0.773,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.66,
+   "ascore": 0.36,
+   "nscore": 0.0,
+   "cancers": [
+    "BRCA"
+   ]
+  },
+  "CIDEA|CIDEC": {
+   "score": 0.958,
+   "escore": 0.301,
+   "dscore": 0.9,
+   "tscore": 0.125,
+   "ascore": 0.378,
+   "nscore": 0.0,
+   "cancers": [
+    "BRCA"
+   ]
+  },
+  "SCGB1D2|SCGB2A2": {
+   "score": 0.999,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.879,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "BRCA"
+   ]
+  },
+  "DSG1|KRT1": {
+   "score": 0.915,
+   "escore": 0.051,
+   "dscore": 0.0,
+   "tscore": 0.903,
+   "ascore": 0.154,
+   "nscore": 0.0,
+   "cancers": [
+    "CESC"
+   ]
+  },
+  "S100A7|S100A8": {
+   "score": 0.775,
+   "escore": 0.303,
+   "dscore": 0.0,
+   "tscore": 0.507,
+   "ascore": 0.398,
+   "nscore": 0.0,
+   "cancers": [
+    "CESC",
+    "ESCA"
+   ]
+  },
+  "KLK7|KLK8": {
+   "score": 0.805,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.12,
+   "ascore": 0.778,
+   "nscore": 0.0,
+   "cancers": [
+    "CESC",
+    "COAD",
+    "READ",
+    "STAD",
+    "UCEC"
+   ]
+  },
+  "SPRR1B|SPRR3": {
+   "score": 0.892,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.101,
+   "ascore": 0.781,
+   "nscore": 0.0,
+   "cancers": [
+    "CESC",
+    "PAAD"
+   ]
+  },
+  "SPRR2A|SPRR2D": {
+   "score": 0.966,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.719,
+   "ascore": 0.779,
+   "nscore": 0.0,
+   "cancers": [
+    "CESC",
+    "ESCA",
+    "LUSC"
+   ]
+  },
+  "SPRR2D|SPRR2E": {
+   "score": 0.968,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.863,
+   "ascore": 0.577,
+   "nscore": 0.0,
+   "cancers": [
+    "CESC",
+    "ESCA"
+   ]
+  },
+  "S100A7|S100A7A": {
+   "score": 0.962,
+   "escore": 0.0,
+   "dscore": 0.9,
+   "tscore": 0.054,
+   "ascore": 0.634,
+   "nscore": 0.0,
+   "cancers": [
+    "CESC",
+    "ESCA",
+    "LUSC"
+   ]
+  },
+  "SPRR2A|SPRR2E": {
+   "score": 0.962,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.696,
+   "ascore": 0.771,
+   "nscore": 0.0,
+   "cancers": [
+    "CESC",
+    "ESCA",
+    "LUSC"
+   ]
+  },
+  "SPRR1A|SPRR1B": {
+   "score": 0.999,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.059,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "CESC",
+    "ESCA",
+    "LUSC"
+   ]
+  },
+  "SPRR1A|SPRR2D": {
+   "score": 0.849,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.582,
+   "ascore": 0.338,
+   "nscore": 0.0,
+   "cancers": [
+    "CESC"
+   ]
+  },
+  "CFHR1|CFHR2": {
+   "score": 0.89,
+   "escore": 0.781,
+   "dscore": 0.5,
+   "tscore": 0.061,
+   "ascore": 0.053,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "ACSM2A|ACSM2B": {
+   "score": 0.999,
+   "escore": 0.378,
+   "dscore": 0.0,
+   "tscore": 0.048,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "APOA4|CREB3L3": {
+   "score": 0.74,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.348,
+   "ascore": 0.268,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "ADH1A|ADH1C": {
+   "score": 0.983,
+   "escore": 0.0,
+   "dscore": 0.9,
+   "tscore": 0.302,
+   "ascore": 0.777,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "SAA2|SAA4": {
+   "score": 0.935,
+   "escore": 0.0,
+   "dscore": 0.54,
+   "tscore": 0.41,
+   "ascore": 0.775,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "UGT1A1|UGT1A10": {
+   "score": 0.995,
+   "escore": 0.994,
+   "dscore": 0.0,
+   "tscore": 0.061,
+   "ascore": 0.241,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "GSTA1|UGT1A1": {
+   "score": 0.752,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.736,
+   "ascore": 0.098,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "ADH1A|ADH1B": {
+   "score": 0.989,
+   "escore": 0.3,
+   "dscore": 0.9,
+   "tscore": 0.629,
+   "ascore": 0.631,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "UGT1A1|UGT1A4": {
+   "score": 0.994,
+   "escore": 0.994,
+   "dscore": 0.0,
+   "tscore": 0.057,
+   "ascore": 0.118,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "BHMT|DMGDH": {
+   "score": 0.992,
+   "escore": 0.0,
+   "dscore": 0.932,
+   "tscore": 0.865,
+   "ascore": 0.229,
+   "nscore": 0.06,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "HRG|KNG1": {
+   "score": 0.972,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.844,
+   "ascore": 0.821,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "AGXT|SERPINC1": {
+   "score": 0.704,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.165,
+   "ascore": 0.66,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "APOA2|F2": {
+   "score": 0.798,
+   "escore": 0.087,
+   "dscore": 0.0,
+   "tscore": 0.31,
+   "ascore": 0.705,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "HP|SAA2": {
+   "score": 0.751,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.726,
+   "ascore": 0.131,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "ALB|HP": {
+   "score": 0.995,
+   "escore": 0.077,
+   "dscore": 0.0,
+   "tscore": 0.993,
+   "ascore": 0.198,
+   "nscore": 0.0,
+   "cancers": [
+    "CHOL"
+   ]
+  },
+  "KRT6A|KRT6B": {
+   "score": 0.886,
+   "escore": 0.0,
+   "dscore": 0.4,
+   "tscore": 0.053,
+   "ascore": 0.815,
+   "nscore": 0.0,
+   "cancers": [
+    "COAD",
+    "ESCA",
+    "LUAD",
+    "READ"
+   ]
+  },
+  "REG4|SPINK4": {
+   "score": 0.754,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.531,
+   "ascore": 0.497,
+   "nscore": 0.0,
+   "cancers": [
+    "COAD",
+    "READ"
+   ]
+  },
+  "COL10A1|COMP": {
+   "score": 0.768,
+   "escore": 0.099,
+   "dscore": 0.0,
+   "tscore": 0.546,
+   "ascore": 0.479,
+   "nscore": 0.0,
+   "cancers": [
+    "COAD"
+   ]
+  },
+  "DEFA5|DEFA6": {
+   "score": 0.999,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.446,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "COAD",
+    "READ"
+   ]
+  },
+  "REG1A|REG3A": {
+   "score": 0.938,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.419,
+   "ascore": 0.899,
+   "nscore": 0.0,
+   "cancers": [
+    "COAD",
+    "PAAD",
+    "READ",
+    "STAD"
+   ]
+  },
+  "DDX3Y|NLGN4Y": {
+   "score": 0.864,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.723,
+   "ascore": 0.53,
+   "nscore": 0.0,
+   "cancers": [
+    "COAD",
+    "PAAD",
+    "READ"
+   ]
+  },
+  "DDX3Y|UTY": {
+   "score": 0.999,
+   "escore": 0.236,
+   "dscore": 0.0,
+   "tscore": 0.982,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "COAD",
+    "SKCM"
+   ]
+  },
+  "PRKY|ZFY": {
+   "score": 0.932,
+   "escore": 0.096,
+   "dscore": 0.0,
+   "tscore": 0.68,
+   "ascore": 0.785,
+   "nscore": 0.0,
+   "cancers": [
+    "COAD",
+    "SKCM"
+   ]
+  },
+  "RPS4Y1|ZFY": {
+   "score": 0.95,
+   "escore": 0.045,
+   "dscore": 0.0,
+   "tscore": 0.785,
+   "ascore": 0.777,
+   "nscore": 0.0,
+   "cancers": [
+    "COAD",
+    "KICH",
+    "READ"
+   ]
+  },
+  "UTY|ZFY": {
+   "score": 0.96,
+   "escore": 0.117,
+   "dscore": 0.0,
+   "tscore": 0.793,
+   "ascore": 0.799,
+   "nscore": 0.0,
+   "cancers": [
+    "COAD",
+    "READ"
+   ]
+  },
+  "REG1A|REG1B": {
+   "score": 0.977,
+   "escore": 0.778,
+   "dscore": 0.0,
+   "tscore": 0.059,
+   "ascore": 0.899,
+   "nscore": 0.0,
+   "cancers": [
+    "COAD",
+    "READ"
+   ]
+  },
+  "KDM5D|NLGN4Y": {
+   "score": 0.873,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.669,
+   "ascore": 0.633,
+   "nscore": 0.0,
+   "cancers": [
+    "COAD"
+   ]
+  },
+  "EIF1AY|KDM5D": {
+   "score": 0.999,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.852,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "COAD",
+    "KICH",
+    "KIRP"
+   ]
+  },
+  "KDM5D|RPS4Y1": {
+   "score": 0.999,
+   "escore": 0.065,
+   "dscore": 0.0,
+   "tscore": 0.783,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "DLBC",
+    "KIRP",
+    "SKCM"
+   ]
+  },
+  "MT1G|MT1H": {
+   "score": 0.999,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.063,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "DLBC",
+    "TGCT",
+    "THCA"
+   ]
+  },
+  "KDM5D|PRKY": {
+   "score": 0.948,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.62,
+   "ascore": 0.869,
+   "nscore": 0.0,
+   "cancers": [
+    "DLBC"
+   ]
+  },
+  "ORM1|ORM2": {
+   "score": 0.999,
+   "escore": 0.781,
+   "dscore": 0.4,
+   "tscore": 0.596,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "DLBC",
+    "PRAD"
+   ]
+  },
+  "LGALS7|LGALS7B": {
+   "score": 0.986,
+   "escore": 0.9,
+   "dscore": 0.0,
+   "tscore": 0.853,
+   "ascore": 0.138,
+   "nscore": 0.0,
+   "cancers": [
+    "ESCA",
+    "LUSC",
+    "THYM"
+   ]
+  },
+  "KRT16|KRT6A": {
+   "score": 0.928,
+   "escore": 0.084,
+   "dscore": 0.0,
+   "tscore": 0.775,
+   "ascore": 0.661,
+   "nscore": 0.0,
+   "cancers": [
+    "ESCA",
+    "UCEC",
+    "UCS"
+   ]
+  },
+  "KRT14|KRT6A": {
+   "score": 0.732,
+   "escore": 0.046,
+   "dscore": 0.0,
+   "tscore": 0.268,
+   "ascore": 0.648,
+   "nscore": 0.0,
+   "cancers": [
+    "ESCA",
+    "SKCM"
+   ]
+  },
+  "SPRR1A|SPRR3": {
+   "score": 0.894,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.107,
+   "ascore": 0.783,
+   "nscore": 0.0,
+   "cancers": [
+    "ESCA",
+    "LUSC",
+    "PAAD"
+   ]
+  },
+  "SPRR1B|SPRR2D": {
+   "score": 0.937,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.802,
+   "ascore": 0.423,
+   "nscore": 0.0,
+   "cancers": [
+    "ESCA",
+    "LUSC"
+   ]
+  },
+  "SERPINB13|SERPINB3": {
+   "score": 0.779,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.064,
+   "ascore": 0.769,
+   "nscore": 0.0,
+   "cancers": [
+    "ESCA"
+   ]
+  },
+  "KRT13|KRT4": {
+   "score": 0.986,
+   "escore": 0.253,
+   "dscore": 0.0,
+   "tscore": 0.808,
+   "ascore": 0.907,
+   "nscore": 0.0,
+   "cancers": [
+    "ESCA",
+    "PRAD"
+   ]
+  },
+  "KRTDAP|SBSN": {
+   "score": 0.952,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.789,
+   "ascore": 0.784,
+   "nscore": 0.0,
+   "cancers": [
+    "ESCA",
+    "LUSC"
+   ]
+  },
+  "HP|SAA1": {
+   "score": 0.738,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.738,
+   "ascore": 0.0,
+   "nscore": 0.0,
+   "cancers": [
+    "GBM"
+   ]
+  },
+  "MAG|SOX10": {
+   "score": 0.905,
+   "escore": 0.0,
+   "dscore": 0.75,
+   "tscore": 0.534,
+   "ascore": 0.253,
+   "nscore": 0.0,
+   "cancers": [
+    "GBM"
+   ]
+  },
+  "MAG|MOBP": {
+   "score": 0.763,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.566,
+   "ascore": 0.477,
+   "nscore": 0.0,
+   "cancers": [
+    "GBM"
+   ]
+  },
+  "MAG|MOG": {
+   "score": 0.935,
+   "escore": 0.049,
+   "dscore": 0.0,
+   "tscore": 0.867,
+   "ascore": 0.528,
+   "nscore": 0.0,
+   "cancers": [
+    "GBM"
+   ]
+  },
+  "PNOC|TAC1": {
+   "score": 0.754,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.74,
+   "ascore": 0.091,
+   "nscore": 0.0,
+   "cancers": [
+    "GBM"
+   ]
+  },
+  "NEFL|NEFM": {
+   "score": 0.999,
+   "escore": 0.835,
+   "dscore": 0.0,
+   "tscore": 0.988,
+   "ascore": 0.849,
+   "nscore": 0.0,
+   "cancers": [
+    "GBM",
+    "LGG",
+    "SARC",
+    "THYM"
+   ]
+  },
+  "GABRA1|GABRG2": {
+   "score": 0.998,
+   "escore": 0.99,
+   "dscore": 0.54,
+   "tscore": 0.498,
+   "ascore": 0.44,
+   "nscore": 0.0,
+   "cancers": [
+    "GBM"
+   ]
+  },
+  "SAA1|SAA2": {
+   "score": 0.975,
+   "escore": 0.174,
+   "dscore": 0.54,
+   "tscore": 0.741,
+   "ascore": 0.779,
+   "nscore": 0.0,
+   "cancers": [
+    "GBM",
+    "KIRP",
+    "MESO",
+    "UCEC"
+   ]
+  },
+  "ADH7|UGT1A7": {
+   "score": 0.71,
+   "escore": 0.0,
+   "dscore": 0.65,
+   "tscore": 0.19,
+   "ascore": 0.06,
+   "nscore": 0.0,
+   "cancers": [
+    "HNSC"
+   ]
+  },
+  "UGT1A6|UGT1A9": {
+   "score": 0.998,
+   "escore": 0.994,
+   "dscore": 0.0,
+   "tscore": 0.07,
+   "ascore": 0.775,
+   "nscore": 0.0,
+   "cancers": [
+    "HNSC"
+   ]
+  },
+  "DSC1|DSG1": {
+   "score": 0.998,
+   "escore": 0.625,
+   "dscore": 0.5,
+   "tscore": 0.987,
+   "ascore": 0.353,
+   "nscore": 0.0,
+   "cancers": [
+    "HNSC"
+   ]
+  },
+  "UGT1A10|UGT1A9": {
+   "score": 0.994,
+   "escore": 0.994,
+   "dscore": 0.0,
+   "tscore": 0.055,
+   "ascore": 0.08,
+   "nscore": 0.0,
+   "cancers": [
+    "HNSC"
+   ]
+  },
+  "MYLPF|TNNC2": {
+   "score": 0.993,
+   "escore": 0.092,
+   "dscore": 0.0,
+   "tscore": 0.67,
+   "ascore": 0.979,
+   "nscore": 0.0,
+   "cancers": [
+    "HNSC"
+   ]
+  },
+  "LTF|PIGR": {
+   "score": 0.838,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.814,
+   "ascore": 0.162,
+   "nscore": 0.0,
+   "cancers": [
+    "HNSC"
+   ]
+  },
+  "SPRR2B|SPRR2F": {
+   "score": 0.911,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.785,
+   "ascore": 0.247,
+   "nscore": 0.0,
+   "cancers": [
+    "HNSC",
+    "MESO"
+   ]
+  },
+  "KRT13|SPRR3": {
+   "score": 0.759,
+   "escore": 0.049,
+   "dscore": 0.0,
+   "tscore": 0.488,
+   "ascore": 0.544,
+   "nscore": 0.0,
+   "cancers": [
+    "HNSC"
+   ]
+  },
+  "SPRR2B|SPRR2G": {
+   "score": 0.71,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.064,
+   "ascore": 0.432,
+   "nscore": 0.0,
+   "cancers": [
+    "HNSC"
+   ]
+  },
+  "MYL2|TNNC1": {
+   "score": 0.896,
+   "escore": 0.092,
+   "dscore": 0.5,
+   "tscore": 0.493,
+   "ascore": 0.602,
+   "nscore": 0.0,
+   "cancers": [
+    "HNSC"
+   ]
+  },
+  "MYH7|MYL2": {
+   "score": 0.999,
+   "escore": 0.924,
+   "dscore": 0.9,
+   "tscore": 0.935,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "HNSC"
+   ]
+  },
+  "UGT1A6|UGT1A7": {
+   "score": 0.994,
+   "escore": 0.994,
+   "dscore": 0.0,
+   "tscore": 0.066,
+   "ascore": 0.067,
+   "nscore": 0.0,
+   "cancers": [
+    "HNSC"
+   ]
+  },
+  "ACTC1|CASQ2": {
+   "score": 0.708,
+   "escore": 0.103,
+   "dscore": 0.0,
+   "tscore": 0.582,
+   "ascore": 0.284,
+   "nscore": 0.0,
+   "cancers": [
+    "HNSC"
+   ]
+  },
+  "PSG4|PSG5": {
+   "score": 0.782,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.061,
+   "ascore": 0.775,
+   "nscore": 0.0,
+   "cancers": [
+    "KICH"
+   ]
+  },
+  "DCN|LUM": {
+   "score": 0.978,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.824,
+   "ascore": 0.862,
+   "nscore": 0.0,
+   "cancers": [
+    "KICH"
+   ]
+  },
+  "AOX1|UGT1A9": {
+   "score": 0.942,
+   "escore": 0.0,
+   "dscore": 0.909,
+   "tscore": 0.375,
+   "ascore": 0.061,
+   "nscore": 0.0,
+   "cancers": [
+    "KICH"
+   ]
+  },
+  "CYS1|PKHD1": {
+   "score": 0.823,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.82,
+   "ascore": 0.059,
+   "nscore": 0.0,
+   "cancers": [
+    "KICH"
+   ]
+  },
+  "ADH1B|GSTM1": {
+   "score": 0.782,
+   "escore": 0.07,
+   "dscore": 0.65,
+   "tscore": 0.368,
+   "ascore": 0.068,
+   "nscore": 0.0,
+   "cancers": [
+    "KICH"
+   ]
+  },
+  "NLGN4Y|ZFY": {
+   "score": 0.945,
+   "escore": 0.045,
+   "dscore": 0.0,
+   "tscore": 0.752,
+   "ascore": 0.788,
+   "nscore": 0.0,
+   "cancers": [
+    "KICH"
+   ]
+  },
+  "USP9Y|ZFY": {
+   "score": 0.999,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.876,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "KICH",
+    "THYM"
+   ]
+  },
+  "EIF1AY|UTY": {
+   "score": 0.963,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.791,
+   "ascore": 0.834,
+   "nscore": 0.0,
+   "cancers": [
+    "KICH",
+    "READ"
+   ]
+  },
+  "DDX3Y|RPS4Y1": {
+   "score": 0.963,
+   "escore": 0.088,
+   "dscore": 0.0,
+   "tscore": 0.815,
+   "ascore": 0.798,
+   "nscore": 0.0,
+   "cancers": [
+    "KICH",
+    "PAAD",
+    "SKCM",
+    "UVM"
+   ]
+  },
+  "DDX3Y|KDM5D": {
+   "score": 0.999,
+   "escore": 0.171,
+   "dscore": 0.0,
+   "tscore": 0.98,
+   "ascore": 0.973,
+   "nscore": 0.0,
+   "cancers": [
+    "KICH",
+    "PAAD",
+    "READ",
+    "UVM"
+   ]
+  },
+  "USP9Y|UTY": {
+   "score": 0.999,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.983,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "KICH",
+    "SKCM"
+   ]
+  },
+  "CCL18|CHIT1": {
+   "score": 0.731,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.664,
+   "ascore": 0.234,
+   "nscore": 0.0,
+   "cancers": [
+    "KIRC",
+    "UVM"
+   ]
+  },
+  "CASR|SLC12A1": {
+   "score": 0.768,
+   "escore": 0.045,
+   "dscore": 0.0,
+   "tscore": 0.753,
+   "ascore": 0.097,
+   "nscore": 0.0,
+   "cancers": [
+    "KIRC"
+   ]
+  },
+  "ALDOB|G6PC": {
+   "score": 0.93,
+   "escore": 0.045,
+   "dscore": 0.8,
+   "tscore": 0.487,
+   "ascore": 0.376,
+   "nscore": 0.0,
+   "cancers": [
+    "KIRC"
+   ]
+  },
+  "FGA|FGB": {
+   "score": 0.999,
+   "escore": 0.997,
+   "dscore": 0.9,
+   "tscore": 0.957,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "KIRC",
+    "KIRP"
+   ]
+  },
+  "FGB|FGG": {
+   "score": 0.999,
+   "escore": 0.993,
+   "dscore": 0.9,
+   "tscore": 0.936,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "KIRC"
+   ]
+  },
+  "EIF1AY|RPS4Y1": {
+   "score": 0.999,
+   "escore": 0.581,
+   "dscore": 0.0,
+   "tscore": 0.845,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "KIRP",
+    "PAAD",
+    "STAD"
+   ]
+  },
+  "WFDC12|WFDC5": {
+   "score": 0.977,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.967,
+   "ascore": 0.333,
+   "nscore": 0.0,
+   "cancers": [
+    "KIRP"
+   ]
+  },
+  "HBG1|HBG2": {
+   "score": 0.999,
+   "escore": 0.939,
+   "dscore": 0.54,
+   "tscore": 0.05,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "LAML"
+   ]
+  },
+  "S100A12|S100A9": {
+   "score": 0.94,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.452,
+   "ascore": 0.892,
+   "nscore": 0.0,
+   "cancers": [
+    "LAML"
+   ]
+  },
+  "COL1A2|CXCL12": {
+   "score": 0.727,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.626,
+   "ascore": 0.3,
+   "nscore": 0.0,
+   "cancers": [
+    "LAML"
+   ]
+  },
+  "HBA1|HBG2": {
+   "score": 0.995,
+   "escore": 0.925,
+   "dscore": 0.54,
+   "tscore": 0.49,
+   "ascore": 0.78,
+   "nscore": 0.0,
+   "cancers": [
+    "LAML"
+   ]
+  },
+  "HOXB3|HOXB6": {
+   "score": 0.836,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.259,
+   "ascore": 0.788,
+   "nscore": 0.0,
+   "cancers": [
+    "LAML"
+   ]
+  },
+  "CD14|S100A9": {
+   "score": 0.767,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.239,
+   "ascore": 0.437,
+   "nscore": 0.0,
+   "cancers": [
+    "LAML"
+   ]
+  },
+  "EIF1AY|USP9Y": {
+   "score": 0.999,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.876,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "LAML",
+    "STAD"
+   ]
+  },
+  "HOXB5|HOXB6": {
+   "score": 0.982,
+   "escore": 0.8,
+   "dscore": 0.0,
+   "tscore": 0.213,
+   "ascore": 0.895,
+   "nscore": 0.0,
+   "cancers": [
+    "LAML"
+   ]
+  },
+  "GABRA1|GABRB2": {
+   "score": 0.996,
+   "escore": 0.979,
+   "dscore": 0.54,
+   "tscore": 0.473,
+   "ascore": 0.363,
+   "nscore": 0.0,
+   "cancers": [
+    "LGG"
+   ]
+  },
+  "GAD2|SLC32A1": {
+   "score": 0.987,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.966,
+   "ascore": 0.307,
+   "nscore": 0.0,
+   "cancers": [
+    "LGG"
+   ]
+  },
+  "PDYN|PNOC": {
+   "score": 0.986,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.964,
+   "ascore": 0.107,
+   "nscore": 0.0,
+   "cancers": [
+    "LGG"
+   ]
+  },
+  "CYP2A6|CYP2A7": {
+   "score": 0.999,
+   "escore": 0.198,
+   "dscore": 0.0,
+   "tscore": 0.33,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "LIHC"
+   ]
+  },
+  "IGF2|INS-IGF2": {
+   "score": 0.838,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.83,
+   "ascore": 0.086,
+   "nscore": 0.0,
+   "cancers": [
+    "LIHC"
+   ]
+  },
+  "CYP1A1|CYP1A2": {
+   "score": 0.95,
+   "escore": 0.0,
+   "dscore": 0.913,
+   "tscore": 0.419,
+   "ascore": 0.081,
+   "nscore": 0.0,
+   "cancers": [
+    "LIHC"
+   ]
+  },
+  "SFTPA1|SFTPA2": {
+   "score": 0.956,
+   "escore": 0.0,
+   "dscore": 0.9,
+   "tscore": 0.3,
+   "ascore": 0.427,
+   "nscore": 0.0,
+   "cancers": [
+    "LUAD",
+    "LUSC"
+   ]
+  },
+  "FGA|FGG": {
+   "score": 0.999,
+   "escore": 0.997,
+   "dscore": 0.9,
+   "tscore": 0.94,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "LUAD"
+   ]
+  },
+  "DMBT1|MUC5B": {
+   "score": 0.902,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.891,
+   "ascore": 0.137,
+   "nscore": 0.0,
+   "cancers": [
+    "LUSC"
+   ]
+  },
+  "ADH7|GSTA1": {
+   "score": 0.8,
+   "escore": 0.07,
+   "dscore": 0.65,
+   "tscore": 0.41,
+   "ascore": 0.084,
+   "nscore": 0.0,
+   "cancers": [
+    "LUSC"
+   ]
+  },
+  "CKMT1A|CKMT1B": {
+   "score": 0.999,
+   "escore": 0.9,
+   "dscore": 0.0,
+   "tscore": 0.051,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "MESO"
+   ]
+  },
+  "TNNC1|TNNT2": {
+   "score": 0.999,
+   "escore": 0.963,
+   "dscore": 0.9,
+   "tscore": 0.916,
+   "ascore": 0.311,
+   "nscore": 0.0,
+   "cancers": [
+    "MESO"
+   ]
+  },
+  "SAA1|SAA4": {
+   "score": 0.762,
+   "escore": 0.0,
+   "dscore": 0.54,
+   "tscore": 0.408,
+   "ascore": 0.174,
+   "nscore": 0.0,
+   "cancers": [
+    "MESO"
+   ]
+  },
+  "HP|HPR": {
+   "score": 0.964,
+   "escore": 0.432,
+   "dscore": 0.0,
+   "tscore": 0.385,
+   "ascore": 0.906,
+   "nscore": 0.0,
+   "cancers": [
+    "MESO"
+   ]
+  },
+  "KRT14|KRT17": {
+   "score": 0.814,
+   "escore": 0.098,
+   "dscore": 0.4,
+   "tscore": 0.062,
+   "ascore": 0.674,
+   "nscore": 0.0,
+   "cancers": [
+    "MESO"
+   ]
+  },
+  "HOXB8|HOXB9": {
+   "score": 0.89,
+   "escore": 0.134,
+   "dscore": 0.0,
+   "tscore": 0.378,
+   "ascore": 0.812,
+   "nscore": 0.0,
+   "cancers": [
+    "OV"
+   ]
+  },
+  "OBP2A|OBP2B": {
+   "score": 0.731,
+   "escore": 0.641,
+   "dscore": 0.0,
+   "tscore": 0.071,
+   "ascore": 0.26,
+   "nscore": 0.0,
+   "cancers": [
+    "OV"
+   ]
+  },
+  "ZIC1|ZIC4": {
+   "score": 0.951,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.42,
+   "ascore": 0.918,
+   "nscore": 0.0,
+   "cancers": [
+    "OV"
+   ]
+  },
+  "APCS|CRP": {
+   "score": 0.907,
+   "escore": 0.292,
+   "dscore": 0.0,
+   "tscore": 0.429,
+   "ascore": 0.783,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "GCG|INS": {
+   "score": 0.998,
+   "escore": 0.217,
+   "dscore": 0.0,
+   "tscore": 0.997,
+   "ascore": 0.21,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "CR2|MS4A1": {
+   "score": 0.82,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.608,
+   "ascore": 0.561,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "EIF1AY|TMSB4Y": {
+   "score": 0.898,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.74,
+   "ascore": 0.625,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "G6PC2|IAPP": {
+   "score": 0.707,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.685,
+   "ascore": 0.109,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "G6PC2|GCG": {
+   "score": 0.839,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.832,
+   "ascore": 0.086,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "IAPP|INS": {
+   "score": 0.984,
+   "escore": 0.0,
+   "dscore": 0.4,
+   "tscore": 0.969,
+   "ascore": 0.23,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "IAPP|PPY": {
+   "score": 0.818,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.787,
+   "ascore": 0.183,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "REG3A|REG3G": {
+   "score": 0.894,
+   "escore": 0.0,
+   "dscore": 0.8,
+   "tscore": 0.058,
+   "ascore": 0.478,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "CPA1|PNLIP": {
+   "score": 0.899,
+   "escore": 0.045,
+   "dscore": 0.0,
+   "tscore": 0.541,
+   "ascore": 0.79,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "REG1B|REG3A": {
+   "score": 0.875,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.438,
+   "ascore": 0.785,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "CELA3A|CTRB1": {
+   "score": 0.772,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.104,
+   "ascore": 0.74,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "CELA3A|CTRB2": {
+   "score": 0.849,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.101,
+   "ascore": 0.827,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "CTRB1|CTRB2": {
+   "score": 0.949,
+   "escore": 0.198,
+   "dscore": 0.9,
+   "tscore": 0.046,
+   "ascore": 0.416,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "AMY2A|PNLIP": {
+   "score": 0.811,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.794,
+   "ascore": 0.122,
+   "nscore": 0.0,
+   "cancers": [
+    "PAAD"
+   ]
+  },
+  "FOXD3|SOX10": {
+   "score": 0.802,
+   "escore": 0.071,
+   "dscore": 0.0,
+   "tscore": 0.785,
+   "ascore": 0.091,
+   "nscore": 0.0,
+   "cancers": [
+    "PCPG"
+   ]
+  },
+  "PLP1|SOX10": {
+   "score": 0.883,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.792,
+   "ascore": 0.461,
+   "nscore": 0.0,
+   "cancers": [
+    "PCPG"
+   ]
+  },
+  "NLGN4Y|RPS4Y1": {
+   "score": 0.833,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.575,
+   "ascore": 0.624,
+   "nscore": 0.0,
+   "cancers": [
+    "PCPG"
+   ]
+  },
+  "ZIC2|ZIC5": {
+   "score": 0.721,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.351,
+   "ascore": 0.577,
+   "nscore": 0.0,
+   "cancers": [
+    "PRAD",
+    "STAD"
+   ]
+  },
+  "CLCA2|CLCA4": {
+   "score": 0.917,
+   "escore": 0.0,
+   "dscore": 0.9,
+   "tscore": 0.084,
+   "ascore": 0.131,
+   "nscore": 0.0,
+   "cancers": [
+    "PRAD"
+   ]
+  },
+  "PCDHA1|PCDHA11": {
+   "score": 0.726,
+   "escore": 0.61,
+   "dscore": 0.0,
+   "tscore": 0.055,
+   "ascore": 0.31,
+   "nscore": 0.0,
+   "cancers": [
+    "PRAD"
+   ]
+  },
+  "UGT1A3|UGT1A9": {
+   "score": 0.999,
+   "escore": 0.994,
+   "dscore": 0.0,
+   "tscore": 0.06,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "PRAD"
+   ]
+  },
+  "LTF|OLFM4": {
+   "score": 0.812,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.606,
+   "ascore": 0.542,
+   "nscore": 0.0,
+   "cancers": [
+    "PRAD"
+   ]
+  },
+  "CHGA|PYY": {
+   "score": 0.721,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.68,
+   "ascore": 0.166,
+   "nscore": 0.0,
+   "cancers": [
+    "READ"
+   ]
+  },
+  "GCG|PYY": {
+   "score": 0.956,
+   "escore": 0.067,
+   "dscore": 0.0,
+   "tscore": 0.915,
+   "ascore": 0.496,
+   "nscore": 0.0,
+   "cancers": [
+    "READ"
+   ]
+  },
+  "PRKY|UTY": {
+   "score": 0.929,
+   "escore": 0.046,
+   "dscore": 0.0,
+   "tscore": 0.671,
+   "ascore": 0.792,
+   "nscore": 0.0,
+   "cancers": [
+    "READ"
+   ]
+  },
+  "DDX3Y|ZFY": {
+   "score": 0.973,
+   "escore": 0.071,
+   "dscore": 0.0,
+   "tscore": 0.876,
+   "ascore": 0.786,
+   "nscore": 0.0,
+   "cancers": [
+    "READ"
+   ]
+  },
+  "MS4A12|ZG16": {
+   "score": 0.801,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.744,
+   "ascore": 0.257,
+   "nscore": 0.0,
+   "cancers": [
+    "READ"
+   ]
+  },
+  "KDM5D|USP9Y": {
+   "score": 0.999,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.978,
+   "ascore": 0.999,
+   "nscore": 0.0,
+   "cancers": [
+    "READ"
+   ]
+  },
+  "COL4A5|COL4A6": {
+   "score": 0.982,
+   "escore": 0.225,
+   "dscore": 0.8,
+   "tscore": 0.478,
+   "ascore": 0.791,
+   "nscore": 0.0,
+   "cancers": [
+    "SARC"
+   ]
+  },
+  "HMGA2|IGF2BP2": {
+   "score": 0.996,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.995,
+   "ascore": 0.223,
+   "nscore": 0.0,
+   "cancers": [
+    "SARC"
+   ]
+  },
+  "KRT14|KRT5": {
+   "score": 0.999,
+   "escore": 0.982,
+   "dscore": 0.0,
+   "tscore": 0.986,
+   "ascore": 0.811,
+   "nscore": 0.0,
+   "cancers": [
+    "SKCM"
+   ]
+  },
+  "MAGEC1|MAGEC2": {
+   "score": 0.795,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.101,
+   "ascore": 0.775,
+   "nscore": 0.0,
+   "cancers": [
+    "SKCM",
+    "TGCT"
+   ]
+  },
+  "CHGA|SST": {
+   "score": 0.921,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.868,
+   "ascore": 0.427,
+   "nscore": 0.0,
+   "cancers": [
+    "STAD"
+   ]
+  },
+  "RPS4Y1|UTY": {
+   "score": 0.943,
+   "escore": 0.092,
+   "dscore": 0.0,
+   "tscore": 0.727,
+   "ascore": 0.791,
+   "nscore": 0.0,
+   "cancers": [
+    "STAD"
+   ]
+  },
+  "PGA3|PGA4": {
+   "score": 0.98,
+   "escore": 0.8,
+   "dscore": 0.9,
+   "tscore": 0.043,
+   "ascore": 0.084,
+   "nscore": 0.0,
+   "cancers": [
+    "STAD"
+   ]
+  },
+  "GKN1|GKN2": {
+   "score": 0.731,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.246,
+   "ascore": 0.619,
+   "nscore": 0.0,
+   "cancers": [
+    "STAD"
+   ]
+  },
+  "APOA1|VTN": {
+   "score": 0.755,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.632,
+   "ascore": 0.363,
+   "nscore": 0.0,
+   "cancers": [
+    "TGCT"
+   ]
+  },
+  "AFP|APOB": {
+   "score": 0.844,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.302,
+   "ascore": 0.786,
+   "nscore": 0.0,
+   "cancers": [
+    "TGCT"
+   ]
+  },
+  "SOX2|SOX21": {
+   "score": 0.874,
+   "escore": 0.762,
+   "dscore": 0.0,
+   "tscore": 0.133,
+   "ascore": 0.44,
+   "nscore": 0.0,
+   "cancers": [
+    "TGCT"
+   ]
+  },
+  "OGN|OMD": {
+   "score": 0.946,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.633,
+   "ascore": 0.731,
+   "nscore": 0.0,
+   "cancers": [
+    "THCA"
+   ]
+  },
+  "KDM5D|ZFY": {
+   "score": 0.971,
+   "escore": 0.096,
+   "dscore": 0.0,
+   "tscore": 0.863,
+   "ascore": 0.784,
+   "nscore": 0.0,
+   "cancers": [
+    "THYM"
+   ]
+  },
+  "COL2A1|COL9A3": {
+   "score": 0.726,
+   "escore": 0.0,
+   "dscore": 0.4,
+   "tscore": 0.466,
+   "ascore": 0.14,
+   "nscore": 0.0,
+   "cancers": [
+    "THYM"
+   ]
+  },
+  "DLX1|DLX2": {
+   "score": 0.877,
+   "escore": 0.072,
+   "dscore": 0.0,
+   "tscore": 0.257,
+   "ascore": 0.835,
+   "nscore": 0.0,
+   "cancers": [
+    "UCS"
+   ]
+  },
+  "MYH8|MYL1": {
+   "score": 0.961,
+   "escore": 0.471,
+   "dscore": 0.72,
+   "tscore": 0.569,
+   "ascore": 0.473,
+   "nscore": 0.0,
+   "cancers": [
+    "UCS"
+   ]
+  },
+  "KRT16|KRT5": {
+   "score": 0.861,
+   "escore": 0.626,
+   "dscore": 0.0,
+   "tscore": 0.25,
+   "ascore": 0.511,
+   "nscore": 0.0,
+   "cancers": [
+    "UCS"
+   ]
+  },
+  "NPY|PNOC": {
+   "score": 0.87,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.747,
+   "ascore": 0.056,
+   "nscore": 0.0,
+   "cancers": [
+    "UCS"
+   ]
+  },
+  "ACTA1|MYL1": {
+   "score": 0.964,
+   "escore": 0.407,
+   "dscore": 0.0,
+   "tscore": 0.719,
+   "ascore": 0.804,
+   "nscore": 0.0,
+   "cancers": [
+    "UCS"
+   ]
+  },
+  "HOXC10|HOXC11": {
+   "score": 0.871,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.375,
+   "ascore": 0.802,
+   "nscore": 0.0,
+   "cancers": [
+    "UCS"
+   ]
+  },
+  "MYOD1|MYOG": {
+   "score": 0.821,
+   "escore": 0.0,
+   "dscore": 0.5,
+   "tscore": 0.272,
+   "ascore": 0.519,
+   "nscore": 0.0,
+   "cancers": [
+    "UCS"
+   ]
+  },
+  "CKM|TNNT3": {
+   "score": 0.767,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.292,
+   "ascore": 0.684,
+   "nscore": 0.0,
+   "cancers": [
+    "UCS"
+   ]
+  },
+  "COL11A1|COL2A1": {
+   "score": 0.976,
+   "escore": 0.099,
+   "dscore": 0.72,
+   "tscore": 0.9,
+   "ascore": 0.133,
+   "nscore": 0.0,
+   "cancers": [
+    "UVM"
+   ]
+  },
+  "CD2|CD3D": {
+   "score": 0.956,
+   "escore": 0.084,
+   "dscore": 0.0,
+   "tscore": 0.749,
+   "ascore": 0.827,
+   "nscore": 0.0,
+   "cancers": [
+    "UVM"
+   ]
+  },
+  "KRT7|MME": {
+   "score": 0.804,
+   "escore": 0.0,
+   "dscore": 0.0,
+   "tscore": 0.8,
+   "ascore": 0.06,
+   "nscore": 0.0,
+   "cancers": [
+    "UVM"
+   ]
+  }
+ }
+}

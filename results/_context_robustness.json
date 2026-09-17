@@ -1,0 +1,164 @@
+{
+ "tau": 0.3,
+ "n_directed_edges": 2445,
+ "directed": {
+  "unique_pairs": 2334,
+  "shared_ge2": 79,
+  "shared_ge3": 19,
+  "pct_ge2": 3.3847472150814055,
+  "pct_ge3": 0.8140531276778064,
+  "max_N": 5,
+  "reuse_cohort_mean_pct": 14.111535581251227,
+  "reuse_edge_weighted_pct": 7.770961145194274,
+  "edges_unique_pct": 92.22903885480572,
+  "reuse_vs_n_spearman_r": 0.5482657770924557,
+  "reuse_vs_n_spearman_p": 0.0009557858821998702
+ },
+ "undirected": {
+  "unique_pairs": 2286,
+  "shared_ge2": 99,
+  "shared_ge3": 37,
+  "pct_ge2": 4.330708661417323,
+  "pct_ge3": 1.6185476815398074,
+  "max_N": 8,
+  "reuse_cohort_mean_pct": 20.013087308743785,
+  "reuse_edge_weighted_pct": 10.552147239263803,
+  "edges_unique_pct": 89.4478527607362,
+  "reuse_vs_n_spearman_r": 0.7362527160287482,
+  "reuse_vs_n_spearman_p": 1.0414197684087893e-06
+ },
+ "edge_concentration": [
+  {
+   "n_below": 100,
+   "cohorts": 7,
+   "pct_samples": 4.656276890716129,
+   "edges": 1225,
+   "pct_edges": 50.102249488752555
+  },
+  {
+   "n_below": 200,
+   "cohorts": 15,
+   "pct_samples": 17.02839659623291,
+   "edges": 1977,
+   "pct_edges": 80.85889570552148
+  },
+  {
+   "n_below": 300,
+   "cohorts": 17,
+   "pct_samples": 21.48388947318099,
+   "edges": 2044,
+   "pct_edges": 83.59918200408998
+  },
+  {
+   "n_below": 500,
+   "cohorts": 25,
+   "pct_samples": 50.5593268954967,
+   "edges": 2247,
+   "pct_edges": 91.90184049079754
+  },
+  {
+   "n_below": 1000,
+   "cohorts": 32,
+   "pct_samples": 88.3545272014533,
+   "edges": 2429,
+   "pct_edges": 99.34560327198363
+  }
+ ],
+ "sharing_by_cohort_size": [
+  {
+   "n_at_least": 0,
+   "cohorts": 33,
+   "unique_pairs": 2286,
+   "shared_ge2": 99,
+   "shared_ge3": 37,
+   "pct_ge2": 4.330708661417323,
+   "pct_ge3": 1.6185476815398074
+  },
+  {
+   "n_at_least": 200,
+   "cohorts": 18,
+   "unique_pairs": 418,
+   "shared_ge2": 40,
+   "shared_ge3": 8,
+   "pct_ge2": 9.569377990430622,
+   "pct_ge3": 1.9138755980861244
+  },
+  {
+   "n_at_least": 300,
+   "cohorts": 16,
+   "unique_pairs": 359,
+   "shared_ge2": 36,
+   "shared_ge3": 5,
+   "pct_ge2": 10.027855153203342,
+   "pct_ge3": 1.392757660167131
+  },
+  {
+   "n_at_least": 500,
+   "cohorts": 8,
+   "unique_pairs": 193,
+   "shared_ge2": 5,
+   "shared_ge3": 0,
+   "pct_ge2": 2.5906735751295336,
+   "pct_ge3": 0.0
+  }
+ ],
+ "edges_vs_n_by_cohort_size": [
+  {
+   "n_at_least": 0,
+   "cohorts": 33,
+   "r": -0.8412738332191748,
+   "p": 8.748285800920372e-10,
+   "edges_mean": 74.0909090909091
+  },
+  {
+   "n_at_least": 200,
+   "cohorts": 18,
+   "r": -0.1008273548439677,
+   "p": 0.6905705518491261,
+   "edges_mean": 26.0
+  },
+  {
+   "n_at_least": 300,
+   "cohorts": 16,
+   "r": -0.11430690899288551,
+   "p": 0.6733720005831312,
+   "edges_mean": 25.0625
+  },
+  {
+   "n_at_least": 500,
+   "cohorts": 8,
+   "r": -0.4910267673844361,
+   "p": 0.21660820414021398,
+   "edges_mean": 24.75
+  }
+ ],
+ "gene_set_overlap": {
+  "pairwise_shared_genes_mean": 7.429924242424242,
+  "pairwise_shared_genes_max": 67,
+  "jaccard_mean": 0.03959824024890098,
+  "jaccard_median": 0.030927835051546393,
+  "jaccard_max": 0.5037593984962406,
+  "jaccard_min": 0.0,
+  "union_of_network_genes": 1775
+ },
+ "unannotated_loci": {
+  "genes": [
+   "?|340602",
+   "?|652919",
+   "?|729884"
+  ],
+  "cohorts": [
+   "BRCA",
+   "CESC",
+   "ESCA",
+   "KICH",
+   "KIRC",
+   "LGG",
+   "LUAD",
+   "PAAD",
+   "PRAD",
+   "TGCT",
+   "THCA"
+  ]
+ }
+}

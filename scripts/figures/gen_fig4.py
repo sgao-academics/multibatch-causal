@@ -52,10 +52,15 @@ GRAY = '#555555'
 CANCER_COLORS = [BLUE, ORANGE, PURPLE]
 
 plt.rcParams.update({
+    'pdf.fonttype': 42, 'ps.fonttype': 42,   # embed TrueType, not Type 3
     'font.family': 'sans-serif',
     'font.sans-serif': ['Arial', 'DejaVu Sans'],
+    # the axis labels now use lambda and tau, so the maths glyphs have to come from Arial too;
+    # the mathtext default (DejaVu Sans) would put a second family in the figure
+    'mathtext.fontset': 'custom',
+    'mathtext.rm': 'Arial', 'mathtext.it': 'Arial:italic', 'mathtext.bf': 'Arial:bold',
     'font.size': 8, 'axes.titlesize': 9, 'axes.labelsize': 8,
-    'xtick.labelsize': 6.5, 'ytick.labelsize': 6.5,
+    'xtick.labelsize': 7.6, 'ytick.labelsize': 7.6,
     'figure.dpi': 300, 'savefig.dpi': 300, 'savefig.bbox': 'tight',
     'axes.linewidth': 0.5,
     'text.usetex': False,
@@ -71,11 +76,11 @@ for ci, c in enumerate(cancers_3):
     ax1.plot(lam_x, lam[c], 'o-', color=CANCER_COLORS[ci], label=c,
              markersize=5, linewidth=1.2)
 ax1.axvline(0.01, color=ORANGE, linestyle='--', linewidth=0.8, alpha=0.5)
-ax1.set_xlabel('lambda_1')
+ax1.set_xlabel(r'$\lambda_1$')
 ax1.set_ylabel('Causal edges')
-ax1.set_title('a) L1 regularization sensitivity', fontweight='bold', fontsize=8.5)
+ax1.set_title('a', fontweight='bold', fontsize=9)
 ax1.set_xscale('log')
-ax1.legend(fontsize=6.5, frameon=False, loc='upper right')
+ax1.legend(fontsize=7.6, frameon=False, loc='upper right')
 ax1.spines['top'].set_visible(False)
 ax1.spines['right'].set_visible(False)
 ax1.grid(True, alpha=0.25, linewidth=0.3)
@@ -87,10 +92,10 @@ for ci, c in enumerate(cancers_3):
     ax2.plot(tau_x, tau[c], 's-', color=CANCER_COLORS[ci], label=c,
              markersize=5, linewidth=1.2)
 ax2.axvline(0.3, color=ORANGE, linestyle='--', linewidth=0.8, alpha=0.5)
-ax2.set_xlabel('tau (edge threshold)')
+ax2.set_xlabel(r'$\tau$ (edge threshold)')
 ax2.set_ylabel('Causal edges')
-ax2.set_title('b) Edge threshold sensitivity', fontweight='bold', fontsize=8.5)
-ax2.legend(fontsize=6.5, frameon=False)
+ax2.set_title('b', fontweight='bold', fontsize=9)
+ax2.legend(fontsize=7.6, frameon=False)
 ax2.spines['top'].set_visible(False)
 ax2.spines['right'].set_visible(False)
 ax2.grid(True, alpha=0.25, linewidth=0.3)
@@ -108,8 +113,7 @@ mean_e = np.mean(e)
 sd_e = np.std(e, ddof=1)
 ax3.set_xticklabels(['33 cancers'])
 ax3.set_ylabel('Causal edges')
-ax3.set_title(f'c) Edge distribution (mean={mean_e:.0f}, SD={sd_e:.0f})',
-             fontweight='bold', fontsize=8.5)
+ax3.set_title('c', fontweight='bold', fontsize=9)
 ax3.spines['top'].set_visible(False)
 ax3.spines['right'].set_visible(False)
 
@@ -119,11 +123,11 @@ ax4.scatter(edges_list_raw, reuse_all, c=BLUE, s=22, alpha=0.7,
            edgecolors='white', linewidth=0.3, zorder=5)
 r_re, p_re = spearmanr(edges_list_raw, reuse_all)
 ax4.text(0.98, 0.96, f'Spearman r = {r_re:.2f}\np = {p_re:.3f}',
-         transform=ax4.transAxes, ha='right', va='top', fontsize=7,
+         transform=ax4.transAxes, ha='right', va='top', fontsize=7.6,
          bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.85))
 ax4.set_xlabel('Edge count')
 ax4.set_ylabel('Reuse rate (%)')
-ax4.set_title('d) Edge count vs reuse rate', fontweight='bold', fontsize=8.5)
+ax4.set_title('d', fontweight='bold', fontsize=9)
 ax4.spines['top'].set_visible(False)
 ax4.spines['right'].set_visible(False)
 

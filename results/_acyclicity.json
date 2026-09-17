@@ -1,0 +1,385 @@
+{
+ "tau": 0.3,
+ "n_cohorts": 33,
+ "h_abs_min": 0.0011456010814043793,
+ "h_abs_max": 0.17822182726787617,
+ "h_abs_median": 0.043623988147402315,
+ "n_cohorts_below_1e-2": 4,
+ "solver_early_stop_tolerance": 1e-07,
+ "n_cohorts_acyclic_after_threshold": 16,
+ "n_edges_total": 2445,
+ "n_edges_on_a_cycle": 109,
+ "pct_edges_on_a_cycle": 4.46,
+ "n_recurrent_directed_pairs": 19,
+ "n_recurrent_pairs_on_a_cycle_somewhere": 9,
+ "recurrent_pairs_on_a_cycle_somewhere": [
+  "CYORF15A->CYORF15B",
+  "CYORF15B->PRKY",
+  "DDX3Y->RPS4Y1",
+  "EIF1AY->RPS4Y1",
+  "KDM5D->DDX3Y",
+  "RPS4Y1->XIST",
+  "TSIX->XIST",
+  "USP9Y->TTTY15",
+  "XIST->TSIX"
+ ],
+ "per_cohort": {
+  "ACC": {
+   "h_abs": 0.05125668170997244,
+   "n_edges": 127,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "BLCA": {
+   "h_abs": 0.0650875204273973,
+   "n_edges": 20,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "BRCA": {
+   "h_abs": 0.09534749881936477,
+   "n_edges": 16,
+   "n_cyclic_edges": 3,
+   "acyclic": false,
+   "cyclic_edges": [
+    "KLK6->KLK5",
+    "KLK5->KLK7",
+    "KLK7->KLK6"
+   ]
+  },
+  "CESC": {
+   "h_abs": 0.06751175984707913,
+   "n_edges": 32,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "CHOL": {
+   "h_abs": 0.0011456010814043793,
+   "n_edges": 183,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "COAD": {
+   "h_abs": 0.03706973319734175,
+   "n_edges": 48,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "DLBC": {
+   "h_abs": 0.02995997588399746,
+   "n_edges": 233,
+   "n_cyclic_edges": 5,
+   "acyclic": false,
+   "cyclic_edges": [
+    "KDM5D->RPS4Y1",
+    "PRKY->KDM5D",
+    "RPS4Y1->TSIX",
+    "TSIX->XIST",
+    "XIST->PRKY"
+   ]
+  },
+  "ESCA": {
+   "h_abs": 0.003750831941999877,
+   "n_edges": 66,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "GBM": {
+   "h_abs": 0.03664802058835903,
+   "n_edges": 88,
+   "n_cyclic_edges": 5,
+   "acyclic": false,
+   "cyclic_edges": [
+    "MAG->MOBP",
+    "MOG->MAG",
+    "TMEM125->OPALIN",
+    "MOBP->TMEM125",
+    "OPALIN->MOG"
+   ]
+  },
+  "HNSC": {
+   "h_abs": 0.034777725291675665,
+   "n_edges": 33,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "KICH": {
+   "h_abs": 0.0067066843991767655,
+   "n_edges": 154,
+   "n_cyclic_edges": 9,
+   "acyclic": false,
+   "cyclic_edges": [
+    "TTTY15->KDM5D",
+    "ZFY->USP9Y",
+    "EIF1AY->TTTY15",
+    "EIF1AY->KDM5D",
+    "UTY->EIF1AY",
+    "DDX3Y->RPS4Y1",
+    "KDM5D->DDX3Y",
+    "USP9Y->UTY",
+    "RPS4Y1->ZFY"
+   ]
+  },
+  "KIRC": {
+   "h_abs": 0.1054175624756084,
+   "n_edges": 14,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "KIRP": {
+   "h_abs": 0.09260849540046934,
+   "n_edges": 28,
+   "n_cyclic_edges": 3,
+   "acyclic": false,
+   "cyclic_edges": [
+    "KDM5D->EIF1AY",
+    "RPS4Y1->KDM5D",
+    "EIF1AY->RPS4Y1"
+   ]
+  },
+  "LAML": {
+   "h_abs": 0.03450957293667045,
+   "n_edges": 65,
+   "n_cyclic_edges": 11,
+   "acyclic": false,
+   "cyclic_edges": [
+    "BCORL2->USP9Y",
+    "EIF1AY->TTTY15",
+    "EIF1AY->XIST",
+    "CYORF15A->BCORL2",
+    "CYORF15A->USP9Y",
+    "CYORF15B->CYORF15A",
+    "USP9Y->EIF1AY",
+    "USP9Y->TTTY15",
+    "TTTY15->CYORF15B",
+    "TTTY15->XIST",
+    "XIST->CYORF15B"
+   ]
+  },
+  "LGG": {
+   "h_abs": 0.04057410642759862,
+   "n_edges": 32,
+   "n_cyclic_edges": 5,
+   "acyclic": false,
+   "cyclic_edges": [
+    "PRKY->NCRNA00185",
+    "TSIX->CYORF15B",
+    "NCRNA00185->XIST",
+    "CYORF15B->PRKY",
+    "XIST->TSIX"
+   ]
+  },
+  "LIHC": {
+   "h_abs": 0.0988054874947153,
+   "n_edges": 16,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "LUAD": {
+   "h_abs": 0.1315276636450733,
+   "n_edges": 14,
+   "n_cyclic_edges": 3,
+   "acyclic": false,
+   "cyclic_edges": [
+    "PRKY->XIST",
+    "TSIX->PRKY",
+    "XIST->TSIX"
+   ]
+  },
+  "LUSC": {
+   "h_abs": 0.044793256720524255,
+   "n_edges": 35,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "MESO": {
+   "h_abs": 0.043623988147402315,
+   "n_edges": 132,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "OV": {
+   "h_abs": 0.17822182726787617,
+   "n_edges": 12,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "PAAD": {
+   "h_abs": 0.028532567504427675,
+   "n_edges": 92,
+   "n_cyclic_edges": 4,
+   "acyclic": false,
+   "cyclic_edges": [
+    "INS->GCG",
+    "G6PC2->IAPP",
+    "GCG->G6PC2",
+    "IAPP->INS"
+   ]
+  },
+  "PCPG": {
+   "h_abs": 0.06370074251977087,
+   "n_edges": 51,
+   "n_cyclic_edges": 10,
+   "acyclic": false,
+   "cyclic_edges": [
+    "FOXD3->SOX10",
+    "PMP2->COL20A1",
+    "RPS4Y1->PCDH11Y",
+    "ERBB3->FOXD3",
+    "SOX10->PMP2",
+    "NLGN4Y->RPS4Y1",
+    "TSIX->NLGN4Y",
+    "PCDH11Y->XIST",
+    "COL20A1->ERBB3",
+    "XIST->TSIX"
+   ]
+  },
+  "PRAD": {
+   "h_abs": 0.1112164862323084,
+   "n_edges": 18,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "READ": {
+   "h_abs": 0.02012144918646186,
+   "n_edges": 205,
+   "n_cyclic_edges": 5,
+   "acyclic": false,
+   "cyclic_edges": [
+    "OGN->THBS4",
+    "CHIT1->MARCO",
+    "MARCO->SFRP2",
+    "SFRP2->OGN",
+    "THBS4->CHIT1"
+   ]
+  },
+  "SARC": {
+   "h_abs": 0.12186978970181883,
+   "n_edges": 13,
+   "n_cyclic_edges": 3,
+   "acyclic": false,
+   "cyclic_edges": [
+    "RPS4Y1->XIST",
+    "TSIX->RPS4Y1",
+    "XIST->TSIX"
+   ]
+  },
+  "SKCM": {
+   "h_abs": 0.1215988181829033,
+   "n_edges": 22,
+   "n_cyclic_edges": 7,
+   "acyclic": false,
+   "cyclic_edges": [
+    "MGC29506->ADAM6",
+    "FCRL5->MGC29506",
+    "ADAM6->IGJ",
+    "KRT5->KRT14",
+    "KRT6A->KRT5",
+    "KRT14->KRT6A",
+    "IGJ->FCRL5"
+   ]
+  },
+  "STAD": {
+   "h_abs": 0.054996911157033423,
+   "n_edges": 25,
+   "n_cyclic_edges": 6,
+   "acyclic": false,
+   "cyclic_edges": [
+    "EIF1AY->RPS4Y1",
+    "CYORF15A->CYORF15B",
+    "RPS4Y1->UTY",
+    "UTY->CYORF15A",
+    "USP9Y->EIF1AY",
+    "CYORF15B->USP9Y"
+   ]
+  },
+  "TGCT": {
+   "h_abs": 0.006702761379628441,
+   "n_edges": 67,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "THCA": {
+   "h_abs": 0.022483563298848708,
+   "n_edges": 36,
+   "n_cyclic_edges": 10,
+   "acyclic": false,
+   "cyclic_edges": [
+    "CD79A->CXCL13",
+    "CD79A->MGC29506",
+    "OMD->OGN",
+    "OGN->DPT",
+    "SFRP2->OMD",
+    "DPT->SFRP2",
+    "CXCL13->MGC29506",
+    "MGC29506->ADAM6",
+    "IGJ->CD79A",
+    "ADAM6->IGJ"
+   ]
+  },
+  "THYM": {
+   "h_abs": 0.013516792050339177,
+   "n_edges": 118,
+   "n_cyclic_edges": 8,
+   "acyclic": false,
+   "cyclic_edges": [
+    "EIF1AY->CYORF15B",
+    "TTTY15->EIF1AY",
+    "CYORF15A->KDM5D",
+    "CYORF15B->CYORF15A",
+    "KDM5D->ZFY",
+    "ZFY->TTTY15",
+    "ZFY->USP9Y",
+    "USP9Y->TTTY15"
+   ]
+  },
+  "UCEC": {
+   "h_abs": 0.0642544861837564,
+   "n_edges": 54,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  },
+  "UCS": {
+   "h_abs": 0.020820102413580344,
+   "n_edges": 229,
+   "n_cyclic_edges": 12,
+   "acyclic": false,
+   "cyclic_edges": [
+    "CAPN13->PAX8",
+    "C1ORF186->PIGR",
+    "PAX8->C1ORF186",
+    "MYH8->MYL1",
+    "HGD->CAPN13",
+    "CXCL17->CAPN13",
+    "PIGR->HGD",
+    "PIGR->CXCL17",
+    "MYL1->MYOG",
+    "MYOG->TNNT3",
+    "TNNT3->CKM",
+    "CKM->MYH8"
+   ]
+  },
+  "UVM": {
+   "h_abs": 0.02497217781838401,
+   "n_edges": 167,
+   "n_cyclic_edges": 0,
+   "acyclic": true,
+   "cyclic_edges": []
+  }
+ }
+}

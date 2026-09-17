@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 run_all.py — One-command reproducibility pipeline for
-"Tissue-Specificity of Causal Gene Regulatory Networks Across 33 Cancers"
+"Edge-level causal graph comparison across 33 TCGA cohorts reveals tissue-specific regulatory structure and prognostic hub genes"
 
 Usage: python run_all.py
 
@@ -11,10 +11,10 @@ Stages (each checkpointed, skip if already complete):
   3. GENIE3 baseline (33 cancers)
   4. Pooled NOTEARS
   5. Synthetic validation (V6 two-stage decomposition)
-  6. Generate all figures
+  6. Generate all figures and supplementary items
 
-Output: results/*.json, figures/*.pdf/png, manuscript.pdf
-Time: ~15-20 min on a laptop CPU
+Output: results/*.json, figures/*.pdf/png, supplementary/*.xlsx
+Time: ~25 min on a single CPU core for stages 1-5 (as reported in the manuscript)
 """
 
 import os, sys, json, time, subprocess
@@ -26,11 +26,26 @@ from scipy.stats import median_abs_deviation
 
 # -- Paths --
 BASE = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = r'D:\NO.1\cancer_application\data'
 RESULTS = os.path.join(BASE, 'results')
 FIGURES = os.path.join(BASE, 'figures')
 os.makedirs(RESULTS, exist_ok=True)
 os.makedirs(FIGURES, exist_ok=True)
+
+# The TCGA expression matrices are not redistributed with this package (see the
+# README, Data Availability). Read them from ./data/ or from the folder named by
+# MULTIBATCH_DATA, and fail with instructions rather than a traceback.
+DATA_DIR = os.environ.get('MULTIBATCH_DATA') or os.path.join(BASE, 'data')
+if not os.path.isdir(DATA_DIR):
+    sys.exit(
+        "\nDATA DIRECTORY NOT FOUND: %s\n\n"
+        "This package does not redistribute the TCGA expression matrices.\n"
+        "Download the 33 HiSeqV2 RSEM tables from the UCSC Xena browser\n"
+        "(https://xenabrowser.net/) and place them as\n\n"
+        "    <package>/data/TCGA_XXX_HiSeqV2.tsv\n\n"
+        "or point this script at the folder that holds them:\n\n"
+        "    MULTIBATCH_DATA=/path/to/data python run_all.py\n"
+        "    (Windows: set MULTIBATCH_DATA=D:/path/to/data  then  python run_all.py)\n"
+        % DATA_DIR)
 
 CKPT_NOTEARS = os.path.join(RESULTS, '_pipeline_notears.json')
 CKPT_GENEPAIR = os.path.join(RESULTS, '_pipeline_genepair.json')
@@ -286,8 +301,15 @@ for c in all_cancers:
 g3_pairs = set(g3_pair_count.keys())
 overlap = len(nt_pairs & g3_pairs)
 
-print(f"  GENIE3: {g3_total_edges} edges, {g3_unique} unique, {g3_shared} shared>=3")
-print(f"  Overlap with NOTEARS: {overlap}/{len(nt_pairs)} ({100*overlap/max(len(nt_pairs),1):.1f}%)")
+# These count a gene-pair with its orientation, which is one of the two
+# conventions the manuscript reports. The other convention, and the table
+# behind Figure 3, come from scripts/figures/gen_baseline_stats.py, which reads
+# the same checkpoints and runs in Stage 6b; the lines below are progress
+# output, not the source of a quoted number.
+print(f"  GENIE3: {g3_total_edges} edges, {g3_unique} unique directed pairs, "
+      f"{g3_shared} shared>=3 (directed convention)")
+print(f"  Overlap with NOTEARS (directed): {overlap}/{len(nt_pairs)} "
+      f"({100*overlap/max(len(nt_pairs),1):.1f}%)")
 
 # ===========================================================
 # STAGE 4: Pooled NOTEARS
@@ -376,14 +398,75 @@ print(f"""
   Cross-cancer sharing: {genepair.get('shared_gte3','?')}/{genepair.get('total_unique','?')} pairs shared >=3 ({genepair.get('shared_pct','?')}%)
   Mean reuse rate: {genepair.get('mean_reuse_rate','?')}%
   Rewired edges: {genepair.get('rewired','?')}
-  GENIE3 overlap: {overlap}/{len(nt_pairs)} ({100*overlap/max(len(nt_pairs),1):.1f}%)
+  GENIE3 overlap (directed): {overlap}/{len(nt_pairs)} ({100*overlap/max(len(nt_pairs),1):.1f}%)
   Pooled NOTEARS: {pooled.get('edges','?')} edges (vs {total_edges} per-cancer)
   Fold reduction: {total_edges/max(pooled.get('edges',1),1):.0f}x
-  Synthetic validation: 93% recovery (see scripts/experiments/_test_v6.py)
-  
+  Synthetic validation: 93% recovery (see scripts/experiments/_synthetic_v6.py)
+
   Checkpoints saved in: {RESULTS}/
-  Figures: python scripts/figures/gen_figures.py
-  Manuscript: pdflatex manuscript.tex
+  Supplementary figures: pdflatex supplementary_figures.tex
 """)
+
+# ===========================================================
+# STAGE 6b: Figures, supplementary figures and supplementary tables
+# ===========================================================
+# Order matters: the data-derivation scripts must run before the figures that consume them.
+# Each label names the figure as it is numbered in the manuscript; several generators keep an
+# older filename whose number no longer matches, which is why the label is never the filename.
+STAGE6B = [
+    ('derive hub / sharing / DepMap data', 'scripts/figures/_prep_fig_extra.py'),
+    ('document the composition of the shared pair set (reads the file above; Figure 1c needs it)',
+     'scripts/figures/_fix_family_key.py'),
+    ('context robustness: directed vs undirected sharing, reuse weighting, cohort-size stratifications',
+     'scripts/figures/_context_robustness.py'),
+    ('acyclicity diagnostic: achieved |h(W)| and cyclic edges per cohort (Section 2.7)',
+     'scripts/figures/_acyclicity_audit.py'),
+    ('derive tissue-specificity (tau) data', 'scripts/figures/_prep_tau.py'),
+    ('derive Fig 1 expression matrices (33 HiSeqV2 files)', 'scripts/figures/_prep_fig1_landscape.py'),
+    ('derive Fig 7 alteration matrices', 'scripts/figures/_prep_fig_variant_landscape.py'),
+    ('decompose STRING channels (Fig 4, Fig S3)', 'scripts/figures/_analyze_string_channels.py'),
+    ('derive Fig S3 co-expression matrices', 'scripts/figures/_prep_fig_corr.py'),
+    ('Figure 1  pan-cancer expression landscape', 'scripts/figures/gen_fig1_landscape.py'),
+    ('Figure 2  pan-cancer edge analysis', 'scripts/figures/gen_fig2.py'),
+    ('baseline comparison statistics behind Figure 3 (both counting conventions)',
+     'scripts/figures/gen_baseline_stats.py'),
+    ('Figure 3  baseline comparisons', 'scripts/figures/gen_fig3.py'),
+    ('Figure 4  external support of the inferred edges', 'scripts/figures/gen_fig_ppi.py'),
+    ('Figure 5  pan-cancer hub survival', 'scripts/figures/gen_km_pancan.py'),
+    ('BRCA network-gene survival (values quoted in the text)', 'scripts/figures/gen_km_panel.py'),
+    ('Figure 6  hub-gene tissue specificity', 'scripts/figures/gen_fig7.py'),
+    ('Figure 7  somatic alteration burden', 'scripts/figures/gen_fig_variant_landscape.py'),
+    ('Figure 8  pathway enrichment', 'scripts/figures/gen_fig_bio.py'),
+    ('Figure 9  DepMap cross-platform concordance', 'scripts/figures/gen_fig8.py'),
+    ('Supplementary Figure S1  parameter sensitivity', 'scripts/figures/gen_fig4.py'),
+    ('Supplementary Figure S2  synthetic validation', 'scripts/figures/gen_fig1.py'),
+    ('Supplementary Figure S3  co-expression structure', 'scripts/figures/gen_fig_corr.py'),
+    ('derive Fig S4 immune-correlation tables', 'scripts/figures/_analyze_immune_all.py'),
+    ('Supplementary Figure S4  immune microenvironment', 'scripts/figures/gen_fig_immune.py'),
+    ('Supplementary tables (S1-S4)', 'scripts/figures/_make_supplementary.py'),
+]
+
+print("\n" + "="*70)
+print("STAGE 6b: FIGURES AND SUPPLEMENTARY ITEMS")
+print("="*70)
+missing = []
+if os.environ.get('SKIP_FIGURES') == '1':
+    print("  skipped (SKIP_FIGURES=1)")
+else:
+    for label, rel in STAGE6B:
+        script = os.path.join(BASE, rel)
+        if not os.path.exists(script):
+            print(f"  MISSING {rel}")
+            missing.append(rel)
+            continue
+        print(f"  {label} ...")
+        rc = subprocess.run([sys.executable, script], cwd=BASE).returncode
+        if rc != 0:
+            print(f"    FAILED (exit {rc})")
+            missing.append(rel)
+    if missing:
+        print(f"\n  {len(missing)} step(s) did not complete: {missing}")
+    else:
+        print("\n  all figures and supplementary tables built")
 
 print("Reproducibility: All experiments checkpointed. Rerun for verification.")

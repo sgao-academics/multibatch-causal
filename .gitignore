@@ -1,31 +1,105 @@
+# ---------------------------------------------------------------------------
+# MultiBatch replication package -- what must never be published
+# ---------------------------------------------------------------------------
+# The rule this file follows: the repository ships exactly what the manuscript,
+# the Online Resources and the pipeline in run_all.py need.  Everything else --
+# the submission package, the internal audit notes, the scratch directories and
+# the analyses that did not make it into the paper -- stays local.
+#
+# If you are about to `git add -A`, read this list first: it is what keeps a
+# cover letter, a strategy note or a local username out of a public history.
+# ---------------------------------------------------------------------------
+
+# --- data: never redistributed (see README, Data Availability) ---
 data/
+
+# --- manuscript sources and submission packages (submission-only) ---
+manuscript.tex
+manuscript.pdf
+manuscript.bbl
+manuscript.blg
+cover_letter.tex
+cover_letter.pdf
+supplementary_figures.pdf
+VALUE_STATEMENT.md
+MultiBatch_Replication.zip
+MultiBatch_LaTeX_Source.zip
+MultiBatch_*.zip
+FIG_Upload/
+GNG_Upload/
+GenesGenomics_Scope_Check/
+_zip_verify/
+
+# --- internal audit notes and reviews (working documents, not package files) ---
+GITHUB_REPO_AUDIT.md
+FIGURE_AUDIT.md
+FNG_GUIDELINE_COMPLIANCE.md
+FNG_SUBMISSION_CHECKLIST.md
+REFERENCE_AUDIT_vs_MODEL_PAPER.md
+REVIEW_FINAL_WORD_AUDIT.md
+REVIEW_LOGIC_COHERENCE_READABILITY.md
+
+# --- scratch, archives, tooling caches ---
 _archive/
+_scratch/
+_rep_check/
+_zipcheck/
+.playwright-cli/
 __pycache__/
+*.pyc
+.DS_Store
+
+# --- LaTeX build products ---
 *.aux
 *.log
 *.out
 *.toc
 *.synctex.gz
-*.pyc
-.DS_Store
-manuscript.tex
-manuscript.pdf
-MultiBatch_Replication.zip
 
-# Submission-only files (never public)
-cover_letter.tex
-cover_letter.pdf
-VALUE_STATEMENT.md
-MultiBatch_LaTeX_Source.zip
-MultiBatch_*.zip
+# --- backups ---
 *.bak
-GenesGenomics_Scope_Check/
-.playwright-cli/
-_zip_verify/
+*.bak_*
+*.prev
+*_old.*
 
-# Root-level temp build logs & probe scripts (not repo artifacts)
+# --- root-level probe scripts and logs ---
 /_*.txt
 /_*.py
-*.bak_*
-_rep_check/
-_zipcheck/
+
+# --- result caches that are rebuilt rather than shipped ---
+# 46 MB expression cache; _prep_fig1_landscape.py rebuilds it from the TCGA files
+results/_fig1_landscape.npz
+
+# --- figures superseded by the current numbering ---
+# Fig 2-5 of the pre-submission set; the manuscript now uses Fig1-Fig9
+figures/fig2_tcga.*
+figures/fig3_baselines.*
+figures/fig5_biological_validation.*
+# the 11 single-gene Kaplan-Meier panels superseded by Figure 5, listed by name
+# on purpose: a wildcard is unsafe here, because core.ignorecase makes the
+# character class match lowercase too and would swallow km_brca_panel as well
+figures/km_ADH1B.png
+figures/km_ADIPOQ.png
+figures/km_CEACAM5.png
+figures/km_COL17A1.png
+figures/km_CST1.png
+figures/km_KLK6.png
+figures/km_KRT5.png
+figures/km_NAT1.png
+figures/km_NKAIN1.png
+figures/km_SCGB2A2.png
+figures/km_TFF1.png
+
+# --- analyses that are not part of the manuscript or the Online Resources ---
+# drug-sensitivity screen and single-cell layer, kept locally for future work
+figures/fig_drug.*
+figures/fig_singlecell.*
+figures/_canvas_check.txt
+scripts/figures/gen_fig_drug_sensitivity.py
+scripts/figures/gen_fig_singlecell.py
+results/_drug_sensitivity.json
+results/_cancer_sea_control.json
+results/_cancer_sea_hubs.json
+results/_fig_sc_landscape.json
+results/_hpa_celltype.npz
+results/_single_cell_layer_stats.json
