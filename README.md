@@ -61,7 +61,7 @@ reported numbers, and a clean run to verify the code.
 | `scripts/figures/_gene_symbols.py` | Gene-symbol table imported by the figure scripts. Two hub genes are carried by the source data under symbols HGNC has since replaced (`C9orf84` → `SHOC1`, `MGC29506` → `MZB1`), and the Xena matrices spell the unnamed-reading-frame loci in mixed case; a plain string comparison silently drops those rows, so every lookup goes through this module |
 | `supplementary_figures.tex` | LaTeX source of the supplementary figures (S1–S4); compiled with `pdflatex` it reproduces `supplementary/ESM_5.pdf` |
 | `supplementary/` | The five Online Resources as submitted: `ESM_1`–`ESM_4.xlsx` (Tables S1–S4) and `ESM_5.pdf` (Figures S1–S4), rebuilt by the last two steps of `run_all.py` |
-| `scripts/experiments/` | Self-contained V6 synthetic validation (`_synthetic_v6.py`); it writes `synth_ckpt.json` and `_v6_original_output.json` |
+| `scripts/experiments/` | Self-contained V6 synthetic validation (`_synthetic_v6.py`); it writes `synth_ckpt.json` and `_v6_original_output.json`. `_synth_metrics.py` scores that checkpoint against its ground truth and writes `_synth_metrics.json`, the source of Table 2 |
 | `results/` | Pre-computed checkpoints and derived data tables. The 46 MB expression cache `_fig1_landscape.npz` is deliberately not shipped; `_prep_fig1_landscape.py` rebuilds it from the TCGA files |
 | `figures/` | Pre-built figures, vector PDF |
 | `refs.bib` | The 91 references of the manuscript in BibTeX format |
@@ -77,7 +77,7 @@ reported numbers, and a clean run to verify the code.
 | 3 | GENIE3 baseline | `_genie3_lbfgs_ckpt.json` |
 | 4 | Pooled NOTEARS | `_pipeline_pooled.json` |
 | 5 | Synthetic validation (self-contained V6 two-stage pipeline) | `synth_ckpt.json`, `_v6_original_output.json` |
-| 6b | Figures 1–9, supplementary Figures S1–S4 and Tables S1–S4, plus the acyclicity diagnostic of Section 2.7 and the baseline table behind Figure 3 | `figures/`, `supplementary/`, `_acyclicity.json`, `_baseline_stats.json` |
+| 6b | Figures 1–9, supplementary Figures S1–S4 and Tables S1–S4, plus the acyclicity diagnostic of Section 2.7, the baseline table behind Figure 3 and the structure-recovery metrics of Table 2 | `figures/`, `supplementary/`, `_acyclicity.json`, `_baseline_stats.json`, `_synth_metrics.json` |
 
 All stages are idempotent. Re-running resumes from the last checkpoint.
 

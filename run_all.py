@@ -440,6 +440,8 @@ STAGE6B = [
     ('Figure 9  DepMap cross-platform concordance', 'scripts/figures/gen_fig8.py'),
     ('Supplementary Figure S1  parameter sensitivity', 'scripts/figures/gen_fig4.py'),
     ('Supplementary Figure S2  synthetic validation', 'scripts/figures/gen_fig1.py'),
+    ('Table 2  structure-recovery metrics on the synthetic benchmark',
+     'scripts/experiments/_synth_metrics.py'),
     ('Supplementary Figure S3  co-expression structure', 'scripts/figures/gen_fig_corr.py'),
     ('derive Fig S4 immune-correlation tables', 'scripts/figures/_analyze_immune_all.py'),
     ('Supplementary Figure S4  immune microenvironment', 'scripts/figures/gen_fig_immune.py'),
