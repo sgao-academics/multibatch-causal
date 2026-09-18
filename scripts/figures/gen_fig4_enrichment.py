@@ -1,9 +1,9 @@
-"""Figure 8: pathway enrichment of the inferred per-cancer causal networks.
+"""Figure 4: pathway enrichment of the inferred per-cancer causal networks.
 
   a) LUAD    b) BRCA    c) CHOL (no set reaches significance; shown as a null case)
   d) pan-cancer pooled network
 
-The Kaplan-Meier curves live in their own figure and the DepMap concordance in Figure 9, so neither
+The Kaplan-Meier curves live in their own figure and the DepMap concordance in Figure 8, so neither
 is repeated here.  Every number is read from results/_enrichment_percancer.json and
 results/_enrichment_global.json, and three claims made in the manuscript text are asserted below;
 a failure aborts the figure.
@@ -143,12 +143,12 @@ if _bad:
     sys.exit(1)
 print('canvas check passed: all text inside %.2f x %.2f in' % (fig.get_size_inches()[0], fig.get_size_inches()[1]))
 
-fig.savefig(os.path.join(FIG, 'Fig8.pdf'), dpi=300)
-fig.savefig(os.path.join(FIG, 'Fig8.png'), dpi=300)
+fig.savefig(os.path.join(FIG, 'Fig4.pdf'), dpi=300)
+fig.savefig(os.path.join(FIG, 'Fig4.png'), dpi=300)
 plt.close(fig)
 print('FigBio done: %d KB (pdf) / %d KB (png)'
-      % (os.path.getsize(os.path.join(FIG, 'Fig8.pdf')) // 1024,
-         os.path.getsize(os.path.join(FIG, 'Fig8.png')) // 1024))
+      % (os.path.getsize(os.path.join(FIG, 'Fig4.pdf')) // 1024,
+         os.path.getsize(os.path.join(FIG, 'Fig4.png')) // 1024))
 print('  LUAD sets=%d  BRCA sets=%d  CHOL sets=%d  global sets=%d'
       % (len(per['LUAD']['enrichment']), len(per['BRCA']['enrichment']),
          len(per['CHOL']['enrichment']), len(glo['global_enrichment'])))

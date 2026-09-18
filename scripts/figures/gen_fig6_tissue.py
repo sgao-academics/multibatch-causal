@@ -195,7 +195,7 @@ plt.savefig(os.path.join(FIGDIR, 'Fig6.pdf'), dpi=300)
 plt.savefig(os.path.join(FIGDIR, 'Fig6.png'), dpi=300)
 plt.close()
 
-print('Fig7 done: %d KB' % (os.path.getsize(os.path.join(FIGDIR, 'Fig6.pdf')) // 1024))
+print('Fig6 done: %d KB' % (os.path.getsize(os.path.join(FIGDIR, 'Fig6.pdf')) // 1024))
 print('  tau hub mean=%.3f vs non-hub mean=%.3f  MW p=%s' % (hub_tau.mean(), nonhub_tau.mean(), mw_p))
 print('  rank mean=%.2f  perm p=%.3f' % (rank_mean, perm_p))
 print('  examples: %s' % ', '.join('%s(rank %d)' % (g, stats[g]['rank']) for g in SHOW if g in stats))

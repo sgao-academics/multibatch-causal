@@ -1,4 +1,4 @@
-"""Figure 1: Synthetic validation (2x2). Real data from V6 MultiBatchCausalV6 output."""
+"""Figure S2: Synthetic validation (2x2). Real data from V6 MultiBatchCausalV6 output."""
 import json, os, numpy as np
 import matplotlib
 matplotlib.use('Agg')
@@ -77,7 +77,7 @@ cb.ax.tick_params(labelsize=6.6)
 # (this panel is 160 mm wide on the canvas and prints at 1.09x).
 
 plt.subplots_adjust(left=0.07, right=0.95, top=0.93, bottom=0.09, wspace=0.32, hspace=0.38)
-plt.savefig(os.path.join(FIGDIR, 'fig1_synthetic.pdf'), dpi=300)
-plt.savefig(os.path.join(FIGDIR, 'fig1_synthetic.png'), dpi=300)
+plt.savefig(os.path.join(FIGDIR, 'FigS2.pdf'), dpi=300)
+plt.savefig(os.path.join(FIGDIR, 'FigS2.png'), dpi=300)
 plt.close()
-print(f'Fig1 done: {os.path.getsize(os.path.join(FIGDIR, "fig1_synthetic.pdf"))//1024}KB')
+print(f'FigS2 done: {os.path.getsize(os.path.join(FIGDIR, "FigS2.pdf"))//1024}KB')

@@ -1,4 +1,4 @@
-"""Figure 9: cross-platform expression concordance on the DepMap cell-line panel.
+"""Figure 8: cross-platform expression concordance on the DepMap cell-line panel.
 
 For each STRING-confirmed network edge that maps unambiguously onto DepMap, the expression of the
 two genes is correlated across 1,684 cell lines (OmicsExpression, log2(TPM+1)).  Panels c and d
@@ -178,11 +178,11 @@ for k, idx in enumerate([int(np.argmax(rv)), int(np.argmin(rv))]):
     clean(ax)
 
 plt.subplots_adjust(left=0.197, right=0.985, top=0.940, bottom=0.095, wspace=0.715, hspace=0.36)
-plt.savefig(os.path.join(FIGDIR, 'Fig9.pdf'), dpi=300)
-plt.savefig(os.path.join(FIGDIR, 'Fig9.png'), dpi=300)
+plt.savefig(os.path.join(FIGDIR, 'Fig8.pdf'), dpi=300)
+plt.savefig(os.path.join(FIGDIR, 'Fig8.png'), dpi=300)
 plt.close()
 
-print('Fig8 done: %d KB' % (os.path.getsize(os.path.join(FIGDIR, 'Fig9.pdf')) // 1024))
+print('Fig8 done: %d KB' % (os.path.getsize(os.path.join(FIGDIR, 'Fig8.pdf')) // 1024))
 print('  edges plotted = %d ; r range = %.2f - %.2f' % (len(pairs), min(rv), max(rv)))
 print('  strongest = %s->%s r=%.2f ; weakest = %s->%s r=%.2f'
       % (pairs[order[-1]]['A'], pairs[order[-1]]['B'], max(rv),

@@ -10,7 +10,7 @@ Replication package for the manuscript submitted to *Functional & Integrative Ge
 # 1. Download TCGA HiSeqV2 RSEM data from https://xenabrowser.net/
 #    Place TCGA_XXX_HiSeqV2.tsv files (33 cancer types) in ./data/
 #    (set MULTIBATCH_DATA to read them from somewhere else)
-#    Optional, for the DepMap panel of Figure 9:
+#    Optional, for the DepMap panel of Figure 8:
 #      OmicsExpressionProteinCodingGenesTPMLogp1.csv and CRISPRGeneEffect.csv in ./data/depmap/
 #    Required for the survival panel of Figure 6:
 #      validation/pancan_os/*.json in ./data/  (33 cohorts, shipped with this package;
@@ -56,7 +56,7 @@ reported numbers, and a clean run to verify the code.
 | Directory | Contents |
 |:----------|:---------|
 | `run_all.py` | One-command reproduction: 5 analysis stages plus the figure/table stage, all checkpointed |
-| `scripts/figures/` | Data derivation (`_prep_fig1_landscape.py`, `_prep_fig_extra.py`, `_prep_tau.py`), the pan-cancer survival scan (`_km_pancan_scan.py`) and one generator per figure (`gen_fig1_landscape.py`, `gen_fig1.py` … `gen_fig8.py`, `gen_fig_bio.py`, `gen_km_pancan.py`, `gen_km_panel.py`) |
+| `scripts/figures/` | Data derivation (`_prep_fig1_landscape.py`, `_prep_fig_extra.py`, `_prep_tau.py`), the pan-cancer survival scan (`_km_pancan_scan.py`) and one generator per figure, named after the figure it builds (`gen_fig1_landscape.py`, `gen_fig2_edges.py` … `gen_fig9_baselines.py`, `gen_figS1_sensitivity.py` … `gen_figS4_immune.py`), plus two helpers that build no figure of their own (`gen_baseline_stats.py` writes the statistics behind Figure 9, `gen_km_panel.py` the BRCA log-rank values quoted in the text) |
 | `scripts/figures/_make_supplementary.py` | Builds Tables S1–S4 from the result files |
 | `scripts/figures/_gene_symbols.py` | Gene-symbol table imported by the figure scripts. Two hub genes are carried by the source data under symbols HGNC has since replaced (`C9orf84` → `SHOC1`, `MGC29506` → `MZB1`), and the Xena matrices spell the unnamed-reading-frame loci in mixed case; a plain string comparison silently drops those rows, so every lookup goes through this module |
 | `supplementary_figures.tex` | LaTeX source of the supplementary figures (S1–S4); compiled with `pdflatex` it reproduces `supplementary/ESM_5.pdf` |
@@ -77,7 +77,7 @@ reported numbers, and a clean run to verify the code.
 | 3 | GENIE3 baseline | `_genie3_lbfgs_ckpt.json` |
 | 4 | Pooled NOTEARS | `_pipeline_pooled.json` |
 | 5 | Synthetic validation (self-contained V6 two-stage pipeline) | `synth_ckpt.json`, `_v6_original_output.json` |
-| 6b | Figures 1–9, supplementary Figures S1–S4 and Tables S1–S4, plus the acyclicity diagnostic of Section 2.7, the baseline table behind Figure 3 and the structure-recovery metrics of Table 2 | `figures/`, `supplementary/`, `_acyclicity.json`, `_baseline_stats.json`, `_synth_metrics.json` |
+| 6b | Figures 1–9, supplementary Figures S1–S4 and Tables S1–S4, plus the acyclicity diagnostic of Section 2.7, the baseline table behind Figure 9 and the structure-recovery metrics of Table 2 | `figures/`, `supplementary/`, `_acyclicity.json`, `_baseline_stats.json`, `_synth_metrics.json` |
 
 All stages are idempotent. Re-running resumes from the last checkpoint.
 
@@ -86,32 +86,33 @@ All stages are idempotent. Re-running resumes from the last checkpoint.
 | Figure | Generator | Content |
 |:-------|:----------|:--------|
 | 1 | `gen_fig1_landscape.py` | Pan-cancer expression landscape: GSTM1 (most recurrent network gene) across 33 cohorts, tumor versus adjacent normal for each cohort's own hub gene (18 cohorts), and cross-cancer sharing of the inferred gene-pairs |
-| 2 | `gen_fig2.py` | Pan-cancer edge analysis: per-cancer edge counts, reuse rates, sharing distribution, edges vs sample size, 33 × 33 pairwise sharing map, composition of the shared set |
-| 3 | `gen_baseline_stats.py` → `gen_fig3.py` | Baseline comparisons: the cross-cancer sharing rate of both estimators under each counting convention, the overlap between their edge sets, and pooled against per-cancer NOTEARS |
-| 4 | `gen_fig_ppi.py` | External support of the inferred edges: largest supported components, STRING evidence channels, supported pairs per cancer |
-| 5 | `gen_km_pancan.py` | Pan-cancer hub survival: all 33 cohorts scanned on their own hub gene, showing the six that reach significance, with hazard ratios and 95% confidence intervals |
-| 6 | `gen_fig7.py` | Tissue specificity of the per-cancer hub genes (τ index, own-cancer rank, seven expression profiles) |
-| 7 | `gen_fig_variant_landscape.py` | Somatic alteration burden of the hub genes against the canonical drivers |
-| 8 | `gen_fig_bio.py` | MSigDB C2 pathway enrichment for LUAD, BRCA, CHOL (null case) and the pan-cancer network |
-| 9 | `gen_fig8.py` | DepMap cross-platform expression concordance and its relation to CRISPR co-dependency |
+| 2 | `gen_fig2_edges.py` | Pan-cancer edge analysis: per-cancer edge counts, reuse rates, sharing distribution, edges vs sample size, 33 × 33 pairwise sharing map, composition of the shared set |
+| 3 | `gen_fig3_ppi.py` | External support of the inferred edges: largest supported components, STRING evidence channels, supported pairs per cancer |
+| 4 | `gen_fig4_enrichment.py` | MSigDB C2 pathway enrichment for LUAD, BRCA, CHOL (null case) and the pan-cancer network |
+| 5 | `gen_fig5_survival.py` | Pan-cancer hub survival: all 33 cohorts scanned on their own hub gene, showing the six that reach significance, with hazard ratios and 95% confidence intervals |
+| 6 | `gen_fig6_tissue.py` | Tissue specificity of the per-cancer hub genes (τ index, own-cancer rank, seven expression profiles) |
+| 7 | `gen_fig7_alteration.py` | Somatic alteration burden of the hub genes against the canonical drivers |
+| 8 | `gen_fig8_depmap.py` | DepMap cross-platform expression concordance and its relation to CRISPR co-dependency |
+| 9 | `gen_baseline_stats.py` → `gen_fig9_baselines.py` | Baseline comparisons: the cross-cancer sharing rate of both estimators under each counting convention, the overlap between their edge sets, and pooled against per-cancer NOTEARS |
 
 The supplementary figures are shipped as a file of their own (`supplementary_figures.tex`,
 compiled to `Supplementary_Figures.pdf`):
 
 | Figure | Generator | Content |
 |:-------|:----------|:--------|
-| S1 | `gen_fig4.py` | Parameter sensitivity to λ₁ and τ |
-| S2 | `gen_fig1.py` | Two-stage decomposition on a synthetic ground-truth DAG |
-| S3 | `gen_fig_corr.py` | Co-expression structure of the STRING-supported network |
-| S4 | `gen_fig_immune.py` | Immune-microenvironment association of each cohort's own hub gene, with a matched control against the other genes of the same network |
+| S1 | `gen_figS1_sensitivity.py` | Parameter sensitivity to λ₁ and τ |
+| S2 | `gen_figS2_synthetic.py` | Two-stage decomposition on a synthetic ground-truth DAG |
+| S3 | `gen_figS3_coexpression.py` | Co-expression structure of the STRING-supported network |
+| S4 | `gen_figS4_immune.py` | Immune-microenvironment association of each cohort's own hub gene, with a matched control against the other genes of the same network |
 
-Several generators predate the current numbering, so their filenames carry a number that no longer
-matches the figure number; the tables above are therefore keyed on the generator, not the filename.
+Every generator is named after the figure it builds: `gen_figN_<topic>.py` builds Figure N and
+`gen_figSN_<topic>.py` builds Supplementary Figure S<N>. The number in the filename and the number
+printed under the artwork, `figures/FigN.pdf`, are therefore always the same figure.
 
 Figure 1 needs `_prep_fig1_landscape.py` to be run first: it reads the 33 per-cancer HiSeqV2
 matrices, extracts the 1,775 genes that occur in any inferred network, and writes
 `results/_fig1_landscape.npz` (46 MB, not shipped — regenerate it from the TCGA files instead).
-Figure 7 needs `_prep_fig_variant_landscape.py`; Figure 4 and Figure S3 both need
+Figure 7 needs `_prep_fig_variant_landscape.py`; Figure 3 and Figure S3 both need
 `_analyze_string_channels.py`, and Figure S3 additionally needs `_prep_fig_corr.py`. Figure S4 is
 drawn from `results/_immune_corr_all.json`, which `_analyze_immune_all.py` regenerates from the
 intermediate tables that ship in this package; those come from `_prep_immune_expr_cnv.py` (TCGA
@@ -128,10 +129,10 @@ Several generators recompute a reported quantity from raw data and abort on mism
 change in the pipeline cannot silently leave a figure out of step with the text:
 
 * `gen_fig1_landscape.py` recomputes every tumor/normal test from the per-cancer expression matrices and aborts if fewer than 15 cohorts are testable, if fewer than 8 hub tiles are significant, or if the shared set differs from the 12 + 7 split stated in the text.
-* `gen_fig8.py` recomputes every Spearman coefficient from the raw DepMap cell-line values before plotting.
-* `gen_km_pancan.py` rescans all 33 cohorts, includes a panel only when its hub reaches log-rank $p < 0.05$, and prints the count (6 of 33) alongside the binomial enrichment, so the figure cannot drift from the numbers in the text.
+* `gen_fig8_depmap.py` recomputes every Spearman coefficient from the raw DepMap cell-line values before plotting.
+* `gen_fig5_survival.py` rescans all 33 cohorts, includes a panel only when its hub reaches log-rank $p < 0.05$, and prints the count (6 of 33) alongside the binomial enrichment, so the figure cannot drift from the numbers in the text.
 * `gen_km_panel.py` asserts the four BRCA log-rank p-values quoted in the survival section.
-* `gen_fig_bio.py` asserts that the named LUAD/BRCA gene sets are present and that no CHOL set reaches p < 0.05.
+* `gen_fig4_enrichment.py` asserts that the named LUAD/BRCA gene sets are present and that no CHOL set reaches p < 0.05.
 * `_acyclicity_audit.py` recomputes the achieved $|h(W)|$ and the cyclic edges of every cohort from `_pipeline_notears.json`, and writes `results/_acyclicity.json`. It exists because NOTEARS returns the least-violating iterate within its iteration budget rather than an exactly acyclic matrix: the paper states the violation it actually reaches (16 of 33 thresholded graphs acyclic, 109 of 2,445 edges on a directed cycle) instead of asserting that it is zero.
 
 ## Data Availability

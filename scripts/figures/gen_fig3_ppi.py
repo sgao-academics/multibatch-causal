@@ -408,5 +408,5 @@ print("components %d | edges outside the four shown %d | two-gene components %d"
       % (n_comp, n_edges_rest, n_pairs_rest))
 
 for ext in ("pdf", "png"):
-    fig.savefig(os.path.join(FIG, "Fig4." + ext), dpi=400, facecolor="white")
-print("wrote figures/Fig4.pdf and .png")
+    fig.savefig(os.path.join(FIG, "Fig3." + ext), dpi=400, facecolor="white")
+print("wrote figures/Fig3.pdf and .png")

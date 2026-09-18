@@ -303,7 +303,7 @@ overlap = len(nt_pairs & g3_pairs)
 
 # These count a gene-pair with its orientation, which is one of the two
 # conventions the manuscript reports. The other convention, and the table
-# behind Figure 3, come from scripts/figures/gen_baseline_stats.py, which reads
+# behind Figure 9, come from scripts/figures/gen_baseline_stats.py, which reads
 # the same checkpoints and runs in Stage 6b; the lines below are progress
 # output, not the source of a quoted number.
 print(f"  GENIE3: {g3_total_edges} edges, {g3_unique} unique directed pairs, "
@@ -413,6 +413,8 @@ print(f"""
 # Order matters: the data-derivation scripts must run before the figures that consume them.
 # Each label names the figure as it is numbered in the manuscript; several generators keep an
 # older filename whose number no longer matches, which is why the label is never the filename.
+# The images under figures/ do follow the manuscript numbering: figures/FigN.pdf is the figure
+# printed as Figure N.
 STAGE6B = [
     ('derive hub / sharing / DepMap data', 'scripts/figures/_prep_fig_extra.py'),
     ('document the composition of the shared pair set (reads the file above; Figure 1c needs it)',
@@ -424,27 +426,27 @@ STAGE6B = [
     ('derive tissue-specificity (tau) data', 'scripts/figures/_prep_tau.py'),
     ('derive Fig 1 expression matrices (33 HiSeqV2 files)', 'scripts/figures/_prep_fig1_landscape.py'),
     ('derive Fig 7 alteration matrices', 'scripts/figures/_prep_fig_variant_landscape.py'),
-    ('decompose STRING channels (Fig 4, Fig S3)', 'scripts/figures/_analyze_string_channels.py'),
+    ('decompose STRING channels (Fig 3, Fig S3)', 'scripts/figures/_analyze_string_channels.py'),
     ('derive Fig S3 co-expression matrices', 'scripts/figures/_prep_fig_corr.py'),
     ('Figure 1  pan-cancer expression landscape', 'scripts/figures/gen_fig1_landscape.py'),
-    ('Figure 2  pan-cancer edge analysis', 'scripts/figures/gen_fig2.py'),
-    ('baseline comparison statistics behind Figure 3 (both counting conventions)',
+    ('Figure 2  pan-cancer edge analysis', 'scripts/figures/gen_fig2_edges.py'),
+    ('baseline comparison statistics behind Figure 9 (both counting conventions)',
      'scripts/figures/gen_baseline_stats.py'),
-    ('Figure 3  baseline comparisons', 'scripts/figures/gen_fig3.py'),
-    ('Figure 4  external support of the inferred edges', 'scripts/figures/gen_fig_ppi.py'),
-    ('Figure 5  pan-cancer hub survival', 'scripts/figures/gen_km_pancan.py'),
+    ('Figure 9  baseline comparisons', 'scripts/figures/gen_fig9_baselines.py'),
+    ('Figure 3  external support of the inferred edges', 'scripts/figures/gen_fig3_ppi.py'),
+    ('Figure 5  pan-cancer hub survival', 'scripts/figures/gen_fig5_survival.py'),
     ('BRCA network-gene survival (values quoted in the text)', 'scripts/figures/gen_km_panel.py'),
-    ('Figure 6  hub-gene tissue specificity', 'scripts/figures/gen_fig7.py'),
-    ('Figure 7  somatic alteration burden', 'scripts/figures/gen_fig_variant_landscape.py'),
-    ('Figure 8  pathway enrichment', 'scripts/figures/gen_fig_bio.py'),
-    ('Figure 9  DepMap cross-platform concordance', 'scripts/figures/gen_fig8.py'),
-    ('Supplementary Figure S1  parameter sensitivity', 'scripts/figures/gen_fig4.py'),
-    ('Supplementary Figure S2  synthetic validation', 'scripts/figures/gen_fig1.py'),
+    ('Figure 6  hub-gene tissue specificity', 'scripts/figures/gen_fig6_tissue.py'),
+    ('Figure 7  somatic alteration burden', 'scripts/figures/gen_fig7_alteration.py'),
+    ('Figure 4  pathway enrichment', 'scripts/figures/gen_fig4_enrichment.py'),
+    ('Figure 8  DepMap cross-platform concordance', 'scripts/figures/gen_fig8_depmap.py'),
+    ('Supplementary Figure S1  parameter sensitivity', 'scripts/figures/gen_figS1_sensitivity.py'),
+    ('Supplementary Figure S2  synthetic validation', 'scripts/figures/gen_figS2_synthetic.py'),
     ('Table 2  structure-recovery metrics on the synthetic benchmark',
      'scripts/experiments/_synth_metrics.py'),
-    ('Supplementary Figure S3  co-expression structure', 'scripts/figures/gen_fig_corr.py'),
+    ('Supplementary Figure S3  co-expression structure', 'scripts/figures/gen_figS3_coexpression.py'),
     ('derive Fig S4 immune-correlation tables', 'scripts/figures/_analyze_immune_all.py'),
-    ('Supplementary Figure S4  immune microenvironment', 'scripts/figures/gen_fig_immune.py'),
+    ('Supplementary Figure S4  immune microenvironment', 'scripts/figures/gen_figS4_immune.py'),
     ('Supplementary tables (S1-S4)', 'scripts/figures/_make_supplementary.py'),
 ]
 

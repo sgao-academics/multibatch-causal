@@ -11,14 +11,14 @@ so the reproduction package is fully self-contained: running run_all.py's
 STAGE 5 calls this script and regenerates results/_v6_original_output.json
 (and the matching fields of results/synth_ckpt.json).
 
-IMPORTANT batch-label convention (kept consistent with the manuscript, Fig.1
-generator scripts/figures/gen_fig1.py and the original _v6_original_output.json):
+IMPORTANT batch-label convention (kept consistent with the manuscript, Fig. S2
+generator scripts/figures/gen_figS2_synthetic.py and the original _v6_original_output.json):
   * The "fit" order (how data is generated / V6 is run) places the rewired
     batch at array index 2, so that v6['Deltas'][2] is the rewired+new batch
-    used by gen_fig1 panel (d).
+    used by gen_figS2_synthetic panel (d).
   * The "display" order written to synth_ckpt['W_trues'] places the rewired
-    batch at index 1, so that gen_fig1 panel (b) reads W_trues[1] as the
-    "ground truth Batch 2 (rewired + new)".
+    batch at index 1, so that gen_figS2_synthetic panel (b) reads W_trues[1] as the
+    "ground truth Batch 1 (rewired + new)".
 
 Dependencies: numpy, scipy. Deterministic with seed 42.
 """
@@ -133,7 +133,7 @@ def run():
 
     # --- FIT order: index 1 = edges (2,6),(4,9); index 2 = rewired (2,5)+new (0,7) ---
     # This is the ordering used to generate data and run V6; Deltas[2] ends up as
-    # the rewired+new batch, matching gen_fig1 panel (d).
+    # the rewired+new batch, matching gen_figS2_synthetic panel (d).
     W_trues_fit = []
     for k in range(K):
         Wk = W_shared.copy()
@@ -205,7 +205,7 @@ def run():
     print(f"Saved: {v6_path}")
 
     # --- Display order for synth_ckpt['W_trues']: index 0 = spec, index 1 = rewired,
-    #     index 2 = shared-only. This is what gen_fig1 panel (b) expects (W_trues[1]). ---
+    #     index 2 = shared-only. This is what gen_figS2_synthetic panel (b) expects (W_trues[1]). ---
     W_trues_disp = []
     for k in range(K):
         Wk = W_shared.copy()

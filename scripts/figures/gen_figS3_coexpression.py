@@ -217,5 +217,5 @@ print("font size FS=%.1f pt -> %.2f pt in the published layout (canvas %.0f mm v
 print("mean rho across panels: %+.3f" % float(np.mean(allr)))
 
 for ext in ("pdf", "png"):
-    fig.savefig(os.path.join(FIG, "fig_corr." + ext), dpi=400, facecolor="white")
-print("wrote figures/fig_corr.pdf and .png")
+    fig.savefig(os.path.join(FIG, "FigS3." + ext), dpi=400, facecolor="white")
+print("wrote figures/FigS3.pdf and .png")

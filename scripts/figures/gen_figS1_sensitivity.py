@@ -1,4 +1,4 @@
-"""Figure 4: Parameter sensitivity and edge statistics (2x2)."""
+"""Figure S1: Parameter sensitivity and edge statistics (2x2)."""
 import json, os, numpy as np
 from collections import Counter
 import matplotlib
@@ -133,8 +133,8 @@ ax4.spines['right'].set_visible(False)
 
 plt.subplots_adjust(left=0.08, right=0.95, top=0.93, bottom=0.06,
                     wspace=0.35, hspace=0.42)
-plt.savefig(os.path.join(FIGDIR, 'fig4_sensitivity.pdf'), dpi=300)
-plt.savefig(os.path.join(FIGDIR, 'fig4_sensitivity.png'), dpi=300)
+plt.savefig(os.path.join(FIGDIR, 'FigS1.pdf'), dpi=300)
+plt.savefig(os.path.join(FIGDIR, 'FigS1.png'), dpi=300)
 plt.close()
-print(f'Fig4 done: {os.path.getsize(os.path.join(FIGDIR, "fig4_sensitivity.pdf"))//1024}KB')
+print(f'FigS1 done: {os.path.getsize(os.path.join(FIGDIR, "FigS1.pdf"))//1024}KB')
 print(f'  Spearman(edges, reuse): r={r_re:.2f}, p={p_re:.3f}')

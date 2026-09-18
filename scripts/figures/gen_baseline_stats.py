@@ -1,4 +1,4 @@
-"""Baseline comparison statistics behind Figure 3.
+"""Baseline comparison statistics behind Figure 9.
 
 Single source of truth for the NOTEARS versus GENIE3 comparison. Two distinct
 counts have to be kept apart, and both are written here:

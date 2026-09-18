@@ -238,5 +238,5 @@ assert not ov, "overlapping text"
 assert FS * PRINT_SCALE >= PRINT_FLOOR - 0.01, "printed type below the floor"
 
 for ext in ("pdf", "png"):
-    fig.savefig(os.path.join(FIGDIR, "fig_immune.%s" % ext), dpi=300, facecolor="white")
-print("wrote figures/fig_immune.pdf/.png")
+    fig.savefig(os.path.join(FIGDIR, "FigS4.%s" % ext), dpi=300, facecolor="white")
+print("wrote figures/FigS4.pdf/.png")

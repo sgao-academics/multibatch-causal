@@ -96,6 +96,6 @@ plt.tight_layout()
 plt.savefig(os.path.join(FIG, 'km_brca_panel.png'), dpi=220)
 plt.savefig(os.path.join(FIG, 'km_brca_panel.pdf'), dpi=220)
 plt.close()
-print('Fig5 done: %d KB (png) / %d KB (pdf)'
+print('BRCA panel done: %d KB (png) / %d KB (pdf)'
       % (os.path.getsize(os.path.join(FIG, 'km_brca_panel.png')) // 1024,
          os.path.getsize(os.path.join(FIG, 'km_brca_panel.pdf')) // 1024))

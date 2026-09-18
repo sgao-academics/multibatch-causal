@@ -1,4 +1,4 @@
-"""Figure 3: baseline comparisons.
+"""Figure 9: baseline comparisons.
 
 Three panels, one for each check the section runs:
 
@@ -167,11 +167,11 @@ tidy(ax3)
 plt.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.20, wspace=0.42)
 
 for ext in ('pdf', 'png'):
-    fig.savefig(os.path.join(FIGDIR, 'Fig3.%s' % ext), dpi=300)
+    fig.savefig(os.path.join(FIGDIR, 'Fig9.%s' % ext), dpi=300)
 plt.close(fig)
 
-print('Fig3: sharing NOTEARS %.1f/%.1f%% GENIE3 %.1f/%.1f%% | overlap undirected %d | pooled %d vs %d (%.0fx)'
+print('Fig9: sharing NOTEARS %.1f/%.1f%% GENIE3 %.1f/%.1f%% | overlap undirected %d | pooled %d vs %d (%.0fx)'
       % (NT['directed']['pct_ge3'], NT['undirected']['pct_ge3'],
          G3['directed']['pct_ge3'], G3['undirected']['pct_ge3'],
          shared, pooled, tot, round(fold)))
-print('Fig3 done: %d KB' % (os.path.getsize(os.path.join(FIGDIR, 'Fig3.pdf')) // 1024))
+print('Fig9 done: %d KB' % (os.path.getsize(os.path.join(FIGDIR, 'Fig9.pdf')) // 1024))

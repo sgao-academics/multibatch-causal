@@ -63,7 +63,9 @@ __pycache__/
 results/_fig1_landscape.npz
 
 # --- figures superseded by the current numbering ---
-# Fig 2-5 of the pre-submission set; the manuscript now uses Fig1-Fig9
+# Fig 2-5 of the pre-submission set; the artwork now uses Fig1-Fig9 for the manuscript,
+# numbered in the order the text first cites them, and FigS1-FigS4 for the supplementary
+# figures (so fig1_synthetic is FigS2 and fig4_sensitivity is FigS1)
 figures/fig2_tcga.*
 figures/fig3_baselines.*
 figures/fig5_biological_validation.*
