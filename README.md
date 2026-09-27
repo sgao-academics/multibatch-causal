@@ -179,6 +179,12 @@ Every generator is named after the artwork it builds — `gen_figN_<topic>.py` w
 `figures/FigN.pdf` — so a name never has to be guessed and `run_all.py` can be read straight
 down.
 
+Every generator draws on a 6.85 in (174 mm) canvas with 8 pt base type, the width and the type
+size of the journal's single-column text block, and puts nothing but a lower-case part letter
+inside the artwork: the caption lives in the manuscript, and a figure placed at `\textwidth`
+then prints at the size it was drawn at, so the lettering keeps the point size its generator
+declared.
+
 Figure 1 needs `_prep_fig_extra.py` and `_fix_family_key.py` to have been run first (they
 document the composition of the shared pair set); it reads
 `results/_recurrence_analysis.json`, `results/_axis_attribution.json`,
