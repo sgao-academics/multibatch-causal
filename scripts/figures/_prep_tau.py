@@ -81,7 +81,11 @@ def tau_of(g):
 
 hub_tau, nonhub_tau = [], []
 gene_tau = {}
-for g in universe:
+# Sorted, not raw set order: iterating a set of strings depends on the per-process hash
+# seed, which reordered hub_tau/nonhub_tau from run to run.  Every consumer is
+# order-invariant (mean, median, Mann-Whitney, violin/box plots), so nothing downstream
+# moves -- but the file now reproduces byte for byte.
+for g in sorted(universe):
     t = tau_of(g)
     if t is None:
         continue

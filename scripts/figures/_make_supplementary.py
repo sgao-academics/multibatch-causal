@@ -31,8 +31,8 @@ WRAP = Alignment(vertical='top', wrap_text=False)
 
 # Required in every supplementary file by the journal's submission guidelines.
 BANNER = [
-    'Article title: A pan-cancer causal graph atlas of 33 TCGA cohorts reveals tissue-anchored '
-    'regulatory structure and defines a covariate screen for cross-cohort edge sharing',
+    'Article title: A CXCL9–CXCL10–CXCL11 chemokine cascade is the only reproducible '
+    'cross-cancer causal chain across 33 TCGA cohorts',
     'Journal: Functional & Integrative Genomics',
     'Author: Shuaidong Gao',
     'Affiliation: Chongqing Institute of Foreign Studies, Qijiang Campus, '

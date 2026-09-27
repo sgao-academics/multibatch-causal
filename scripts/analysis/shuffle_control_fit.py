@@ -18,6 +18,9 @@ _ROOT = os.path.dirname(os.path.dirname(_HERE))
 DATA = os.path.join(_ROOT, 'data')
 RES = os.path.join(_ROOT, 'results')
 PANELS = os.path.join(DATA, 'panels')
+# The TCGA expression matrices are not redistributed with this package: read them from
+# ./data/ unless MULTIBATCH_DATA names the folder that holds them, as run_all.py does.
+TCGA_DIR = os.environ.get('MULTIBATCH_DATA') or DATA
 FIG = os.path.join(_ROOT, 'figures')
 
 PANEL = os.path.join(PANELS, 'panel_A_100genes.json')
@@ -81,7 +84,7 @@ print('already done = %d | todo = %d' % (len(done), len(todo)), flush=True)
 rng = np.random.default_rng(SEED)
 for idx, c in enumerate(todo):
     t0 = time.time()
-    df = pd.read_csv(os.path.join(DATA, 'TCGA_%s_HiSeqV2.tsv' % c), sep='\t', index_col=0).T
+    df = pd.read_csv(os.path.join(TCGA_DIR, 'TCGA_%s_HiSeqV2.tsv' % c), sep='\t', index_col=0).T
     X = df.reindex(columns=panel).values.astype(np.float64)
     X = np.nan_to_num(X, nan=0.0)
     X = (X - X.mean(axis=0)) / (X.std(axis=0) + 1e-12)

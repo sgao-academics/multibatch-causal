@@ -3,3 +3,6 @@ scipy>=1.10
 pandas>=1.5
 matplotlib>=3.7
 scikit-learn>=1.2
+# optional: only scripts/figures/_analyze_immune_all.py needs this, and only to rebuild
+# the TISIDB immune tables; the shipped results/_immune_corr_all.json is used otherwise.
+pyreadr>=0.5

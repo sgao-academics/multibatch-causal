@@ -20,19 +20,22 @@ _ROOT = os.path.dirname(os.path.dirname(_HERE))
 DATA = os.path.join(_ROOT, 'data')
 RES = os.path.join(_ROOT, 'results')
 PANELS = os.path.join(DATA, 'panels')
+# The TCGA expression matrices are not redistributed with this package: read them from
+# ./data/ unless MULTIBATCH_DATA names the folder that holds them, as run_all.py does.
+TCGA_DIR = os.environ.get('MULTIBATCH_DATA') or DATA
 FIG = os.path.join(_ROOT, 'figures')
 
 OUT = os.path.join(PANELS, 'panel_A_100genes.json')
 N = 100
 
-files = sorted(f for f in os.listdir(DATA)
+files = sorted(f for f in os.listdir(TCGA_DIR)
                if f.startswith('TCGA_') and f.endswith('_HiSeqV2.tsv'))
 cancers = [f.replace('TCGA_', '').replace('_HiSeqV2.tsv', '') for f in files]
 print('cancers found =', len(cancers), flush=True)
 
 per, gene_lists, gene_sets = {}, {}, {}
 for i, (f, c) in enumerate(zip(files, cancers)):
-    df = pd.read_csv(os.path.join(DATA, f), sep='\t', index_col=0).T
+    df = pd.read_csv(os.path.join(TCGA_DIR, f), sep='\t', index_col=0).T
     v = df.values.astype(np.float64)
     mad = pd.Series(median_abs_deviation(v, axis=0), index=df.columns)
     mad = mad.replace([np.inf, -np.inf], np.nan).dropna()

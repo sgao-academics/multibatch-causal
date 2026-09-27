@@ -18,6 +18,9 @@ _ROOT = os.path.dirname(os.path.dirname(_HERE))
 DATA = os.path.join(_ROOT, 'data')
 RES = os.path.join(_ROOT, 'results')
 PANELS = os.path.join(DATA, 'panels')
+# The TCGA expression matrices are not redistributed with this package: read them from
+# ./data/ unless MULTIBATCH_DATA names the folder that holds them, as run_all.py does.
+TCGA_DIR = os.environ.get('MULTIBATCH_DATA') or DATA
 FIG = os.path.join(_ROOT, 'figures')
 
 meta = json.load(open(os.path.join(PANELS, 'panel_A_100genes.json'), encoding='utf-8'))
@@ -30,7 +33,7 @@ gi = {g: i for i, g in enumerate(panel)}
 # ---- pooling: z-scores within each cohort, stacked vertically (removes cohort mean and scale) ----
 blocks, per_coh = [], {}
 for c in cancers:
-    df = pd.read_csv(os.path.join(DATA, 'TCGA_%s_HiSeqV2.tsv' % c), sep='\t', index_col=0).T
+    df = pd.read_csv(os.path.join(TCGA_DIR, 'TCGA_%s_HiSeqV2.tsv' % c), sep='\t', index_col=0).T
     X = df.reindex(columns=panel).values.astype(np.float64)
     X = np.nan_to_num(X, nan=0.0)
     Z = (X - X.mean(0)) / (X.std(0) + 1e-12)

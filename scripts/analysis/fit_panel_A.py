@@ -19,6 +19,9 @@ _ROOT = os.path.dirname(os.path.dirname(_HERE))
 DATA = os.path.join(_ROOT, 'data')
 RES = os.path.join(_ROOT, 'results')
 PANELS = os.path.join(DATA, 'panels')
+# The TCGA expression matrices are not redistributed with this package: read them from
+# ./data/ unless MULTIBATCH_DATA names the folder that holds them, as run_all.py does.
+TCGA_DIR = os.environ.get('MULTIBATCH_DATA') or DATA
 FIG = os.path.join(_ROOT, 'figures')
 
 PANEL = os.path.join(PANELS, 'panel_A_100genes.json')
@@ -79,7 +82,7 @@ print('already done = %d | todo = %d' % (len(done), len(todo)), flush=True)
 
 for idx, c in enumerate(todo):
     t0 = time.time()
-    df = pd.read_csv(os.path.join(DATA, 'TCGA_%s_HiSeqV2.tsv' % c), sep='\t', index_col=0).T
+    df = pd.read_csv(os.path.join(TCGA_DIR, 'TCGA_%s_HiSeqV2.tsv' % c), sep='\t', index_col=0).T
     missing = [g for g in panel if g not in df.columns]
     if missing:
         print('  !! %s missing %d panel genes' % (c, len(missing)), flush=True)

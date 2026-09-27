@@ -16,6 +16,9 @@ _ROOT = os.path.dirname(os.path.dirname(_HERE))
 DATA = os.path.join(_ROOT, 'data')
 RES = os.path.join(_ROOT, 'results')
 PANELS = os.path.join(DATA, 'panels')
+# The TCGA expression matrices are not redistributed with this package: read them from
+# ./data/ unless MULTIBATCH_DATA names the folder that holds them, as run_all.py does.
+TCGA_DIR = os.environ.get('MULTIBATCH_DATA') or DATA
 FIG = os.path.join(_ROOT, 'figures')
 
 OUT = os.path.join(RES, '_driver_screen.json')
@@ -27,7 +30,7 @@ ESR1 AR TP63 SOX2 NFE2L2 KEAP1 STK11 ATM CHEK2 FAT1 NOTCH1 NOTCH2 CASP8 HRAS
 PTPN11 MLH1 MSH2 MSH6 PMS2 BAP1 SETD2 B2M HLA-A JAK2 STAT3 MTOR TSC1 TSC2
 CTNNB1 EZH2 KMT2D CREBBP EP300 FGFR1 FGFR2 FGFR3 KIT PDGFRA RET SRC ABL1""".split()
 
-files = sorted(glob.glob(os.path.join(DATA, 'TCGA_*_HiSeqV2.tsv')))
+files = sorted(glob.glob(os.path.join(TCGA_DIR, 'TCGA_*_HiSeqV2.tsv')))
 print('cohort files =', len(files))
 rows = []
 drv_pct = {g: [] for g in sorted(set(DRIVERS))}

@@ -16,6 +16,9 @@ _ROOT = os.path.dirname(os.path.dirname(_HERE))
 DATA = os.path.join(_ROOT, 'data')
 RES = os.path.join(_ROOT, 'results')
 PANELS = os.path.join(DATA, 'panels')
+# The TCGA expression matrices are not redistributed with this package: read them from
+# ./data/ unless MULTIBATCH_DATA names the folder that holds them, as run_all.py does.
+TCGA_DIR = os.environ.get('MULTIBATCH_DATA') or DATA
 FIG = os.path.join(_ROOT, 'figures')
 
 E = RES  # scratch alias
@@ -25,7 +28,7 @@ N = 100
 LO, HI = 201, 2000
 
 cur = set(json.load(open(os.path.join(PANELS, 'panel_A_100genes.json'), encoding='utf-8'))['panel'])
-files = sorted(glob.glob(os.path.join(DATA, 'TCGA_*_HiSeqV2.tsv')))
+files = sorted(glob.glob(os.path.join(TCGA_DIR, 'TCGA_*_HiSeqV2.tsv')))
 print('cohorts =', len(files))
 
 acc = None

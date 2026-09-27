@@ -4,7 +4,10 @@ types, across the three modalities (expression / CNV / methylation).
 Writes results/_immune_corr_all.json and prints the summary that decides the figure."""
 import os, sys, json, zipfile, tempfile
 import numpy as np
-import pyreadr
+try:
+    import pyreadr
+except ImportError:   # optional: only rebuilding the TISIDB tables needs it
+    pyreadr = None
 from scipy import stats
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -34,7 +37,21 @@ def norm(s):
 
 
 # ---------- TIL ----------
-z = zipfile.ZipFile(os.path.join(IMM, "TIL_abundance.zip"))
+# The TISIDB archive and pyreadr are both optional.  When either is missing the tables
+# shipped in results/ are what Supplementary Figure S4 reads, so this step stands down
+# rather than failing; only an absent results/ file is an error.
+_TIL = os.path.join(IMM, "TIL_abundance.zip")
+if pyreadr is None or not os.path.exists(_TIL):
+    _why = ("the pyreadr module is not installed" if pyreadr is None
+            else "no TIL archive at %s" % _TIL)
+    if os.path.exists(OUT):
+        print("Immune tables not regenerated (%s).  results/_immune_corr_all.json ships "
+              "with the package and is what Supplementary Figure S4 reads." % _why)
+        sys.exit(0)
+    sys.exit("The immune tables cannot be built (%s) and results/_immune_corr_all.json "
+             "is missing.  Install pyreadr and put the TISIDB TIL archive there, or "
+             "point MULTIBATCH_IMMUNE at the folder that holds TIL_abundance.zip." % _why)
+z = zipfile.ZipFile(_TIL)
 tmp = tempfile.mkdtemp(prefix="til_")
 til = {}
 for m in [m for m in z.namelist() if m.endswith("_TIL.RData")]:

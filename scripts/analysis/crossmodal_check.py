@@ -17,9 +17,12 @@ _ROOT = os.path.dirname(os.path.dirname(_HERE))
 DATA = os.path.join(_ROOT, 'data')
 RES = os.path.join(_ROOT, 'results')
 PANELS = os.path.join(DATA, 'panels')
+# The TCGA expression matrices are not redistributed with this package: read them from
+# ./data/ unless MULTIBATCH_DATA names the folder that holds them, as run_all.py does.
+TCGA_DIR = os.environ.get('MULTIBATCH_DATA') or DATA
 FIG = os.path.join(_ROOT, 'figures')
 
-GISTIC = os.path.join(DATA, 'Gistic2_CopyNumber_Gistic2_all_thresholded.by_genes.gz')
+GISTIC = os.path.join(TCGA_DIR, 'Gistic2_CopyNumber_Gistic2_all_thresholded.by_genes.gz')
 OUT = os.path.join(RES, '_crossmodal_check.json')
 
 meta = json.load(open(os.path.join(PANELS, 'panel_A_100genes.json'), encoding='utf-8'))
@@ -52,7 +55,7 @@ print('  genes used = %d | samples = %d' % (cnt, len(samples)))
 aneu = pd.Series(acc / cnt, index=samples)
 
 # ---- BRCA expression ----
-df = pd.read_csv(os.path.join(DATA, 'TCGA_BRCA_HiSeqV2.tsv'), sep='\t', index_col=0).T
+df = pd.read_csv(os.path.join(TCGA_DIR, 'TCGA_BRCA_HiSeqV2.tsv'), sep='\t', index_col=0).T
 print('expression samples =', df.shape[0])
 
 common = sorted(set(aneu.index) & set(df.index))

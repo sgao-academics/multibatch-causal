@@ -54,6 +54,10 @@ if not os.path.isdir(DATA_DIR):
         "    (Windows: set MULTIBATCH_DATA=D:/path/to/data  then  python run_all.py)\n"
         % DATA_DIR)
 
+# Children resolve their own data root; hand them the one this script settled on so every
+# stage reads the same matrices whatever the caller's environment happens to hold.
+CHILD_ENV = dict(os.environ, MULTIBATCH_DATA=DATA_DIR)
+
 CKPT_NOTEARS = os.path.join(RESULTS, '_pipeline_notears.json')
 CKPT_GENEPAIR = os.path.join(RESULTS, '_pipeline_genepair.json')
 CKPT_GENIE3 = os.path.join(RESULTS, '_genie3_lbfgs_ckpt.json')
@@ -398,7 +402,7 @@ if os.path.exists(CKPT_SYNTH):
 if 'recovery_pct' not in synth:
     synth_py = os.path.join(BASE, 'scripts', 'experiments', '_synthetic_v6.py')
     print("STAGE 5: running self-contained V6 synthetic validation ...")
-    rc = subprocess.run([sys.executable, synth_py]).returncode
+    rc = subprocess.run([sys.executable, synth_py], env=CHILD_ENV).returncode
     if rc != 0:
         raise SystemExit(f"Synthetic V6 validation failed with code {rc}")
     synth = json.load(open(CKPT_SYNTH))
@@ -465,7 +469,7 @@ for label, rel, default_run in ALIGNED:
         _skipped.append(rel)
         continue
     print(f"  {label} ...")
-    rc = subprocess.run([sys.executable, script], cwd=BASE).returncode
+    rc = subprocess.run([sys.executable, script], cwd=BASE, env=CHILD_ENV).returncode
     if rc != 0:
         print(f"    FAILED (exit {rc})")
 print()
@@ -560,7 +564,8 @@ STAGE6B = [
     ('Table 2  structure-recovery metrics on the synthetic benchmark',
      'scripts/experiments/_synth_metrics.py'),
     ('Supplementary Figure S3  co-expression structure', 'scripts/figures/gen_figS3_coexpression.py'),
-    ('derive Fig S4 immune-correlation tables', 'scripts/figures/_analyze_immune_all.py'),
+    ('derive Fig S4 immune-correlation tables (needs pyreadr and the TISIDB TIL\n     archive; stands down and uses the shipped results/_immune_corr_all.json when either is absent)',
+     'scripts/figures/_analyze_immune_all.py'),
     ('Supplementary Figure S4  immune microenvironment', 'scripts/figures/gen_figS4_immune.py'),
     ('Supplementary tables (S1-S4)', 'scripts/figures/_make_supplementary.py'),
 ]
@@ -579,7 +584,7 @@ else:
             missing.append(rel)
             continue
         print(f"  {label} ...")
-        rc = subprocess.run([sys.executable, script], cwd=BASE).returncode
+        rc = subprocess.run([sys.executable, script], cwd=BASE, env=CHILD_ENV).returncode
         if rc != 0:
             print(f"    FAILED (exit {rc})")
             missing.append(rel)

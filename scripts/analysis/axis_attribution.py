@@ -17,6 +17,9 @@ _ROOT = os.path.dirname(os.path.dirname(_HERE))
 DATA = os.path.join(_ROOT, 'data')
 RES = os.path.join(_ROOT, 'results')
 PANELS = os.path.join(DATA, 'panels')
+# The TCGA expression matrices are not redistributed with this package: read them from
+# ./data/ unless MULTIBATCH_DATA names the folder that holds them, as run_all.py does.
+TCGA_DIR = os.environ.get('MULTIBATCH_DATA') or DATA
 FIG = os.path.join(_ROOT, 'figures')
 
 OUT = os.path.join(RES, '_axis_attribution.json')
@@ -44,7 +47,7 @@ print('  (panel genes excluded to avoid circularity)')
 pooled = []
 per_coh = {}
 for c in cancers:
-    df = pd.read_csv(os.path.join(DATA, 'TCGA_%s_HiSeqV2.tsv' % c), sep='\t', index_col=0).T
+    df = pd.read_csv(os.path.join(TCGA_DIR, 'TCGA_%s_HiSeqV2.tsv' % c), sep='\t', index_col=0).T
     panelX = df.reindex(columns=panel).values.astype(np.float64)
     panelX = np.nan_to_num(panelX, nan=0.0)
     Zp = (panelX - panelX.mean(0)) / (panelX.std(0) + 1e-12)
@@ -70,7 +73,7 @@ L1 = Vt[0]
 # ---------- B) within each cohort: PC1 score against external markers ----------
 rows = []
 for c in cancers:
-    df = pd.read_csv(os.path.join(DATA, 'TCGA_%s_HiSeqV2.tsv' % c), sep='\t', index_col=0).T
+    df = pd.read_csv(os.path.join(TCGA_DIR, 'TCGA_%s_HiSeqV2.tsv' % c), sep='\t', index_col=0).T
     ids = [i for i, j in [(i, True) for i in range(1)]]
     cols = list(dict.fromkeys(NONMAL + TUMOR))
     nm = df.reindex(columns=cols).values.astype(np.float64)
@@ -108,7 +111,7 @@ cnt = {t: 0 for t in THR}
 coh_with = {t: 0 for t in THR}
 medpct = []
 for c in cancers:
-    df = pd.read_csv(os.path.join(DATA, 'TCGA_%s_HiSeqV2.tsv' % c), sep='\t', index_col=0)
+    df = pd.read_csv(os.path.join(TCGA_DIR, 'TCGA_%s_HiSeqV2.tsv' % c), sep='\t', index_col=0)
     X = df.apply(pd.to_numeric, errors='coerce').dropna(how='all')
     mad = (X.sub(X.median(axis=1), axis=0)).abs().median(axis=1).sort_values(ascending=False)
     tot = len(mad)
