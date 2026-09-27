@@ -154,7 +154,7 @@ T(1.0, ybot + 1.0,
   "Genes are the %d highest-degree members of the STRING-supported network; the nine panels "
   "carry the most supported edges." % TOPN, fontsize=FS - 1.6, color=GREY)
 T(1.0, ybot + 8.0,
-  "Lower triangles only. Spearman rho within each cohort, on tumours complete for all "
+  "Lower triangles only. Spearman rho within each cohort, on tumors complete for all "
   "%d genes." % TOPN, fontsize=FS - 1.6, color=GREY)
 T(1.0, ybot + 15.0,
   "The Y-chromosome and the keratin genes each form a correlated block, and the two blocks "

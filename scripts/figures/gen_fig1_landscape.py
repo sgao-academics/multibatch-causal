@@ -169,7 +169,7 @@ axa.tick_params(axis='x', length=1.8, pad=1.2)
 axa.tick_params(axis='y', length=1.8, pad=1.2, labelsize=7.6)
 for sp in ('top', 'right'):
     axa.spines[sp].set_visible(False)
-axa.legend(handles=[Patch(facecolor=COL_TUM, label='Tumour'),
+axa.legend(handles=[Patch(facecolor=COL_TUM, label='Tumor'),
                     Patch(facecolor=COL_NOR, label='Adjacent normal'),
                     Patch(facecolor=RED, label='red cohort label = %s in that network' % TOP_GENE)],
            loc='upper left', bbox_to_anchor=(0.0, 1.16), ncol=3,
@@ -250,7 +250,7 @@ for k, c in enumerate(tiles):
     for sp in ('top', 'right'):
         ax.spines[sp].set_visible(False)
 panel_letter('b', 0.050, 0.722)
-fig.legend(handles=[Patch(facecolor=COL_TUM, label='T  tumour'),
+fig.legend(handles=[Patch(facecolor=COL_TUM, label='T  tumor'),
                     Patch(facecolor=COL_NOR, label='N  normal'),
                     Patch(facecolor=COL_MET, label='M  metastasis')],
            loc='upper right', bbox_to_anchor=(0.984, 0.726), ncol=3,

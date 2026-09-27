@@ -1,8 +1,8 @@
-"""Figure 5: Kaplan-Meier overall survival for the four representative BRCA network genes.
+"""BRCA Kaplan-Meier panels behind the survival section: figures/km_brca_panel.pdf.
 
 Patients are split at the median expression of each gene and compared with a log-rank test.
 The four log-rank p-values reported in the manuscript are asserted here, so that a change in the
-data pipeline cannot silently leave the figure out of step with the text.
+data pipeline cannot silently leave the panel out of step with the text.
 """
 import os, sys, json
 import numpy as np

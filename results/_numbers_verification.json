@@ -1,0 +1,349 @@
+{
+ "n_ge200": [
+  "BLCA",
+  "BRCA",
+  "CESC",
+  "COAD",
+  "HNSC",
+  "KIRC",
+  "KIRP",
+  "LGG",
+  "LIHC",
+  "LUAD",
+  "LUSC",
+  "OV",
+  "PRAD",
+  "SARC",
+  "SKCM",
+  "STAD",
+  "THCA",
+  "UCEC"
+ ],
+ "n_lt200": [
+  "ACC",
+  "CHOL",
+  "DLBC",
+  "ESCA",
+  "GBM",
+  "KICH",
+  "LAML",
+  "MESO",
+  "PAAD",
+  "PCPG",
+  "READ",
+  "TGCT",
+  "THYM",
+  "UCS",
+  "UVM"
+ ],
+ "n_by_cohort": {
+  "ACC": 79,
+  "BLCA": 426,
+  "BRCA": 1218,
+  "CESC": 308,
+  "CHOL": 45,
+  "COAD": 329,
+  "DLBC": 48,
+  "ESCA": 196,
+  "GBM": 172,
+  "HNSC": 566,
+  "KICH": 91,
+  "KIRC": 606,
+  "KIRP": 323,
+  "LAML": 173,
+  "LGG": 530,
+  "LIHC": 423,
+  "LUAD": 576,
+  "LUSC": 553,
+  "MESO": 87,
+  "OV": 308,
+  "PAAD": 183,
+  "PCPG": 187,
+  "PRAD": 550,
+  "READ": 105,
+  "SARC": 265,
+  "SKCM": 474,
+  "STAD": 450,
+  "TGCT": 156,
+  "THCA": 572,
+  "THYM": 122,
+  "UCEC": 201,
+  "UCS": 57,
+  "UVM": 80
+ },
+ "P2_brca": {
+  "n_genes": 98,
+  "ks_D": 0.24471650884845664,
+  "ks_p": 1.1835215414804153e-05,
+  "n_sig": 13,
+  "expected": 4.9,
+  "fold": 2.6530612244897958
+ },
+ "P3_hub": {
+  "all33": {
+   "n_cohorts": 33,
+   "n_sig": 6,
+   "expected": 1.6500000000000001,
+   "fold": 3.6363636363636362
+  },
+  "ge200": {
+   "n_cohorts": 18,
+   "n_sig": 5,
+   "expected": 0.9,
+   "fold": 5.555555555555555
+  },
+  "lt200": {
+   "n_cohorts": 15,
+   "n_sig": 1,
+   "expected": 0.75,
+   "fold": 1.3333333333333333
+  },
+  "per_cohort": [
+   {
+    "cohort": "BRCA",
+    "n": 1218,
+    "hub": "ADH1B",
+    "p": 0.4900854834428854,
+    "sig": false
+   },
+   {
+    "cohort": "KIRC",
+    "n": 606,
+    "hub": "SLC22A6",
+    "p": 5.338974575859295e-05,
+    "sig": true
+   },
+   {
+    "cohort": "LUAD",
+    "n": 576,
+    "hub": "TEKT1",
+    "p": 0.26796471749076195,
+    "sig": false
+   },
+   {
+    "cohort": "THCA",
+    "n": 572,
+    "hub": "CD79A",
+    "p": 0.5489780937367101,
+    "sig": false
+   },
+   {
+    "cohort": "HNSC",
+    "n": 566,
+    "hub": "CHGB",
+    "p": 0.0003792110019276481,
+    "sig": true
+   },
+   {
+    "cohort": "LUSC",
+    "n": 553,
+    "hub": "NAPSA",
+    "p": 0.009137871394816791,
+    "sig": true
+   },
+   {
+    "cohort": "PRAD",
+    "n": 550,
+    "hub": "LTF",
+    "p": 0.7068376188257051,
+    "sig": false
+   },
+   {
+    "cohort": "LGG",
+    "n": 530,
+    "hub": "GABRA1",
+    "p": 0.06331211674812925,
+    "sig": false
+   },
+   {
+    "cohort": "SKCM",
+    "n": 474,
+    "hub": "FCRL5",
+    "p": 9.25766780864733e-07,
+    "sig": true
+   },
+   {
+    "cohort": "STAD",
+    "n": 450,
+    "hub": "RPS4Y1",
+    "p": 0.3644448082629941,
+    "sig": false
+   },
+   {
+    "cohort": "BLCA",
+    "n": 426,
+    "hub": "SFRP2",
+    "p": 0.023401908017541825,
+    "sig": true
+   },
+   {
+    "cohort": "LIHC",
+    "n": 423,
+    "hub": "DPT",
+    "p": 0.545965002020635,
+    "sig": false
+   },
+   {
+    "cohort": "COAD",
+    "n": 329,
+    "hub": "C11ORF86",
+    "p": 0.8300184277638826,
+    "sig": false
+   },
+   {
+    "cohort": "KIRP",
+    "n": 323,
+    "hub": "KDM5D",
+    "p": 0.6984544100946964,
+    "sig": false
+   },
+   {
+    "cohort": "CESC",
+    "n": 308,
+    "hub": "SPRR2E",
+    "p": 0.6642599930417237,
+    "sig": false
+   },
+   {
+    "cohort": "OV",
+    "n": 308,
+    "hub": "MZB1",
+    "p": 0.24218842293646048,
+    "sig": false
+   },
+   {
+    "cohort": "SARC",
+    "n": 265,
+    "hub": "JPH2",
+    "p": 0.6118343661743819,
+    "sig": false
+   },
+   {
+    "cohort": "UCEC",
+    "n": 201,
+    "hub": "TBX18",
+    "p": 0.29458998509898127,
+    "sig": false
+   },
+   {
+    "cohort": "ESCA",
+    "n": 196,
+    "hub": "KRT6A",
+    "p": 0.9443552455918023,
+    "sig": false
+   },
+   {
+    "cohort": "PCPG",
+    "n": 187,
+    "hub": "PLP1",
+    "p": 0.23291314856303494,
+    "sig": false
+   },
+   {
+    "cohort": "PAAD",
+    "n": 183,
+    "hub": "RPS4Y1",
+    "p": 0.4170963122840712,
+    "sig": false
+   },
+   {
+    "cohort": "LAML",
+    "n": 173,
+    "hub": "CD14",
+    "p": 0.11113183197269906,
+    "sig": false
+   },
+   {
+    "cohort": "GBM",
+    "n": 172,
+    "hub": "KCNV1",
+    "p": 0.8679791839814146,
+    "sig": false
+   },
+   {
+    "cohort": "TGCT",
+    "n": 156,
+    "hub": "GSTM1",
+    "p": 0.30134840219151393,
+    "sig": false
+   },
+   {
+    "cohort": "THYM",
+    "n": 122,
+    "hub": "GSTT1",
+    "p": 0.25249067431529554,
+    "sig": false
+   },
+   {
+    "cohort": "READ",
+    "n": 105,
+    "hub": "CXCL5",
+    "p": 0.11248118775895816,
+    "sig": false
+   },
+   {
+    "cohort": "KICH",
+    "n": 91,
+    "hub": "GSTM1",
+    "p": 0.8362885529743652,
+    "sig": false
+   },
+   {
+    "cohort": "MESO",
+    "n": 87,
+    "hub": "GSTM1",
+    "p": 0.4775037076378157,
+    "sig": false
+   },
+   {
+    "cohort": "UVM",
+    "n": 80,
+    "hub": "PCDHGA10",
+    "p": 0.8610965246221403,
+    "sig": false
+   },
+   {
+    "cohort": "ACC",
+    "n": 79,
+    "hub": "SHOC1",
+    "p": 0.0003526363822334775,
+    "sig": true
+   },
+   {
+    "cohort": "UCS",
+    "n": 57,
+    "hub": "MYH8",
+    "p": 0.5038903792464335,
+    "sig": false
+   },
+   {
+    "cohort": "DLBC",
+    "n": 48,
+    "hub": "SPATA13",
+    "p": 0.4112612128825448,
+    "sig": false
+   },
+   {
+    "cohort": "CHOL",
+    "n": 45,
+    "hub": "MUC5B",
+    "p": 0.48821815958358816,
+    "sig": false
+   }
+  ]
+ },
+ "old_sharing_keys": {
+  "cancers": "list",
+  "matrix_pct": "list",
+  "total_unique_pairs": 2334,
+  "n_shared_ge2": 79,
+  "n_shared_ge3": 19,
+  "sex_chromosome_shared": "list",
+  "n_sex_chromosome_shared": 12,
+  "n_paralog_same_prefix": 3,
+  "shared_set_composition": "dict",
+  "top_shared_pairs": "list",
+  "shared_ge3_pairs": "dict",
+  "family_key_rule": "first three alphanumeric characters of the gene symbol"
+ }
+}

@@ -1,0 +1,484 @@
+{
+ "aligned": {
+  "n_cohorts": 33,
+  "d": 100,
+  "median_edges": 6,
+  "max_abs_median": 0.7310370462393189,
+  "shared_ge30pct": 14,
+  "shared_edges": [
+   {
+    "src": "CXCL10",
+    "dst": "CXCL11",
+    "n_cohorts": 28,
+    "frac": 0.848
+   },
+   {
+    "src": "CXCL9",
+    "dst": "CXCL10",
+    "n_cohorts": 26,
+    "frac": 0.788
+   },
+   {
+    "src": "HBB",
+    "dst": "HBA1",
+    "n_cohorts": 23,
+    "frac": 0.697
+   },
+   {
+    "src": "IL6",
+    "dst": "FOSB",
+    "n_cohorts": 21,
+    "frac": 0.636
+   },
+   {
+    "src": "CXCL1",
+    "dst": "IL8",
+    "n_cohorts": 19,
+    "frac": 0.576
+   },
+   {
+    "src": "C7",
+    "dst": "PLCXD3",
+    "n_cohorts": 18,
+    "frac": 0.545
+   },
+   {
+    "src": "ADAM6",
+    "dst": "IGJ",
+    "n_cohorts": 16,
+    "frac": 0.485
+   },
+   {
+    "src": "IGJ",
+    "dst": "ADAM6",
+    "n_cohorts": 15,
+    "frac": 0.455
+   },
+   {
+    "src": "ADAM6",
+    "dst": "MGC29506",
+    "n_cohorts": 14,
+    "frac": 0.424
+   },
+   {
+    "src": "IL8",
+    "dst": "CXCL1",
+    "n_cohorts": 13,
+    "frac": 0.394
+   },
+   {
+    "src": "COL10A1",
+    "dst": "COL11A1",
+    "n_cohorts": 13,
+    "frac": 0.394
+   },
+   {
+    "src": "CCL18",
+    "dst": "CHIT1",
+    "n_cohorts": 12,
+    "frac": 0.364
+   },
+   {
+    "src": "HBA1",
+    "dst": "HBB",
+    "n_cohorts": 10,
+    "frac": 0.303
+   },
+   {
+    "src": "IGJ",
+    "dst": "MGC29506",
+    "n_cohorts": 10,
+    "frac": 0.303
+   }
+  ],
+  "shared_degree": [
+   {
+    "gene": "ADAM6",
+    "degree": 3
+   },
+   {
+    "gene": "IGJ",
+    "degree": 3
+   },
+   {
+    "gene": "HBA1",
+    "degree": 2
+   },
+   {
+    "gene": "CXCL1",
+    "degree": 2
+   },
+   {
+    "gene": "MGC29506",
+    "degree": 2
+   },
+   {
+    "gene": "IL8",
+    "degree": 2
+   },
+   {
+    "gene": "CXCL10",
+    "degree": 2
+   },
+   {
+    "gene": "HBB",
+    "degree": 2
+   },
+   {
+    "gene": "C7",
+    "degree": 1
+   },
+   {
+    "gene": "COL11A1",
+    "degree": 1
+   },
+   {
+    "gene": "CHIT1",
+    "degree": 1
+   },
+   {
+    "gene": "CXCL9",
+    "degree": 1
+   },
+   {
+    "gene": "CCL18",
+    "degree": 1
+   },
+   {
+    "gene": "IL6",
+    "degree": 1
+   },
+   {
+    "gene": "FOSB",
+    "degree": 1
+   }
+  ]
+ },
+ "misaligned": {
+  "n_cohorts": 33,
+  "d": 100,
+  "median_edges": 0,
+  "max_abs_median": 0.04830475883585794
+ },
+ "panel_identifiability_all": {
+  "n": 33,
+  "r": -0.6515113064493648,
+  "p": 4.013660368517689e-05
+ },
+ "panel_identifiability_n200": {
+  "n": 18,
+  "r": -0.20827361192205496,
+  "p": 0.40690869612660235
+ },
+ "panel_identifiability_split": {
+  "low_n_cohorts": 15,
+  "low_n_edge_share": 0.8262617239839214,
+  "hi_n_edge_share": 0.1737382760160786
+ },
+ "per_cohort_panel": {
+  "ACC": {
+   "n": 79,
+   "edges": 157
+  },
+  "BLCA": {
+   "n": 426,
+   "edges": 15
+  },
+  "BRCA": {
+   "n": 1218,
+   "edges": 21
+  },
+  "CESC": {
+   "n": 308,
+   "edges": 25
+  },
+  "CHOL": {
+   "n": 45,
+   "edges": 216
+  },
+  "COAD": {
+   "n": 329,
+   "edges": 28
+  },
+  "DLBC": {
+   "n": 48,
+   "edges": 215
+  },
+  "ESCA": {
+   "n": 196,
+   "edges": 46
+  },
+  "GBM": {
+   "n": 172,
+   "edges": 33
+  },
+  "HNSC": {
+   "n": 566,
+   "edges": 18
+  },
+  "KICH": {
+   "n": 91,
+   "edges": 171
+  },
+  "KIRC": {
+   "n": 606,
+   "edges": 15
+  },
+  "KIRP": {
+   "n": 323,
+   "edges": 24
+  },
+  "LAML": {
+   "n": 173,
+   "edges": 37
+  },
+  "LGG": {
+   "n": 530,
+   "edges": 20
+  },
+  "LIHC": {
+   "n": 423,
+   "edges": 12
+  },
+  "LUAD": {
+   "n": 576,
+   "edges": 16
+  },
+  "LUSC": {
+   "n": 553,
+   "edges": 18
+  },
+  "MESO": {
+   "n": 87,
+   "edges": 152
+  },
+  "OV": {
+   "n": 308,
+   "edges": 22
+  },
+  "PAAD": {
+   "n": 183,
+   "edges": 70
+  },
+  "PCPG": {
+   "n": 187,
+   "edges": 27
+  },
+  "PRAD": {
+   "n": 550,
+   "edges": 31
+  },
+  "READ": {
+   "n": 105,
+   "edges": 181
+  },
+  "SARC": {
+   "n": 265,
+   "edges": 16
+  },
+  "SKCM": {
+   "n": 474,
+   "edges": 22
+  },
+  "STAD": {
+   "n": 450,
+   "edges": 16
+  },
+  "TGCT": {
+   "n": 156,
+   "edges": 75
+  },
+  "THCA": {
+   "n": 572,
+   "edges": 31
+  },
+  "THYM": {
+   "n": 122,
+   "edges": 100
+  },
+  "UCEC": {
+   "n": 201,
+   "edges": 39
+  },
+  "UCS": {
+   "n": 57,
+   "edges": 167
+  },
+  "UVM": {
+   "n": 80,
+   "edges": 203
+  }
+ },
+ "consistency": {
+  "n": 33,
+  "r": 0.950978681693885,
+  "p": 2.3609487030623176e-17,
+  "pairs": [
+   {
+    "c": "ACC",
+    "orig": 127,
+    "panel": 157
+   },
+   {
+    "c": "BLCA",
+    "orig": 20,
+    "panel": 15
+   },
+   {
+    "c": "BRCA",
+    "orig": 16,
+    "panel": 21
+   },
+   {
+    "c": "CESC",
+    "orig": 32,
+    "panel": 25
+   },
+   {
+    "c": "CHOL",
+    "orig": 183,
+    "panel": 216
+   },
+   {
+    "c": "COAD",
+    "orig": 48,
+    "panel": 28
+   },
+   {
+    "c": "DLBC",
+    "orig": 233,
+    "panel": 215
+   },
+   {
+    "c": "ESCA",
+    "orig": 66,
+    "panel": 46
+   },
+   {
+    "c": "GBM",
+    "orig": 88,
+    "panel": 33
+   },
+   {
+    "c": "HNSC",
+    "orig": 33,
+    "panel": 18
+   },
+   {
+    "c": "KICH",
+    "orig": 154,
+    "panel": 171
+   },
+   {
+    "c": "KIRC",
+    "orig": 14,
+    "panel": 15
+   },
+   {
+    "c": "KIRP",
+    "orig": 28,
+    "panel": 24
+   },
+   {
+    "c": "LAML",
+    "orig": 65,
+    "panel": 37
+   },
+   {
+    "c": "LGG",
+    "orig": 32,
+    "panel": 20
+   },
+   {
+    "c": "LIHC",
+    "orig": 16,
+    "panel": 12
+   },
+   {
+    "c": "LUAD",
+    "orig": 14,
+    "panel": 16
+   },
+   {
+    "c": "LUSC",
+    "orig": 35,
+    "panel": 18
+   },
+   {
+    "c": "MESO",
+    "orig": 132,
+    "panel": 152
+   },
+   {
+    "c": "OV",
+    "orig": 12,
+    "panel": 22
+   },
+   {
+    "c": "PAAD",
+    "orig": 92,
+    "panel": 70
+   },
+   {
+    "c": "PCPG",
+    "orig": 51,
+    "panel": 27
+   },
+   {
+    "c": "PRAD",
+    "orig": 18,
+    "panel": 31
+   },
+   {
+    "c": "READ",
+    "orig": 205,
+    "panel": 181
+   },
+   {
+    "c": "SARC",
+    "orig": 13,
+    "panel": 16
+   },
+   {
+    "c": "SKCM",
+    "orig": 22,
+    "panel": 22
+   },
+   {
+    "c": "STAD",
+    "orig": 25,
+    "panel": 16
+   },
+   {
+    "c": "TGCT",
+    "orig": 67,
+    "panel": 75
+   },
+   {
+    "c": "THCA",
+    "orig": 36,
+    "panel": 31
+   },
+   {
+    "c": "THYM",
+    "orig": 118,
+    "panel": 100
+   },
+   {
+    "c": "UCEC",
+    "orig": 54,
+    "panel": 39
+   },
+   {
+    "c": "UCS",
+    "orig": 229,
+    "panel": 167
+   },
+   {
+    "c": "UVM",
+    "orig": 167,
+    "panel": 203
+   }
+  ]
+ }
+}

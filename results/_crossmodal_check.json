@@ -1,0 +1,14 @@
+{
+ "genes_used": 24776,
+ "gistic_samples": 1080,
+ "matched_samples": 1078,
+ "r_PC1_aneuploidy": -0.31995644185001215,
+ "p_PC1_aneuploidy": 4.397487953900789e-27,
+ "r_nonmal_aneuploidy": -0.11643032417815341,
+ "p_nonmal_aneuploidy": 0.00012744282544372421,
+ "r_tumor_aneuploidy": -0.004733458883075285,
+ "p_tumor_aneuploidy": 0.8766370072455564,
+ "aneuploidy_mean": 0.47777503874417937,
+ "aneuploidy_sd": 0.26715988738219015,
+ "note": "GISTIC file contains BRCA samples only; single-cohort cross-modality check"
+}

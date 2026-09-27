@@ -1,0 +1,75 @@
+{
+ "observed": 14,
+ "n_cohorts": 33,
+ "d": 100,
+ "thresh_frac": 0.3,
+ "tau": 0.3,
+ "permutations": 200,
+ "null_mean": 0.0,
+ "null_sd": 0.0,
+ "null_max": 0,
+ "z": Infinity,
+ "p_perm": 0.004975124378109453,
+ "null_hist": [
+  200,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "continuous": {
+  "statistic": "Q = sum_{i!=j} presence^2 (node-permutation)",
+  "observed_Q": 8037.0,
+  "null_Q_mean": 2715.128,
+  "null_Q_sd": 31.90817888503697,
+  "null_Q_max": 2821.0,
+  "z": 166.7870804903767,
+  "p_perm": 0.001996007984031936,
+  "permutations": 500,
+  "seed": 7,
+  "recurrence_counts": {
+   "2": {
+    "observed": 280,
+    "null_mean": 208.518,
+    "null_max": 247,
+    "p_perm": 0.001996007984031936
+   },
+   "3": {
+    "observed": 96,
+    "null_mean": 13.828,
+    "null_max": 26,
+    "p_perm": 0.001996007984031936
+   },
+   "5": {
+    "observed": 34,
+    "null_mean": 0.024,
+    "null_max": 2,
+    "p_perm": 0.001996007984031936
+   },
+   "10": {
+    "observed": 14,
+    "null_mean": 0.0,
+    "null_max": 0,
+    "p_perm": 0.001996007984031936
+   },
+   "15": {
+    "observed": 8,
+    "null_mean": 0.0,
+    "null_max": 0,
+    "p_perm": 0.001996007984031936
+   }
+  },
+  "note_total_edges_invariant": "total edge count is invariant under node permutation (2239); not usable as a test statistic"
+ }
+}

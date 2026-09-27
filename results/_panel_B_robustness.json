@@ -1,0 +1,132 @@
+{
+ "panel1": {
+  "n_cohorts": 33,
+  "total_edges": 2239,
+  "median_edges": 6,
+  "max_abs_median": 0.7310370462393189,
+  "shared_ge30": 14,
+  "shared_edges": [
+   {
+    "src": "CXCL10",
+    "dst": "CXCL11",
+    "n": 28
+   },
+   {
+    "src": "CXCL9",
+    "dst": "CXCL10",
+    "n": 26
+   },
+   {
+    "src": "HBB",
+    "dst": "HBA1",
+    "n": 23
+   },
+   {
+    "src": "IL6",
+    "dst": "FOSB",
+    "n": 21
+   },
+   {
+    "src": "CXCL1",
+    "dst": "IL8",
+    "n": 19
+   },
+   {
+    "src": "C7",
+    "dst": "PLCXD3",
+    "n": 18
+   },
+   {
+    "src": "ADAM6",
+    "dst": "IGJ",
+    "n": 16
+   },
+   {
+    "src": "IGJ",
+    "dst": "ADAM6",
+    "n": 15
+   },
+   {
+    "src": "ADAM6",
+    "dst": "MGC29506",
+    "n": 14
+   },
+   {
+    "src": "IL8",
+    "dst": "CXCL1",
+    "n": 13
+   },
+   {
+    "src": "COL10A1",
+    "dst": "COL11A1",
+    "n": 13
+   },
+   {
+    "src": "CCL18",
+    "dst": "CHIT1",
+    "n": 12
+   },
+   {
+    "src": "HBA1",
+    "dst": "HBB",
+    "n": 10
+   },
+   {
+    "src": "IGJ",
+    "dst": "MGC29506",
+    "n": 10
+   }
+  ],
+  "r_all": -0.6515113064493648,
+  "p_all": 4.013660368517689e-05,
+  "r_n200": -0.20827361192205496,
+  "p_n200": 0.40690869612660235,
+  "low_n_edge_share": 0.8262617239839214
+ },
+ "panel2": {
+  "n_cohorts": 33,
+  "total_edges": 1795,
+  "median_edges": 3,
+  "max_abs_median": 0.43962822315971717,
+  "shared_ge30": 6,
+  "shared_edges": [
+   {
+    "src": "SLAMF6",
+    "dst": "NKG7",
+    "n": 22
+   },
+   {
+    "src": "NKG7",
+    "dst": "LAG3",
+    "n": 19
+   },
+   {
+    "src": "NR4A3",
+    "dst": "EGR3",
+    "n": 18
+   },
+   {
+    "src": "SLAMF6",
+    "dst": "C8orf80",
+    "n": 16
+   },
+   {
+    "src": "LTB",
+    "dst": "SPIB",
+    "n": 12
+   },
+   {
+    "src": "LTB",
+    "dst": "CD1A",
+    "n": 10
+   }
+  ],
+  "r_all": -0.6436625647513291,
+  "p_all": 5.321345969913305e-05,
+  "r_n200": 0.03970192942617093,
+  "p_n200": 0.8757104786659864,
+  "low_n_edge_share": 0.8908077994428969,
+  "edge_set_overlap": 0,
+  "gene_set_overlap_endpoints": []
+ }
+}

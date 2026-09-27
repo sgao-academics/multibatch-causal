@@ -1,0 +1,229 @@
+{
+ "n_cohorts": 33,
+ "real": {
+  "total_edges": 2239,
+  "median_edges": 6,
+  "max_abs_median": 0.7310370462393189,
+  "shared_ge30": 14,
+  "r_all": -0.6515113064493648,
+  "p_all": 4.013660368517689e-05,
+  "r_n200": -0.20827361192205496,
+  "p_n200": 0.40690869612660235
+ },
+ "shuffled": {
+  "total_edges": 647,
+  "median_edges": 0,
+  "max_abs_median": 0.056197936338835096,
+  "shared_ge30": 0,
+  "shared_edges": [],
+  "r_all": -0.5029665900342392,
+  "p_all": 0.0028512757555629277,
+  "r_n200": NaN,
+  "p_n200": NaN,
+  "cohorts_with_edges": 10,
+  "max_n_with_edges": 156,
+  "min_n_without_edges": 172,
+  "empirical_boundary_n": 172,
+  "boundary_over_d": 1.72
+ },
+ "per_cohort": [
+  {
+   "cohort": "ACC",
+   "n": 79,
+   "real": 157,
+   "shuffled": 76
+  },
+  {
+   "cohort": "BLCA",
+   "n": 426,
+   "real": 15,
+   "shuffled": 0
+  },
+  {
+   "cohort": "BRCA",
+   "n": 1218,
+   "real": 21,
+   "shuffled": 0
+  },
+  {
+   "cohort": "CESC",
+   "n": 308,
+   "real": 25,
+   "shuffled": 0
+  },
+  {
+   "cohort": "CHOL",
+   "n": 45,
+   "real": 216,
+   "shuffled": 151
+  },
+  {
+   "cohort": "COAD",
+   "n": 329,
+   "real": 28,
+   "shuffled": 0
+  },
+  {
+   "cohort": "DLBC",
+   "n": 48,
+   "real": 215,
+   "shuffled": 121
+  },
+  {
+   "cohort": "ESCA",
+   "n": 196,
+   "real": 46,
+   "shuffled": 0
+  },
+  {
+   "cohort": "GBM",
+   "n": 172,
+   "real": 33,
+   "shuffled": 0
+  },
+  {
+   "cohort": "HNSC",
+   "n": 566,
+   "real": 18,
+   "shuffled": 0
+  },
+  {
+   "cohort": "KICH",
+   "n": 91,
+   "real": 171,
+   "shuffled": 32
+  },
+  {
+   "cohort": "KIRC",
+   "n": 606,
+   "real": 15,
+   "shuffled": 0
+  },
+  {
+   "cohort": "KIRP",
+   "n": 323,
+   "real": 24,
+   "shuffled": 0
+  },
+  {
+   "cohort": "LAML",
+   "n": 173,
+   "real": 37,
+   "shuffled": 0
+  },
+  {
+   "cohort": "LGG",
+   "n": 530,
+   "real": 20,
+   "shuffled": 0
+  },
+  {
+   "cohort": "LIHC",
+   "n": 423,
+   "real": 12,
+   "shuffled": 0
+  },
+  {
+   "cohort": "LUAD",
+   "n": 576,
+   "real": 16,
+   "shuffled": 0
+  },
+  {
+   "cohort": "LUSC",
+   "n": 553,
+   "real": 18,
+   "shuffled": 0
+  },
+  {
+   "cohort": "MESO",
+   "n": 87,
+   "real": 152,
+   "shuffled": 60
+  },
+  {
+   "cohort": "OV",
+   "n": 308,
+   "real": 22,
+   "shuffled": 0
+  },
+  {
+   "cohort": "PAAD",
+   "n": 183,
+   "real": 70,
+   "shuffled": 0
+  },
+  {
+   "cohort": "PCPG",
+   "n": 187,
+   "real": 27,
+   "shuffled": 0
+  },
+  {
+   "cohort": "PRAD",
+   "n": 550,
+   "real": 31,
+   "shuffled": 0
+  },
+  {
+   "cohort": "READ",
+   "n": 105,
+   "real": 181,
+   "shuffled": 18
+  },
+  {
+   "cohort": "SARC",
+   "n": 265,
+   "real": 16,
+   "shuffled": 0
+  },
+  {
+   "cohort": "SKCM",
+   "n": 474,
+   "real": 22,
+   "shuffled": 0
+  },
+  {
+   "cohort": "STAD",
+   "n": 450,
+   "real": 16,
+   "shuffled": 0
+  },
+  {
+   "cohort": "TGCT",
+   "n": 156,
+   "real": 75,
+   "shuffled": 1
+  },
+  {
+   "cohort": "THCA",
+   "n": 572,
+   "real": 31,
+   "shuffled": 0
+  },
+  {
+   "cohort": "THYM",
+   "n": 122,
+   "real": 100,
+   "shuffled": 4
+  },
+  {
+   "cohort": "UCEC",
+   "n": 201,
+   "real": 39,
+   "shuffled": 0
+  },
+  {
+   "cohort": "UCS",
+   "n": 57,
+   "real": 167,
+   "shuffled": 122
+  },
+  {
+   "cohort": "UVM",
+   "n": 80,
+   "real": 203,
+   "shuffled": 62
+  }
+ ]
+}

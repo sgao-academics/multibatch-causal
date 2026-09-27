@@ -1,0 +1,576 @@
+{
+ "n_cohorts": 33,
+ "top_k": 100,
+ "per_cohort": [
+  {
+   "cohort": "ACC",
+   "n_samples": 79,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 44.72
+  },
+  {
+   "cohort": "BLCA",
+   "n_samples": 426,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 1,
+   "median_driver_MAD_percentile": 46.08
+  },
+  {
+   "cohort": "BRCA",
+   "n_samples": 1218,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 46.69
+  },
+  {
+   "cohort": "CESC",
+   "n_samples": 308,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 52.21
+  },
+  {
+   "cohort": "CHOL",
+   "n_samples": 45,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 52.62
+  },
+  {
+   "cohort": "COAD",
+   "n_samples": 329,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 57.97
+  },
+  {
+   "cohort": "DLBC",
+   "n_samples": 48,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 40.13
+  },
+  {
+   "cohort": "ESCA",
+   "n_samples": 196,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 46.46
+  },
+  {
+   "cohort": "GBM",
+   "n_samples": 172,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 1,
+   "median_driver_MAD_percentile": 52.92
+  },
+  {
+   "cohort": "HNSC",
+   "n_samples": 566,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 1,
+   "median_driver_MAD_percentile": 49.77
+  },
+  {
+   "cohort": "KICH",
+   "n_samples": 91,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 1,
+   "median_driver_MAD_percentile": 47.67
+  },
+  {
+   "cohort": "KIRC",
+   "n_samples": 606,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 50.32
+  },
+  {
+   "cohort": "KIRP",
+   "n_samples": 323,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 48.77
+  },
+  {
+   "cohort": "LAML",
+   "n_samples": 173,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 1,
+   "median_driver_MAD_percentile": 53.27
+  },
+  {
+   "cohort": "LGG",
+   "n_samples": 530,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 51.56
+  },
+  {
+   "cohort": "LIHC",
+   "n_samples": 423,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 50.89
+  },
+  {
+   "cohort": "LUAD",
+   "n_samples": 576,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 57.18
+  },
+  {
+   "cohort": "LUSC",
+   "n_samples": 553,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 48.46
+  },
+  {
+   "cohort": "MESO",
+   "n_samples": 87,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 53.95
+  },
+  {
+   "cohort": "OV",
+   "n_samples": 308,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 55.04
+  },
+  {
+   "cohort": "PAAD",
+   "n_samples": 183,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 53.3
+  },
+  {
+   "cohort": "PCPG",
+   "n_samples": 187,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 47.42
+  },
+  {
+   "cohort": "PRAD",
+   "n_samples": 550,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 53.42
+  },
+  {
+   "cohort": "READ",
+   "n_samples": 105,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 55.52
+  },
+  {
+   "cohort": "SARC",
+   "n_samples": 265,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 48.82
+  },
+  {
+   "cohort": "SKCM",
+   "n_samples": 474,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 1,
+   "median_driver_MAD_percentile": 45.67
+  },
+  {
+   "cohort": "STAD",
+   "n_samples": 450,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 47.3
+  },
+  {
+   "cohort": "TGCT",
+   "n_samples": 156,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 1,
+   "median_driver_MAD_percentile": 49.51
+  },
+  {
+   "cohort": "THCA",
+   "n_samples": 572,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 47.34
+  },
+  {
+   "cohort": "THYM",
+   "n_samples": 122,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 43.15
+  },
+  {
+   "cohort": "UCEC",
+   "n_samples": 201,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 1,
+   "median_driver_MAD_percentile": 50.88
+  },
+  {
+   "cohort": "UCS",
+   "n_samples": 57,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 1,
+   "median_driver_MAD_percentile": 54.7
+  },
+  {
+   "cohort": "UVM",
+   "n_samples": 80,
+   "n_genes": 20530,
+   "drivers_in_panel_found": 0,
+   "median_driver_MAD_percentile": 45.62
+  }
+ ],
+ "driver_percentiles": {
+  "ABL1": {
+   "median": 68.07111544081832,
+   "min": 31.456405260594252,
+   "max": 81.71456405260594
+  },
+  "AKT1": {
+   "median": 77.4184120798831,
+   "min": 47.12128592303945,
+   "max": 84.59814905017048
+  },
+  "ALK": {
+   "median": 18.88943010228933,
+   "min": 1.100828056502679,
+   "max": 47.97369702873843
+  },
+  "APC": {
+   "median": 52.50852411105699,
+   "min": 26.945932781295664,
+   "max": 77.44763760350706
+  },
+  "AR": {
+   "median": 6.9167072576717,
+   "min": 0.12664393570384802,
+   "max": 20.11690209449586
+  },
+  "ARID1A": {
+   "median": 67.67169995129079,
+   "min": 38.63614223088164,
+   "max": 83.26351680467609
+  },
+  "ATM": {
+   "median": 51.475888943010226,
+   "min": 10.336093521675597,
+   "max": 75.28494885533365
+  },
+  "B2M": {
+   "median": 38.01266439357038,
+   "min": 8.631271310277642,
+   "max": 62.87384315635655
+  },
+  "BAP1": {
+   "median": 80.32635168046761,
+   "min": 14.851436921578179,
+   "max": 86.37603507062835
+  },
+  "BRAF": {
+   "median": 52.89819775937652,
+   "min": 24.46663419386264,
+   "max": 79.69800292255236
+  },
+  "BRCA1": {
+   "median": 39.5859717486605,
+   "min": 20.44812469556746,
+   "max": 66.01071602532879
+  },
+  "BRCA2": {
+   "median": 26.561130053580126,
+   "min": 6.2396492937165124,
+   "max": 43.45348270823185
+  },
+  "CASP8": {
+   "median": 58.436434486117875,
+   "min": 24.77350219191427,
+   "max": 80.52605942523137
+  },
+  "CCND1": {
+   "median": 28.149050170482223,
+   "min": 3.9746712128592305,
+   "max": 72.60107160253288
+  },
+  "CDKN2A": {
+   "median": 5.996103263516805,
+   "min": 0.2143205065757428,
+   "max": 40.18022406234778
+  },
+  "CHEK2": {
+   "median": 45.630784218217244,
+   "min": 21.12518265952265,
+   "max": 70.12664393570385
+  },
+  "CREBBP": {
+   "median": 68.90404286410131,
+   "min": 42.33804188991719,
+   "max": 78.37311251826596
+  },
+  "CTNNB1": {
+   "median": 63.73599610326352,
+   "min": 13.711641500243546,
+   "max": 81.21773015099853
+  },
+  "EGFR": {
+   "median": 21.79249878226985,
+   "min": 0.3360935216755967,
+   "max": 42.02143205065757
+  },
+  "EP300": {
+   "median": 58.110082805650265,
+   "min": 6.205552849488553,
+   "max": 86.0789089137847
+  },
+  "ERBB2": {
+   "median": 45.19727228446176,
+   "min": 10.277642474427667,
+   "max": 73.69215781782756
+  },
+  "ESR1": {
+   "median": 12.834875791524599,
+   "min": 1.290793960058451,
+   "max": 40.029225523623964
+  },
+  "EZH2": {
+   "median": 36.585484656600094,
+   "min": 21.120311738918655,
+   "max": 77.35021919142719
+  },
+  "FAT1": {
+   "median": 28.446176327325865,
+   "min": 2.318558207501218,
+   "max": 56.65367754505601
+  },
+  "FGFR1": {
+   "median": 27.657087189478812,
+   "min": 3.711641500243546,
+   "max": 56.522162688748175
+  },
+  "FGFR2": {
+   "median": 18.42669264490989,
+   "min": 1.0472479298587434,
+   "max": 48.00779347296639
+  },
+  "FGFR3": {
+   "median": 12.85923039454457,
+   "min": 3.8821237213833415,
+   "max": 48.06137359961033
+  },
+  "FOXA1": {
+   "median": 18.114953726254264,
+   "min": 0.19970774476376035,
+   "max": 92.12372138334145
+  },
+  "GATA3": {
+   "median": 12.187043351193376,
+   "min": 2.367267413541159,
+   "max": 31.164150024354605
+  },
+  "HLA-A": {
+   "median": 33.11738918655626,
+   "min": 18.879688261081345,
+   "max": 51.553823672674135
+  },
+  "HRAS": {
+   "median": 48.455918168533856,
+   "min": 30.40915733073551,
+   "max": 74.169508037019
+  },
+  "IDH1": {
+   "median": 49.069654164637114,
+   "min": 21.38334145153434,
+   "max": 74.19873356064296
+  },
+  "IDH2": {
+   "median": 47.93472966390648,
+   "min": 24.320506575742815,
+   "max": 67.22357525572333
+  },
+  "JAK2": {
+   "median": 41.92888455918168,
+   "min": 20.905991232342913,
+   "max": 72.26010716025328
+  },
+  "KEAP1": {
+   "median": 80.2532878714077,
+   "min": 37.247929858743305,
+   "max": 84.87579152459814
+  },
+  "KIT": {
+   "median": 9.283974671212858,
+   "min": 0.784218217243059,
+   "max": 25.44081831466147
+  },
+  "KRAS": {
+   "median": 64.84169508037019,
+   "min": 35.13395031660984,
+   "max": 81.27131027764247
+  },
+  "MDM2": {
+   "median": 59.644422795908426,
+   "min": 23.019970774476377,
+   "max": 81.95323916220165
+  },
+  "MET": {
+   "median": 20.540672187043352,
+   "min": 1.7730150998538723,
+   "max": 64.63711641500244
+  },
+  "MLH1": {
+   "median": 81.11056989771066,
+   "min": 62.18217243058938,
+   "max": 86.56113005358013
+  },
+  "MSH2": {
+   "median": 58.70433511933756,
+   "min": 32.06039941548953,
+   "max": 75.01704822211398
+  },
+  "MSH6": {
+   "median": 66.35168046760838,
+   "min": 41.50998538723819,
+   "max": 86.23964929371651
+  },
+  "MTOR": {
+   "median": 67.10667316122748,
+   "min": 39.36678032148076,
+   "max": 84.88553336580614
+  },
+  "MYC": {
+   "median": 28.92352654651729,
+   "min": 14.257184607890892,
+   "max": 56.4150024354603
+  },
+  "NF1": {
+   "median": 59.50803701899659,
+   "min": 46.687773989283976,
+   "max": 74.17924987822698
+  },
+  "NFE2L2": {
+   "median": 70.71115440818315,
+   "min": 35.703848027277154,
+   "max": 87.0725767169995
+  },
+  "NOTCH1": {
+   "median": 40.88163662932294,
+   "min": 25.20701412566975,
+   "max": 66.80954700438383
+  },
+  "NOTCH2": {
+   "median": 43.248904042864105,
+   "min": 8.587433024841696,
+   "max": 64.43740867023868
+  },
+  "NRAS": {
+   "median": 64.48611787627861,
+   "min": 45.163175840233805,
+   "max": 77.98830979055042
+  },
+  "PDGFRA": {
+   "median": 13.278129566488067,
+   "min": 0.4286410131514856,
+   "max": 26.54164637116415
+  },
+  "PIK3CA": {
+   "median": 53.55090112031174,
+   "min": 15.586945932781296,
+   "max": 71.06186069167073
+  },
+  "PMS2": {
+   "median": 77.97369702873843,
+   "min": 53.92109108621529,
+   "max": 87.28689722357525
+  },
+  "PTEN": {
+   "median": 73.50219191427179,
+   "min": 43.42425718460789,
+   "max": 85.40672187043351
+  },
+  "PTPN11": {
+   "median": 67.48173404773502,
+   "min": 33.565513882123724,
+   "max": 85.67949342425719
+  },
+  "RB1": {
+   "median": 58.358499756453966,
+   "min": 29.60058451047248,
+   "max": 77.14076960545543
+  },
+  "RET": {
+   "median": 7.335606429615197,
+   "min": 1.5343399902581587,
+   "max": 32.36726741354116
+  },
+  "SETD2": {
+   "median": 74.37408670238675,
+   "min": 50.993667803214805,
+   "max": 87.06283487579152
+  },
+  "SMAD4": {
+   "median": 73.73112518265953,
+   "min": 49.44958597174866,
+   "max": 83.90647832440331
+  },
+  "SOX2": {
+   "median": 4.812469556746225,
+   "min": 0.004870920603994155,
+   "max": 96.85338528981977
+  },
+  "SRC": {
+   "median": 55.89868485143692,
+   "min": 13.88212372138334,
+   "max": 73.95031660983926
+  },
+  "STAT3": {
+   "median": 67.99318071115441,
+   "min": 30.160740379931806,
+   "max": 83.55090112031174
+  },
+  "STK11": {
+   "median": 72.498782269849,
+   "min": 59.65903555772041,
+   "max": 87.20409157330735
+  },
+  "TP53": {
+   "median": 53.804188991719435,
+   "min": 24.734534827082317,
+   "max": 78.8309790550414
+  },
+  "TP63": {
+   "median": 15.143692157817828,
+   "min": 0.5942523136872869,
+   "max": 44.63711641500244
+  },
+  "TSC1": {
+   "median": 67.81782756941062,
+   "min": 49.19142717973697,
+   "max": 83.76522162688748
+  },
+  "TSC2": {
+   "median": 76.7559668777399,
+   "min": 35.085241110569896,
+   "max": 84.8368241597662
+  },
+  "VHL": {
+   "median": 68.1685338528982,
+   "min": 39.9171943497321,
+   "max": 85.57233317096932
+  }
+ },
+ "total_driver_hits_in_top100": 9,
+ "median_driver_percentile": 49.77
+}

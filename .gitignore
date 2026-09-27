@@ -9,7 +9,14 @@
 # ---------------------------------------------------------------------------
 
 # --- data: never redistributed (see README, Data Availability) ---
-data/
+# Exception: the two aligned-panel definitions in data/panels/.  These are not
+# measurements, they are the design.  Every analysis in Stage 5b reads them,
+# Figure 1c and Table 3 are properties of them, and the response letter lists the
+# aligned panels among the items this repository carries.  The rules below switch
+# the exclusion from the directory to its children so that the exception can bite:
+# git cannot re-include a path whose parent directory is excluded.
+data/*
+!data/panels/
 
 # --- manuscript sources and submission packages (submission-only) ---
 manuscript.tex
@@ -22,7 +29,26 @@ supplementary_figures.pdf
 VALUE_STATEMENT.md
 *.zip
 *_Upload/
+*_Upload_v2/
 *_Scope_Check/
+
+# --- internal working notes (never published) ---
+# The revision was developed against these notes.  They carry the journal
+# history, the editorial strategy and Chinese-language drafts, and they stay
+# local; the repository ships only what reproduces the manuscript.
+/ONE_MONTH_*.md
+/PACKAGING_*.md
+/PAPER_PACKAGING_*.md
+/REWRITE_*.md
+/GITHUB_REPO_AUDIT.md
+/DRAFT_*.md
+/FIG_*.md
+/W1_*.md
+/W2_*.md
+/W3_*.md
+/manuscript_marked.*
+/manuscript_pre_*.tex
+/Response_to_Editor.*
 
 # --- internal working notes ---
 *_AUDIT*.md

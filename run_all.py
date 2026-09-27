@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 run_all.py — One-command reproducibility pipeline for
-"Edge-level causal graph comparison across 33 TCGA cohorts reveals tissue-specific regulatory structure and prognostic hub genes"
+"A CXCL9--CXCL10--CXCL11 chemokine cascade is the only reproducible cross-cancer causal chain across 33 TCGA cohorts"
 
 Usage: python run_all.py
 
@@ -11,10 +11,17 @@ Stages (each checkpointed, skip if already complete):
   3. GENIE3 baseline (33 cancers)
   4. Pooled NOTEARS
   5. Synthetic validation (V6 two-stage decomposition)
+  5b. Aligned-panel analysis: one 100-gene panel shared by all 33 cohorts, the recurrence
+      statistics, the permutation and shuffle controls, the axis attribution, the driver
+      screen and the second-panel robustness check (see README, "Aligned-panel analysis")
   6. Generate all figures and supplementary items
 
 Output: results/*.json, figures/*.pdf/png, supplementary/*.xlsx
-Time: ~25 min on a single CPU core for stages 1-5 (as reported in the manuscript)
+
+Time: about 25 min on a single CPU core for stages 1-5, plus about 2 min for the downstream
+half of stage 5b, which reuses the checkpoints shipped in results/.  The three NOTEARS
+re-runs inside stage 5b -- panel A, panel B and the shuffled control -- take about 25 min
+each and are skipped by default; set FULL=1 to recompute them as well.
 """
 
 import os, sys, json, time, subprocess
@@ -234,7 +241,14 @@ from sklearn.ensemble import RandomForestRegressor
 genie3_data = {}
 if os.path.exists(CKPT_GENIE3):
     genie3_data = json.load(open(CKPT_GENIE3))
-g3_cached = [k for k in genie3_data if isinstance(genie3_data[k], dict) and 'V' in genie3_data[k]]
+# A cohort counts as cached in either record format: the rich record written by the loop
+# below ('V'), or the compact record shipped in results/ (an 'edges' list plus the
+# per-cohort K).  The shipped file is the compact one and it is the file behind the
+# manuscript's numbers, so it has to be recognised here -- otherwise every run treats all
+# 33 cohorts as missing, recomputes them, and overwrites the checkpoint with a different
+# solution (the GENIE3 edge budget then lands on 2762 rather than the reported 2445).
+g3_cached = [k for k in genie3_data if isinstance(genie3_data[k], dict)
+             and ('V' in genie3_data[k] or 'edges' in genie3_data[k])]
 print(f"Already cached: {len(g3_cached)}/33")
 
 missing_g3 = sorted(set(all_cancers) - set(g3_cached))
@@ -277,8 +291,11 @@ else:
 genie3_data = json.load(open(CKPT_GENIE3))
 g3_cancers = [c for c in all_cancers if c in genie3_data and isinstance(genie3_data[c], dict)]
 g3_total_edges = sum(len(genie3_data[c].get('edges', [])) for c in g3_cancers)
+# The compact checkpoint shipped in results/ stores each cohort's edge list but not the
+# gene names, so the name-based statistics below run only over the cohorts that carry them.
+g3_named = [c for c in g3_cancers if 'genes' in genie3_data[c]]
 g3_pair_count = {}
-for c in g3_cancers:
+for c in g3_named:
     for e in genie3_data[c].get('edges', []):
         g_i = genie3_data[c]['genes'][e[0]]
         g_j = genie3_data[c]['genes'][e[1]]
@@ -306,10 +323,14 @@ overlap = len(nt_pairs & g3_pairs)
 # behind Figure 9, come from scripts/figures/gen_baseline_stats.py, which reads
 # the same checkpoints and runs in Stage 6b; the lines below are progress
 # output, not the source of a quoted number.
-print(f"  GENIE3: {g3_total_edges} edges, {g3_unique} unique directed pairs, "
-      f"{g3_shared} shared>=3 (directed convention)")
-print(f"  Overlap with NOTEARS (directed): {overlap}/{len(nt_pairs)} "
-      f"({100*overlap/max(len(nt_pairs),1):.1f}%)")
+if g3_named:
+    print(f"  GENIE3: {g3_total_edges} edges, {g3_unique} unique directed pairs, "
+          f"{g3_shared} shared>=3 (directed convention)")
+    print(f"  Overlap with NOTEARS (directed): {overlap}/{len(nt_pairs)} "
+          f"({100*overlap/max(len(nt_pairs),1):.1f}%)")
+else:
+    print(f"  GENIE3: {g3_total_edges} edges (compact checkpoint, no gene names stored; "
+          f"the Figure 9 statistics are built by gen_baseline_stats.py in Stage 6b)")
 
 # ===========================================================
 # STAGE 4: Pooled NOTEARS
@@ -321,8 +342,10 @@ print("="*70)
 pooled = {}
 if os.path.exists(CKPT_POOLED):
     pooled = json.load(open(CKPT_POOLED))
-if 'W_pooled' in pooled:
-    Wp = np.array(pooled['W_pooled'])
+# Cached in either record format: the rich record written below ('W_pooled') or the
+# compact one shipped in results/ ('edges' and 'h').  Recomputing the compact file moves
+# the reported edge count (37 -> 36 on this machine), so it has to be recognised here.
+if 'edges' in pooled and 'h' in pooled:
     print(f"Already cached: {pooled['edges']} edges, h={pooled['h']:.2e}")
 else:
     print("Loading all cancers for gene intersection...")
@@ -384,6 +407,92 @@ if 'recovery_pct' not in synth:
     save_ckpt(CKPT_SYNTH, synth)
 
 # ===========================================================
+# STAGE 5b: Aligned-panel analysis
+# ===========================================================
+# Stage 1 selects each cohort's own genes, so the same matrix position means a different
+# gene in a different cohort and the element-wise median across cohorts is identically
+# zero.  Stage 5b re-estimates every cohort on one panel shared by all 33 cohorts and runs
+# the analyses that the manuscript's second and third contributions rest on.
+#
+# Panel construction and the three NOTEARS re-runs (panels A and B, and the shuffled
+# control) are skipped by default: their outputs ship with the package under data/panels/
+# and results/.  Set FULL=1 to recompute them from scratch.
+ALIGNED = [
+    ('build the shared gene panel (panel A)',           'scripts/analysis/build_panel_A.py', False),
+    ('build the gene-disjoint second panel (panel B)',  'scripts/analysis/build_panel_B.py', False),
+    ('fit panel A: 33-cohort NOTEARS re-run',           'scripts/analysis/fit_panel_A.py', False),
+    ('fit panel B: second-panel NOTEARS re-run',        'scripts/analysis/fit_panel_B.py', False),
+    ('shuffle control: refit every cohort on shuffled labels',
+     'scripts/analysis/shuffle_control_fit.py', False),
+    ('identifiability diagnostic (n against d and edges)',
+     'scripts/analysis/identifiability.py', True),
+    ('A/B decomposition: aligned against misaligned',
+     'scripts/analysis/decompose_aligned_vs_raw.py', True),
+    ('recurrence on the aligned panel: the 14 directed pairs',
+     'scripts/analysis/recurrence_analysis.py', True),
+    ('permutation null over node relabelling',
+     'scripts/analysis/permutation_null.py', True),
+    ('permutation null, collision statistic Q and threshold counts',
+     'scripts/analysis/permutation_null_continuous.py', True),
+    ('shuffle-control analysis and the empirical sample floor',
+     'scripts/analysis/shuffle_control_analysis.py', True),
+    ('latent axis of the pooled matrix against the Marchenko-Pastur bound',
+     'scripts/analysis/latent_axis.py', True),
+    ('axis attribution against markers drawn from outside the panel',
+     'scripts/analysis/axis_attribution.py', True),
+    ('driver screen: dispersion percentiles and the threshold curve',
+     'scripts/analysis/driver_screen.py', True),
+    ('cross-modal check on copy-number data',
+     'scripts/analysis/crossmodal_check.py', True),
+    ('panel-B robustness: axes without the genes',
+     'scripts/analysis/panel_B_robustness.py', True),
+    ('verification of the earlier positive results under n >= 200',
+     'scripts/analysis/verify_numbers.py', True),
+]
+
+print("\n" + "="*70)
+print("STAGE 5b: ALIGNED-PANEL ANALYSIS")
+print("="*70)
+FULL = os.environ.get('FULL') == '1'
+_skipped = []
+for label, rel, default_run in ALIGNED:
+    script = os.path.join(BASE, rel)
+    if not os.path.exists(script):
+        print(f"  MISSING {rel}")
+        continue
+    if not default_run and not FULL:
+        print(f"  {label} ... skipped (output ships with the package; set FULL=1 to recompute)")
+        _skipped.append(rel)
+        continue
+    print(f"  {label} ...")
+    rc = subprocess.run([sys.executable, script], cwd=BASE).returncode
+    if rc != 0:
+        print(f"    FAILED (exit {rc})")
+print()
+if _skipped:
+    print(f"  {len(_skipped)} NOTEARS re-run(s) skipped; the analyses below read the shipped checkpoints")
+
+
+def _ck(name):
+    _p = os.path.join(RESULTS, name)
+    return json.load(open(_p, encoding='utf-8')) if os.path.exists(_p) else {}
+
+
+_dec, _per = _ck('_shared_decomposition.json'), _ck('_permutation_null.json')
+_ali, _mis = _dec.get('panel_aligned', {}), _dec.get('misaligned', {})
+_cont = _per.get('continuous', {})
+print(f"""  Aligned-panel headline numbers:
+    median adjacency matrix: {_ali.get('median_edges','?')} edges aligned against \
+{_mis.get('median_edges','?')} misaligned (max |median| {_ali.get('max_abs_median','?')} against \
+{_mis.get('max_abs_median','?')})
+    recurring directed pairs: {_per.get('observed','?')} of 9,900, with a maximum of \
+{_per.get('null_max','?')} over {_per.get('permutations','?')} node permutations \
+(p = {_per.get('p_perm','?')})
+    collision statistic Q: z = {_cont.get('z','?')} over {_cont.get('permutations','?')} sample-label \
+permutations (p = {_cont.get('p_perm','?')})
+""")
+
+# ===========================================================
 # STAGE 6: Summary
 # ===========================================================
 print("\n" + "="*70)
@@ -416,6 +525,10 @@ print(f"""
 # The images under figures/ do follow the manuscript numbering: figures/FigN.pdf is the figure
 # printed as Figure N.
 STAGE6B = [
+    ('Figure 1  aligned-panel signature: alignment, identifiability, the recurring set, attribution',
+     'scripts/figures/gen_fig1_main.py'),
+    ('Figure 2  the two panels side by side (robustness to the choice of gene panel)',
+     'scripts/figures/gen_fig2_panels.py'),
     ('derive hub / sharing / DepMap data', 'scripts/figures/_prep_fig_extra.py'),
     ('document the composition of the shared pair set (reads the file above; Figure 1c needs it)',
      'scripts/figures/_fix_family_key.py'),
@@ -428,8 +541,10 @@ STAGE6B = [
     ('derive Fig 7 alteration matrices', 'scripts/figures/_prep_fig_variant_landscape.py'),
     ('decompose STRING channels (Fig 3, Fig S3)', 'scripts/figures/_analyze_string_channels.py'),
     ('derive Fig S3 co-expression matrices', 'scripts/figures/_prep_fig_corr.py'),
-    ('Figure 1  pan-cancer expression landscape', 'scripts/figures/gen_fig1_landscape.py'),
-    ('Figure 2  pan-cancer edge analysis', 'scripts/figures/gen_fig2_edges.py'),
+    ('Figure 1  pan-cancer expression landscape  (PREVIOUS submission; not cited in the\n     revised manuscript, kept so the earlier artwork stays reproducible)',
+     'scripts/figures/gen_fig1_landscape.py'),
+    ('Figure 2  pan-cancer edge analysis  (PREVIOUS submission; not cited in the revised\n     manuscript -- the revised Figure 2 is Fig2_panels.pdf above)',
+     'scripts/figures/gen_fig2_edges.py'),
     ('baseline comparison statistics behind Figure 9 (both counting conventions)',
      'scripts/figures/gen_baseline_stats.py'),
     ('Figure 9  baseline comparisons', 'scripts/figures/gen_fig9_baselines.py'),
