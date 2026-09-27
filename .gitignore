@@ -18,44 +18,25 @@
 data/*
 !data/panels/
 
-# --- manuscript sources and submission packages (submission-only) ---
-manuscript.tex
-manuscript.pdf
-manuscript.bbl
-manuscript.blg
-cover_letter.tex
-cover_letter.pdf
-supplementary_figures.pdf
-VALUE_STATEMENT.md
+# --- submission packages and archives (not part of the package) ---
 *.zip
 *_Upload/
 *_Upload_v2/
 *_Scope_Check/
 
-# --- internal working notes (never published) ---
-# The revision was developed against these notes.  They carry the journal
-# history, the editorial strategy and Chinese-language drafts, and they stay
-# local; the repository ships only what reproduces the manuscript.
-/ONE_MONTH_*.md
-/PACKAGING_*.md
-/PAPER_PACKAGING_*.md
-/REWRITE_*.md
-/GITHUB_REPO_AUDIT.md
-/DRAFT_*.md
-/FIG_*.md
-/W1_*.md
-/W2_*.md
-/W3_*.md
-/manuscript_marked.*
-/manuscript_pre_*.tex
-/Response_to_Editor.*
-
-# --- internal working notes ---
-*_AUDIT*.md
-*_CHECKLIST.md
-*_COMPLIANCE.md
-REVIEW_*.md
-FIGURE_AUDIT.md
+# --- the working folder around the package (never published) ---
+# The manuscript sources, the submission sources, the notes kept while the revision was
+# assembled and the LaTeX build products all sit beside the package in this folder.  They
+# are left out by extension rather than by name: an enumerated list goes stale, and it
+# would say more about the working folder than the package does.  At the top level, only
+# the files and folders the package is made of are tracked.
+/*.md
+!/README.md
+/*.tex
+!/supplementary_figures.tex
+/*.pdf
+/*.bbl
+/*.blg
 
 # --- scratch, archives, tooling caches ---
 _archive/
