@@ -524,8 +524,8 @@ print(f"""
 # STAGE 6b: Figures, supplementary figures and supplementary tables
 # ===========================================================
 # Order matters: the data-derivation scripts must run before the figures that consume them.
-# Each label names the figure as it is numbered in the manuscript; several generators keep an
-# older filename whose number no longer matches, which is why the label is never the filename.
+# Each label names the figure as it is numbered in the manuscript, so a label is a description of
+# the artwork and never the filename.
 # The images under figures/ do follow the manuscript numbering: figures/FigN.pdf is the figure
 # printed as Figure N.
 STAGE6B = [
@@ -541,14 +541,9 @@ STAGE6B = [
     ('acyclicity diagnostic: achieved |h(W)| and cyclic edges per cohort (Section 2.7)',
      'scripts/figures/_acyclicity_audit.py'),
     ('derive tissue-specificity (tau) data', 'scripts/figures/_prep_tau.py'),
-    ('derive Fig 1 expression matrices (33 HiSeqV2 files)', 'scripts/figures/_prep_fig1_landscape.py'),
     ('derive Fig 7 alteration matrices', 'scripts/figures/_prep_fig_variant_landscape.py'),
     ('decompose STRING channels (Fig 3, Fig S3)', 'scripts/figures/_analyze_string_channels.py'),
     ('derive Fig S3 co-expression matrices', 'scripts/figures/_prep_fig_corr.py'),
-    ('Figure 1  pan-cancer expression landscape  (PREVIOUS submission; not cited in the\n     revised manuscript, kept so the earlier artwork stays reproducible)',
-     'scripts/figures/gen_fig1_landscape.py'),
-    ('Figure 2  pan-cancer edge analysis  (PREVIOUS submission; not cited in the revised\n     manuscript -- the revised Figure 2 is Fig2_panels.pdf above)',
-     'scripts/figures/gen_fig2_edges.py'),
     ('baseline comparison statistics behind Figure 4b (both counting conventions)',
      'scripts/figures/gen_baseline_stats.py'),
     ('Figure 3  external support of the inferred edges', 'scripts/figures/gen_fig3_ppi.py'),

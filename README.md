@@ -161,11 +161,16 @@ seven generators below run in the same order as the text.
 | 6 | `gen_fig6_tissue.py` → `Fig6.pdf` | Tissue specificity of the per-cohort hub genes: (a) Yanai's τ index for the 30 hubs against the 1,745 non-hubs of the same networks; (b) cumulative rank of each hub's own cohort against a uniform null; (c) the 33 cohort-median densities of seven hub genes, each row marked with the cohort it belongs to |
 | 7 | `gen_fig7_alteration.py` → `Fig7.pdf` | Somatic alteration burden of the hub genes against the canonical drivers: (a) non-synonymous mutation frequency of each cohort's own hub against the highest canonical driver, as a paired comparison; (b) amplification and homozygous deletion frequencies drawn as points, so a measured zero stays visible; (c) mutation frequency across cohorts |
 
-The previous submission's artwork is still reproduced by this package
-(`gen_fig1_landscape.py` → `figures/Fig1.pdf`, `gen_fig2_edges.py` → `figures/Fig2.pdf`).
-It is **not** cited by the revised manuscript — the revised Figures 1 and 2 are
-`Fig1_main.pdf` and `Fig2_panels.pdf` — and it is kept so that the earlier figures stay
-reproducible.
+The previous submission's Figures 1 and 2 — the pan-cancer expression landscape and the per-cancer
+edge analysis — are likewise reproduced by generators the package carries, `gen_fig1_landscape.py`
+and `gen_fig2_edges.py` (the first reads the expression cache that `_prep_fig1_landscape.py`
+rebuilds from the TCGA matrices). The revised Figures 1 and 2 are `Fig1_main.pdf` and
+`Fig2_panels.pdf`, and the previous artwork is **not** carried here, because the revised manuscript
+cites none of it. Neither generator is part of `run_all.py`; running one writes its artwork back
+into `figures/`. `gen_fig1_landscape.py` self-checks when it runs: it recomputes every tumor/normal
+test from the per-cancer expression matrices and aborts if fewer than 15 cohorts are testable, if
+fewer than 8 hub tiles are significant, or if the shared set departs from the composition it was
+drawn for (19 pairs in three or more cohorts, 12 of them on the sex chromosomes).
 
 The remaining panels of the previous submission — the DepMap cross-platform concordance, the
 estimator baselines and the pathway over-representation — are likewise reproduced by generators the
@@ -225,7 +230,6 @@ versions referenced by the manuscript.
 Several generators recompute a reported quantity from raw data and abort on mismatch, so that a
 change in the pipeline cannot silently leave a figure out of step with the text:
 
-* `gen_fig1_landscape.py` (the pre-revision Figure 1) recomputes every tumor/normal test from the per-cancer expression matrices and aborts if fewer than 15 cohorts are testable, if fewer than 8 hub tiles are significant, or if the shared set departs from the composition it was drawn for (19 pairs in three or more cohorts, 12 of them on the sex chromosomes).
 * `gen_fig4_checks.py` re-reads the eight DepMap edges and aborts unless there are eight of them, exactly six are paralogous family members, and those six carry the six highest expression correlations; it aborts again unless the five named LUAD/BRCA gene sets are present, unless no CHOL set reaches $p < 0.05$, and unless both global sets the caption names are found.
 * `gen_fig5_survival.py` rescans all 33 cohorts, includes a panel only when its hub reaches log-rank $p < 0.05$, and prints the count (6 of 33) alongside the binomial enrichment, so the figure cannot drift from the numbers in the text.
 * `gen_km_panel.py` asserts the four BRCA log-rank p-values quoted in the survival section.
