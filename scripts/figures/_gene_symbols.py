@@ -8,6 +8,7 @@ them are spelled differently again in the TCGA/Xena matrices:
     IL8      (HGNC previous)    CXCL8           HGNC:6025    IL8       (legacy form)
     C9orf84  (HGNC previous)    SHOC1           HGNC:26535   C9orf84   (same, lower orf)
     MGC29506 (HGNC alias)       MZB1            HGNC:30125   MGC29506  (alias form)
+    C8orf80  (HGNC previous)    NUGGC           HGNC:33550   C8orf80   (legacy form)
 
 A plain `symbol in gene_set` test fails twice over: once on the rename and once on case, because
 Xena spells the unnamed-reading-frame loci "C11orf86" where the network tables use "C11ORF86".
@@ -28,6 +29,7 @@ GROUPS = (
     ('CXCL8', 'IL8'),
     ('SHOC1', 'C9ORF84', 'C9orf84'),
     ('MZB1', 'MGC29506'),
+    ('NUGGC', 'C8orf80'),
     # Three rows of the Xena HiSeqV2 matrix carry no symbol at all: the annotation falls back to
     # "?" followed by the Entrez identifier, so the name reaches the edge tables as "?|729884" and
     # friends. The identifiers resolve as follows (Entrez, checked 2026-09-17):
