@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 run_all.py — One-command reproducibility pipeline for
-"A CXCL9--CXCL10--CXCL11 chemokine cascade is the only reproducible cross-cancer causal chain across 33 TCGA cohorts"
+"Panel alignment is a precondition for cross-cancer causal comparison: the reproducible structure across 33 TCGA cohorts is a microenvironmental chemokine axis"
 
 Usage: python run_all.py
 
@@ -549,16 +549,15 @@ STAGE6B = [
      'scripts/figures/gen_fig1_landscape.py'),
     ('Figure 2  pan-cancer edge analysis  (PREVIOUS submission; not cited in the revised\n     manuscript -- the revised Figure 2 is Fig2_panels.pdf above)',
      'scripts/figures/gen_fig2_edges.py'),
-    ('baseline comparison statistics behind Figure 9 (both counting conventions)',
+    ('baseline comparison statistics behind Figure 4b (both counting conventions)',
      'scripts/figures/gen_baseline_stats.py'),
-    ('Figure 9  baseline comparisons', 'scripts/figures/gen_fig9_baselines.py'),
     ('Figure 3  external support of the inferred edges', 'scripts/figures/gen_fig3_ppi.py'),
     ('Figure 5  pan-cancer hub survival', 'scripts/figures/gen_fig5_survival.py'),
     ('BRCA network-gene survival (values quoted in the text)', 'scripts/figures/gen_km_panel.py'),
     ('Figure 6  hub-gene tissue specificity', 'scripts/figures/gen_fig6_tissue.py'),
     ('Figure 7  somatic alteration burden', 'scripts/figures/gen_fig7_alteration.py'),
-    ('Figure 4  pathway enrichment', 'scripts/figures/gen_fig4_enrichment.py'),
-    ('Figure 8  DepMap cross-platform concordance', 'scripts/figures/gen_fig8_depmap.py'),
+    ('Figure 4  independent checks: DepMap platform, estimator and aggregation, pathway',
+     'scripts/figures/gen_fig4_checks.py'),
     ('Supplementary Figure S1  parameter sensitivity', 'scripts/figures/gen_figS1_sensitivity.py'),
     ('Supplementary Figure S2  synthetic validation', 'scripts/figures/gen_figS2_synthetic.py'),
     ('Table 2  structure-recovery metrics on the synthetic benchmark',

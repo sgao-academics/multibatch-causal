@@ -31,8 +31,8 @@ WRAP = Alignment(vertical='top', wrap_text=False)
 
 # Required in every supplementary file by the journal's submission guidelines.
 BANNER = [
-    'Article title: A CXCL9–CXCL10–CXCL11 chemokine cascade is the only reproducible '
-    'cross-cancer causal chain across 33 TCGA cohorts',
+    'Article title: Panel alignment is a precondition for cross-cancer causal comparison: '
+    'the reproducible structure across 33 TCGA cohorts is a microenvironmental chemokine axis',
     'Journal: Functional & Integrative Genomics',
     'Author: Shuaidong Gao',
     'Affiliation: Chongqing Institute of Foreign Studies, Qijiang Campus, '

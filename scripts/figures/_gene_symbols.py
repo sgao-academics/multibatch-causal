@@ -1,10 +1,11 @@
 """Gene-symbol handling shared by the figure scripts.
 
-Two of the genes the inferred networks nominate are carried under legacy symbols, and both are
-spelled differently again in the TCGA/Xena matrices:
+Three of the genes the inferred networks nominate are carried under legacy symbols, and two of
+them are spelled differently again in the TCGA/Xena matrices:
 
     legacy                      HGNC approved   HGNC         Xena HiSeqV2 writes
     --------------------------  --------------  -----------  ----------------------
+    IL8      (HGNC previous)    CXCL8           HGNC:6025    IL8       (legacy form)
     C9orf84  (HGNC previous)    SHOC1           HGNC:26535   C9orf84   (same, lower orf)
     MGC29506 (HGNC alias)       MZB1            HGNC:30125   MGC29506  (alias form)
 
@@ -24,6 +25,7 @@ lookup used when a Xena row name has to be tied back to a gene of a network.
 # the case-insensitive lookups below, because rewriting them would touch every gene list and every
 # edge in the paper for a change no database cares about.
 GROUPS = (
+    ('CXCL8', 'IL8'),
     ('SHOC1', 'C9ORF84', 'C9orf84'),
     ('MZB1', 'MGC29506'),
     # Three rows of the Xena HiSeqV2 matrix carry no symbol at all: the annotation falls back to

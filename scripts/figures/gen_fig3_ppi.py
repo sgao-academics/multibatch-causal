@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""PPI context for the pan-cancer causal network (shaped after reference Fig. 7).
+"""PPI context for the pan-cancer causal network.
 
 Reads results/_string_channel_analysis.json and draws three panels:
   a  the largest STRING-supported modules of our causal graph, one connected component each
@@ -7,20 +7,37 @@ Reads results/_string_channel_analysis.json and draws three panels:
   c  per-cancer overlap counts, with the random-pair baseline in the note
 
 Nothing is recomputed from scratch here; every number comes from that JSON.
+
+Drawing language.  This plate was the last one still drawn with a private
+palette, black type, hard marker outlines and text stroked straight through
+`path_effects`.  It now shares `_figstyle` with Figs. 1 and 2: the same seven
+muted colours, type in the palette's indigo rather than black, a faint rounded
+card behind each panel, markers with a soft shadow, and one 8 pt lettering size
+throughout.  Every encoded distinction also survives a greyscale print -- solid
+against dashed edges in panel a, hatch against flat fill in panel b -- which is
+the journal's requirement for colour figures.  The two labels that used to be
+stroked directly now go through `haloed_text`, whose halo copy carries the
+stroke while the copy on top stays ordinary text, so the words remain
+extractable from the PDF and can be diffed against the previous revision.
+
+Output: figures/Fig3.pdf / .png
 """
 import os, sys, json
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-import matplotlib.patheffects as pe
-import matplotlib.transforms as mtransforms
 from matplotlib.lines import Line2D
+from matplotlib.patches import Rectangle
 from collections import defaultdict, Counter
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _figstyle import (PAL, INK, TICK, GREY, GRID, TRACK, FRAME, BOXFC, BOXEC,
+                       CMAP, MM, W, tidy, card, dots, haloed_text)
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+_HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(os.path.dirname(_HERE))
 RES = os.path.join(ROOT, "results")
 FIG = os.path.join(ROOT, "figures")
 os.makedirs(FIG, exist_ok=True)
@@ -29,45 +46,31 @@ A = json.load(open(os.path.join(RES, "_string_channel_analysis.json"), encoding=
 OV = A["overlaps"]
 EV = 0.041
 
-MM = 1.0 / 25.4
-# 174 mm = the full-width figure area of the F&IG printed page, the same contract the submitted
-# figures use (gen_fig1_landscape.py: 6.85 in). Canvas width == printed width, so the in-figure
-# font sizes below are the sizes that actually appear in print.
-# Height is bounded by the printed text block. The author template gives \textheight = 552.7 pt
-# (194.9 mm) at \textwidth = 372 pt, and the figure is placed at \textwidth, so a 243 mm canvas
-# plus its caption overflowed the page by 15 pt. The published reference keeps its figures at or
-# below 203 mm; 210 mm here leaves room for a full caption.
-W, H = 174.0, 212.0
-fig = plt.figure(figsize=(W * MM, H * MM))
+# 174 mm = the full-width figure area of the printed page, and exactly one of the
+# four widths the journal sanctions (39 / 84 / 129 / 174 mm).  Canvas width equals
+# printed width, so a size declared here is the size that appears in print.
+# Height is bounded twice over: by the journal's own 234 mm ceiling, and by the
+# printed text block, since the figure is placed at \textwidth and carries a long
+# caption.  This plate is the tallest in the set, so it is kept within 3 mm of the
+# previous revision's height -- which compiled with no overfull box -- rather than
+# being grown to the theoretical limit.
+W_MM, H = 174.0, 218.0
+fig = plt.figure(figsize=(W_MM * MM, H * MM))
 
-# This figure was the only one built with the matplotlib defaults, so it came out in DejaVu Sans
-# with Type 3 fonts -- the one combination journals reject outright.  Set the same contract the
-# other figures use: embedded TrueType, Arial (falling back to Helvetica), Arial maths glyphs.
-plt.rcParams.update({
-    "pdf.fonttype": 42, "ps.fonttype": 42,          # embed TrueType, not Type 3
-    "font.family": "sans-serif", "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans"],
-    "mathtext.fontset": "custom",
-    "mathtext.rm": "Arial", "mathtext.it": "Arial:italic", "mathtext.bf": "Arial:bold",
-    "hatch.linewidth": 0.6,
-    "text.usetex": False,
-})
+# Font embedding and the family are declared by _figstyle (TrueType, Arial).  The
+# journal rejects Type 3 outright, so make the contract explicit rather than
+# trusting that the import happened.
+assert plt.rcParams["pdf.fonttype"] == 42, "figure fonts would be written as Type 3"
 
-# The published reference sets figure type at 7.0-11.0 pt (MyriadPro, mode 8.5) against 10 pt
-# body text. The canvas is the same width as that journal's 174.9 mm text block, so a declared
-# size is the printed size once the figure is placed at full width; 9.0 keeps even the smallest
-# label (FS - 1.9) at 7.1 pt, matching the reference floor.
-FS = 9.0
-INK = "#1a1a1a"
-GREY = "#8a8a8a"
-BLUE = "#2E5AAC"
-LIGHT = "#c9c9c9"
-
-PAL = ["#2E5AAC", "#B40426", "#E08A1E", "#2E8B57"]
+# Lettering: the journal asks for 2-3 mm, i.e. 8-12 pt at final size.  The canvas
+# is the printed width, so 8 pt here is 8 pt in print -- the bottom of the range,
+# used for the smallest labels, with the panel letters at 11 pt.
+FS, PLET = 8.0, 11.0
 
 
 def rect(x_mm, y_top_mm, w_mm, h_mm):
     """axes rectangle whose y is measured from the top of the canvas"""
-    return [x_mm / W, 1.0 - (y_top_mm + h_mm) / H, w_mm / W, h_mm / H]
+    return [x_mm / W_MM, 1.0 - (y_top_mm + h_mm) / H, w_mm / W_MM, h_mm / H]
 
 
 texts = []
@@ -78,7 +81,7 @@ def T(x_mm, y_mm, s, **kw):
     kw.setdefault("color", INK)
     kw.setdefault("ha", "left")
     kw.setdefault("va", "top")
-    t = fig.text(x_mm / W, 1.0 - y_mm / H, s, **kw)
+    t = fig.text(x_mm / W_MM, 1.0 - y_mm / H, s, **kw)
     texts.append(t)
     return t
 
@@ -182,46 +185,51 @@ def draw_module(x_mm, y_top_mm, w_mm, h_mm, genes, color, label):
     ax.set_xlim(-0.07, 1.07)
     ax.set_ylim(-0.30, 1.30)
     ax.axis("off")
+    card(fig, ax, pad=0.006, radius=0.010)
 
     for a, b, ev in es:
         i, j = idx[a], idx[b]
         ax.plot([xy[i, 0], xy[j, 0]], [xy[i, 1], xy[j, 1]],
-                color=color if ev else LIGHT,
+                color=color if ev else PAL["lilac"],
                 lw=1.05 if ev else 0.85,
                 ls="-" if ev else (0, (2.2, 1.6)),
                 zorder=1, solid_capstyle="round")
 
     sz = np.array([deg[g] for g in genes], dtype=float)
-    ax.scatter(xy[:, 0], xy[:, 1], s=22 + 11 * sz, c=color, edgecolors="white",
-               linewidths=0.7, zorder=3, alpha=0.95)
-    halo = [pe.withStroke(linewidth=1.8, foreground="white")]
+    # Soft shadow rather than a hard outline, matching the markers in Figs. 1-2.
+    dots(ax, xy[:, 0], xy[:, 1], 20 + 9 * sz, color, z=3, lw=0.6)
+
+    # haloed_text instead of a stroked single copy: the halo is what lifts the
+    # letters off the edges, and its twin on top keeps the label extractable.
     for g, (px, py) in zip(genes, xy):
         up = py >= 0.5                       # alternate above/below so labels do not collide
-        ax.text(px, py + (0.11 if up else -0.11), g, fontsize=FS - 1.8,
-                ha="center", va="bottom" if up else "top", color=INK, zorder=4,
-                path_effects=halo)
-    T(x_mm + 1.5, y_top_mm + 0.2, label, fontsize=FS - 0.2, color=color,
-      fontweight="bold")
+        haloed_text(ax, px, py + (0.13 if up else -0.13), g, size=FS, color=INK,
+                    ha="center", va="bottom" if up else "top", z=4)
+    T(x_mm + 1.5, y_top_mm + 0.2, label, fontsize=FS, color=color, fontweight="bold")
 
 
 # ------------------------------------------------------------------ panel a
-TOP = 8.0      # the panel-a title sits at TOP - 8, so TOP must be >= 8 to stay on the canvas
-# Panels carry a bare letter: the journal asks that illustrations contain no titles of their own,
-# and every panel is described in the caption.
-T(1.0, TOP - 8.0, "a", fontweight="bold", fontsize=FS + 0.4)
+TOP = 8.0      # the panel-a letter sits at TOP - 8, so TOP must be >= 8 to stay on the canvas
+# Panels carry a bare letter: the journal asks that illustrations contain no titles
+# of their own, and every panel is described in the caption.
+T(1.0, TOP - 8.0, "a)", fontweight="bold", fontsize=PLET)
 
-cw, ch = 85.0, 40.0
+MODCOL = [PAL["mist"], PAL["orchid"], PAL["moss"], PAL["violet"]]
+# ch dropped 40 -> 38 to pay for panel b's height.  Seven channels carrying two
+# 8 pt value labels each need 14 lines of type, which is more than 36 mm allows;
+# the modules lose 2 mm and the network layouts are unaffected.
+cw, ch = 85.0, 38.0
 gx, gy = 2.0, 2.5
 for i, genes in enumerate(big):
     r, c = divmod(i, 2)
     draw_module(1.0 + c * (cw + gx), TOP + r * (ch + gy), cw, ch,
-                genes, PAL[i], comp_name(genes))
+                genes, MODCOL[i], comp_name(genes))
 
 y_a_end = TOP + 2 * ch + gy
 
 # ------------------------------------------------------------------ panel b
-yb = y_a_end + 11.0
-T(1.0, yb - 8.0, "b", fontweight="bold", fontsize=FS + 0.4)
+yb = y_a_end + 10.0
+T(1.0, yb - 8.0, "b)", fontweight="bold", fontsize=PLET)
 
 CH = A["channels"]
 short = {"escore": "Experiments", "dscore": "Curated DB", "tscore": "Text mining",
@@ -232,88 +240,108 @@ bys = {c["tag"]: c for c in CH}
 our = [bys[t]["pct_our_above"] for t in order]
 bg = [bys[t]["pct_bg_above"] for t in order]
 
-hb = 34.0
-axb = fig.add_axes(rect(30.0, yb, W - 30.0 - 30.0, hb))
+hb = 44.0
+axb = fig.add_axes(rect(30.0, yb, W_MM - 30.0 - 30.0, hb))
+card(fig, axb, pad=0.007, radius=0.012)
 ypos = np.arange(len(order))
-# the two series differ by pattern as well as by colour, so the panel still reads in
-# greyscale or with a colour-vision deficiency (F&IG accessibility requirement)
-axb.barh(ypos + 0.2, bg, height=0.36, color=LIGHT, edgecolor="white", linewidth=0.5,
-         hatch="///", label="STRING background (%d edges)" % A["n_string_edges"])
-axb.barh(ypos - 0.2, our, height=0.36, color=BLUE, edgecolor="white", linewidth=0.5,
-         label="our causal pairs (%d edges)" % A["n_overlap"])
+# The two series differ by hatch as well as by fill, so the panel still reads in
+# greyscale or with a colour-vision deficiency (the journal's accessibility rule
+# for colour figures).
+# Each channel carries two value labels stacked under each other, so 14 lines of
+# type have to fit in this panel.  0.40 of a row was 2.5 mm while 8 pt type is
+# 2.8 mm tall, so the pair touched; 0.50 makes every consecutive gap equal, which
+# is the most even arrangement the row height allows.
+OFF = 0.25
+axb.barh(ypos + OFF, bg, height=0.34, color=PAL["lilac"], edgecolor="white",
+         linewidth=0.5, hatch="///",
+         label="STRING background (%d edges)" % A["n_string_edges"])
+axb.barh(ypos - OFF, our, height=0.34, color=PAL["mist"], edgecolor="white",
+         linewidth=0.5, label="our causal pairs (%d edges)" % A["n_overlap"])
 for i, (o, b) in enumerate(zip(our, bg)):
-    axb.text(o + 1.6, i - 0.2, "%.0f%%" % o, va="center", ha="left", fontsize=FS - 1.6,
-             color=BLUE)
-    axb.text(b + 1.6, i + 0.2, "%.0f%%" % b, va="center", ha="left", fontsize=FS - 1.6,
+    axb.text(o + 1.6, i - OFF, "%.0f%%" % o, va="center", ha="left", fontsize=FS,
+             color=PAL["mist"])
+    axb.text(b + 1.6, i + OFF, "%.0f%%" % b, va="center", ha="left", fontsize=FS,
              color=GREY)
 axb.set_yticks(ypos)
-axb.set_yticklabels([short[t] for t in order], fontsize=FS - 0.4)
+axb.set_yticklabels([short[t] for t in order], fontsize=FS)
 axb.invert_yaxis()
 axb.set_xlim(0, 116)
 axb.set_xticks([0, 25, 50, 75, 100])
-axb.set_xlabel("edges with that channel above 0.041 (%)", fontsize=FS - 0.6, labelpad=1.5)
-axb.tick_params(axis="x", labelsize=FS - 1.6)
-axb.spines[["top", "right"]].set_visible(False)
-axb.legend(fontsize=FS - 1.6, frameon=False, loc="lower right", ncol=1,
+axb.set_xlabel("edges with that channel above 0.041 (%)", fontsize=FS, labelpad=1.5)
+axb.tick_params(axis="x", labelsize=FS)
+tidy(axb, grid="x")
+axb.legend(fontsize=FS, frameon=True, loc="lower right", ncol=1,
+           facecolor=BOXFC, edgecolor=BOXEC, framealpha=0.94,
            handlelength=1.4, borderaxespad=0.2)
 
-# panel b carries an x-axis label below its tick labels, so panel c needs clearance for both
-yc = yb + hb + 17.0
+# panel b carries an x-axis label below its tick labels, so panel c needs clearance
+# for both, and for the 90-degree cancer labels below that.
+yc = yb + hb + 18.0
 
 # ------------------------------------------------------------------ panel c
-T(1.0, yc - 8.0, "c", fontweight="bold", fontsize=FS + 0.4)
+T(1.0, yc - 8.0, "c)", fontweight="bold", fontsize=PLET)
 byc = A["overlap_by_cancer"]
 cs = sorted(byc.items(), key=lambda kv: (-kv[1], kv[0]))
-hc = 32.0
-axc = fig.add_axes(rect(30.0, yc, W - 30.0 - 4.0, hc))
+hc = 28.0
+axc = fig.add_axes(rect(30.0, yc, W_MM - 30.0 - 4.0, hc))
+card(fig, axc, pad=0.007, radius=0.012)
 xs = np.arange(len(cs))
-axc.bar(xs, [v for _, v in cs], color=BLUE, edgecolor="white", linewidth=0.4)
+axc.bar(xs, [v for _, v in cs], color=PAL["peri"], edgecolor="white", linewidth=0.4)
 axc.set_xticks(xs)
-axc.set_xticklabels([k for k, _ in cs], fontsize=FS - 1.9, rotation=90)
-axc.set_ylabel("pairs", fontsize=FS - 0.6, labelpad=1.5)
-axc.tick_params(axis="y", labelsize=FS - 1.6)
+axc.set_xticklabels([k for k, _ in cs], fontsize=FS, rotation=90)
+axc.set_ylabel("pairs", fontsize=FS, labelpad=1.5)
+# Ticks pinned rather than left to the locator: at 28 mm the automatic choice drops
+# the 15 gridline, which changes the reading of every bar against the previous
+# revision of this plate for no reason.
+axc.set_yticks([0, 5, 10, 15, 20])
+axc.tick_params(axis="y", labelsize=FS)
 axc.set_xlim(-0.7, len(cs) - 0.3)
-axc.spines[["top", "right"]].set_visible(False)
+tidy(axc, grid="y")
 
-# the rotated cancer labels hang below the axis, so the notes start well clear of them
-ybot = yc + hc + 9.0
+# the rotated cancer labels hang below the axis, so the notes start well clear of
+# them: a five-character TCGA code set at 8 pt is about 9 mm once it is turned on
+# its side.
+ybot = yc + hc + 11.0
 
 # ------------------------------------------------------------------ notes
+# Four lines at 5.2 mm pitch: 8 pt type is 2.8 mm tall, so this keeps them apart
+# while staying inside the canvas.
+NOTE_PITCH = 5.2
 T(1.0, ybot,
   "STRING v12 (score >= 0.7, human): %d of %d unique causal pairs, %d of %d directed "
   "edges (%.1f%%)."
   % (A["n_overlap"], A["n_causal_pairs"], sum(A["overlap_by_cancer"].values()),
      json.load(open(os.path.join(RES, "_string_channels.json"),
                     encoding="utf-8"))["n_directed_edges"], A["observed_rate_pct"]),
-  fontsize=FS - 1.4, color=GREY)
-T(1.0, ybot + 5.2,
+  fontsize=FS, color=GREY)
+T(1.0, ybot + NOTE_PITCH,
   "Random pairs from the same %d genes reach that score in %.2f%% of cases, a %.1f-fold "
   "enrichment (Fisher p = %.1g)." % (A["n_genes"], A["expected_rate_pct"],
-                                     A["fold_enrichment"], A["fisher_p"]),
-  fontsize=FS - 1.4, color=GREY)
-T(1.0, ybot + 10.4,
+                                    A["fold_enrichment"], A["fisher_p"]),
+  fontsize=FS, color=GREY)
+T(1.0, ybot + 2 * NOTE_PITCH,
   "Solid edges carry experimental or curated evidence, dashed edges co-expression only "
-  "(61 of 184).", fontsize=FS - 1.4, color=GREY)
-T(1.0, ybot + 15.6,
+  "(61 of 184).", fontsize=FS, color=GREY)
+T(1.0, ybot + 3 * NOTE_PITCH,
   "Four largest of %d connected components; the rest are %d edges including %d two-gene pairs."
-  % (n_comp, n_edges_rest, n_pairs_rest), fontsize=FS - 1.4, color=GREY)
+  % (n_comp, n_edges_rest, n_pairs_rest), fontsize=FS, color=GREY)
 
 LEG = [Line2D([], [], color=INK, lw=1.3),
-       Line2D([], [], color=LIGHT, lw=1.0, ls=(0, (2.2, 1.6))),
+       Line2D([], [], color=PAL["lilac"], lw=1.0, ls=(0, (2.2, 1.6))),
        Line2D([], [], marker="o", color="none", markerfacecolor=GREY,
               markeredgecolor="none", markersize=4.5)]
 fig.legend(LEG, ["experimental / curated", "co-expression only", "gene (size = degree)"],
-           loc="upper right", bbox_to_anchor=(0.995, 1.0), frameon=False,
-           fontsize=FS - 1.4, ncol=1, handletextpad=0.6)
+           loc="upper right", bbox_to_anchor=(0.995, 1.0), frameon=True,
+           facecolor=BOXFC, edgecolor=BOXEC, framealpha=0.94,
+           fontsize=FS, ncol=1, handletextpad=0.6, borderpad=0.5)
 
 # ------------------------------------------------------------------ checks
 fig.canvas.draw()
 rr = fig.canvas.get_renderer()
-# dpi_scale_trans maps inches -> display pixels, so inverting it lands in INCHES (0-7), while every
-# bound below is in MILLIMETRES (0-210). Comparing the two meant bb.x1 > W + 0.6 could never fire
-# and the out-of-canvas check silently passed on text that was visibly cut off. Scale display
-# pixels straight to millimetres instead.
-inv = mtransforms.Affine2D().scale(25.4 / fig.dpi)
+# dpi_scale_trans maps inches -> display pixels, so inverting it lands in INCHES
+# (0-7), while every bound below is in MILLIMETRES (0-218).  Scale display pixels
+# straight to millimetres instead.
+inv = matplotlib.transforms.Affine2D().scale(25.4 / fig.dpi)
 
 every = list(texts)
 for ax_ in fig.get_axes():
@@ -328,7 +356,7 @@ for t in every:
     if not t.get_text():
         continue
     bb = t.get_window_extent(renderer=rr).transformed(inv)
-    if bb.x0 < -0.6 or bb.y0 < -0.6 or bb.x1 > W + 0.6 or bb.y1 > H + 0.6:
+    if bb.x0 < -0.6 or bb.y0 < -0.6 or bb.x1 > W_MM + 0.6 or bb.y1 > H + 0.6:
         bad.append((t.get_text()[:22], round(bb.x0, 1), round(bb.y0, 1),
                     round(bb.x1, 1), round(bb.y1, 1)))
 
@@ -343,10 +371,13 @@ for i in range(len(boxes)):
         if ix > 1.6 and iy > 1.6:
             ovl.append((boxes[i][0], boxes[j][0], round(ix, 1), round(iy, 1)))
 
-# node labels inside panel a must not collide either
+# node labels inside panel a must not collide either.  haloed_text draws each label
+# twice, so the geometry is compared once: only the un-stroked copy is measured.
 node_labels = []
 for ax_ in fig.get_axes():
     for t in ax_.texts:
+        if t.get_path_effects():
+            continue
         bb = t.get_window_extent(renderer=rr).transformed(inv)
         node_labels.append((t.get_text(), bb))
 nbad = []
@@ -359,7 +390,8 @@ for i in range(len(node_labels)):
             nbad.append((node_labels[i][0], node_labels[j][0], round(ix, 1),
                          round(iy, 1)))
 
-# tick labels that run into the figure notes -- the failure mode a fig.text-only check misses
+# tick labels that run into the figure notes -- the failure mode a fig.text-only
+# check misses
 tick_boxes = []
 for ax_ in fig.get_axes():
     if not ax_.axison:
@@ -376,8 +408,8 @@ for n1, b1 in boxes:
         if ix > 0.9 and iy > 0.9:
             cross.append((n1, n2, round(ix, 1), round(iy, 1)))
 
-# Axis labels sit outside the tick labels, so the tick-label check above cannot see them; this is
-# the third class of text object to slip past a fig.text-only audit, after tick labels themselves.
+# Axis labels sit outside the tick labels, so the tick-label check above cannot see
+# them; this is the third class of text object to slip past a fig.text-only audit.
 lab_boxes = []
 for ax_ in fig.get_axes():
     if not ax_.axison:
@@ -394,16 +426,17 @@ for n1, b1 in boxes:
         if ix > 0.9 and iy > 0.9:
             crosslab.append((n1, n2, round(ix, 1), round(iy, 1)))
 
-scale = 174.0 / W          # canvas width is the printed width, so this is 1.0 by construction
-print("canvas %.0f x %.0f mm | fig texts %d | all texts %d" % (W, H, len(texts), len(every)))
+print("canvas %.0f x %.0f mm | fig texts %d | all texts %d" % (W_MM, H, len(texts), len(every)))
 print("outside canvas: %d %s" % (len(bad), bad[:6]))
 print("overlapping fig.text pairs: %d %s" % (len(ovl), ovl[:6]))
 print("overlapping node labels: %d %s" % (len(nbad), nbad[:8]))
 print("notes colliding with tick labels: %d %s" % (len(cross), cross[:8]))
 print("notes colliding with axis labels: %d %s" % (len(crosslab), crosslab[:8]))
-print("font size FS=%.1f pt -> %.2f pt in the published layout (canvas %.0f mm vs the "
-      "174.9 mm text block) | %.2f pt in the author PDF (131 mm)" 
-      % (FS, FS * 174.9 / W, W, FS * 131.0 / W))
+print("bottom of the last note at %.1f mm, canvas %.0f mm (margin %.1f mm)"
+      % (ybot + 3 * NOTE_PITCH + 2.8, H, H - (ybot + 3 * NOTE_PITCH + 2.8)))
+print("font size FS=%.1f pt -> %.2f pt in print (canvas %.0f mm vs the 174.9 mm text "
+      "block) | %.2f pt in the author PDF" % (FS, FS * 174.9 / W_MM, W_MM,
+                                              FS * 131.0 / W_MM))
 print("components %d | edges outside the four shown %d | two-gene components %d"
       % (n_comp, n_edges_rest, n_pairs_rest))
 

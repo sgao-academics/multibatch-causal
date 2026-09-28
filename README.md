@@ -1,8 +1,8 @@
-# A CXCL9–CXCL10–CXCL11 chemokine cascade is the only reproducible cross-cancer causal chain across 33 TCGA cohorts
+# Panel alignment is a precondition for cross-cancer causal comparison: the reproducible structure across 33 TCGA cohorts is a microenvironmental chemokine axis
 
 **Shuaidong Gao** — Chongqing Institute of Foreign Studies
 
-Replication package for the manuscript *"A CXCL9–CXCL10–CXCL11 chemokine cascade is the only reproducible cross-cancer causal chain across 33 TCGA cohorts"*, submitted to *Functional & Integrative Genomics* (Springer).
+Replication package for the manuscript *"Panel alignment is a precondition for cross-cancer causal comparison: the reproducible structure across 33 TCGA cohorts is a microenvironmental chemokine axis"*, submitted to *Functional & Integrative Genomics* (Springer).
 
 ## What the analysis delivers
 
@@ -26,7 +26,7 @@ The revision adds this analysis layer on top of the previous submission. The per
 #    (set MULTIBATCH_DATA to read them from somewhere else)
 #    Optional, for the DepMap panel of Figure 4:
 #      OmicsExpressionProteinCodingGenesTPMLogp1.csv and CRISPRGeneEffect.csv in ./data/depmap/
-#    Required for the survival panel of Figure 7:
+#    Required for the survival panel of Figure 5:
 #      validation/pancan_os/*.json under ./data/ -- one file per cohort, fetched from cBioPortal
 #      with scripts/figures/_fetch_pancan_os.py (a few minutes; the TCGA download above is the
 #      slow part).  Like the TCGA matrices these records are not redistributed here.
@@ -86,7 +86,7 @@ compact and the full form, so neither is recomputed when it is already there.
 |:----------|:---------|
 | `run_all.py` | One-command reproduction: 5 analysis stages, the aligned-panel analysis of Stage 5b, and the figure/table stage, all checkpointed |
 | `scripts/analysis/` | The Stage 5b scripts: panel construction (`build_panel_A.py`, `build_panel_B.py`), the NOTEARS re-runs (`fit_panel_A.py`, `fit_panel_B.py`, `shuffle_control_fit.py`) and the downstream analyses (`identifiability.py`, `decompose_aligned_vs_raw.py`, `recurrence_analysis.py`, `permutation_null.py`, `permutation_null_continuous.py`, `shuffle_control_analysis.py`, `latent_axis.py`, `axis_attribution.py`, `driver_screen.py`, `crossmodal_check.py`, `panel_B_robustness.py`, `verify_numbers.py`) |
-| `scripts/figures/` | Data derivation (`_prep_fig_extra.py`, `_prep_tau.py`, `_prep_fig1_landscape.py`), the pan-cancer survival scan (`_km_pancan_scan.py`) and one generator per figure, named after the figure it builds (`gen_fig1_main.py`, `gen_fig2_panels.py`, `gen_fig3_ppi.py` … `gen_fig9_baselines.py`, `gen_figS1_sensitivity.py` … `gen_figS4_immune.py`), plus the helpers that build no figure of their own (`gen_baseline_stats.py` writes the statistics behind Figure 5, `gen_km_panel.py` the BRCA Kaplan-Meier panel `figures/km_brca_panel.pdf` and the log-rank values quoted in the text, `_context_robustness.py` the sharing statistics under the alternative counting conventions, and the `_fetch_*`/`_analyze_*`/`_prep_*` scripts the derived tables the generators read) |
+| `scripts/figures/` | Data derivation (`_prep_fig_extra.py`, `_prep_tau.py`, `_prep_fig1_landscape.py`), the pan-cancer survival scan (`_km_pancan_scan.py`) and one generator per figure, named after the figure it builds (`gen_fig1_main.py`, `gen_fig2_panels.py`, `gen_fig3_ppi.py` … `gen_fig7_alteration.py`, `gen_figS1_sensitivity.py` … `gen_figS4_immune.py`), plus `_figstyle.py`, the shared drawing language every generator imports (palette, rounded cards, hairline matrix grid, the 174 mm canvas), and the helpers that build no figure of their own (`gen_baseline_stats.py` writes the statistics behind Figure 4b, `gen_km_panel.py` the BRCA Kaplan-Meier panel `figures/km_brca_panel.pdf` and the log-rank values quoted in the text, `_context_robustness.py` the sharing statistics under the alternative counting conventions, and the `_fetch_*`/`_analyze_*`/`_prep_*` scripts the derived tables the generators read) |
 | `scripts/figures/_make_supplementary.py` | Builds Tables S1–S4 from the result files |
 | `scripts/figures/_gene_symbols.py` | Gene-symbol table imported by the figure scripts. Two hub genes are carried by the source data under symbols HGNC has since replaced (`C9orf84` → `SHOC1`, `MGC29506` → `MZB1`), and the Xena matrices spell the unnamed-reading-frame loci in mixed case; a plain string comparison silently drops those rows, so every lookup goes through this module |
 | `data/panels/` | The two aligned-panel definitions, `panel_A_100genes.json` (the common 100-gene panel of Stage 5b, with the per-cohort top-100 lists and the dispersion percentiles behind Figure 1d) and `panel_B_100genes.json` (the gene-disjoint second panel). These are the design, not measurements, and they are the only part of `data/` that is redistributed |
@@ -109,7 +109,7 @@ compact and the full form, so neither is recomputed when it is already there.
 | 4 | Pooled NOTEARS | `_pipeline_pooled.json` |
 | 5 | Synthetic validation (self-contained V6 two-stage pipeline) | `synth_ckpt.json`, `_v6_original_output.json` |
 | 5b | Aligned-panel analysis (see below): panel construction, the NOTEARS re-runs, and the downstream analyses the manuscript's second and third contributions rest on | `_shared_decomposition.json`, `_permutation_null.json`, `_recurrence_analysis.json`, `_latent_axis.json`, `_axis_attribution.json`, `_driver_screen.json`, `_shuffle_control.json`, `_identifiability.json`, `_crossmodal_check.json`, `_panel_B_robustness.json`, `_numbers_verification.json` |
-| 6b | Figures 1–9, supplementary Figures S1–S4 and Tables S1–S4, plus the acyclicity diagnostic of Section 2.7, the baseline table behind Figure 5 and the structure-recovery metrics of Table 2 | `figures/`, `supplementary/`, `_acyclicity.json`, `_baseline_stats.json`, `_synth_metrics.json` |
+| 6b | Figures 1–7, supplementary Figures S1–S4 and Tables S1–S4, plus the acyclicity diagnostic of Section 2.7, the baseline table behind Figure 4b and the structure-recovery metrics of Table 2 | `figures/`, `supplementary/`, `_acyclicity.json`, `_baseline_stats.json`, `_synth_metrics.json` |
 
 All stages are idempotent. Re-running resumes from the last checkpoint.
 
@@ -139,30 +139,42 @@ shared by all 33, then runs the analyses that follow from it:
 
 ## Figure Map
 
-The table is in the order the manuscript presents the figures. Each `gen_figN_<topic>.py` writes
-`figures/FigN.pdf`; the artwork keeps the number it was drawn under, while the manuscript numbers
-its figures in the order it first cites them, so the two run together for Figures 1–3 and part
-company after that. The `\includegraphics` lines of the manuscript source are the normative
-statement of which artwork is which figure, and the middle column records it here so a reader can
-go from a figure in the paper to the file that draws it.
+The table is in the order the manuscript presents the figures, and the artwork now carries the
+manuscript's own number: each `gen_figN_<topic>.py` writes `figures/FigN.pdf`, which is Figure N.
+The `\includegraphics` lines of the manuscript source remain the normative statement of which
+artwork is which figure, and the middle column records it here so a reader can go from a figure in
+the paper to the file that draws it.
+
+That agreement is new. Three panels of the previous submission — the DepMap cross-platform
+concordance, the estimator baselines and the pathway over-representation — carried the artwork
+numbers 8, 9 and 4 and appeared as manuscript Figures 4, 5 and 6, so names and citation order ran
+apart after Figure 3. They are now one figure, Figure 4, drawn by `gen_fig4_checks.py`, and the
+seven generators below run in the same order as the text.
 
 | Figure | Generator → artwork | Content |
 |:-------|:--------------------|:--------|
-| 1 | `gen_fig1_main.py` → `Fig1_main.pdf` | Cross-cohort comparison on the common panel: (a) element-wise median adjacency matrix, aligned against misaligned; (b) edges per cohort against sample size; (c) the 14 recurring directed pairs by non-malignant axis; (d) PC1 against the external marker score, and the dispersion threshold at which drivers enter |
-| 2 | `gen_fig2_panels.py` → `Fig2_panels.pdf` | Robustness to the choice of gene panel: (a) recurrence on the second, gene-disjoint panel; (b) sample-size dependence for both panels |
+| 1 | `gen_fig1_main.py` → `Fig1_main.pdf` | Cross-cohort comparison on the common panel: (a) element-wise median adjacency under both designs, with the same 9,900 off-diagonal entries ranked by magnitude below; (b) edges per cohort against sample size; (c) recurrence of the 14 directed pairs recovered in ten or more cohorts, onto six non-malignant axes; (d) PC1 against the external stromal/immune marker score, with the dispersion threshold at which drivers enter |
+| 2 | `gen_fig2_panels.py` → `Fig2_panels.pdf` | Robustness to the choice of gene panel: (a) recurrence of directed pairs on the second, gene-disjoint panel against the primary one; (b) sample-size dependence of edge count for both panels, over all 33 cohorts and restricted to $n \ge 200$ |
 | 3 | `gen_fig3_ppi.py` → `Fig3.pdf` | External support of the inferred edges: largest supported components, STRING evidence channels, supported pairs per cancer |
-| 4 | `gen_fig8_depmap.py` → `Fig8.pdf` | Cross-platform expression concordance on the DepMap cell-line panel, and its relation to CRISPR co-dependency |
-| 5 | `gen_baseline_stats.py` → `gen_fig9_baselines.py` → `Fig9.pdf` | Baseline comparisons: the cross-cancer sharing rate of both estimators under each counting convention, the overlap between their edge sets, and pooled against per-cancer NOTEARS |
-| 6 | `gen_fig4_enrichment.py` → `Fig4.pdf` | MSigDB C2 pathway over-representation for LUAD, BRCA, CHOL (the null case) and the pan-cancer network |
-| 7 | `gen_fig5_survival.py` → `Fig5.pdf` | Overall-survival association of the per-cohort network hubs, scanned across all 33 cohorts, showing the six that reach significance, with hazard ratios and 95% confidence intervals |
-| 8 | `gen_fig7_alteration.py` → `Fig7.pdf` | Somatic alteration burden of the hub genes against the canonical drivers |
-| 9 | `gen_fig6_tissue.py` → `Fig6.pdf` | Tissue specificity of the per-cohort hub genes (τ index, own-cancer rank, seven expression profiles) |
+| 4 | `gen_fig4_checks.py` → `Fig4.pdf` | The three checks on the reproducible structure: (a) DepMap cell-line concordance of the eight replicated pairs against their CRISPR co-dependency; (b) the cross-cancer sharing rate of both estimators under each counting convention, and pooled against per-cancer NOTEARS; (c) MSigDB C2 pathway over-representation for LUAD, BRCA, CHOL (the null case) and the pan-cancer network |
+| 5 | `gen_fig5_survival.py` → `Fig5.pdf` | Overall-survival association of the per-cohort network hubs: (a) hazard ratio with 95% confidence interval for every cohort in the scan, ordered by log-rank $p$, dot area the patient count; (b) Kaplan–Meier curves for the six hubs whose intervals exclude 1 |
+| 6 | `gen_fig6_tissue.py` → `Fig6.pdf` | Tissue specificity of the per-cohort hub genes: (a) Yanai's τ index for the 30 hubs against the 1,745 non-hubs of the same networks; (b) cumulative rank of each hub's own cohort against a uniform null; (c) the 33 cohort-median densities of seven hub genes, each row marked with the cohort it belongs to |
+| 7 | `gen_fig7_alteration.py` → `Fig7.pdf` | Somatic alteration burden of the hub genes against the canonical drivers: (a) non-synonymous mutation frequency of each cohort's own hub against the highest canonical driver, as a paired comparison; (b) amplification and homozygous deletion frequencies drawn as points, so a measured zero stays visible; (c) mutation frequency across cohorts |
 
 The previous submission's artwork is still reproduced by this package
 (`gen_fig1_landscape.py` → `figures/Fig1.pdf`, `gen_fig2_edges.py` → `figures/Fig2.pdf`).
 It is **not** cited by the revised manuscript — the revised Figures 1 and 2 are
 `Fig1_main.pdf` and `Fig2_panels.pdf` — and it is kept so that the earlier figures stay
 reproducible.
+
+The remaining panels of the previous submission — the DepMap cross-platform concordance, the
+estimator baselines and the pathway over-representation — are likewise reproduced by generators the
+package carries, `gen_fig8_depmap.py`, `gen_fig9_baselines.py` and `gen_fig4_enrichment.py`. All of
+them have been absorbed into the revised Figure 4, drawn by `gen_fig4_checks.py`, and none of the
+three scripts is part of `run_all.py`. Their artwork is **not** carried here, because the revised
+manuscript cites none of it; running one writes the file back into `figures/`. One caveat for anyone
+doing so: `gen_fig4_enrichment.py` writes `figures/Fig4.pdf`, the file the revised Figure 4 now
+occupies, so it overwrites the merged plate — use it only in a scratch copy of the package.
 
 The supplementary figures are shipped as a source file of their own — `supplementary_figures.tex`,
 compiled with `pdflatex` to `supplementary_figures.pdf` and submitted as Online Resource 5 — and
@@ -189,9 +201,10 @@ Figure 1 needs `_prep_fig_extra.py` and `_fix_family_key.py` to have been run fi
 document the composition of the shared pair set); it reads
 `results/_recurrence_analysis.json`, `results/_axis_attribution.json`,
 `results/_shuffle_control.json` and `data/panels/panel_A_100genes.json`.
-`_prep_fig1_landscape.py` is needed only by the pre-revision `gen_fig1_landscape.py`. Figure 8 needs
+`_prep_fig1_landscape.py` is needed only by the pre-revision `gen_fig1_landscape.py`. Figure 7 needs
 `_fetch_hub_variants.py` (the cBioPortal download that writes `results/_hub_variant_landscape.json`)
-and then `_prep_fig_variant_landscape.py`; Figure 3 and Figure S3 both need
+and then `_prep_fig_variant_landscape.py`, and the DepMap half of Figure 4a needs the two
+`./data/depmap/` tables named in Quick Start; Figure 3 and Figure S3 both need
 `_fetch_string_channels.py` (the STRING v12 per-channel query that writes
 `results/_string_channels.json`) and `_analyze_string_channels.py`, and Figure S3 additionally needs
 `_prep_fig_corr.py`. The cross-cancer sharing statistics carry a convention the text states but does
@@ -213,11 +226,10 @@ Several generators recompute a reported quantity from raw data and abort on mism
 change in the pipeline cannot silently leave a figure out of step with the text:
 
 * `gen_fig1_landscape.py` (the pre-revision Figure 1) recomputes every tumor/normal test from the per-cancer expression matrices and aborts if fewer than 15 cohorts are testable, if fewer than 8 hub tiles are significant, or if the shared set departs from the composition it was drawn for (19 pairs in three or more cohorts, 12 of them on the sex chromosomes).
-* `gen_fig8_depmap.py` recomputes every Spearman coefficient from the raw DepMap cell-line values before plotting.
+* `gen_fig4_checks.py` re-reads the eight DepMap edges and aborts unless there are eight of them, exactly six are paralogous family members, and those six carry the six highest expression correlations; it aborts again unless the five named LUAD/BRCA gene sets are present, unless no CHOL set reaches $p < 0.05$, and unless both global sets the caption names are found.
 * `gen_fig5_survival.py` rescans all 33 cohorts, includes a panel only when its hub reaches log-rank $p < 0.05$, and prints the count (6 of 33) alongside the binomial enrichment, so the figure cannot drift from the numbers in the text.
 * `gen_km_panel.py` asserts the four BRCA log-rank p-values quoted in the survival section.
-* `gen_fig4_enrichment.py` asserts that the named LUAD/BRCA gene sets are present and that no CHOL set reaches p < 0.05.
-* `gen_baseline_stats.py` rebuilds the whole of the baseline comparison from the three checkpoints and writes `results/_baseline_stats.json`; the GENIE3 and pooled numbers quoted in the text and drawn in Figure 5 come from that file, not from the progress lines printed by Stage 3.
+* `gen_baseline_stats.py` rebuilds the whole of the baseline comparison from the three checkpoints and writes `results/_baseline_stats.json`; the GENIE3 and pooled numbers quoted in the text and drawn in Figure 4b come from that file, not from the progress lines printed by Stage 3.
 * `_acyclicity_audit.py` recomputes the achieved $|h(W)|$ and the cyclic edges of every cohort from `_pipeline_notears.json`, and writes `results/_acyclicity.json`. It exists because NOTEARS returns the least-violating iterate within its iteration budget rather than an exactly acyclic matrix: the paper states the violation it actually reaches (16 of 33 thresholded graphs acyclic, 109 of 2,445 edges on a directed cycle) instead of asserting that it is zero.
 * `scripts/analysis/verify_numbers.py` is the Stage 5b counterpart: it re-derives the earlier positive results under $n \ge 200$ and writes `results/_numbers_verification.json`.
 

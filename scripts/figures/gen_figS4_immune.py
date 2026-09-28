@@ -1,87 +1,74 @@
 # -*- coding: utf-8 -*-
-"""Figure: does each cohort's own hub gene track the immune microenvironment?
+"""Figure S4: does each cohort's own hub gene track the immune microenvironment?
 
-Two stacked matrices, one per molecular layer, in the shape of the reference paper's Fig. 5:
-rows are the 28 TISIDB immune cell types, columns are the 30 TCGA cohorts that carry an
-immune-abundance profile, and each cell is the Spearman rho between that cohort's own hub gene
-and that immune cell type, with FDR-controlled significance marked.
+Two matrices, one per molecular layer: rows are the 28 TISIDB immune cell types,
+columns the 30 TCGA cohorts carrying an immune-abundance profile, and each cell is
+the Spearman rho between that cohort's own hub gene and that cell type, with
+FDR-controlled significance marked.
 
-The two panels carry one result: hub expression correlates positively with immune abundance, hub
-methylation negatively. The third layer that was drawn here -- copy number -- has almost no
-signal (44 of 756 pairs significant, the matrix read as an empty grid), so it is reported as a
-sentence in the caption instead of occupying a third of the canvas.
+Two structural changes from the previous version.
 
-Data: results/_immune_corr_all.json   (see scripts/figures/_analyze_immune_all.py)
+*  The panels are **side by side**, not stacked.  The binding constraint on this
+  plate is the 28-row axis, which needs 28 x 2.9 mm before the row labels start
+  to touch; stacked, that alone fills a page and pushes the caption over.  Side by
+  side the two layers still only cost one label column each in height, the plate
+  becomes 134 mm tall, and the reader compares expression against methylation
+  across a 5 mm gap instead of down a page.  Both panels are labelled with the
+  cohort names, because the two matrices sit at different x offsets: a label
+  column drawn under the second panel alone would not line up with the first, and
+  panel a would then have no way of naming its own columns.
+*  The colour ramp is the paper's own (mist against orchid).  The previous version
+  imported a blue-white-red map, which is the one convention this manuscript uses
+  nowhere else.
 
-Layout notes.  Canvas 174 x 205 mm.  The figures of this manuscript are drawn on the journal's
-printed measure (174 mm), so a figure placed at \textwidth in the supplementary file prints at
-1:1 and the in-figure type of 7.6 pt is the printed size.  The 28-row matrices are the binding
-constraint, so both panels share a single x tick row under the bottom panel only, and the four
-note lines that used to sit inside the canvas now live in the LaTeX caption.
-Writes a NEW pair of files; it never overwrites an existing figure.
+The four note lines that used to sit inside the canvas stay in the LaTeX caption,
+and the one title line that duplicated the caption's first sentence is gone -- the
+journal asks that an illustration carry no title of its own.
+
+Output: figures/FigS4.pdf / .png   (canvas 174 x 134 mm)
 """
-import json, os, sys
+import json
+import os
+import sys
 
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
-from matplotlib.colors import LinearSegmentedColormap, Normalize
+from matplotlib.lines import Line2D
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+_HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, _HERE)
+from _figstyle import (INK, GREY, FRAME, TICK, BOXFC, BOXEC, MM, CMAP_DIV,
+                       heatgrid, card)
 
-BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE = os.path.dirname(os.path.dirname(_HERE))
 RES = os.path.join(BASE, "results")
 FIGDIR = os.path.join(BASE, "figures")
 os.makedirs(FIGDIR, exist_ok=True)
 
-# 174 mm = the full-width figure area of the F&IG printed page, matching the submitted figures
-# (gen_fig1_landscape.py: 6.85 in). Canvas width == printed width, so font sizes are print sizes.
-W_MM, H_MM = 174.0, 205.0
-PRINT_SCALE = 174.0 / W_MM
-PRINT_FLOOR = 5.5
-FS = 7.6
-MM = 72.0 / 25.4
+FS = 8.0
+FL = 11.0
+W_MM, H_MM = 174.0, 134.0
 W, H = W_MM * MM, H_MM * MM
 
-plt.rcParams.update({
-    "pdf.fonttype": 42, "ps.fonttype": 42,
-    "font.family": "sans-serif", "font.sans-serif": ["Arial", "DejaVu Sans"],
-    # keep the maths glyphs in Arial too; the DejaVu default would otherwise supply the
-    # rho, the <= comparison and the significance markers as a second, unmatched family
-    "mathtext.fontset": "custom",
-    "mathtext.rm": "Arial", "mathtext.it": "Arial:italic", "mathtext.bf": "Arial:bold",
-    "font.size": FS, "axes.linewidth": 0.45, "text.usetex": False,
-    "figure.dpi": 300, "savefig.dpi": 300,
-    "legend.frameon": False, "legend.fontsize": FS,
-    "xtick.major.size": 1.5, "ytick.major.size": 1.5,
-    "xtick.major.width": 0.45, "ytick.major.width": 0.45,
-})
-BODY, GREY, FAINT = "#1a1a1a", "#6E6E6E", "#d8d8d8"
-CMAP = LinearSegmentedColormap.from_list("cwt", ["#3B4CC0", "#8FB1E0", "#F2F2F2",
-                                                 "#F0A08A", "#B40426"])
-CMAP.set_bad("#e8e8e8")          # cohorts with no data in that layer
-
 CELL_SHORT = {
-    "Act_CD8": "Activated CD8", "Tcm_CD8": "Central-mem. CD8", "Tem_CD8": "Effector-mem. CD8",
-    "Act_CD4": "Activated CD4", "Tcm_CD4": "Central-mem. CD4", "Tem_CD4": "Effector-mem. CD4",
-    "Tfh": "Tfh", "Tgd": "gd T", "Th1": "Th1", "Th17": "Th17", "Th2": "Th2", "Treg": "Treg",
-    "Act_B": "Activated B", "Imm_B": "Immature B", "Mem_B": "Memory B", "NK": "NK",
-    "CD56bright": "CD56 bright", "CD56dim": "CD56 dim", "MDSC": "MDSC", "NKT": "NKT",
-    "Act_DC": "Activated DC", "pDC": "pDC", "iDC": "iDC", "Macrophage": "Macrophage",
-    "Eosinophil": "Eosinophil", "Mast": "Mast", "Monocyte": "Monocyte",
-    "Neutrophil": "Neutrophil",
+    "Act_CD8": "Activated CD8", "Tcm_CD8": "Central-mem. CD8",
+    "Tem_CD8": "Effector-mem. CD8", "Act_CD4": "Activated CD4",
+    "Tcm_CD4": "Central-mem. CD4", "Tem_CD4": "Effector-mem. CD4",
+    "Tfh": "Tfh", "Tgd": "gd T", "Th1": "Th1", "Th17": "Th17", "Th2": "Th2",
+    "Treg": "Treg", "Act_B": "Activated B", "Imm_B": "Immature B",
+    "Mem_B": "Memory B", "NK": "NK", "CD56bright": "CD56 bright",
+    "CD56dim": "CD56 dim", "MDSC": "MDSC", "NKT": "NKT",
+    "Act_DC": "Activated DC", "pDC": "pDC", "iDC": "iDC",
+    "Macrophage": "Macrophage", "Eosinophil": "Eosinophil", "Mast": "Mast",
+    "Monocyte": "Monocyte", "Neutrophil": "Neutrophil",
 }
-# The copy-number layer is reported in the caption rather than drawn: 44 of its 756 pairs were
-# significant and the matrix read as an empty grid. Dropping it lets the two remaining 28-row
-# matrices use the full vertical budget.
 LAYERS = [("expr", "a", "Hub-gene expression"),
           ("meth", "b", "Hub-gene methylation")]
-# Hubs that are themselves immune-lineage markers, flagged in bold on the axis. The set matches
-# the one the control analysis excludes (analyze_immune_control.py), so the bold labels and the
-# caption's "excluding them" figure refer to the same cohorts.
-IMMUNE_HUB = {"CD79A", "MZB1", "MGC29506", "FCRL5", "CD14", "CHGB", "CD19", "MS4A1"}
+IMMUNE_HUB = {"CD79A", "MZB1", "MGC29506", "FCRL5", "CD14", "CHGB", "CD19",
+              "MS4A1"}
 
 D = json.load(open(os.path.join(RES, "_immune_corr_all.json"), encoding="utf-8"))
 CELLS, ORDER, R = D["cells"], D["order"], D["result"]
@@ -97,146 +84,206 @@ for m, _, _ in LAYERS:
             if v is not None:
                 M[m][i, j], P[m][i, j], Q[m][i, j] = v[0], v[1], v[2]
 
-# ---------------- vertical budget ----------------
-TOP = 14.0          # figure header line
-PTITLE = 11.0       # panel title band
-GAP = 9.0           # between panel blocks
-# These vertical allowances are in points, not millimetres -- they are subtracted from H, which is
-# in points. The rotated cohort labels need ~24 pt of height plus padding, and the legend needs two
-# 8 pt lines; at the earlier 18 + 24 the legend landed inside the tick-label band.
-XTICKS = 40.0       # rotated cohort labels under the bottom panel
-NOTE = 30.0         # legend only; the four note lines moved into the LaTeX caption
-BOT = XTICKS + NOTE + 8.0
-LEFT, CBAR, CBGAP, RGAP = 76.0, 9.0, 5.0, 42.0
-pw = W - LEFT - CBAR - CBGAP - RGAP
-blk = PTITLE + 0.0
-avail = H - TOP - BOT - 2 * PTITLE - 1 * GAP
-ph = avail / 2.0
+# --------------------------------------------------------------------------
+# The claims the caption makes, checked before they are drawn.
+# --------------------------------------------------------------------------
+# The counts the caption quotes are the FDR-controlled ones -- the filled
+# markers -- not the raw p < 0.05 ones; the two differ by about 5%.
+n_expr = int(np.isfinite(P["expr"]).sum())
+n_meth = int(np.isfinite(P["meth"]).sum())
+sig_expr = int(np.nansum((Q["expr"] < 0.05).astype(float)))
+pos_expr = int(np.nansum(((Q["expr"] < 0.05) & (M["expr"] > 0)).astype(float)))
+sig_meth = int(np.nansum((Q["meth"] < 0.05).astype(float)))
+neg_meth = int(np.nansum(((Q["meth"] < 0.05) & (M["meth"] < 0)).astype(float)))
+n_bold = sum(1 for c in ORDER if R[c]["hub"].upper() in IMMUNE_HUB)
 
-fig = plt.figure(figsize=(W / 72.0, H / 72.0))
-axes, texts = [], []
+# the layer that is not drawn still has to agree with the sentence about it
+cnv_m = np.full((NC, NK), np.nan)
+cnv_q = np.full((NC, NK), np.nan)
+for j, c in enumerate(ORDER):
+    for i, cell in enumerate(CELLS):
+        v = R.get(c, {}).get("cnv", {}).get(cell)
+        if v is not None:
+            cnv_m[i, j], cnv_q[i, j] = v[0], v[2]
+n_cnv = int(np.isfinite(cnv_q).sum())
+sig_cnv = int(np.nansum((cnv_q < 0.05).astype(float)))
 
-t = fig.text(LEFT / W, (H - 7.0) / H,
-             "Own-cohort hub gene versus immune-cell abundance, across %d TCGA cohorts" % NK,
-             fontsize=FS, ha="left", va="top", color=BODY)
-texts.append(t)
+print("expression : %d of %d pairs FDR-significant, %d of them positive"
+      % (sig_expr, n_expr, pos_expr))
+print("methylation: %d of %d pairs FDR-significant, %d of them negative"
+      % (sig_meth, n_meth, neg_meth))
+print("copy number: %d of %d pairs FDR-significant (reported, not drawn)"
+      % (sig_cnv, n_cnv))
+print("cohorts carrying an immune-lineage hub (bold): %d" % n_bold)
 
+# every one of these is a number the caption states
+assert (sig_expr, pos_expr) == (416, 306), "caption quotes 306 of 416 for expression"
+assert (sig_meth, neg_meth) == (270, 175), "caption quotes 175 of 270 for methylation"
+assert (sig_cnv, n_cnv) == (44, 756), "caption quotes 44 of 756 for copy number"
+assert n_meth // NC == 21, "caption says methylation covers 21 cohorts"
+
+# --------------------------------------------------------------------------
+# Layout, mm from the top-left
+# --------------------------------------------------------------------------
+TOP = 4.5
+LBL = 5.5            # the "a) Hub-gene expression" line
+MH = 88.0            # matrix height: 28 rows -> 3.14 mm per row
+GAPB = 5.0           # between the two matrices
+LEFT, RIGHT = 27.5, 4.0
+XT = 12.5            # rotated cohort labels
+BLOCK = 21.0         # legend and colour bar band
+BOT = 4.0
+PW = (W_MM - LEFT - GAPB - RIGHT) / 2.0
+MY = TOP + LBL
+
+
+def rect(x0, y0, w, h):
+    return [x0 / W_MM, 1.0 - (y0 + h) / H_MM, w / W_MM, h / H_MM]
+
+
+fig = plt.figure(figsize=(W, H))
+fig.patch.set_facecolor("white")
+
+axes = []
 for k, (mod, letter, title) in enumerate(LAYERS):
-    blk_top = H - TOP - k * (PTITLE + GAP + ph)
-    ax_top = blk_top - PTITLE
-    ax_bot = ax_top - ph
-    ax = fig.add_axes([LEFT / W, ax_bot / H, pw / W, ph / H])
+    x0 = LEFT + k * (PW + GAPB)
+    ax = fig.add_axes(rect(x0, MY, PW, MH))
     axes.append(ax)
-    ax.imshow(M[mod], cmap=CMAP, vmin=-1, vmax=1, aspect="auto",
-              interpolation="nearest", origin="upper", zorder=1)
+
+    heatgrid(ax, M[mod], cmap=CMAP_DIV, vmin=-1.0, vmax=1.0, lw=0.0,
+             bad="#E8E8E8")
     ax.set_xlim(-0.5, NK - 0.5)
     ax.set_ylim(NC - 0.5, -0.5)
     ax.set_yticks(range(NC))
     ax.set_yticklabels([CELL_SHORT[c] for c in CELLS], fontsize=FS)
-    if k == len(LAYERS) - 1:
-        ax.set_xticks(range(NK))
-        ax.set_xticklabels(ORDER, fontsize=FS, rotation=90, va="top", ha="center")
-        for lbl, c_ in zip(ax.get_xticklabels(), ORDER):
-            if R[c_]["hub"].upper() in IMMUNE_HUB:
-                lbl.set_fontweight("bold")
-    else:
-        ax.set_xticks([])
-    ax.tick_params(length=1.2, pad=1.2, width=0.4)
+    # Both panels carry the cohort names.  The two matrices sit at different x
+    # offsets -- one label column drawn under the second one alone does line up
+    # with the first, so panel a would have no way of naming its own columns.
+    ax.set_xticks(range(NK))
+    ax.set_xticklabels(ORDER, fontsize=FS, rotation=90, va="top", ha="center")
+    for lbl, c_ in zip(ax.get_xticklabels(), ORDER):
+        if R[c_]["hub"].upper() in IMMUNE_HUB:
+            lbl.set_fontweight("bold")
+    ax.tick_params(length=1.2, pad=1.3, width=0.4)
     for s in ax.spines.values():
-        s.set_linewidth(0.45)
-        s.set_color(BODY)
-    # significance
+        s.set_linewidth(0.5)
+        s.set_color(FRAME)
+
+    # Significance.  Both markers carry a ring in the opposite value, so one is
+    # legible on a deep cell and the other on a pale one; a dark dot on a dark
+    # cell (what the previous version drew) is not a mark at all.
     for i in range(NC):
         for j in range(NK):
             pv, qv = P[mod][i, j], Q[mod][i, j]
             if not np.isfinite(qv):
                 continue
             if qv < 0.05:
-                ax.plot(j, i, marker="o", ms=1.35, mfc=BODY, mec="none", zorder=3)
+                ax.plot(j, i, marker="o", ms=1.6, mfc=INK, mec="white",
+                        mew=0.3, zorder=4)
             elif pv < 0.05:
-                ax.plot(j, i, marker="o", ms=1.35, mfc="none", mec=BODY, mew=0.32, zorder=3)
-    t = fig.text(LEFT / W, (ax_top + 2.2) / H, title, fontsize=FS, ha="left", va="bottom",
-                 color=BODY, fontweight="bold")
-    texts.append(t)
-    t = fig.text((LEFT - 5.0) / W, (ax_top + 2.2) / H, letter, fontsize=FS + 1.0, ha="right",
-                 va="bottom", color=BODY, fontweight="bold")
-    texts.append(t)
+                ax.plot(j, i, marker="o", ms=1.6, mfc="white", mec=INK,
+                        mew=0.3, zorder=4)
 
-# colorbar beside the top panel
-ax0_top = H - TOP - PTITLE
-cax = fig.add_axes([(LEFT + pw + CBGAP) / W, (ax0_top - ph) / H, CBAR / W, ph / H])
-sm = plt.cm.ScalarMappable(cmap=CMAP, norm=Normalize(vmin=-1, vmax=1))
-cb = fig.colorbar(sm, cax=cax)
+    # Panel letter (11 pt, as in Figures 1-7) and the layer name beside it.
+    fig.text((x0 - 5.5) / W_MM, 1.0 - (MY - 1.4) / H_MM, letter + ")",
+             fontsize=FL, fontweight="bold", ha="left", va="bottom", color=INK)
+    fig.text(x0 / W_MM, 1.0 - (MY - 2.2) / H_MM, title, fontsize=FS + 0.8,
+             ha="left", va="bottom", color=INK, fontweight="bold")
+    card(fig, ax, pad=0.0, radius=0.010)
+
+# --------------------------------------------------------------------------
+# Legend and colour bar, sharing one band under the matrices
+# --------------------------------------------------------------------------
+YB = MY + MH + XT
+f_handles = [
+    Line2D([], [], marker="o", ls="none", ms=3.0, mfc="white", mec=INK, mew=0.5),
+    Line2D([], [], marker="o", ls="none", ms=3.0, mfc=INK, mec="white", mew=0.5),
+]
+leg = fig.legend(f_handles,
+                 ["$p < 0.05$", "$p < 0.05$ and FDR $< 0.05$"],
+                 loc="upper left", bbox_to_anchor=(1.0 / W_MM, 1.0 - (YB + 1.0) / H_MM),
+                 frameon=False, fontsize=FS, handletextpad=0.4, labelspacing=0.45,
+                 borderpad=0.0, borderaxespad=0.0)
+fig.text(1.0 / W_MM, 1.0 - (YB + 1.0) / H_MM, "Significance", fontsize=FS,
+         ha="left", va="bottom", color=INK, fontweight="bold")
+
+cbw, cbx = 56.0, 100.0
+cax = fig.add_axes(rect(cbx, YB + 3.0, cbw, 3.6))
+sm = plt.cm.ScalarMappable(cmap=CMAP_DIV, norm=plt.Normalize(-1.0, 1.0))
+sm.set_array([])
+cb = fig.colorbar(sm, cax=cax, orientation="horizontal")
 cb.set_ticks([-1, -0.5, 0, 0.5, 1])
-cb.ax.tick_params(labelsize=FS, length=1.4, pad=1.2, width=0.4)
+cb.ax.tick_params(labelsize=FS, length=1.8, pad=1.4, width=0.5)
+cb.set_label("Spearman rho", fontsize=FS, labelpad=2.0, color=INK)
 for s in list(cb.ax.spines.values()) + [cb.outline]:
-    s.set_linewidth(0.45)
-t = fig.text((LEFT + pw + CBGAP + CBAR / 2.0) / W, (ax0_top + 2.2) / H, "Spearman rho",
-             fontsize=FS, ha="center", va="bottom", color=BODY)
-texts.append(t)
+    s.set_linewidth(0.5)
+    s.set_color(FRAME)
 
-# legend under the bottom panel; the explanatory lines moved into the LaTeX caption
-y0 = H - TOP - 2 * PTITLE - 1 * GAP - 2 * ph - XTICKS - 2.0
-t = fig.text(LEFT / W, y0 / H, "Significance", fontsize=FS, ha="left", va="top",
-             color=BODY, fontweight="bold")
-texts.append(t)
-# The circle and bullet are plain Arial glyphs rather than $\circ$ / $\bullet$: mathtext has no
-# such symbol in Arial and was pulling Cmsy10 in for them, putting a second family in the figure.
-t = fig.text(LEFT / W, (y0 - 11.0) / H, "\u25cb  $p < 0.05$", fontsize=FS,
-             ha="left", va="top", color=BODY)
-texts.append(t)
-t = fig.text((LEFT + 58.0) / W, (y0 - 11.0) / H,
-             "\u25cf  $p < 0.05$ and FDR $< 0.05$", fontsize=FS,
-             ha="left", va="top", color=BODY)
-texts.append(t)
-
-# ---------------- layout self-check ----------------
+# --------------------------------------------------------------------------
+# Self-check
+# --------------------------------------------------------------------------
 fig.canvas.draw()
 r = fig.canvas.get_renderer()
-Wpx, Hpx = fig.bbox.width, fig.bbox.height          # display units, not points
-# A shrinking margin of 0.15 was too forgiving: a real collision between the legend and the
-# rotated tick labels passed as clean. 0.08 still absorbs near-touching glyph boxes but reports
-# anything a reader would call an overlap.
-SHRINK = 0.08
-boxes, oob = [], 0
+import matplotlib.transforms as mtr
+inv = mtr.Affine2D().scale(25.4 / fig.dpi)
 
 
-def push(bb, label):
-    global oob
-    dx, dy = (bb.x1 - bb.x0) * SHRINK, (bb.y1 - bb.y0) * SHRINK
-    x0, y0_, x1, y1 = bb.x0 + dx, bb.y0 + dy, bb.x1 - dx, bb.y1 - dy
-    boxes.append((x0, y0_, x1, y1, label))
-    if x0 < -0.5 or y0_ < -0.5 or x1 > Wpx + 0.5 or y1 > Hpx + 0.5:
-        oob += 1
+def top_mm(t):
+    return H_MM - t.get_window_extent(renderer=r).transformed(inv).y1
 
 
+def bot_mm(t):
+    return H_MM - t.get_window_extent(renderer=r).transformed(inv).y0
+
+
+every = []
 for ax in axes + [cax]:
-    for lbl in ax.get_xticklabels() + ax.get_yticklabels():
-        if lbl.get_text():
-            push(lbl.get_window_extent(r), lbl.get_text())
-for t in texts:
-    push(t.get_window_extent(r), t.get_text()[:16])
+    every += list(ax.get_xticklabels()) + list(ax.get_yticklabels())
+every += list(fig.texts) + list(leg.get_texts())
+
+bad, boxes, skipped = [], [], 0
+for t in every:
+    if not t.get_text():
+        continue
+    bb = t.get_window_extent(renderer=r).transformed(inv)
+    if not (np.isfinite(bb.x0) and np.isfinite(bb.x1)
+            and np.isfinite(bb.y0) and np.isfinite(bb.y1)):
+        skipped += 1
+        continue
+    boxes.append((t.get_text()[:18], bb))
+    if (bb.x0 < -0.6 or bb.x1 > W_MM + 0.6
+            or top_mm(t) < -0.6 or bot_mm(t) > H_MM + 0.6):
+        bad.append((t.get_text()[:18], round(bb.x0, 1), round(top_mm(t), 1),
+                    round(bb.x1, 1), round(bot_mm(t), 1)))
 
 ov = []
 for i in range(len(boxes)):
     for j in range(i + 1, len(boxes)):
-        a, b = boxes[i], boxes[j]
-        x0, y0_ = max(a[0], b[0]), max(a[1], b[1])
-        x1, y1 = min(a[2], b[2]), min(a[3], b[3])
-        if x0 < x1 and y0_ < y1:
-            ov.append(((x1 - x0) * (y1 - y0_), a[4][:20], b[4][:20]))
-ov.sort(reverse=True)
+        a, b = boxes[i][1], boxes[j][1]
+        ix = max(0.0, min(a.x1, b.x1) - max(a.x0, b.x0))
+        iy = max(0.0, min(a.y1, b.y1) - max(a.y0, b.y0))
+        if ix > 1.4 and iy > 1.4:
+            ov.append((boxes[i][0], boxes[j][0], round(ix, 1), round(iy, 1)))
 
-print("canvas %.1f x %.1f pt (%.0f x %.0f mm) | in-figure %.2f pt = printed size"
-      % (W, H, W_MM, H_MM, FS * PRINT_SCALE))
-print("panel %.1f pt tall -> row pitch %.2f pt" % (ph, ph / NC))
-print("texts %d | outside %d | overlapping pairs %d" % (len(boxes), oob, len(ov)))
-for a_, t1, t2 in ov[:8]:
-    print("   OV %7.1f px2  %r <-> %r" % (a_, t1, t2))
-assert oob == 0, "text outside the canvas"
+# the row labels are the binding constraint: their pitch must clear the glyphs
+pitch = MH / NC
+ylab_w = max(t.get_window_extent(renderer=r).transformed(inv).x1
+             for t in axes[0].get_yticklabels()) 
+print("canvas %.0f x %.0f mm | %d cell types x %d cohorts | FS %.1f pt"
+      % (W_MM, H_MM, NC, NK, FS))
+print("row pitch %.2f mm | widest row label ends at x %.1f mm (room to %.1f)"
+      % (pitch, ylab_w, LEFT))
+print("column pitch %.2f mm" % (PW / NK))
+print("outside canvas: %d %s" % (len(bad), bad[:6]))
+print("unplaced labels skipped: %d" % skipped)
+print("overlapping text pairs: %d %s" % (len(ov), ov[:6]))
+assert not bad, "text outside the canvas"
 assert not ov, "overlapping text"
-assert FS * PRINT_SCALE >= PRINT_FLOOR - 0.01, "printed type below the floor"
+assert ylab_w < LEFT - 0.8, "row labels run into the first matrix"
+assert n_bold == 4, "the caption quotes four immune-lineage hubs"
 
 for ext in ("pdf", "png"):
-    fig.savefig(os.path.join(FIGDIR, "FigS4.%s" % ext), dpi=300, facecolor="white")
-print("wrote figures/FigS4.pdf/.png")
+    fig.savefig(os.path.join(FIGDIR, "FigS4.%s" % ext), dpi=400, facecolor="white")
+print("wrote figures/FigS4.pdf and .png  (%.1f KB / %.1f KB)"
+      % (os.path.getsize(os.path.join(FIGDIR, "FigS4.pdf")) / 1024.0,
+         os.path.getsize(os.path.join(FIGDIR, "FigS4.png")) / 1024.0))

@@ -97,12 +97,21 @@ log('\ntau computed for %d genes' % len(gene_tau))
 log('  hub genes      n=%d  mean tau=%.3f  median=%.3f' % (len(hub_tau), hub_tau.mean(), np.median(hub_tau)))
 log('  non-hub genes  n=%d  mean tau=%.3f  median=%.3f' % (len(nonhub_tau), nonhub_tau.mean(), np.median(nonhub_tau)))
 
+# tau = 1 means tissue-specific and tau = 0 ubiquitous, so the claim the manuscript
+# makes ("hubs are significantly less tissue-restricted") is the *less* tail.  Every
+# tail is computed and recorded under its own name: the single unlabelled `mw_p` that
+# used to be written here held the opposite tail (0.977), which reads as the claim
+# being false even though the two-sided value it implies (0.047) is the one Figure 6
+# quotes and re-derives for itself.
 try:
     from scipy.stats import mannwhitneyu
-    u, pmw = mannwhitneyu(hub_tau, nonhub_tau, alternative='greater')
-    log('  Mann-Whitney U=%.0f  one-sided p=%.4g' % (u, pmw))
+    u, p_less = mannwhitneyu(hub_tau, nonhub_tau, alternative='less')
+    _, p_greater = mannwhitneyu(hub_tau, nonhub_tau, alternative='greater')
+    _, p_two = mannwhitneyu(hub_tau, nonhub_tau, alternative='two-sided')
+    log('  Mann-Whitney U=%.0f  two-sided p=%.4g  |  hubs less tissue-restricted, one-sided p=%.4g  |  other tail %.4g'
+        % (u, p_two, p_less, p_greater))
 except Exception as e:
-    pmw = float('nan')
+    u = p_less = p_greater = p_two = float('nan')
     log('  MWU failed %s' % e)
 
 # rank test vs uniform null (1..33) for hub genes, from pass 1
@@ -121,7 +130,10 @@ json.dump({
     'hub_genes': sorted(hub_genes),
     'hub_rank_mean': obs,
     'hub_rank_perm_p': p_perm,
-    'mw_p': None if pmw != pmw else float(pmw),
+    'mw_u': None if u != u else float(u),
+    'mw_p_hub_less_tissue_specific': None if p_less != p_less else float(p_less),
+    'mw_p_hub_more_tissue_specific': None if p_greater != p_greater else float(p_greater),
+    'mw_p_two_sided': None if p_two != p_two else float(p_two),
     'cancers': cancers,
     'hub_raw': hub_raw,
     'hub_of_cancer': hub_of,

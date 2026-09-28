@@ -1,174 +1,215 @@
+# -*- coding: utf-8 -*-
 """Figure 6: tissue specificity of the per-cancer network hub genes.
 
-Panels a-b are statistics over all 28 hub genes (one max-degree gene per cancer) compared with
-the non-hub genes of the same networks.  Panels c-i show individual hub-gene expression profiles
-across the 33 TCGA cohorts, spanning the full observed rank range (rank 1 to rank 33) rather than
-only the best cases.
+Three panels, replacing the nine the plate used to carry.
 
-All numbers come from results/_tau_specificity.json and results/_hub_expression.json, which are
-derived from the TCGA HiSeqV2 matrices by scripts/figures/_prep_tau.py.
+Why the seven box panels had to go
+----------------------------------
+Panels c-i used to be the same box plot drawn seven times, once per hub gene:
+seven panels, seven sets of axes, between them one message.  What actually
+separates those genes is the *shape* of where they sit across the 33 cohorts --
+SLC22A6 and GABRA1 are pinned to the floor in 24-28 of them and then spike,
+while CD14 sits in a single high band everywhere -- and a box plot cannot show a
+shape.  One ridgeline carries all seven, and the shape difference is the panel.
+
+The planned alternative was a gene x cohort dot matrix on expression z-scores.
+It was dropped on the numbers, not on taste: only 3 of the 7 rows have the gene's
+own cancer as the brightest cell of its row, CD14's own cancer (LAML) is the
+*dimmest* cell of its row, and once SLC22A6's 28 zero cohorts are z-scored the
+whole matrix collapses to one flat tint -- 231 dots carrying no readable pattern.
+The own-cohort reading survives as the right-hand column instead.
+
+Drawing language
+----------------
+Same tokens as Figures 1-5, imported from `_figstyle`: the seven muted colours,
+type in the palette's indigo, a faint rounded card behind each panel, the same
+one 8 pt lettering size, panel letters at 11 pt bold.
 
 Journal requirements applied here
 ---------------------------------
-* Designed at 6.85 in = 174 mm, the full-width figure area of the printed page, so the point sizes
-  set below are the sizes that appear in print.
-* No titles or captions inside the artwork: panels carry a bare "a)" .. "i)" label, and the
-  gene, its own cancer and its rank are stated in the figure caption.
-* The 33 cohort names are printed once per column, on the bottom row only; repeating them in all
-  nine panels is what forced the previous version down to 6 pt.
-* Sans-serif Arial throughout, including the maths text.
+* 174 mm wide -- the printed text width, so the point sizes are the sizes that
+  appear in print.  `bbox_inches='tight'` is deliberately NOT used.
+* Nothing below 8 pt; the page is the canvas and the canvas check is a hard gate.
+* Sans-serif Arial throughout, including the maths text; Type 42 embedding.
+* Every encoded distinction survives greyscale: the hub dots are open circles on
+  a filled violin, the null is a dashed line against a solid one.
+
+Output: figures/Fig6.pdf / .png
 """
 import json, os, sys
+
 import numpy as np
 import matplotlib
-matplotlib.use('Agg')
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.transforms import blended_transform_factory
+from scipy.stats import gaussian_kde, mannwhitneyu
 
-BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-RESULTS = os.path.join(BASE, 'results')
-FIGDIR = os.path.join(BASE, 'figures')
-os.makedirs(FIGDIR, exist_ok=True)
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _figstyle import (PAL, INK, GREY, TICK, FRAME, MM, tidy, card, dots,
+                       haloed_text_pt, panel_letters)
 
-d = json.load(open(os.path.join(RESULTS, '_tau_specificity.json'), encoding='utf-8'))
-p1 = json.load(open(os.path.join(RESULTS, '_hub_expression.json'), encoding='utf-8'))
+_HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(os.path.dirname(_HERE))
+RES = os.path.join(ROOT, "results")
+FIG = os.path.join(ROOT, "figures")
+os.makedirs(FIG, exist_ok=True)
 
-cancers = d['cancers']
-hub_of = d['hub_of_cancer']
-raw = d['hub_raw']
-stats = p1['stats']
-hub_tau = np.asarray(d['hub_tau'], dtype=float)
-nonhub_tau = np.asarray(d['nonhub_tau'], dtype=float)
-rank_mean = d['hub_rank_mean']
-perm_p = d['hub_rank_perm_p']
+d = json.load(open(os.path.join(RES, "_tau_specificity.json"), encoding="utf-8"))
+p1 = json.load(open(os.path.join(RES, "_hub_expression.json"), encoding="utf-8"))
+cancers = d["cancers"]
+hub_of = d["hub_of_cancer"]
+raw = d["hub_raw"]
+stats = p1["stats"]
+hub_tau = np.asarray(d["hub_tau"], dtype=float)
+nonhub_tau = np.asarray(d["nonhub_tau"], dtype=float)
+rank_mean = d["hub_rank_mean"]
+perm_p = d["hub_rank_perm_p"]
 
-# Two-sided Mann-Whitney, computed here so the reported direction is unambiguous.
-from scipy.stats import mannwhitneyu
-mw_p = float(mannwhitneyu(hub_tau, nonhub_tau, alternative='two-sided')[1])
+mw_p = float(mannwhitneyu(hub_tau, nonhub_tau, alternative="two-sided")[1])
 hub_lower = bool(hub_tau.mean() < nonhub_tau.mean())
 
-BLUE = '#2166AC'
-RED = '#B2182B'
-ORANGE = '#D6604D'
-GRAY = '#555555'
-LGRAY = '#BBBBBB'
+# The seven panels this figure used to carry, kept as the panel-c rows.
+SHOW = ["SLC22A6", "GABRA1", "LTF", "NAPSA", "CXCL5", "ADH1B", "CD14"]
+COLS = [PAL["mist"], PAL["orchid"], PAL["moss"], PAL["violet"],
+        PAL["peri"], PAL["indigo"], PAL["lilac"]]
+own_of = {g: next((c for c in cancers if hub_of.get(c) == g), None) for g in SHOW}
 
-plt.rcParams.update({
-    'pdf.fonttype': 42, 'ps.fonttype': 42,   # embed TrueType, not Type 3
-    'font.family': 'sans-serif', 'font.sans-serif': ['Arial', 'Helvetica', 'DejaVu Sans'],
-    'mathtext.fontset': 'custom',
-    'mathtext.rm': 'Arial', 'mathtext.it': 'Arial:italic', 'mathtext.bf': 'Arial:bold',
-    'font.size': 8, 'axes.labelsize': 8,
-    'xtick.labelsize': 7.0, 'ytick.labelsize': 7.2, 'legend.fontsize': 7.2,
-    'axes.linewidth': 0.6, 'text.usetex': False,
-})
-# The page is the canvas, 6.85 x 7.2 in = 174 x 183 mm; bbox_inches='tight' is deliberately NOT
-# used, because it grows the page by whatever sticks out and so shrinks the lettering again.
-fig = plt.figure(figsize=(6.85, 7.2))
+# ---- assertions: the caption's claims must hold in the data ----
+if [c for c in SHOW if own_of[c] is None]:
+    print("ABORT: a drawn gene is not the hub of any cohort")
+    sys.exit(1)
+_med = np.full((len(SHOW), len(cancers)), np.nan)
+for _i, _g in enumerate(SHOW):
+    for _j, _c in enumerate(cancers):
+        _v = raw.get(_g, {}).get(_c)
+        if _v:
+            _med[_i, _j] = float(np.median(_v))
+if np.isnan(_med).any():
+    print("ABORT: the 7 x 33 median matrix has holes")
+    sys.exit(1)
+if not (0.60 < hub_tau.mean() < 0.63 and 0.69 < nonhub_tau.mean() < 0.71):
+    print("ABORT: tau means moved (hub %.3f, non-hub %.3f)" % (hub_tau.mean(), nonhub_tau.mean()))
+    sys.exit(1)
+if not (abs(mw_p - 0.047) < 0.002 and abs(rank_mean - 11.7) < 0.1 and abs(perm_p - 0.001) < 0.001):
+    print("ABORT: the quoted statistics moved (MW %.4f, rank %.2f, perm %.4f)"
+          % (mw_p, rank_mean, perm_p))
+    sys.exit(1)
+print("claim checks passed: MW p=%.4f, rank mean %.2f vs 17.0, perm p=%.4f"
+      % (mw_p, rank_mean, perm_p))
 
+_DIAG = sum(1 for _i in range(len(SHOW))
+            if np.nanargmax(_med[_i]) == cancers.index(own_of[SHOW[_i]]))
+print("own cancer is the brightest cell in %d of the %d rows -- the reason the planned "
+      "dot matrix was dropped" % (_DIAG, len(SHOW)))
+for _i, _g in enumerate(SHOW):
+    _o = np.argsort(-_med[_i])
+    _rk = list(_o).index(cancers.index(own_of[_g])) + 1
+    print("   %-8s own %-5s rank %2d/33  zeros in %2d of 33 cohorts  peak %.1f"
+          % (_g, own_of[_g], _rk, int((_med[_i] == 0).sum()), np.nanmax(_med[_i])))
 
-def clean(ax):
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
+FS = 8.0                                     # the single lettering size of this plate
+W_MM, H_MM = 174.0, 216.0
 
+fig = plt.figure(figsize=(W_MM * MM, H_MM * MM))
+axa = fig.add_axes([0.083, 0.638, 0.352, 0.300])
+axb = fig.add_axes([0.600, 0.638, 0.385, 0.300])
+axc = fig.add_axes([0.082, 0.052, 0.712, 0.512])
 
-def tag(ax, letter):
-    ax.set_title(letter + ')', loc='left', fontweight='bold', fontsize=9, pad=3)
-
-
-# ---- (a) tau: hub vs non-hub network genes ----
-ax = fig.add_subplot(3, 3, 1)
-parts = ax.violinplot([nonhub_tau, hub_tau], positions=[1, 2], widths=0.7,
-                      showextrema=False, showmedians=False)
-for i, pc_ in enumerate(parts['bodies']):
-    pc_.set_facecolor(LGRAY if i == 0 else BLUE)
-    pc_.set_alpha(0.75)
-    pc_.set_edgecolor('white')
-    pc_.set_linewidth(0.4)
-bp = ax.boxplot([nonhub_tau, hub_tau], positions=[1, 2], widths=0.16, showfliers=False,
-                patch_artist=True, medianprops=dict(color='white', linewidth=1.0))
-for i, b in enumerate(bp['boxes']):
-    b.set_facecolor(GRAY if i == 0 else RED)
-    b.set_edgecolor('white')
+# ===================================================================== a) tau
+parts = axa.violinplot([nonhub_tau, hub_tau], positions=[1, 2], widths=0.74,
+                       showextrema=False, showmedians=False)
+for i, pc in enumerate(parts["bodies"]):
+    pc.set_facecolor(PAL["lilac"] if i == 0 else PAL["mist"])
+    pc.set_alpha(0.58)
+    pc.set_edgecolor("white")
+    pc.set_linewidth(0.4)
+bp = axa.boxplot([nonhub_tau, hub_tau], positions=[1, 2], widths=0.20, showfliers=False,
+                 patch_artist=True, medianprops=dict(color="white", linewidth=1.0))
+for i, b in enumerate(bp["boxes"]):
+    b.set_facecolor(PAL["violet"] if i == 0 else PAL["mist"])
+    b.set_edgecolor("white")
     b.set_linewidth(0.4)
-ax.set_xticks([1, 2])
-ax.set_xticklabels(['Non-hub\n(n=%d)' % len(nonhub_tau), 'Hub\n(n=%d)' % len(hub_tau)])
-ax.set_ylabel(r'Tissue-specificity index $\tau$')
-ax.set_ylim(-0.02, 1.02)
-ptxt = ('$p$ = %.3f  (hubs %s)' % (mw_p, 'lower' if hub_lower else 'higher'))
-ax.text(0.5, 0.96, ptxt, transform=ax.transAxes, ha='center', va='top', fontsize=7.0,
-        bbox=dict(boxstyle='round,pad=0.25', facecolor='white', alpha=0.85, edgecolor='none'))
-tag(ax, 'a')
-clean(ax)
 
-# ---- (b) rank of the hub gene's own cancer ----
-ax = fig.add_subplot(3, 3, 2)
-ranks = np.array(sorted(v['rank'] for v in stats.values()))
-ax.plot(ranks, np.arange(1, len(ranks) + 1) / len(ranks), marker='o', ms=2.6,
-        color=BLUE, lw=1.0, label='Observed (%d hubs)' % len(ranks))
-ax.plot([1, 33], [1 / 33, 1.0], ls='--', lw=0.9, color=ORANGE, label='Uniform null')
-ax.set_xlabel('Rank of own cancer')
-ax.set_ylabel('Cumulative fraction of hubs')
-ax.set_xlim(0.5, 33.5)
-ax.set_ylim(0, 1.02)
-ax.legend(fontsize=7.2, frameon=False, loc='lower right')
-ax.text(0.04, 0.95, 'mean rank = %.1f (null 17.0)\npermutation $p$ = %.3f' % (rank_mean, perm_p),
-        transform=ax.transAxes, va='top', fontsize=7.0,
-        bbox=dict(boxstyle='round,pad=0.25', facecolor='white', alpha=0.85, edgecolor='none'))
-tag(ax, 'b')
-clean(ax)
+# The 1,745 non-hubs can only be shown as a distribution; the 30 hubs fit as
+# individuals, so they are drawn as individuals.  The asymmetry is the honesty.
+_rng = np.random.default_rng(0)
+_jit = _rng.uniform(-0.21, 0.21, len(hub_tau))
+dots(axa, 2.0 + _jit, hub_tau, 15, "white", z=6, shadow=False,
+     ec=PAL["indigo"], lw=0.7, alpha=0.95)
+axa.set_xticks([1, 2])
+axa.set_xticklabels(["non-hub\n$n$ = 1,745", "hub\n$n$ = 30"], fontsize=FS, linespacing=1.6)
+axa.set_ylabel(r"tissue-specificity index $\tau$", fontsize=FS)
+axa.set_ylim(-0.02, 1.02)
+axa.set_xlim(0.40, 2.60)
+axa.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
+haloed_text_pt(axa, 1.5, 0.985, "$p$ = %.3f  (hubs %s)"
+               % (mw_p, "lower" if hub_lower else "higher"), dx=0, dy=0, size=FS,
+               color=INK, ha="center", va="top")
+axa.tick_params(axis="x", length=0)
 
-# ---- (c-i) individual hub-gene profiles, spanning the full rank range ----
-SHOW = ['SLC22A6', 'GABRA1', 'LTF', 'NAPSA', 'CXCL5', 'ADH1B', 'CD14']
-for k, g in enumerate(SHOW):
-    pos = 3 + k                       # grid slot c .. i
-    ax = fig.add_subplot(3, 3, pos)
-    vecs, labels, colors = [], [], []
-    for c in cancers:
-        v = raw.get(g, {}).get(c)
-        if v:
-            vecs.append(v)
-            labels.append(c)
-            colors.append(RED if hub_of.get(c) == g else LGRAY)
-    if not vecs:
-        ax.axis('off')
-        continue
-    bp = ax.boxplot(vecs, widths=0.72, showfliers=False, patch_artist=True,
-                    medianprops=dict(color='white', linewidth=0.6))
-    for b, col in zip(bp['boxes'], colors):
-        b.set_facecolor(col)
-        b.set_edgecolor('white')
-        # 0.25 pt was below the journal's 0.3 pt floor for line art; 0.4 matches panel (a)
-        b.set_linewidth(0.4)
-    for el in ('whiskers', 'caps'):
-        for e in bp[el]:
-            e.set_linewidth(0.4)
-            e.set_color(GRAY)
-    own = stats.get(g, {}).get('own_cancer', '')
-    # The cohort names are printed once per column, on the bottom row of the grid (slots g, h, i).
-    bottom_row = pos >= 7
-    if bottom_row:
-        ax.set_xticks(range(1, len(labels) + 1))
-        # Every third cohort: at 7 pt a rotated label occupies about 8 pt of width, and a panel is
-        # only ~116 pt wide, so every other one would overprint.  The hub's own cohort is always
-        # labelled, and its two neighbours are dropped so that it cannot crowd them either.
-        keep = set(range(0, len(labels), 3))
-        if own in labels:
-            oi = labels.index(own)
-            keep.discard(oi - 1)
-            keep.discard(oi + 1)
-            keep.add(oi)
-        display = [lab if i in keep else '' for i, lab in enumerate(labels)]
-        ax.set_xticklabels(display, fontsize=7.0, rotation=90, va='top')
-    else:
-        ax.set_xticklabels([])
-    if pos % 3 == 0:                  # right-hand column carries the shared y label
-        ax.set_ylabel('log$_2$(TPM+1)')
-    ax.tick_params(axis='y', labelsize=7.2)
-    tag(ax, 'abcdefghi'[pos - 1])
-    clean(ax)
+# ===================================================================== b) rank
+_ranks = np.array(sorted(v["rank"] for v in stats.values()))
+axb.plot(_ranks, np.arange(1, len(_ranks) + 1) / len(_ranks), marker="o", ms=2.8,
+         color=PAL["mist"], lw=1.1, label="observed (%d hubs)" % len(_ranks))
+axb.plot([1, 33], [1 / 33, 1.0], ls="--", lw=0.9, color=PAL["orchid"],
+         label="uniform null")
+axb.set_xlabel("rank of own cancer", fontsize=FS)
+axb.set_ylabel("cumulative fraction of hubs", fontsize=FS)
+# Linear axis, as the panel was drawn before the redesign: rank is an ordinal
+# count of cohorts, and a log axis would re-space the very comparison the null
+# line exists to make.
+axb.set_xlim(0.5, 33.5)
+axb.set_ylim(0, 1.03)
+axb.set_xticks([1, 5, 10, 15, 20, 25, 30, 33])
+axb.legend(fontsize=FS, frameon=False, loc="lower right", handlelength=1.6)
+haloed_text_pt(axb, 0.62, 0.955, "mean rank %.1f (null 17.0)\npermutation $p$ = %.3f"
+               % (rank_mean, perm_p), dx=0, dy=0, size=FS, color=INK,
+               ha="left", va="top")
 
-plt.subplots_adjust(left=0.085, right=0.985, top=0.962, bottom=0.060,
-                    wspace=0.42, hspace=0.32)
+# ===================================================================== c) ridgeline
+_grid = np.linspace(-0.6, 16.6, 600)
+_tr = blended_transform_factory(axc.transAxes, axc.transData)
+for i, g in enumerate(SHOW):
+    base = len(SHOW) - i
+    axc.plot([-0.6, 16.6], [base, base], color=FRAME, lw=0.5, zorder=1)
+    _kde = gaussian_kde(_med[i], bw_method=0.30)
+    _dens = _kde(_grid)
+    # 0.82 of the row pitch, not 0.92: ADH1B's peak and the baseline one row above
+    # it were closing to 0.08 of a row, which reads as a collision.
+    _dens = _dens / _dens.max() * 0.82
+    axc.fill_between(_grid, base, base + _dens, color=COLS[i], alpha=0.50, lw=0,
+                     zorder=2 + i)
+    axc.plot(_grid, base + _dens, color="white", lw=0.9, zorder=2 + i)
+    _yv = _med[i, cancers.index(own_of[g])]
+    _ytop = base + float(np.interp(_yv, _grid, _dens))
+    axc.plot([_yv, _yv], [base, _ytop], color=INK, lw=0.7, ls=(0, (2.0, 1.6)), zorder=12)
+    dots(axc, [_yv], [base], 26, PAL["violet"], z=13, ec="white", lw=0.8)
+    _rk = list(np.argsort(-_med[i])).index(cancers.index(own_of[g])) + 1
+    axc.text(1.014, base + 0.02, own_of[g], transform=_tr, ha="left", va="center",
+             fontsize=FS, color=INK)
+    axc.text(1.014, base - 0.30, "rank %d" % _rk, transform=_tr, ha="left",
+             va="center", fontsize=FS, color=GREY)
+axc.text(1.014, len(SHOW) + 1.02, "own cohort", transform=_tr, ha="left", va="bottom",
+         fontsize=FS, color=GREY)
+axc.set_yticks(range(1, len(SHOW) + 1))
+axc.set_yticklabels([r"$\it{%s}$" % g for g in SHOW[::-1]], fontsize=FS)
+axc.set_xlabel("log$_2$(TPM+1), density of the 33 cohort medians", fontsize=FS)
+axc.set_xlim(-0.6, 16.6)
+axc.set_ylim(0.42, len(SHOW) + 1.05)
+axc.set_xticks([0, 2, 4, 6, 8, 10, 12, 14, 16])
+axc.tick_params(axis="y", length=0)
+
+for _a in (axa, axb, axc):
+    for _s in ("top", "right"):
+        _a.spines[_s].set_visible(False)
+    tidy(_a)
+axc.spines["left"].set_visible(False)
+card(fig, axa, pad=0.011, radius=0.014)
+card(fig, axb, pad=0.010, radius=0.014)
+card(fig, axc, pad=0.008, radius=0.012)
+panel_letters(fig, [(axa, "a"), (axb, "b"), (axc, "c")], dx=-0.030, dy=0.006, size=11)
 
 # ---- nothing may leave the canvas: the page IS the canvas here ----
 fig.canvas.draw()
@@ -182,20 +223,18 @@ for _t in fig.findobj(matplotlib.text.Text):
         continue
     _b = _t.get_window_extent(renderer=_rend)
     if _b.x0 < -12 or _b.y0 < -12 or _b.x1 > _W + 12 or _b.y1 > _H + 12:
-        _bad.append((_t.get_text()[:34].replace('\n', ' '), round(_b.x0, 1), round(_b.x1, 1)))
+        _bad.append((_t.get_text()[:34].replace("\n", " "), round(_b.x0, 1), round(_b.x1, 1)))
 if _bad:
-    print('ABORT: %d text elements leave the canvas' % len(_bad))
-    for b in _bad[:10]:
-        print('   ', b)
+    print("ABORT: %d text elements leave the canvas" % len(_bad))
+    for _b in _bad[:12]:
+        print("   ", _b)
     sys.exit(1)
-print('canvas check passed: all text inside %.2f x %.2f in'
-      % (fig.get_size_inches()[0], fig.get_size_inches()[1]))
+print("canvas check passed: all text inside %.2f x %.2f mm" % (W_MM, H_MM))
 
-plt.savefig(os.path.join(FIGDIR, 'Fig6.pdf'), dpi=300)
-plt.savefig(os.path.join(FIGDIR, 'Fig6.png'), dpi=300)
-plt.close()
+fig.savefig(os.path.join(FIG, "Fig6.pdf"), facecolor="white")
+fig.savefig(os.path.join(FIG, "Fig6.png"), facecolor="white")
+plt.close(fig)
 
-print('Fig6 done: %d KB' % (os.path.getsize(os.path.join(FIGDIR, 'Fig6.pdf')) // 1024))
-print('  tau hub mean=%.3f vs non-hub mean=%.3f  MW p=%s' % (hub_tau.mean(), nonhub_tau.mean(), mw_p))
-print('  rank mean=%.2f  perm p=%.3f' % (rank_mean, perm_p))
-print('  examples: %s' % ', '.join('%s(rank %d)' % (g, stats[g]['rank']) for g in SHOW if g in stats))
+print("Fig6 done: %d KB (pdf) / %d KB (png)"
+      % (os.path.getsize(os.path.join(FIG, "Fig6.pdf")) // 1024,
+         os.path.getsize(os.path.join(FIG, "Fig6.png")) // 1024))
