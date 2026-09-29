@@ -1,8 +1,8 @@
-# Panel alignment is a precondition for cross-cancer causal comparison: the reproducible structure across 33 TCGA cohorts is a microenvironmental chemokine axis
+# What is shared across 33 cancer types is the tissue, not the tumour: a non-malignant axis recovered only from aligned gene panels
 
 **Shuaidong Gao** — Chongqing Institute of Foreign Studies
 
-Replication package for the manuscript *"Panel alignment is a precondition for cross-cancer causal comparison: the reproducible structure across 33 TCGA cohorts is a microenvironmental chemokine axis"*, submitted to *Functional & Integrative Genomics* (Springer).
+Replication package for the manuscript *"What is shared across 33 cancer types is the tissue, not the tumour: a non-malignant axis recovered only from aligned gene panels"*, submitted to *Functional & Integrative Genomics* (Springer).
 
 ## What the analysis delivers
 

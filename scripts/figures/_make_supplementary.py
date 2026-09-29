@@ -31,8 +31,8 @@ WRAP = Alignment(vertical='top', wrap_text=False)
 
 # Required in every supplementary file by the journal's submission guidelines.
 BANNER = [
-    'Article title: Panel alignment is a precondition for cross-cancer causal comparison: '
-    'the reproducible structure across 33 TCGA cohorts is a microenvironmental chemokine axis',
+    'Article title: What is shared across 33 cancer types is the tissue, not the tumour: '
+    'a non-malignant axis recovered only from aligned gene panels',
     'Journal: Functional & Integrative Genomics',
     'Author: Shuaidong Gao',
     'Affiliation: Chongqing Institute of Foreign Studies, Qijiang Campus, '
