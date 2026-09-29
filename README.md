@@ -14,7 +14,9 @@ The pipeline estimates a NOTEARS graph for each of the 33 TCGA cancer types (10,
 
 3. **An attribution for what that structure is.** The dominant axis of the aligned panel is microenvironmental content rather than a tumour-cell programme: PC1 has $\lambda_1 = 16.04$ against a Marchenko–Pastur upper edge of 1.205 (13.3×), fifteen eigenvalues lie above the edge where a null matrix leaves none, and PC1 correlates at a mean $r = 0.803$ (range 0.415–0.912), positive in 33 of 33 cohorts, with 23 stromal, immune and endothelial markers drawn deliberately from outside the panel. Canonical drivers cannot enter: their median dispersion percentile is 50.8 against the 0.487th percentile of the panel cut, and they enter systematically only at $k \gtrsim 1000$ (9 selections at $k = 100$, 114 at $k = 1000$).
 
-4. **An operational sample-size rule, measured from a negative control.** Shuffling sample labels abolishes the recurring set (14 → 0) while leaving the sample-size dependence almost unchanged ($r = -0.503$ against $-0.652$), which places the dependence in the fitting regime rather than in the biology. Cohorts that still return edges on shuffled data have a maximum of $n = 156$; cohorts that return none have a minimum of $n = 172$. The two regimes separate at $n^{*} \approx 172 \approx 1.7d$ for $d = 100$.
+4. **An operational sample-size rule, measured from a negative control.** Shuffling sample labels abolishes the recurring set (14 → 0) while leaving the sample-size dependence almost unchanged ($r = -0.503$ against $-0.652$), which places the dependence in the fitting regime rather than in the biology. At $d = 100$ the two regimes separate between $n = 122$ and $n = 172$ ($1.2d$ to $1.7d$; two independent shuffle realisations put the boundary at 122/156 and 156/172). Repeating the control at four widths shows the ratio is **not** a constant: the boundary sits at $1.60d$, $1.56d$, $1.15d$ and $0.94d$ for $d = 50$, $100$, $150$ and $200$, and at $d = 200$ the two regimes overlap. The rule is therefore to locate the boundary on the study's own data by shuffling, not to import a multiple of $d$.
+
+5. **What the recurrence does and does not establish.** Four constructed nulls separate the two quantities the count confounds. A covariance-preserving rotation of each cohort's panel (3 realisations) and the gene-wise label permutation both return **zero** recurring pairs, so recurrence is not a property of the panel's geometry. Panels assembled by the *same dispersion rule* from unrelated genes do **not** return zero: twelve expression-matched panels yield $2$–$11$ recurring pairs (mean $6.4$) and twelve expression- and dispersion-matched panels yield $6$–$15$ (mean $9.8$), which brackets the real panel's fourteen. The recurring **count** is therefore reported with its null and not used as evidence. What does separate is the median matrix (6 entries above $\tau$ against a maximum of 5 over the 24 panels) and the largest median coefficient ($0.731$ against $0.638$) — the real panel exceeds all 24 (rank $p \le 0.04$) — together with the identity of the pairs: the nulls' recurring pairs are tandem duplicates (AKR1C1–AKR1C2 in twelve and eleven of the twelve double-matched panels) and the interferon-inducible GBP5, no pair of the expression-matched family appears in two of its twelve panels, and no gene of the chemokine module recurs in any of the 24.
 
 The revision adds this analysis layer on top of the previous submission. The per-cohort estimation of all 33 cohorts (2,445 edges), the STRING/TRRUST comparison (31.7-fold, Fisher $p = 7.7 \times 10^{-206}$), the DepMap cross-platform validation, the GENIE3 and pooled NOTEARS baselines, the survival analysis, the somatic-alteration profiling and the synthetic two-stage validation are all retained and are reproduced by the stages below.
 
@@ -93,9 +95,10 @@ compact and the full form, so neither is recomputed when it is already there.
 | `supplementary_figures.tex` | LaTeX source of the supplementary figures (S1–S4); compiled with `pdflatex` it reproduces `supplementary/ESM_5.pdf` |
 | `supplementary/` | The five Online Resources as submitted: `ESM_1`–`ESM_4.xlsx` (Tables S1–S4) and `ESM_5.pdf` (Figures S1–S4), rebuilt by the last two steps of `run_all.py` |
 | `scripts/experiments/` | Self-contained V6 synthetic validation (`_synthetic_v6.py`); it writes `synth_ckpt.json` and `_v6_original_output.json`. `_synth_metrics.py` scores that checkpoint against its ground truth and writes `_synth_metrics.json`, the source of Table 2 |
-| `results/` | Pre-computed checkpoints and derived data tables. The 46 MB expression cache `_fig1_landscape.npz` is deliberately not shipped; `_prep_fig1_landscape.py` rebuilds it from the TCGA files |
+| `scripts/revision/` | The revision compute batch: `_rev_lib.py` (the shared library, carrying a verbatim copy of the NOTEARS solver that `_rev_unit1.py` checks against the cached weights bit-for-bit), `_rev_night.py` (the stage machinery: composition adjustment, bootstrap and multi-initialisation, the threshold grid, the rotation and matched-panel nulls, the low-dispersion panel, the width scans, the per-cohort spectral analysis, the continuous Cox models, the TRRUST count), `_rev_launch.py` (detached launcher), `_rev_extra.py` (Stage-2 projection on the real panel), `_rev_mp.py`, `_rev_proj.py`, `_rev_conv.py`, `_rev_speed2.py`, and `_rev_numbers.py`, which writes `results/_rev/NUMBERS.md` from the artefacts, so the mapping cannot drift from the files by transcription |
+| `results/` | Pre-computed checkpoints and derived data tables. The 46 MB expression cache `_fig1_landscape.npz` is deliberately not shipped; `_prep_fig1_landscape.py` rebuilds it from the TCGA files. `results/_rev/` holds the revision batch's outputs — the JSON summaries and `NUMBERS.md` ship, the per-panel weight matrices do not (see `.gitignore`; `scripts/revision/` regenerates them from the recorded seeds) |
 | `figures/` | Pre-built figures, vector PDF |
-| `refs.bib` | The 91 references of the manuscript in BibTeX format |
+| `refs.bib` | The 72 references of the manuscript in BibTeX format |
 | `sn-jnl.cls` | Springer Nature LaTeX class file |
 | `requirements.txt` | Python dependencies |
 
@@ -136,6 +139,37 @@ shared by all 33, then runs the analyses that follow from it:
 | `crossmodal_check.py` | `_crossmodal_check.json` | the copy-number check ($r = -0.320$, $p = 4.4 \times 10^{-27}$, $n = 1{,}078$) |
 | `panel_B_robustness.py` | `_panel_B_robustness.json` | the same axes recovered without the primary panel's genes |
 | `verify_numbers.py` | `_numbers_verification.json` | the earlier positive results re-derived under $n \ge 200$ |
+
+## Revision batch (`scripts/revision/`)
+
+The analyses added in the second revision are kept out of `run_all.py`, because they are the
+response to specific review points rather than part of the standard reproduction, and because
+several of them refit all 33 cohorts. They live in `scripts/revision/` and write to
+`results/_rev/`. Every stage is checkpointed per cohort and resumable:
+
+```bash
+# run one stage (composition, bootstrap, multiinit, lamscan, rotation, randompanel,
+#                 randompanel_dm, lowmad, dscan, dscan_null, mp, survival, trrust)
+python scripts/revision/_rev_night.py randompanel
+python scripts/revision/_rev_extra.py            # Stage-2 projection on the real panel
+python scripts/revision/_rev_mp.py               # per-cohort spectral position
+
+# or launch the whole batch detached, with a worker count and a log stem
+python scripts/revision/_rev_launch.py all night1 0 _rev 10
+```
+
+`REV_WORKERS` sets the process pool size and `REV_DIR` redirects the outputs into a sandbox, so
+a smoke run cannot leave partial checkpoints in the shipped path. BLAS is pinned to one thread
+in the launching environment: on this machine that is both faster and numerically identical
+(`_rev_unit1.py` verifies the copy of the solver against the cached weights before any refit).
+
+`results/_rev/NUMBERS.md` is the manifest the manuscript's Data Availability statement points
+at: every number the revision added, the file that produces it, and its seed. It is generated
+by `scripts/revision/_rev_numbers.py` from the artefacts themselves, and the real panel's own
+side of each comparison is recomputed there through the same code path the null panels went
+through, so the contrasts are auditable rather than transcribed. Among its tables are the
+four-width shuffle boundary (the quantity that locates the sample floor) and the real-versus-null
+comparison for the median-matrix density, the largest median coefficient and the recurring count.
 
 ## Figure Map
 

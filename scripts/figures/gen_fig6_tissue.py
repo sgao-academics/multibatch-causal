@@ -115,7 +115,9 @@ W_MM, H_MM = 174.0, 216.0
 fig = plt.figure(figsize=(W_MM * MM, H_MM * MM))
 axa = fig.add_axes([0.083, 0.638, 0.352, 0.300])
 axb = fig.add_axes([0.600, 0.638, 0.385, 0.300])
-axc = fig.add_axes([0.082, 0.052, 0.712, 0.512])
+# x0 nudged right by ~3 pt: the longest italic gene label on panel c (SLC22A6) started
+# half a point outside the canvas at the previous offset
+axc = fig.add_axes([0.089, 0.052, 0.705, 0.512])
 
 # ===================================================================== a) tau
 parts = axa.violinplot([nonhub_tau, hub_tau], positions=[1, 2], widths=0.74,
@@ -195,7 +197,9 @@ axc.text(1.014, len(SHOW) + 1.02, "own cohort", transform=_tr, ha="left", va="bo
          fontsize=FS, color=GREY)
 axc.set_yticks(range(1, len(SHOW) + 1))
 axc.set_yticklabels([r"$\it{%s}$" % g for g in SHOW[::-1]], fontsize=FS)
-axc.set_xlabel("log$_2$(TPM+1), density of the 33 cohort medians", fontsize=FS)
+# the HiSeqV2 matrices are log2(normalized count + 1); labelling the axis TPM named a
+# transformation the data never went through (reviewer A-5)
+axc.set_xlabel("log$_2$(normalized count$+1$), density of the 33 cohort medians", fontsize=FS)
 axc.set_xlim(-0.6, 16.6)
 axc.set_ylim(0.42, len(SHOW) + 1.05)
 axc.set_xticks([0, 2, 4, 6, 8, 10, 12, 14, 16])

@@ -1,8 +1,12 @@
-numpy>=1.24
-scipy>=1.10
-pandas>=1.5
-matplotlib>=3.7
-scikit-learn>=1.2
+# Versions the reported numbers were produced with (reviewer C5: pin, do not floor).
+# The pipeline is deterministic given these; NOTEARS L-BFGS-B is run from a fixed
+# initialisation, and every number the revision added is mapped to its seed in
+# results/_rev/NUMBERS.md.
+numpy==2.4.6
+scipy==1.17.1
+pandas==2.3.3
+matplotlib==3.10.9
+scikit-learn==1.9.0
 # optional: only scripts/figures/_analyze_immune_all.py needs this, and only to rebuild
 # the TISIDB immune tables; the shipped results/_immune_corr_all.json is used otherwise.
-pyreadr>=0.5
+pyreadr==0.5.1

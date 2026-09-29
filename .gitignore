@@ -68,6 +68,8 @@ __pycache__/
 # --- result caches that are rebuilt rather than shipped ---
 # 46 MB expression cache; _prep_fig1_landscape.py rebuilds it from the TCGA files
 results/_fig1_landscape.npz
+# (results/_rev/ carries its own .gitignore, next to the artefacts it describes: it ships the
+#  JSON summaries behind the revision sections and drops the regenerable weight matrices.)
 
 # --- figures superseded by the current numbering ---
 # Fig 2-5 of the pre-submission set; the artwork now uses Fig1-Fig9 for the manuscript,

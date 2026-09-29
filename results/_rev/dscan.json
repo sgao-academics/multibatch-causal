@@ -1,0 +1,578 @@
+{
+ "d50": {
+  "d": 50,
+  "n_cohorts": 33,
+  "total_edges": 835,
+  "pearson_r": -0.5026228641337003,
+  "pearson_p": 0.002873414103261617,
+  "max_n_with_edges": 1218,
+  "min_n_without_edges": 172,
+  "ratio_over_d": 24.36,
+  "per_cohort": {
+   "ACC": {
+    "n": 79,
+    "edges": 33
+   },
+   "BLCA": {
+    "n": 426,
+    "edges": 8
+   },
+   "BRCA": {
+    "n": 1218,
+    "edges": 12
+   },
+   "CESC": {
+    "n": 308,
+    "edges": 11
+   },
+   "CHOL": {
+    "n": 45,
+    "edges": 120
+   },
+   "COAD": {
+    "n": 329,
+    "edges": 12
+   },
+   "DLBC": {
+    "n": 48,
+    "edges": 130
+   },
+   "ESCA": {
+    "n": 196,
+    "edges": 21
+   },
+   "GBM": {
+    "n": 172,
+    "edges": 9
+   },
+   "HNSC": {
+    "n": 566,
+    "edges": 7
+   },
+   "KICH": {
+    "n": 91,
+    "edges": 62
+   },
+   "KIRC": {
+    "n": 606,
+    "edges": 6
+   },
+   "KIRP": {
+    "n": 323,
+    "edges": 8
+   },
+   "LAML": {
+    "n": 173,
+    "edges": 8
+   },
+   "LGG": {
+    "n": 530,
+    "edges": 6
+   },
+   "LIHC": {
+    "n": 423,
+    "edges": 4
+   },
+   "LUAD": {
+    "n": 576,
+    "edges": 10
+   },
+   "LUSC": {
+    "n": 553,
+    "edges": 10
+   },
+   "MESO": {
+    "n": 87,
+    "edges": 30
+   },
+   "OV": {
+    "n": 308,
+    "edges": 10
+   },
+   "PAAD": {
+    "n": 183,
+    "edges": 25
+   },
+   "PCPG": {
+    "n": 187,
+    "edges": 8
+   },
+   "PRAD": {
+    "n": 550,
+    "edges": 20
+   },
+   "READ": {
+    "n": 105,
+    "edges": 45
+   },
+   "SARC": {
+    "n": 265,
+    "edges": 3
+   },
+   "SKCM": {
+    "n": 474,
+    "edges": 8
+   },
+   "STAD": {
+    "n": 450,
+    "edges": 8
+   },
+   "TGCT": {
+    "n": 156,
+    "edges": 18
+   },
+   "THCA": {
+    "n": 572,
+    "edges": 16
+   },
+   "THYM": {
+    "n": 122,
+    "edges": 23
+   },
+   "UCEC": {
+    "n": 201,
+    "edges": 10
+   },
+   "UCS": {
+    "n": 57,
+    "edges": 82
+   },
+   "UVM": {
+    "n": 80,
+    "edges": 52
+   }
+  }
+ },
+ "d100": {
+  "d": 100,
+  "n_cohorts": 33,
+  "total_edges": 2239,
+  "pearson_r": -0.6515113064493647,
+  "pearson_p": 4.013660368517689e-05,
+  "max_n_with_edges": 1218,
+  "min_n_without_edges": null,
+  "ratio_over_d": 12.18,
+  "per_cohort": {
+   "ACC": {
+    "n": 79,
+    "edges": 157
+   },
+   "BLCA": {
+    "n": 426,
+    "edges": 15
+   },
+   "BRCA": {
+    "n": 1218,
+    "edges": 21
+   },
+   "CESC": {
+    "n": 308,
+    "edges": 25
+   },
+   "CHOL": {
+    "n": 45,
+    "edges": 216
+   },
+   "COAD": {
+    "n": 329,
+    "edges": 28
+   },
+   "DLBC": {
+    "n": 48,
+    "edges": 215
+   },
+   "ESCA": {
+    "n": 196,
+    "edges": 46
+   },
+   "GBM": {
+    "n": 172,
+    "edges": 33
+   },
+   "HNSC": {
+    "n": 566,
+    "edges": 18
+   },
+   "KICH": {
+    "n": 91,
+    "edges": 171
+   },
+   "KIRC": {
+    "n": 606,
+    "edges": 15
+   },
+   "KIRP": {
+    "n": 323,
+    "edges": 24
+   },
+   "LAML": {
+    "n": 173,
+    "edges": 37
+   },
+   "LGG": {
+    "n": 530,
+    "edges": 20
+   },
+   "LIHC": {
+    "n": 423,
+    "edges": 12
+   },
+   "LUAD": {
+    "n": 576,
+    "edges": 16
+   },
+   "LUSC": {
+    "n": 553,
+    "edges": 18
+   },
+   "MESO": {
+    "n": 87,
+    "edges": 152
+   },
+   "OV": {
+    "n": 308,
+    "edges": 22
+   },
+   "PAAD": {
+    "n": 183,
+    "edges": 70
+   },
+   "PCPG": {
+    "n": 187,
+    "edges": 27
+   },
+   "PRAD": {
+    "n": 550,
+    "edges": 31
+   },
+   "READ": {
+    "n": 105,
+    "edges": 181
+   },
+   "SARC": {
+    "n": 265,
+    "edges": 16
+   },
+   "SKCM": {
+    "n": 474,
+    "edges": 22
+   },
+   "STAD": {
+    "n": 450,
+    "edges": 16
+   },
+   "TGCT": {
+    "n": 156,
+    "edges": 75
+   },
+   "THCA": {
+    "n": 572,
+    "edges": 31
+   },
+   "THYM": {
+    "n": 122,
+    "edges": 100
+   },
+   "UCEC": {
+    "n": 201,
+    "edges": 39
+   },
+   "UCS": {
+    "n": 57,
+    "edges": 167
+   },
+   "UVM": {
+    "n": 80,
+    "edges": 203
+   }
+  }
+ },
+ "d150": {
+  "d": 150,
+  "n_cohorts": 33,
+  "total_edges": 3059,
+  "pearson_r": -0.7097592598546827,
+  "pearson_p": 3.7387851060098913e-06,
+  "max_n_with_edges": 1218,
+  "min_n_without_edges": null,
+  "ratio_over_d": 8.12,
+  "per_cohort": {
+   "ACC": {
+    "n": 79,
+    "edges": 175
+   },
+   "BLCA": {
+    "n": 426,
+    "edges": 29
+   },
+   "BRCA": {
+    "n": 1218,
+    "edges": 29
+   },
+   "CESC": {
+    "n": 308,
+    "edges": 35
+   },
+   "CHOL": {
+    "n": 45,
+    "edges": 233
+   },
+   "COAD": {
+    "n": 329,
+    "edges": 49
+   },
+   "DLBC": {
+    "n": 48,
+    "edges": 234
+   },
+   "ESCA": {
+    "n": 196,
+    "edges": 86
+   },
+   "GBM": {
+    "n": 172,
+    "edges": 79
+   },
+   "HNSC": {
+    "n": 566,
+    "edges": 30
+   },
+   "KICH": {
+    "n": 91,
+    "edges": 224
+   },
+   "KIRC": {
+    "n": 606,
+    "edges": 28
+   },
+   "KIRP": {
+    "n": 323,
+    "edges": 37
+   },
+   "LAML": {
+    "n": 173,
+    "edges": 92
+   },
+   "LGG": {
+    "n": 530,
+    "edges": 32
+   },
+   "LIHC": {
+    "n": 423,
+    "edges": 24
+   },
+   "LUAD": {
+    "n": 576,
+    "edges": 25
+   },
+   "LUSC": {
+    "n": 553,
+    "edges": 27
+   },
+   "MESO": {
+    "n": 87,
+    "edges": 182
+   },
+   "OV": {
+    "n": 308,
+    "edges": 30
+   },
+   "PAAD": {
+    "n": 183,
+    "edges": 112
+   },
+   "PCPG": {
+    "n": 187,
+    "edges": 64
+   },
+   "PRAD": {
+    "n": 550,
+    "edges": 42
+   },
+   "READ": {
+    "n": 105,
+    "edges": 273
+   },
+   "SARC": {
+    "n": 265,
+    "edges": 38
+   },
+   "SKCM": {
+    "n": 474,
+    "edges": 25
+   },
+   "STAD": {
+    "n": 450,
+    "edges": 30
+   },
+   "TGCT": {
+    "n": 156,
+    "edges": 116
+   },
+   "THCA": {
+    "n": 572,
+    "edges": 37
+   },
+   "THYM": {
+    "n": 122,
+    "edges": 145
+   },
+   "UCEC": {
+    "n": 201,
+    "edges": 75
+   },
+   "UCS": {
+    "n": 57,
+    "edges": 202
+   },
+   "UVM": {
+    "n": 80,
+    "edges": 220
+   }
+  }
+ },
+ "d200": {
+  "d": 200,
+  "n_cohorts": 33,
+  "total_edges": 3492,
+  "pearson_r": -0.7382556435524467,
+  "pearson_p": 9.397443047608525e-07,
+  "max_n_with_edges": 1218,
+  "min_n_without_edges": null,
+  "ratio_over_d": 6.09,
+  "per_cohort": {
+   "ACC": {
+    "n": 79,
+    "edges": 163
+   },
+   "BLCA": {
+    "n": 426,
+    "edges": 30
+   },
+   "BRCA": {
+    "n": 1218,
+    "edges": 33
+   },
+   "CESC": {
+    "n": 308,
+    "edges": 44
+   },
+   "CHOL": {
+    "n": 45,
+    "edges": 215
+   },
+   "COAD": {
+    "n": 329,
+    "edges": 79
+   },
+   "DLBC": {
+    "n": 48,
+    "edges": 202
+   },
+   "ESCA": {
+    "n": 196,
+    "edges": 115
+   },
+   "GBM": {
+    "n": 172,
+    "edges": 129
+   },
+   "HNSC": {
+    "n": 566,
+    "edges": 36
+   },
+   "KICH": {
+    "n": 91,
+    "edges": 231
+   },
+   "KIRC": {
+    "n": 606,
+    "edges": 32
+   },
+   "KIRP": {
+    "n": 323,
+    "edges": 57
+   },
+   "LAML": {
+    "n": 173,
+    "edges": 140
+   },
+   "LGG": {
+    "n": 530,
+    "edges": 47
+   },
+   "LIHC": {
+    "n": 423,
+    "edges": 33
+   },
+   "LUAD": {
+    "n": 576,
+    "edges": 39
+   },
+   "LUSC": {
+    "n": 553,
+    "edges": 30
+   },
+   "MESO": {
+    "n": 87,
+    "edges": 192
+   },
+   "OV": {
+    "n": 308,
+    "edges": 40
+   },
+   "PAAD": {
+    "n": 183,
+    "edges": 178
+   },
+   "PCPG": {
+    "n": 187,
+    "edges": 99
+   },
+   "PRAD": {
+    "n": 550,
+    "edges": 49
+   },
+   "READ": {
+    "n": 105,
+    "edges": 312
+   },
+   "SARC": {
+    "n": 265,
+    "edges": 43
+   },
+   "SKCM": {
+    "n": 474,
+    "edges": 28
+   },
+   "STAD": {
+    "n": 450,
+    "edges": 47
+   },
+   "TGCT": {
+    "n": 156,
+    "edges": 129
+   },
+   "THCA": {
+    "n": 572,
+    "edges": 49
+   },
+   "THYM": {
+    "n": 122,
+    "edges": 168
+   },
+   "UCEC": {
+    "n": 201,
+    "edges": 98
+   },
+   "UCS": {
+    "n": 57,
+    "edges": 179
+   },
+   "UVM": {
+    "n": 80,
+    "edges": 226
+   }
+  }
+ }
+}

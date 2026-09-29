@@ -1,0 +1,240 @@
+{
+ "0.005": {
+  "0.20": {
+   "median_edges": 10,
+   "recurring_ge10": 32,
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "HBB->HBA1",
+    "C7->PLCXD3",
+    "IL6->FOSB",
+    "CXCL1->IL8",
+    "GZMK->CXCL9",
+    "CXCL11->CXCR2P1",
+    "CCL18->CHIT1",
+    "COL10A1->COL11A1",
+    "ADAM6->MGC29506",
+    "IGJ->ADAM6",
+    "IL8->IL6",
+    "ADAM6->IGJ",
+    "IGJ->MGC29506",
+    "SFRP4->COL10A1",
+    "PLA2G2D->ADAMDEC1",
+    "CXCR2P1->CXCL9",
+    "MGC29506->ADAM6",
+    "C7->ADH1B",
+    "MARCO->CCL18",
+    "CXCL9->PLA2G2D",
+    "MGC29506->DPEP1",
+    "IL8->CXCL1",
+    "PLA2G2D->CHIT1",
+    "COL11A1->SFRP2",
+    "CXCL9->SNORD116-4",
+    "ADAMDEC1->MMP9",
+    "ADAMDEC1->CXCR2P1",
+    "PLA2G2D->CCL18",
+    "PLA2G2D->CXCL13",
+    "PLA2G2D->CCL19"
+   ]
+  },
+  "0.25": {
+   "median_edges": 6,
+   "recurring_ge10": 17,
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "HBB->HBA1",
+    "CXCL1->IL8",
+    "C7->PLCXD3",
+    "IL6->FOSB",
+    "ADAM6->MGC29506",
+    "ADAM6->IGJ",
+    "IGJ->ADAM6",
+    "COL10A1->COL11A1",
+    "CCL18->CHIT1",
+    "IGJ->MGC29506",
+    "GZMK->CXCL9",
+    "PLA2G2D->ADAMDEC1",
+    "MGC29506->ADAM6",
+    "IL8->CXCL1",
+    "IL8->IL6"
+   ]
+  },
+  "0.30": {
+   "median_edges": 6,
+   "recurring_ge10": 14,
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "HBB->HBA1",
+    "CXCL1->IL8",
+    "C7->PLCXD3",
+    "IL6->FOSB",
+    "ADAM6->IGJ",
+    "IGJ->ADAM6",
+    "COL10A1->COL11A1",
+    "ADAM6->MGC29506",
+    "CCL18->CHIT1",
+    "IL8->CXCL1",
+    "MGC29506->ADAM6",
+    "GZMK->CXCL9"
+   ]
+  },
+  "0.35": {
+   "median_edges": 4,
+   "recurring_ge10": 12,
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "HBB->HBA1",
+    "CXCL1->IL8",
+    "IL6->FOSB",
+    "ADAM6->IGJ",
+    "C7->PLCXD3",
+    "IGJ->ADAM6",
+    "COL10A1->COL11A1",
+    "ADAM6->MGC29506",
+    "MGC29506->ADAM6",
+    "IL8->CXCL1"
+   ]
+  },
+  "0.40": {
+   "median_edges": 4,
+   "recurring_ge10": 11,
+   "pairs": [
+    "CXCL10->CXCL11",
+    "HBB->HBA1",
+    "CXCL9->CXCL10",
+    "CXCL1->IL8",
+    "ADAM6->IGJ",
+    "IGJ->ADAM6",
+    "ADAM6->MGC29506",
+    "IL6->FOSB",
+    "C7->PLCXD3",
+    "COL10A1->COL11A1",
+    "MGC29506->ADAM6"
+   ]
+  }
+ },
+ "0.020": {
+  "0.20": {
+   "median_edges": 7,
+   "recurring_ge10": 30,
+   "pairs": [
+    "CXCL9->CXCL10",
+    "CXCL10->CXCL11",
+    "IL6->FOSB",
+    "C7->PLCXD3",
+    "HBB->HBA1",
+    "CCL18->CHIT1",
+    "CXCL1->IL8",
+    "ADAM6->MGC29506",
+    "IGJ->ADAM6",
+    "IL8->CXCL1",
+    "CXCL11->CXCR2P1",
+    "COL10A1->COL11A1",
+    "ADAM6->IGJ",
+    "C7->ADH1B",
+    "IGJ->MGC29506",
+    "GZMK->CXCL9",
+    "PLA2G2D->ADAMDEC1",
+    "PLA2G2D->CCL19",
+    "CXCR2P1->CXCL9",
+    "MGC29506->ADAM6",
+    "OGN->SFRP4",
+    "CCL18->MARCO",
+    "ADAMDEC1->MMP9",
+    "ADAMDEC1->CXCR2P1",
+    "SFRP4->FNDC1",
+    "IL8->IL6",
+    "COL10A1->SFRP4",
+    "PLA2G2D->CHIT1",
+    "PLA2G2D->CXCR2P1",
+    "FNDC1->COL10A1"
+   ]
+  },
+  "0.25": {
+   "median_edges": 6,
+   "recurring_ge10": 19,
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "HBB->HBA1",
+    "IL6->FOSB",
+    "C7->PLCXD3",
+    "CXCL1->IL8",
+    "ADAM6->MGC29506",
+    "IGJ->ADAM6",
+    "CCL18->CHIT1",
+    "IL8->CXCL1",
+    "ADAM6->IGJ",
+    "COL10A1->COL11A1",
+    "PLA2G2D->CCL19",
+    "IGJ->MGC29506",
+    "MGC29506->ADAM6",
+    "GZMK->CXCL9",
+    "C7->ADH1B",
+    "IL8->IL6",
+    "PLA2G2D->ADAMDEC1"
+   ]
+  },
+  "0.30": {
+   "median_edges": 5,
+   "recurring_ge10": 14,
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "HBB->HBA1",
+    "IL6->FOSB",
+    "CXCL1->IL8",
+    "IGJ->ADAM6",
+    "ADAM6->MGC29506",
+    "C7->PLCXD3",
+    "ADAM6->IGJ",
+    "CCL18->CHIT1",
+    "IL8->CXCL1",
+    "COL10A1->COL11A1",
+    "IGJ->MGC29506",
+    "MGC29506->ADAM6"
+   ]
+  },
+  "0.35": {
+   "median_edges": 5,
+   "recurring_ge10": 13,
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "HBB->HBA1",
+    "CXCL1->IL8",
+    "IL6->FOSB",
+    "IGJ->ADAM6",
+    "ADAM6->MGC29506",
+    "ADAM6->IGJ",
+    "IL8->CXCL1",
+    "COL10A1->COL11A1",
+    "C7->PLCXD3",
+    "CCL18->CHIT1",
+    "MGC29506->ADAM6"
+   ]
+  },
+  "0.40": {
+   "median_edges": 4,
+   "recurring_ge10": 12,
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "HBB->HBA1",
+    "CXCL1->IL8",
+    "IGJ->ADAM6",
+    "ADAM6->IGJ",
+    "ADAM6->MGC29506",
+    "IL8->CXCL1",
+    "IL6->FOSB",
+    "COL10A1->COL11A1",
+    "C7->PLCXD3",
+    "MGC29506->ADAM6"
+   ]
+  }
+ }
+}

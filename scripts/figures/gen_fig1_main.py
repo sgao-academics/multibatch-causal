@@ -405,12 +405,17 @@ axc.set_ylim(-2.8, len(edges) + 0.95)
 axc.set_xticks([0, 10, 20, 30, 40])
 axc.set_xlabel('cohorts (of 33) in which the edge recurs')
 tidy(axc, grid=None)
+# A pair recovered in both orientations is drawn as two rows, which can read as two
+# independent directed findings.  Those rows are labelled with a double arrow instead
+# (reviewer B-1): 3 of the 14 pairs are of this kind.
+_present = {(e['src'], e['dst']) for e in edges}
 for y, e in zip(ys, edges):
     k, c, lab = axis_of(e['src'])
     capsule(axc, 0.0, 44.0, y, 0.66, TRACK, z=2)               # the light track
     capsule(axc, 0.0, float(e['n_cohorts']), y, 0.66, c, z=3)  # the value
+    _arrow = '$\\leftrightarrow$' if (e['dst'], e['src']) in _present else '$\\rightarrow$'
     haloed_text(axc, e['n_cohorts'] + 0.7, y,
-                '%s$\\rightarrow$%s' % (canonical(e['src']), canonical(e['dst'])),
+                '%s%s%s' % (canonical(e['src']), _arrow, canonical(e['dst'])),
                 va='center', z=5)
 axc.axvline(10, ls=(0, (4, 2)), c=PAL['indigo'], lw=0.9, alpha=0.55, zorder=4)
 hs = [Rectangle((0, 0), 1, 1, fc=c, ec='none') for k, (g, c, lab) in AXIS.items()]
@@ -421,7 +426,7 @@ leg = axc.legend(hs, [lab for k, (g, c, lab) in AXIS.items()], fontsize=8,
                  borderpad=0.45, labelspacing=0.42)
 haloed_text(axc, 10.35, len(edges) + 0.24, 'threshold 10/33', color=PAL['indigo'],
             ha='left', va='center', z=6)
-axc.text(0.985, 0.015, '14 edges  |  6 non-malignant axes  |  0 canonical drivers',
+axc.text(0.985, 0.015, '14 edges  |  3 recovered in both orientations  |  0 canonical drivers',
          transform=axc.transAxes, fontsize=8, style='italic', ha='right', va='bottom',
          color=GREY)
 

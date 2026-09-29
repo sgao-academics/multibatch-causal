@@ -1,0 +1,127 @@
+{
+ "rows": [
+  {
+   "cohort": "ACC",
+   "gene": "SHOC1",
+   "n": 78,
+   "events": 27,
+   "hr_per_sd": 2.3930288642972055,
+   "ci_lo": 1.552349228583645,
+   "ci_hi": 3.688981216284998,
+   "p_per_sd": 7.765204741790387e-05,
+   "ph_p": 0.9464738908418013,
+   "logrank_p_split": 0.0003526363822334775,
+   "hr_split": 4.621347905324312,
+   "q_bh": 0.00023295614225371161,
+   "significant_fdr": true
+  },
+  {
+   "cohort": "BLCA",
+   "gene": "SFRP2",
+   "n": 404,
+   "events": 177,
+   "hr_per_sd": 1.2606905807399953,
+   "ci_lo": 1.075807872995564,
+   "ci_hi": 1.477346262526469,
+   "p_per_sd": 0.004195853383675189,
+   "ph_p": 0.3361534348713764,
+   "logrank_p_split": 0.023401908017541825,
+   "hr_split": 1.4127695817402286,
+   "q_bh": 0.006293780075512784,
+   "significant_fdr": true
+  },
+  {
+   "cohort": "HNSC",
+   "gene": "CHGB",
+   "n": 514,
+   "events": 216,
+   "hr_per_sd": 1.2964528004665143,
+   "ci_lo": 1.1359012970410185,
+   "ci_hi": 1.4796971076764012,
+   "p_per_sd": 0.00011856336257172106,
+   "ph_p": 0.39127404710631686,
+   "logrank_p_split": 0.0003792110019276481,
+   "hr_split": 1.6317647300009936,
+   "q_bh": 0.0002371267251434421,
+   "significant_fdr": true
+  },
+  {
+   "cohort": "KIRC",
+   "gene": "SLC22A6",
+   "n": 508,
+   "events": 168,
+   "hr_per_sd": 0.6785552367497552,
+   "ci_lo": 0.5850116080349421,
+   "ci_hi": 0.787056535283339,
+   "p_per_sd": 2.992406151799758e-07,
+   "ph_p": 0.6126609101202638,
+   "logrank_p_split": 5.338974575859295e-05,
+   "hr_split": 0.5322833696348284,
+   "q_bh": 1.7954436910798549e-06,
+   "significant_fdr": true
+  },
+  {
+   "cohort": "LUSC",
+   "gene": "NAPSA",
+   "n": 477,
+   "events": 203,
+   "hr_per_sd": 1.1419838874402326,
+   "ci_lo": 0.9883184796299623,
+   "ci_hi": 1.3195414494944848,
+   "p_per_sd": 0.07176516923129365,
+   "ph_p": 0.10392409070532845,
+   "logrank_p_split": 0.009137871394816791,
+   "hr_split": 1.4477428635432728,
+   "q_bh": 0.08611820307755239,
+   "significant_fdr": false
+  },
+  {
+   "cohort": "SKCM",
+   "gene": "FCRL5",
+   "n": 76,
+   "events": 27,
+   "hr_per_sd": 0.7856908643323544,
+   "ci_lo": 0.5273088243810355,
+   "ci_hi": 1.1706804547030512,
+   "p_per_sd": 0.23584240717253732,
+   "ph_p": 0.9118381509768752,
+   "logrank_p_split": 9.25766780864733e-07,
+   "hr_split": 0.5049521393373935,
+   "q_bh": 0.23584240717253732,
+   "significant_fdr": false
+  }
+ ],
+ "floor_sensitivity": {
+  "n_ge_172": {
+   "n_hubs": 4,
+   "genes": [
+    "CHGB",
+    "NAPSA",
+    "SFRP2",
+    "SLC22A6"
+   ]
+  },
+  "n_ge_180": {
+   "n_hubs": 4,
+   "genes": [
+    "CHGB",
+    "NAPSA",
+    "SFRP2",
+    "SLC22A6"
+   ]
+  },
+  "n_ge_200": {
+   "n_hubs": 4,
+   "genes": [
+    "CHGB",
+    "NAPSA",
+    "SFRP2",
+    "SLC22A6"
+   ]
+  }
+ },
+ "n_nominated": 6,
+ "n_fdr_significant": 4,
+ "n_ph_violations": 0,
+ "note": "Per-SD continuous Cox replaces the median split; the split-based log-rank p and hazard ratio are given alongside for continuity. q is Benjamini-Hochberg across the nominated hubs."
+}

@@ -1,0 +1,2208 @@
+{
+ "tau_grid": {
+  "0.15": {
+   "median_edges": 15,
+   "recurring_ge10": 44,
+   "q": 40763.0,
+   "nk": {
+    "2": 2881,
+    "3": 1360,
+    "5": 296,
+    "10": 44,
+    "15": 19
+   },
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "IL6->FOSB",
+    "C7->PLCXD3",
+    "HBB->HBA1",
+    "CXCL11->CXCR2P1",
+    "CCL18->CHIT1",
+    "CXCL1->IL8",
+    "GZMK->CXCL9",
+    "ADAM6->IGJ",
+    "ADAM6->MGC29506",
+    "IGJ->MGC29506",
+    "COL10A1->COL11A1",
+    "PLA2G2D->ADAMDEC1",
+    "CXCR2P1->CXCL9",
+    "IGJ->ADAM6",
+    "IL8->IL6",
+    "C7->ADH1B",
+    "FNDC1->COL10A1",
+    "ADAMDEC1->CXCR2P1",
+    "IL8->CXCL1",
+    "ADAMDEC1->MMP9",
+    "PLA2G2D->CHIT1",
+    "PLA2G2D->CXCL13",
+    "SFRP4->COL10A1",
+    "SFRP4->FNDC1",
+    "MGC29506->DPEP1",
+    "PLA2G2D->CCL18",
+    "PLA2G2D->CCL19",
+    "MARCO->CCL18",
+    "CXCL9->PLA2G2D",
+    "CXCL9->CXCL11",
+    "MGC29506->ADAM6",
+    "SNORD116-4->PCDHGB5",
+    "CHI3L2->SERPINA3",
+    "HBA1->HBB",
+    "COL11A1->SFRP2",
+    "COL11A1->FNDC1",
+    "OGN->SFRP4",
+    "SFRP2->SFRP4",
+    "ADH1B->FABP4",
+    "CCL19->DARC",
+    "CCL19->PLA2G2D",
+    "S100A8->HBB"
+   ]
+  },
+  "0.20": {
+   "median_edges": 9,
+   "recurring_ge10": 27,
+   "q": 20134.0,
+   "nk": {
+    "2": 1339,
+    "3": 474,
+    "5": 96,
+    "10": 27,
+    "15": 14
+   },
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "IL6->FOSB",
+    "C7->PLCXD3",
+    "HBB->HBA1",
+    "CXCL1->IL8",
+    "ADAM6->IGJ",
+    "ADAM6->MGC29506",
+    "COL10A1->COL11A1",
+    "IGJ->ADAM6",
+    "CCL18->CHIT1",
+    "CXCL11->CXCR2P1",
+    "IL8->IL6",
+    "PLA2G2D->ADAMDEC1",
+    "IL8->CXCL1",
+    "GZMK->CXCL9",
+    "IGJ->MGC29506",
+    "CXCR2P1->CXCL9",
+    "C7->ADH1B",
+    "HBA1->HBB",
+    "OGN->SFRP4",
+    "ADAMDEC1->CXCR2P1",
+    "MGC29506->ADAM6",
+    "PLA2G2D->CHIT1",
+    "PLA2G2D->CCL18",
+    "PLA2G2D->CCL19",
+    "FNDC1->COL10A1"
+   ]
+  },
+  "0.25": {
+   "median_edges": 6,
+   "recurring_ge10": 17,
+   "q": 11942.0,
+   "nk": {
+    "2": 644,
+    "3": 184,
+    "5": 56,
+    "10": 17,
+    "15": 10
+   },
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "HBB->HBA1",
+    "C7->PLCXD3",
+    "IL6->FOSB",
+    "CXCL1->IL8",
+    "ADAM6->IGJ",
+    "ADAM6->MGC29506",
+    "IGJ->ADAM6",
+    "COL10A1->COL11A1",
+    "CCL18->CHIT1",
+    "PLA2G2D->ADAMDEC1",
+    "IL8->CXCL1",
+    "IGJ->MGC29506",
+    "GZMK->CXCL9",
+    "HBA1->HBB",
+    "MGC29506->ADAM6"
+   ]
+  },
+  "0.30": {
+   "median_edges": 6,
+   "recurring_ge10": 14,
+   "q": 8037.0,
+   "nk": {
+    "2": 280,
+    "3": 96,
+    "5": 34,
+    "10": 14,
+    "15": 8
+   },
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "HBB->HBA1",
+    "IL6->FOSB",
+    "CXCL1->IL8",
+    "C7->PLCXD3",
+    "ADAM6->IGJ",
+    "IGJ->ADAM6",
+    "ADAM6->MGC29506",
+    "IL8->CXCL1",
+    "COL10A1->COL11A1",
+    "CCL18->CHIT1",
+    "HBA1->HBB",
+    "IGJ->MGC29506"
+   ]
+  },
+  "0.35": {
+   "median_edges": 5,
+   "recurring_ge10": 12,
+   "q": 6021.0,
+   "nk": {
+    "2": 157,
+    "3": 58,
+    "5": 24,
+    "10": 12,
+    "15": 8
+   },
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "HBB->HBA1",
+    "CXCL1->IL8",
+    "IL6->FOSB",
+    "ADAM6->IGJ",
+    "C7->PLCXD3",
+    "IGJ->ADAM6",
+    "ADAM6->MGC29506",
+    "COL10A1->COL11A1",
+    "IL8->CXCL1",
+    "HBA1->HBB"
+   ]
+  },
+  "0.40": {
+   "median_edges": 4,
+   "recurring_ge10": 12,
+   "q": 4845.0,
+   "nk": {
+    "2": 92,
+    "3": 38,
+    "5": 17,
+    "10": 12,
+    "15": 6
+   },
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "HBB->HBA1",
+    "CXCL1->IL8",
+    "ADAM6->IGJ",
+    "IGJ->ADAM6",
+    "ADAM6->MGC29506",
+    "IL6->FOSB",
+    "COL10A1->COL11A1",
+    "C7->PLCXD3",
+    "HBA1->HBB",
+    "IL8->CXCL1"
+   ]
+  },
+  "0.45": {
+   "median_edges": 4,
+   "recurring_ge10": 10,
+   "q": 4091.0,
+   "nk": {
+    "2": 58,
+    "3": 25,
+    "5": 15,
+    "10": 10,
+    "15": 6
+   },
+   "pairs": [
+    "CXCL10->CXCL11",
+    "CXCL9->CXCL10",
+    "HBB->HBA1",
+    "CXCL1->IL8",
+    "ADAM6->IGJ",
+    "IGJ->ADAM6",
+    "ADAM6->MGC29506",
+    "IL6->FOSB",
+    "IL8->CXCL1",
+    "COL10A1->COL11A1"
+   ]
+  }
+ },
+ "jackknife": {
+  "base_n10": 14,
+  "rows": [
+   {
+    "drop": "ACC",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "BLCA",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "BRCA",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "CESC",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "CHOL",
+    "n10": 12,
+    "lost": [
+     "HBA1->HBB",
+     "IGJ->MGC29506"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "COAD",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "DLBC",
+    "n10": 12,
+    "lost": [
+     "HBA1->HBB",
+     "IGJ->MGC29506"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "ESCA",
+    "n10": 13,
+    "lost": [
+     "HBA1->HBB"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "GBM",
+    "n10": 12,
+    "lost": [
+     "HBA1->HBB",
+     "IGJ->MGC29506"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "HNSC",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "KICH",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "KIRC",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "KIRP",
+    "n10": 13,
+    "lost": [
+     "IGJ->MGC29506"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "LAML",
+    "n10": 13,
+    "lost": [
+     "IGJ->MGC29506"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "LGG",
+    "n10": 13,
+    "lost": [
+     "IGJ->MGC29506"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "LIHC",
+    "n10": 13,
+    "lost": [
+     "IGJ->MGC29506"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "LUAD",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "LUSC",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "MESO",
+    "n10": 13,
+    "lost": [
+     "HBA1->HBB"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "OV",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "PAAD",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "PCPG",
+    "n10": 12,
+    "lost": [
+     "HBA1->HBB",
+     "IGJ->MGC29506"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "PRAD",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "READ",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "SARC",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "SKCM",
+    "n10": 13,
+    "lost": [
+     "IGJ->MGC29506"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "STAD",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "TGCT",
+    "n10": 13,
+    "lost": [
+     "HBA1->HBB"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "THCA",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "THYM",
+    "n10": 13,
+    "lost": [
+     "HBA1->HBB"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "UCEC",
+    "n10": 13,
+    "lost": [
+     "HBA1->HBB"
+    ],
+    "gained": []
+   },
+   {
+    "drop": "UCS",
+    "n10": 14,
+    "lost": [],
+    "gained": []
+   },
+   {
+    "drop": "UVM",
+    "n10": 12,
+    "lost": [
+     "HBA1->HBB",
+     "IGJ->MGC29506"
+    ],
+    "gained": []
+   }
+  ],
+  "worst_lost": 2
+ },
+ "h_stratification": [
+  {
+   "pair": "CXCL10->CXCL11",
+   "n": 28,
+   "n_h_lt_1e2": 2,
+   "n_h_gt_1e1": 6,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "BLCA",
+     "h": 0.06509,
+     "on_cycle": false
+    },
+    {
+     "c": "BRCA",
+     "h": 0.09535,
+     "on_cycle": true
+    },
+    {
+     "c": "CESC",
+     "h": 0.06751,
+     "on_cycle": false
+    },
+    {
+     "c": "COAD",
+     "h": 0.03707,
+     "on_cycle": false
+    },
+    {
+     "c": "DLBC",
+     "h": 0.02996,
+     "on_cycle": true
+    },
+    {
+     "c": "ESCA",
+     "h": 0.00375,
+     "on_cycle": false
+    },
+    {
+     "c": "GBM",
+     "h": 0.03665,
+     "on_cycle": true
+    },
+    {
+     "c": "HNSC",
+     "h": 0.03478,
+     "on_cycle": false
+    },
+    {
+     "c": "KIRC",
+     "h": 0.10542,
+     "on_cycle": false
+    },
+    {
+     "c": "KIRP",
+     "h": 0.09261,
+     "on_cycle": true
+    },
+    {
+     "c": "LAML",
+     "h": 0.03451,
+     "on_cycle": true
+    },
+    {
+     "c": "LGG",
+     "h": 0.04057,
+     "on_cycle": true
+    },
+    {
+     "c": "LIHC",
+     "h": 0.09881,
+     "on_cycle": false
+    },
+    {
+     "c": "LUAD",
+     "h": 0.13153,
+     "on_cycle": true
+    },
+    {
+     "c": "LUSC",
+     "h": 0.04479,
+     "on_cycle": false
+    },
+    {
+     "c": "MESO",
+     "h": 0.04362,
+     "on_cycle": false
+    },
+    {
+     "c": "OV",
+     "h": 0.17822,
+     "on_cycle": false
+    },
+    {
+     "c": "PCPG",
+     "h": 0.0637,
+     "on_cycle": true
+    },
+    {
+     "c": "PRAD",
+     "h": 0.11122,
+     "on_cycle": false
+    },
+    {
+     "c": "READ",
+     "h": 0.02012,
+     "on_cycle": true
+    },
+    {
+     "c": "SARC",
+     "h": 0.12187,
+     "on_cycle": true
+    },
+    {
+     "c": "SKCM",
+     "h": 0.1216,
+     "on_cycle": true
+    },
+    {
+     "c": "STAD",
+     "h": 0.055,
+     "on_cycle": true
+    },
+    {
+     "c": "TGCT",
+     "h": 0.0067,
+     "on_cycle": false
+    },
+    {
+     "c": "THCA",
+     "h": 0.02248,
+     "on_cycle": true
+    },
+    {
+     "c": "THYM",
+     "h": 0.01352,
+     "on_cycle": true
+    },
+    {
+     "c": "UCEC",
+     "h": 0.06425,
+     "on_cycle": false
+    },
+    {
+     "c": "UVM",
+     "h": 0.02497,
+     "on_cycle": false
+    }
+   ]
+  },
+  {
+   "pair": "CXCL9->CXCL10",
+   "n": 26,
+   "n_h_lt_1e2": 3,
+   "n_h_gt_1e1": 5,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "BLCA",
+     "h": 0.06509,
+     "on_cycle": false
+    },
+    {
+     "c": "BRCA",
+     "h": 0.09535,
+     "on_cycle": true
+    },
+    {
+     "c": "CESC",
+     "h": 0.06751,
+     "on_cycle": false
+    },
+    {
+     "c": "CHOL",
+     "h": 0.00115,
+     "on_cycle": false
+    },
+    {
+     "c": "COAD",
+     "h": 0.03707,
+     "on_cycle": false
+    },
+    {
+     "c": "DLBC",
+     "h": 0.02996,
+     "on_cycle": true
+    },
+    {
+     "c": "ESCA",
+     "h": 0.00375,
+     "on_cycle": false
+    },
+    {
+     "c": "HNSC",
+     "h": 0.03478,
+     "on_cycle": false
+    },
+    {
+     "c": "KIRC",
+     "h": 0.10542,
+     "on_cycle": false
+    },
+    {
+     "c": "KIRP",
+     "h": 0.09261,
+     "on_cycle": true
+    },
+    {
+     "c": "LAML",
+     "h": 0.03451,
+     "on_cycle": true
+    },
+    {
+     "c": "LGG",
+     "h": 0.04057,
+     "on_cycle": true
+    },
+    {
+     "c": "LIHC",
+     "h": 0.09881,
+     "on_cycle": false
+    },
+    {
+     "c": "LUAD",
+     "h": 0.13153,
+     "on_cycle": true
+    },
+    {
+     "c": "LUSC",
+     "h": 0.04479,
+     "on_cycle": false
+    },
+    {
+     "c": "PCPG",
+     "h": 0.0637,
+     "on_cycle": true
+    },
+    {
+     "c": "PRAD",
+     "h": 0.11122,
+     "on_cycle": false
+    },
+    {
+     "c": "READ",
+     "h": 0.02012,
+     "on_cycle": true
+    },
+    {
+     "c": "SARC",
+     "h": 0.12187,
+     "on_cycle": true
+    },
+    {
+     "c": "SKCM",
+     "h": 0.1216,
+     "on_cycle": true
+    },
+    {
+     "c": "STAD",
+     "h": 0.055,
+     "on_cycle": true
+    },
+    {
+     "c": "TGCT",
+     "h": 0.0067,
+     "on_cycle": false
+    },
+    {
+     "c": "THCA",
+     "h": 0.02248,
+     "on_cycle": true
+    },
+    {
+     "c": "THYM",
+     "h": 0.01352,
+     "on_cycle": true
+    },
+    {
+     "c": "UCEC",
+     "h": 0.06425,
+     "on_cycle": false
+    },
+    {
+     "c": "UVM",
+     "h": 0.02497,
+     "on_cycle": false
+    }
+   ]
+  },
+  {
+   "pair": "HBB->HBA1",
+   "n": 23,
+   "n_h_lt_1e2": 1,
+   "n_h_gt_1e1": 6,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "ACC",
+     "h": 0.05126,
+     "on_cycle": false
+    },
+    {
+     "c": "BLCA",
+     "h": 0.06509,
+     "on_cycle": false
+    },
+    {
+     "c": "BRCA",
+     "h": 0.09535,
+     "on_cycle": true
+    },
+    {
+     "c": "CESC",
+     "h": 0.06751,
+     "on_cycle": false
+    },
+    {
+     "c": "COAD",
+     "h": 0.03707,
+     "on_cycle": false
+    },
+    {
+     "c": "HNSC",
+     "h": 0.03478,
+     "on_cycle": false
+    },
+    {
+     "c": "KICH",
+     "h": 0.00671,
+     "on_cycle": true
+    },
+    {
+     "c": "KIRC",
+     "h": 0.10542,
+     "on_cycle": false
+    },
+    {
+     "c": "KIRP",
+     "h": 0.09261,
+     "on_cycle": true
+    },
+    {
+     "c": "LAML",
+     "h": 0.03451,
+     "on_cycle": true
+    },
+    {
+     "c": "LGG",
+     "h": 0.04057,
+     "on_cycle": true
+    },
+    {
+     "c": "LIHC",
+     "h": 0.09881,
+     "on_cycle": false
+    },
+    {
+     "c": "LUAD",
+     "h": 0.13153,
+     "on_cycle": true
+    },
+    {
+     "c": "LUSC",
+     "h": 0.04479,
+     "on_cycle": false
+    },
+    {
+     "c": "OV",
+     "h": 0.17822,
+     "on_cycle": false
+    },
+    {
+     "c": "PAAD",
+     "h": 0.02853,
+     "on_cycle": true
+    },
+    {
+     "c": "PRAD",
+     "h": 0.11122,
+     "on_cycle": false
+    },
+    {
+     "c": "READ",
+     "h": 0.02012,
+     "on_cycle": true
+    },
+    {
+     "c": "SARC",
+     "h": 0.12187,
+     "on_cycle": true
+    },
+    {
+     "c": "SKCM",
+     "h": 0.1216,
+     "on_cycle": true
+    },
+    {
+     "c": "STAD",
+     "h": 0.055,
+     "on_cycle": true
+    },
+    {
+     "c": "THCA",
+     "h": 0.02248,
+     "on_cycle": true
+    },
+    {
+     "c": "UCS",
+     "h": 0.02082,
+     "on_cycle": true
+    }
+   ]
+  },
+  {
+   "pair": "IL6->FOSB",
+   "n": 21,
+   "n_h_lt_1e2": 1,
+   "n_h_gt_1e1": 4,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "ACC",
+     "h": 0.05126,
+     "on_cycle": false
+    },
+    {
+     "c": "BLCA",
+     "h": 0.06509,
+     "on_cycle": false
+    },
+    {
+     "c": "BRCA",
+     "h": 0.09535,
+     "on_cycle": true
+    },
+    {
+     "c": "COAD",
+     "h": 0.03707,
+     "on_cycle": false
+    },
+    {
+     "c": "GBM",
+     "h": 0.03665,
+     "on_cycle": true
+    },
+    {
+     "c": "HNSC",
+     "h": 0.03478,
+     "on_cycle": false
+    },
+    {
+     "c": "KICH",
+     "h": 0.00671,
+     "on_cycle": true
+    },
+    {
+     "c": "KIRC",
+     "h": 0.10542,
+     "on_cycle": false
+    },
+    {
+     "c": "KIRP",
+     "h": 0.09261,
+     "on_cycle": true
+    },
+    {
+     "c": "LUAD",
+     "h": 0.13153,
+     "on_cycle": true
+    },
+    {
+     "c": "MESO",
+     "h": 0.04362,
+     "on_cycle": false
+    },
+    {
+     "c": "OV",
+     "h": 0.17822,
+     "on_cycle": false
+    },
+    {
+     "c": "PAAD",
+     "h": 0.02853,
+     "on_cycle": true
+    },
+    {
+     "c": "PCPG",
+     "h": 0.0637,
+     "on_cycle": true
+    },
+    {
+     "c": "PRAD",
+     "h": 0.11122,
+     "on_cycle": false
+    },
+    {
+     "c": "READ",
+     "h": 0.02012,
+     "on_cycle": true
+    },
+    {
+     "c": "STAD",
+     "h": 0.055,
+     "on_cycle": true
+    },
+    {
+     "c": "THCA",
+     "h": 0.02248,
+     "on_cycle": true
+    },
+    {
+     "c": "THYM",
+     "h": 0.01352,
+     "on_cycle": true
+    },
+    {
+     "c": "UCEC",
+     "h": 0.06425,
+     "on_cycle": false
+    },
+    {
+     "c": "UCS",
+     "h": 0.02082,
+     "on_cycle": true
+    }
+   ]
+  },
+  {
+   "pair": "CXCL1->IL8",
+   "n": 19,
+   "n_h_lt_1e2": 3,
+   "n_h_gt_1e1": 2,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "ACC",
+     "h": 0.05126,
+     "on_cycle": false
+    },
+    {
+     "c": "BLCA",
+     "h": 0.06509,
+     "on_cycle": false
+    },
+    {
+     "c": "BRCA",
+     "h": 0.09535,
+     "on_cycle": true
+    },
+    {
+     "c": "CHOL",
+     "h": 0.00115,
+     "on_cycle": false
+    },
+    {
+     "c": "DLBC",
+     "h": 0.02996,
+     "on_cycle": true
+    },
+    {
+     "c": "ESCA",
+     "h": 0.00375,
+     "on_cycle": false
+    },
+    {
+     "c": "KICH",
+     "h": 0.00671,
+     "on_cycle": true
+    },
+    {
+     "c": "LAML",
+     "h": 0.03451,
+     "on_cycle": true
+    },
+    {
+     "c": "LGG",
+     "h": 0.04057,
+     "on_cycle": true
+    },
+    {
+     "c": "LIHC",
+     "h": 0.09881,
+     "on_cycle": false
+    },
+    {
+     "c": "LUSC",
+     "h": 0.04479,
+     "on_cycle": false
+    },
+    {
+     "c": "PCPG",
+     "h": 0.0637,
+     "on_cycle": true
+    },
+    {
+     "c": "PRAD",
+     "h": 0.11122,
+     "on_cycle": false
+    },
+    {
+     "c": "READ",
+     "h": 0.02012,
+     "on_cycle": true
+    },
+    {
+     "c": "SARC",
+     "h": 0.12187,
+     "on_cycle": true
+    },
+    {
+     "c": "STAD",
+     "h": 0.055,
+     "on_cycle": true
+    },
+    {
+     "c": "THYM",
+     "h": 0.01352,
+     "on_cycle": true
+    },
+    {
+     "c": "UCEC",
+     "h": 0.06425,
+     "on_cycle": false
+    },
+    {
+     "c": "UCS",
+     "h": 0.02082,
+     "on_cycle": true
+    }
+   ]
+  },
+  {
+   "pair": "C7->PLCXD3",
+   "n": 18,
+   "n_h_lt_1e2": 0,
+   "n_h_gt_1e1": 4,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "BLCA",
+     "h": 0.06509,
+     "on_cycle": false
+    },
+    {
+     "c": "BRCA",
+     "h": 0.09535,
+     "on_cycle": true
+    },
+    {
+     "c": "CESC",
+     "h": 0.06751,
+     "on_cycle": false
+    },
+    {
+     "c": "COAD",
+     "h": 0.03707,
+     "on_cycle": false
+    },
+    {
+     "c": "DLBC",
+     "h": 0.02996,
+     "on_cycle": true
+    },
+    {
+     "c": "HNSC",
+     "h": 0.03478,
+     "on_cycle": false
+    },
+    {
+     "c": "KIRC",
+     "h": 0.10542,
+     "on_cycle": false
+    },
+    {
+     "c": "LIHC",
+     "h": 0.09881,
+     "on_cycle": false
+    },
+    {
+     "c": "LUAD",
+     "h": 0.13153,
+     "on_cycle": true
+    },
+    {
+     "c": "LUSC",
+     "h": 0.04479,
+     "on_cycle": false
+    },
+    {
+     "c": "OV",
+     "h": 0.17822,
+     "on_cycle": false
+    },
+    {
+     "c": "PAAD",
+     "h": 0.02853,
+     "on_cycle": true
+    },
+    {
+     "c": "READ",
+     "h": 0.02012,
+     "on_cycle": true
+    },
+    {
+     "c": "SARC",
+     "h": 0.12187,
+     "on_cycle": true
+    },
+    {
+     "c": "STAD",
+     "h": 0.055,
+     "on_cycle": true
+    },
+    {
+     "c": "THYM",
+     "h": 0.01352,
+     "on_cycle": true
+    },
+    {
+     "c": "UCEC",
+     "h": 0.06425,
+     "on_cycle": false
+    },
+    {
+     "c": "UCS",
+     "h": 0.02082,
+     "on_cycle": true
+    }
+   ]
+  },
+  {
+   "pair": "ADAM6->IGJ",
+   "n": 16,
+   "n_h_lt_1e2": 1,
+   "n_h_gt_1e1": 4,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "ACC",
+     "h": 0.05126,
+     "on_cycle": false
+    },
+    {
+     "c": "BLCA",
+     "h": 0.06509,
+     "on_cycle": false
+    },
+    {
+     "c": "CESC",
+     "h": 0.06751,
+     "on_cycle": false
+    },
+    {
+     "c": "KIRC",
+     "h": 0.10542,
+     "on_cycle": false
+    },
+    {
+     "c": "KIRP",
+     "h": 0.09261,
+     "on_cycle": true
+    },
+    {
+     "c": "LAML",
+     "h": 0.03451,
+     "on_cycle": true
+    },
+    {
+     "c": "LGG",
+     "h": 0.04057,
+     "on_cycle": true
+    },
+    {
+     "c": "LIHC",
+     "h": 0.09881,
+     "on_cycle": false
+    },
+    {
+     "c": "LUAD",
+     "h": 0.13153,
+     "on_cycle": true
+    },
+    {
+     "c": "PCPG",
+     "h": 0.0637,
+     "on_cycle": true
+    },
+    {
+     "c": "PRAD",
+     "h": 0.11122,
+     "on_cycle": false
+    },
+    {
+     "c": "SARC",
+     "h": 0.12187,
+     "on_cycle": true
+    },
+    {
+     "c": "TGCT",
+     "h": 0.0067,
+     "on_cycle": false
+    },
+    {
+     "c": "THCA",
+     "h": 0.02248,
+     "on_cycle": true
+    },
+    {
+     "c": "UCS",
+     "h": 0.02082,
+     "on_cycle": true
+    },
+    {
+     "c": "UVM",
+     "h": 0.02497,
+     "on_cycle": false
+    }
+   ]
+  },
+  {
+   "pair": "IGJ->ADAM6",
+   "n": 15,
+   "n_h_lt_1e2": 3,
+   "n_h_gt_1e1": 1,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "BRCA",
+     "h": 0.09535,
+     "on_cycle": true
+    },
+    {
+     "c": "CHOL",
+     "h": 0.00115,
+     "on_cycle": false
+    },
+    {
+     "c": "COAD",
+     "h": 0.03707,
+     "on_cycle": false
+    },
+    {
+     "c": "ESCA",
+     "h": 0.00375,
+     "on_cycle": false
+    },
+    {
+     "c": "GBM",
+     "h": 0.03665,
+     "on_cycle": true
+    },
+    {
+     "c": "HNSC",
+     "h": 0.03478,
+     "on_cycle": false
+    },
+    {
+     "c": "KICH",
+     "h": 0.00671,
+     "on_cycle": true
+    },
+    {
+     "c": "LUSC",
+     "h": 0.04479,
+     "on_cycle": false
+    },
+    {
+     "c": "MESO",
+     "h": 0.04362,
+     "on_cycle": false
+    },
+    {
+     "c": "OV",
+     "h": 0.17822,
+     "on_cycle": false
+    },
+    {
+     "c": "PAAD",
+     "h": 0.02853,
+     "on_cycle": true
+    },
+    {
+     "c": "READ",
+     "h": 0.02012,
+     "on_cycle": true
+    },
+    {
+     "c": "STAD",
+     "h": 0.055,
+     "on_cycle": true
+    },
+    {
+     "c": "THYM",
+     "h": 0.01352,
+     "on_cycle": true
+    },
+    {
+     "c": "UCEC",
+     "h": 0.06425,
+     "on_cycle": false
+    }
+   ]
+  },
+  {
+   "pair": "ADAM6->MGC29506",
+   "n": 14,
+   "n_h_lt_1e2": 2,
+   "n_h_gt_1e1": 1,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "ACC",
+     "h": 0.05126,
+     "on_cycle": false
+    },
+    {
+     "c": "BRCA",
+     "h": 0.09535,
+     "on_cycle": true
+    },
+    {
+     "c": "COAD",
+     "h": 0.03707,
+     "on_cycle": false
+    },
+    {
+     "c": "ESCA",
+     "h": 0.00375,
+     "on_cycle": false
+    },
+    {
+     "c": "GBM",
+     "h": 0.03665,
+     "on_cycle": true
+    },
+    {
+     "c": "HNSC",
+     "h": 0.03478,
+     "on_cycle": false
+    },
+    {
+     "c": "KICH",
+     "h": 0.00671,
+     "on_cycle": true
+    },
+    {
+     "c": "LUSC",
+     "h": 0.04479,
+     "on_cycle": false
+    },
+    {
+     "c": "MESO",
+     "h": 0.04362,
+     "on_cycle": false
+    },
+    {
+     "c": "OV",
+     "h": 0.17822,
+     "on_cycle": false
+    },
+    {
+     "c": "PAAD",
+     "h": 0.02853,
+     "on_cycle": true
+    },
+    {
+     "c": "READ",
+     "h": 0.02012,
+     "on_cycle": true
+    },
+    {
+     "c": "STAD",
+     "h": 0.055,
+     "on_cycle": true
+    },
+    {
+     "c": "UCEC",
+     "h": 0.06425,
+     "on_cycle": false
+    }
+   ]
+  },
+  {
+   "pair": "IL8->CXCL1",
+   "n": 13,
+   "n_h_lt_1e2": 1,
+   "n_h_gt_1e1": 4,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "CESC",
+     "h": 0.06751,
+     "on_cycle": false
+    },
+    {
+     "c": "COAD",
+     "h": 0.03707,
+     "on_cycle": false
+    },
+    {
+     "c": "GBM",
+     "h": 0.03665,
+     "on_cycle": true
+    },
+    {
+     "c": "HNSC",
+     "h": 0.03478,
+     "on_cycle": false
+    },
+    {
+     "c": "KIRC",
+     "h": 0.10542,
+     "on_cycle": false
+    },
+    {
+     "c": "LUAD",
+     "h": 0.13153,
+     "on_cycle": true
+    },
+    {
+     "c": "MESO",
+     "h": 0.04362,
+     "on_cycle": false
+    },
+    {
+     "c": "OV",
+     "h": 0.17822,
+     "on_cycle": false
+    },
+    {
+     "c": "PAAD",
+     "h": 0.02853,
+     "on_cycle": true
+    },
+    {
+     "c": "SKCM",
+     "h": 0.1216,
+     "on_cycle": true
+    },
+    {
+     "c": "TGCT",
+     "h": 0.0067,
+     "on_cycle": false
+    },
+    {
+     "c": "THCA",
+     "h": 0.02248,
+     "on_cycle": true
+    },
+    {
+     "c": "UVM",
+     "h": 0.02497,
+     "on_cycle": false
+    }
+   ]
+  },
+  {
+   "pair": "COL10A1->COL11A1",
+   "n": 13,
+   "n_h_lt_1e2": 1,
+   "n_h_gt_1e1": 1,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "BLCA",
+     "h": 0.06509,
+     "on_cycle": false
+    },
+    {
+     "c": "BRCA",
+     "h": 0.09535,
+     "on_cycle": true
+    },
+    {
+     "c": "CESC",
+     "h": 0.06751,
+     "on_cycle": false
+    },
+    {
+     "c": "CHOL",
+     "h": 0.00115,
+     "on_cycle": false
+    },
+    {
+     "c": "DLBC",
+     "h": 0.02996,
+     "on_cycle": true
+    },
+    {
+     "c": "HNSC",
+     "h": 0.03478,
+     "on_cycle": false
+    },
+    {
+     "c": "KIRP",
+     "h": 0.09261,
+     "on_cycle": true
+    },
+    {
+     "c": "PAAD",
+     "h": 0.02853,
+     "on_cycle": true
+    },
+    {
+     "c": "READ",
+     "h": 0.02012,
+     "on_cycle": true
+    },
+    {
+     "c": "SARC",
+     "h": 0.12187,
+     "on_cycle": true
+    },
+    {
+     "c": "STAD",
+     "h": 0.055,
+     "on_cycle": true
+    },
+    {
+     "c": "THCA",
+     "h": 0.02248,
+     "on_cycle": true
+    },
+    {
+     "c": "UCEC",
+     "h": 0.06425,
+     "on_cycle": false
+    }
+   ]
+  },
+  {
+   "pair": "CCL18->CHIT1",
+   "n": 12,
+   "n_h_lt_1e2": 1,
+   "n_h_gt_1e1": 2,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "ACC",
+     "h": 0.05126,
+     "on_cycle": false
+    },
+    {
+     "c": "BRCA",
+     "h": 0.09535,
+     "on_cycle": true
+    },
+    {
+     "c": "KICH",
+     "h": 0.00671,
+     "on_cycle": true
+    },
+    {
+     "c": "KIRC",
+     "h": 0.10542,
+     "on_cycle": false
+    },
+    {
+     "c": "KIRP",
+     "h": 0.09261,
+     "on_cycle": true
+    },
+    {
+     "c": "LGG",
+     "h": 0.04057,
+     "on_cycle": true
+    },
+    {
+     "c": "OV",
+     "h": 0.17822,
+     "on_cycle": false
+    },
+    {
+     "c": "PAAD",
+     "h": 0.02853,
+     "on_cycle": true
+    },
+    {
+     "c": "PCPG",
+     "h": 0.0637,
+     "on_cycle": true
+    },
+    {
+     "c": "THCA",
+     "h": 0.02248,
+     "on_cycle": true
+    },
+    {
+     "c": "THYM",
+     "h": 0.01352,
+     "on_cycle": true
+    },
+    {
+     "c": "UVM",
+     "h": 0.02497,
+     "on_cycle": false
+    }
+   ]
+  },
+  {
+   "pair": "HBA1->HBB",
+   "n": 10,
+   "n_h_lt_1e2": 3,
+   "n_h_gt_1e1": 0,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "CHOL",
+     "h": 0.00115,
+     "on_cycle": false
+    },
+    {
+     "c": "DLBC",
+     "h": 0.02996,
+     "on_cycle": true
+    },
+    {
+     "c": "ESCA",
+     "h": 0.00375,
+     "on_cycle": false
+    },
+    {
+     "c": "GBM",
+     "h": 0.03665,
+     "on_cycle": true
+    },
+    {
+     "c": "MESO",
+     "h": 0.04362,
+     "on_cycle": false
+    },
+    {
+     "c": "PCPG",
+     "h": 0.0637,
+     "on_cycle": true
+    },
+    {
+     "c": "TGCT",
+     "h": 0.0067,
+     "on_cycle": false
+    },
+    {
+     "c": "THYM",
+     "h": 0.01352,
+     "on_cycle": true
+    },
+    {
+     "c": "UCEC",
+     "h": 0.06425,
+     "on_cycle": false
+    },
+    {
+     "c": "UVM",
+     "h": 0.02497,
+     "on_cycle": false
+    }
+   ]
+  },
+  {
+   "pair": "IGJ->MGC29506",
+   "n": 10,
+   "n_h_lt_1e2": 1,
+   "n_h_gt_1e1": 1,
+   "on_cycle_in": false,
+   "support": [
+    {
+     "c": "CHOL",
+     "h": 0.00115,
+     "on_cycle": false
+    },
+    {
+     "c": "DLBC",
+     "h": 0.02996,
+     "on_cycle": true
+    },
+    {
+     "c": "GBM",
+     "h": 0.03665,
+     "on_cycle": true
+    },
+    {
+     "c": "KIRP",
+     "h": 0.09261,
+     "on_cycle": true
+    },
+    {
+     "c": "LAML",
+     "h": 0.03451,
+     "on_cycle": true
+    },
+    {
+     "c": "LGG",
+     "h": 0.04057,
+     "on_cycle": true
+    },
+    {
+     "c": "LIHC",
+     "h": 0.09881,
+     "on_cycle": false
+    },
+    {
+     "c": "PCPG",
+     "h": 0.0637,
+     "on_cycle": true
+    },
+    {
+     "c": "SKCM",
+     "h": 0.1216,
+     "on_cycle": true
+    },
+    {
+     "c": "UVM",
+     "h": 0.02497,
+     "on_cycle": false
+    }
+   ]
+  }
+ ],
+ "cycle_note": {
+  "sex_chrom_pairs_on_a_cycle": 9,
+  "recurring_14_on_a_cycle": []
+ },
+ "mp_per_cohort": [
+  {
+   "cohort": "ACC",
+   "n": 79,
+   "lam1": 16.75079808275769,
+   "lam_plus": 4.5159985866621755,
+   "ratio": 3.7092124280619827,
+   "n_lt_d": true,
+   "n_eig_above": 4.0
+  },
+  {
+   "cohort": "BLCA",
+   "n": 426,
+   "lam1": 23.27717082100674,
+   "lam_plus": 2.203744950260577,
+   "ratio": 10.56255208582753,
+   "n_lt_d": false,
+   "n_eig_above": 7.0
+  },
+  {
+   "cohort": "BRCA",
+   "n": 1218,
+   "lam1": 22.516152564208227,
+   "lam_plus": 1.6551700613009899,
+   "ratio": 13.603528175533924,
+   "n_lt_d": false,
+   "n_eig_above": 8.0
+  },
+  {
+   "cohort": "CESC",
+   "n": 308,
+   "lam1": 14.138205113760336,
+   "lam_plus": 2.4642810892717044,
+   "ratio": 5.737253422635626,
+   "n_lt_d": false,
+   "n_eig_above": 7.0
+  },
+  {
+   "cohort": "CHOL",
+   "n": 45,
+   "lam1": 25.177477231246367,
+   "lam_plus": 6.203646192221941,
+   "ratio": 4.0584966407035905,
+   "n_lt_d": true,
+   "n_eig_above": 3.0
+  },
+  {
+   "cohort": "COAD",
+   "n": 329,
+   "lam1": 31.8561545757655,
+   "lam_plus": 2.4065870606210975,
+   "ratio": 13.237067171608572,
+   "n_lt_d": false,
+   "n_eig_above": 5.0
+  },
+  {
+   "cohort": "DLBC",
+   "n": 48,
+   "lam1": 12.653116544670988,
+   "lam_plus": 5.970084679281463,
+   "ratio": 2.1194199453455442,
+   "n_lt_d": true,
+   "n_eig_above": 5.0
+  },
+  {
+   "cohort": "ESCA",
+   "n": 196,
+   "lam1": 20.157151357491685,
+   "lam_plus": 2.9387755102040822,
+   "ratio": 6.859030670257586,
+   "n_lt_d": false,
+   "n_eig_above": 6.0
+  },
+  {
+   "cohort": "GBM",
+   "n": 172,
+   "lam1": 15.56243470669885,
+   "lam_plus": 3.106381052163256,
+   "ratio": 5.009827978399916,
+   "n_lt_d": false,
+   "n_eig_above": 6.0
+  },
+  {
+   "cohort": "HNSC",
+   "n": 566,
+   "lam1": 18.347202624742422,
+   "lam_plus": 2.0173411486480792,
+   "ratio": 9.09474465290008,
+   "n_lt_d": false,
+   "n_eig_above": 9.0
+  },
+  {
+   "cohort": "KICH",
+   "n": 91,
+   "lam1": 29.148711230571763,
+   "lam_plus": 4.195470772344935,
+   "ratio": 6.947661612305774,
+   "n_lt_d": true,
+   "n_eig_above": 4.0
+  },
+  {
+   "cohort": "KIRC",
+   "n": 606,
+   "lam1": 15.635971126404204,
+   "lam_plus": 1.9774609653525528,
+   "ratio": 7.907094703948574,
+   "n_lt_d": false,
+   "n_eig_above": 9.0
+  },
+  {
+   "cohort": "KIRP",
+   "n": 323,
+   "lam1": 18.267197129939888,
+   "lam_plus": 2.4224272913691287,
+   "ratio": 7.540864980767069,
+   "n_lt_d": false,
+   "n_eig_above": 7.0
+  },
+  {
+   "cohort": "LAML",
+   "n": 173,
+   "lam1": 21.079392470409644,
+   "lam_plus": 3.098606524620336,
+   "ratio": 6.802861964860946,
+   "n_lt_d": false,
+   "n_eig_above": 5.0
+  },
+  {
+   "cohort": "LGG",
+   "n": 530,
+   "lam1": 15.568329706760583,
+   "lam_plus": 2.0574237308091576,
+   "ratio": 7.566904898407954,
+   "n_lt_d": false,
+   "n_eig_above": 9.0
+  },
+  {
+   "cohort": "LIHC",
+   "n": 423,
+   "lam1": 19.440702076010304,
+   "lam_plus": 2.208839896037973,
+   "ratio": 8.801317882242785,
+   "n_lt_d": false,
+   "n_eig_above": 8.0
+  },
+  {
+   "cohort": "LUAD",
+   "n": 576,
+   "lam1": 19.87779313167747,
+   "lam_plus": 2.0069444444444446,
+   "ratio": 9.9045059202822,
+   "n_lt_d": false,
+   "n_eig_above": 8.0
+  },
+  {
+   "cohort": "LUSC",
+   "n": 553,
+   "lam1": 23.180193405336617,
+   "lam_plus": 2.0313183375265713,
+   "ratio": 11.411403607748607,
+   "n_lt_d": false,
+   "n_eig_above": 8.0
+  },
+  {
+   "cohort": "MESO",
+   "n": 87,
+   "lam1": 13.806593339584248,
+   "lam_plus": 4.293650357031913,
+   "ratio": 3.2155839883358324,
+   "n_lt_d": true,
+   "n_eig_above": 5.0
+  },
+  {
+   "cohort": "OV",
+   "n": 308,
+   "lam1": 16.56292881622403,
+   "lam_plus": 2.4642810892717044,
+   "ratio": 6.721201119600789,
+   "n_lt_d": false,
+   "n_eig_above": 6.0
+  },
+  {
+   "cohort": "PAAD",
+   "n": 183,
+   "lam1": 25.26207590564784,
+   "lam_plus": 3.02489062934084,
+   "ratio": 8.351401422785575,
+   "n_lt_d": false,
+   "n_eig_above": 6.0
+  },
+  {
+   "cohort": "PCPG",
+   "n": 187,
+   "lam1": 17.53294579695264,
+   "lam_plus": 2.9973042065430313,
+   "ratio": 5.849571678002756,
+   "n_lt_d": false,
+   "n_eig_above": 6.0
+  },
+  {
+   "cohort": "PRAD",
+   "n": 550,
+   "lam1": 20.389442015779387,
+   "lam_plus": 2.0346210472406234,
+   "ratio": 10.021247958400796,
+   "n_lt_d": false,
+   "n_eig_above": 9.0
+  },
+  {
+   "cohort": "READ",
+   "n": 105,
+   "lam1": 28.493280558753334,
+   "lam_plus": 3.904181098278019,
+   "ratio": 7.298145204206998,
+   "n_lt_d": false,
+   "n_eig_above": 3.0
+  },
+  {
+   "cohort": "SARC",
+   "n": 265,
+   "lam1": 15.177672211556335,
+   "lam_plus": 2.60594872423394,
+   "ratio": 5.824240542575546,
+   "n_lt_d": false,
+   "n_eig_above": 7.0
+  },
+  {
+   "cohort": "SKCM",
+   "n": 474,
+   "lam1": 17.62579719323206,
+   "lam_plus": 2.129600888484272,
+   "ratio": 8.27657299005782,
+   "n_lt_d": false,
+   "n_eig_above": 9.0
+  },
+  {
+   "cohort": "STAD",
+   "n": 450,
+   "lam1": 23.715438647660818,
+   "lam_plus": 2.165031263804286,
+   "ratio": 10.953855052415836,
+   "n_lt_d": false,
+   "n_eig_above": 7.0
+  },
+  {
+   "cohort": "TGCT",
+   "n": 156,
+   "lam1": 28.191518038290297,
+   "lam_plus": 3.242307179076513,
+   "ratio": 8.694894246978757,
+   "n_lt_d": false,
+   "n_eig_above": 6.0
+  },
+  {
+   "cohort": "THCA",
+   "n": 572,
+   "lam1": 24.995286571152853,
+   "lam_plus": 2.011067184832265,
+   "ratio": 12.428867001396378,
+   "n_lt_d": false,
+   "n_eig_above": 9.0
+  },
+  {
+   "cohort": "THYM",
+   "n": 122,
+   "lam1": 18.565875329213025,
+   "lam_plus": 3.6303870519979116,
+   "ratio": 5.114020919338522,
+   "n_lt_d": false,
+   "n_eig_above": 6.0
+  },
+  {
+   "cohort": "UCEC",
+   "n": 201,
+   "lam1": 15.92955535632554,
+   "lam_plus": 2.9082036695281417,
+   "ratio": 5.477455215132895,
+   "n_lt_d": false,
+   "n_eig_above": 7.0
+  },
+  {
+   "cohort": "UCS",
+   "n": 57,
+   "lam1": 14.589451925995021,
+   "lam_plus": 5.403450679042368,
+   "ratio": 2.700025001168448,
+   "n_lt_d": true,
+   "n_eig_above": 3.0
+  },
+  {
+   "cohort": "UVM",
+   "n": 80,
+   "lam1": 20.69443752474399,
+   "lam_plus": 4.48606797749979,
+   "ratio": 4.613045907582875,
+   "n_lt_d": true,
+   "n_eig_above": 4.0
+  }
+ ],
+ "release_lists": {
+  "external_nonmal_markers": [
+   "PTPRC",
+   "CD3D",
+   "CD3E",
+   "CD2",
+   "CD19",
+   "MS4A1",
+   "CD79A",
+   "CD79B",
+   "COL1A1",
+   "COL1A2",
+   "COL3A1",
+   "DCN",
+   "LUM",
+   "VWF",
+   "PECAM1",
+   "ACTA2",
+   "PDGFRB",
+   "FAP",
+   "THY1",
+   "CD163",
+   "CSF1R",
+   "LYZ"
+  ],
+  "external_tumor_markers": [
+   "EPCAM",
+   "KRT8",
+   "KRT18",
+   "KRT19",
+   "CDH1",
+   "MUC1"
+  ],
+  "canonical_drivers": [
+   "ABL1",
+   "AKT1",
+   "ALK",
+   "APC",
+   "AR",
+   "ARID1A",
+   "ATM",
+   "B2M",
+   "BAP1",
+   "BRAF",
+   "BRCA1",
+   "BRCA2",
+   "CASP8",
+   "CCND1",
+   "CDKN2A",
+   "CHEK2",
+   "CREBBP",
+   "CTNNB1",
+   "EGFR",
+   "EP300",
+   "ERBB2",
+   "ESR1",
+   "EZH2",
+   "FAT1",
+   "FGFR1",
+   "FGFR2",
+   "FGFR3",
+   "FOXA1",
+   "GATA3",
+   "HLA-A",
+   "HRAS",
+   "IDH1",
+   "IDH2",
+   "JAK2",
+   "KEAP1",
+   "KIT",
+   "KRAS",
+   "MDM2",
+   "MET",
+   "MLH1",
+   "MSH2",
+   "MSH6",
+   "MTOR",
+   "MYC",
+   "NF1",
+   "NFE2L2",
+   "NOTCH1",
+   "NOTCH2",
+   "NRAS",
+   "PDGFRA",
+   "PIK3CA",
+   "PMS2",
+   "PTEN",
+   "PTPN11",
+   "RB1",
+   "RET",
+   "SETD2",
+   "SMAD4",
+   "SOX2",
+   "SRC",
+   "STAT3",
+   "STK11",
+   "TP53",
+   "TP63",
+   "TSC1",
+   "TSC2",
+   "VHL"
+  ],
+  "n_canonical_drivers": 67,
+  "permutation_counts": {
+   "discrete": 200,
+   "continuous": 500,
+   "seed": 7
+  },
+  "panel2_note": "seed and sampling rule to be read from scripts/analysis/build_panel_B.py"
+ }
+}

@@ -1,0 +1,11 @@
+# This folder holds the revision batch's outputs: the analysis behind the manuscript's two
+# revision sections on the constructed nulls and on the width dependence of the sample floor.
+#
+# The JSON summaries and NUMBERS.md ship, because those are what the manuscript quotes and
+# what NUMBERS.md indexes.  The fitted weight matrices and the resume checkpoints do not:
+# scripts/revision/ regenerates every one of them deterministically from the seeds NUMBERS.md
+# records, e.g.
+#   REV_DIR=_rev python scripts/revision/_rev_night.py randompanel
+*_W.npz
+*.npz
+*.ckpt.json
