@@ -192,8 +192,8 @@ seven generators below run in the same order as the text.
 | 3 | `gen_fig3_ppi.py` → `Fig3.pdf` | External support of the inferred edges: largest supported components, STRING evidence channels, supported pairs per cancer |
 | 4 | `gen_fig4_checks.py` → `Fig4.pdf` | The three checks on the reproducible structure: (a) DepMap cell-line concordance of the eight replicated pairs against their CRISPR co-dependency; (b) the cross-cancer sharing rate of both estimators under each counting convention, and pooled against per-cancer NOTEARS; (c) MSigDB C2 pathway over-representation for LUAD, BRCA, CHOL (the null case) and the pan-cancer network |
 | 5 | `gen_fig5_survival.py` → `Fig5.pdf` | Overall-survival association of the per-cohort network hubs: (a) hazard ratio with 95% confidence interval for every cohort in the scan, ordered by log-rank $p$, dot area the patient count; (b) Kaplan–Meier curves for the six hubs whose intervals exclude 1 |
-| 6 | `gen_fig6_tissue.py` → `Fig6.pdf` | Tissue specificity of the per-cohort hub genes: (a) Yanai's τ index for the 30 hubs against the 1,745 non-hubs of the same networks; (b) cumulative rank of each hub's own cohort against a uniform null; (c) the 33 cohort-median densities of seven hub genes, each row marked with the cohort it belongs to |
-| 7 | `gen_fig7_alteration.py` → `Fig7.pdf` | Somatic alteration burden of the hub genes against the canonical drivers: (a) non-synonymous mutation frequency of each cohort's own hub against the highest canonical driver, as a paired comparison; (b) amplification and homozygous deletion frequencies drawn as points, so a measured zero stays visible; (c) mutation frequency across cohorts |
+| 6 | `gen_fig6_alteration.py` → `Fig6.pdf` | Somatic alteration burden of the hub genes against the canonical drivers: (a) non-synonymous mutation frequency of each cohort's own hub against the highest canonical driver, as a paired comparison; (b) amplification and homozygous deletion frequencies drawn as points, so a measured zero stays visible; (c) mutation frequency across cohorts |
+| 7 | `gen_fig7_tissue.py` → `Fig7.pdf` | Tissue specificity of the per-cohort hub genes: (a) Yanai's τ index for the 30 hubs against the 1,745 non-hubs of the same networks; (b) cumulative rank of each hub's own cohort against a uniform null; (c) the 33 cohort-median densities of seven hub genes, each row marked with the cohort it belongs to |
 
 The previous submission's Figures 1 and 2 — the pan-cancer expression landscape and the per-cancer
 edge analysis — are likewise reproduced by generators the package carries, `gen_fig1_landscape.py`
@@ -240,7 +240,7 @@ Figure 1 needs `_prep_fig_extra.py` and `_fix_family_key.py` to have been run fi
 document the composition of the shared pair set); it reads
 `results/_recurrence_analysis.json`, `results/_axis_attribution.json`,
 `results/_shuffle_control.json` and `data/panels/panel_A_100genes.json`.
-`_prep_fig1_landscape.py` is needed only by the pre-revision `gen_fig1_landscape.py`. Figure 7 needs
+`_prep_fig1_landscape.py` is needed only by the pre-revision `gen_fig1_landscape.py`. Figure 6 needs
 `_fetch_hub_variants.py` (the cBioPortal download that writes `results/_hub_variant_landscape.json`)
 and then `_prep_fig_variant_landscape.py`, and the DepMap half of Figure 4a needs the two
 `./data/depmap/` tables named in Quick Start; Figure 3 and Figure S3 both need

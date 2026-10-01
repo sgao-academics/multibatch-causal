@@ -101,7 +101,7 @@ log('  non-hub genes  n=%d  mean tau=%.3f  median=%.3f' % (len(nonhub_tau), nonh
 # makes ("hubs are significantly less tissue-restricted") is the *less* tail.  Every
 # tail is computed and recorded under its own name: the single unlabelled `mw_p` that
 # used to be written here held the opposite tail (0.977), which reads as the claim
-# being false even though the two-sided value it implies (0.047) is the one Figure 6
+# being false even though the two-sided value it implies (0.047) is the one Figure 7
 # quotes and re-derives for itself.
 try:
     from scipy.stats import mannwhitneyu

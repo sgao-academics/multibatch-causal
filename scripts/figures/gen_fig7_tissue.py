@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Figure 6: tissue specificity of the per-cancer network hub genes.
+"""Figure 7: tissue specificity of the per-cancer network hub genes.
 
 Three panels, replacing the nine the plate used to carry.
 
@@ -34,7 +34,7 @@ Journal requirements applied here
 * Every encoded distinction survives greyscale: the hub dots are open circles on
   a filled violin, the null is a dashed line against a solid one.
 
-Output: figures/Fig6.pdf / .png
+Output: figures/Fig7.pdf / .png
 """
 import json, os, sys
 
@@ -235,10 +235,10 @@ if _bad:
     sys.exit(1)
 print("canvas check passed: all text inside %.2f x %.2f mm" % (W_MM, H_MM))
 
-fig.savefig(os.path.join(FIG, "Fig6.pdf"), facecolor="white")
-fig.savefig(os.path.join(FIG, "Fig6.png"), facecolor="white")
+fig.savefig(os.path.join(FIG, "Fig7.pdf"), facecolor="white")
+fig.savefig(os.path.join(FIG, "Fig7.png"), facecolor="white")
 plt.close(fig)
 
-print("Fig6 done: %d KB (pdf) / %d KB (png)"
-      % (os.path.getsize(os.path.join(FIG, "Fig6.pdf")) // 1024,
-         os.path.getsize(os.path.join(FIG, "Fig6.png")) // 1024))
+print("Fig7 done: %d KB (pdf) / %d KB (png)"
+      % (os.path.getsize(os.path.join(FIG, "Fig7.pdf")) // 1024,
+         os.path.getsize(os.path.join(FIG, "Fig7.png")) // 1024))

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Figure 7: somatic alteration burden of the per-cohort hub genes.
+"""Figure 6: somatic alteration burden of the per-cohort hub genes.
 
 The plate asks one question -- are the genes that occupy the inferred causal
 networks also the genes that drive cancer genomically -- and answers it no, three
@@ -39,7 +39,7 @@ Journal requirements applied here
 * Amplification and deletion differ by direction as well as by colour, and a
   filled head differs from an open one, so the encodings survive greyscale.
 
-Output: figures/Fig7.pdf / .png
+Output: figures/Fig6.pdf / .png
 """
 import json, os, sys
 
@@ -259,10 +259,10 @@ if _bad:
     sys.exit(1)
 print("canvas check passed: all text inside %.2f x %.2f mm" % (W_MM, H_MM))
 
-fig.savefig(os.path.join(FIG, "Fig7.pdf"), facecolor="white")
-fig.savefig(os.path.join(FIG, "Fig7.png"), facecolor="white")
+fig.savefig(os.path.join(FIG, "Fig6.pdf"), facecolor="white")
+fig.savefig(os.path.join(FIG, "Fig6.png"), facecolor="white")
 plt.close(fig)
 
-print("Fig7 done: %d KB (pdf) / %d KB (png)"
-      % (os.path.getsize(os.path.join(FIG, "Fig7.pdf")) // 1024,
-         os.path.getsize(os.path.join(FIG, "Fig7.png")) // 1024))
+print("Fig6 done: %d KB (pdf) / %d KB (png)"
+      % (os.path.getsize(os.path.join(FIG, "Fig6.pdf")) // 1024,
+         os.path.getsize(os.path.join(FIG, "Fig6.png")) // 1024))
