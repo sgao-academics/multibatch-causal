@@ -1,8 +1,8 @@
-# What is shared across 33 cancer types is the tissue, not the tumour: a non-malignant axis recovered only from aligned gene panels
+# What is shared across 33 cancer types is the tissue, not the tumour: a non-malignant axis of the microenvironment
 
 **Shuaidong Gao** — Chongqing Institute of Foreign Studies
 
-Replication package for the manuscript *"What is shared across 33 cancer types is the tissue, not the tumour: a non-malignant axis recovered only from aligned gene panels"*, submitted to *Functional & Integrative Genomics* (Springer).
+Replication package for the manuscript *"What is shared across 33 cancer types is the tissue, not the tumour: a non-malignant axis of the microenvironment"*, submitted to *Functional & Integrative Genomics* (Springer).
 
 ## What the analysis delivers
 

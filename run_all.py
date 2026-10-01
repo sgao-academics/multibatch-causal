@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 run_all.py — One-command reproducibility pipeline for
-"What is shared across 33 cancer types is the tissue, not the tumour: a non-malignant axis
-recovered only from aligned gene panels"
+"What is shared across 33 cancer types is the tissue, not the tumour: a non-malignant axis of the microenvironment"
 
 Usage: python run_all.py
 
