@@ -131,3 +131,6 @@ results/_cancer_sea_hubs.json
 results/_fig_sc_landscape.json
 results/_hpa_celltype.npz
 results/_single_cell_layer_stats.json
+
+# local literature PDFs (publisher copyright -- never redistribute, never commit)
+/_literature/

@@ -1,0 +1,58 @@
+{
+ "min_cohorts": 10,
+ "n_cohorts": 33,
+ "tau": [
+  0.15,
+  0.2,
+  0.25,
+  0.3,
+  0.35,
+  0.4,
+  0.45,
+  0.5
+ ],
+ "recurrence": [
+  44,
+  27,
+  17,
+  14,
+  12,
+  12,
+  10,
+  7
+ ],
+ "median_edges": [
+  15,
+  9,
+  6,
+  6,
+  5,
+  4,
+  4,
+  3
+ ],
+ "edge_counts": {
+  "CXCL9|CXCL10": [
+   28,
+   28,
+   27,
+   26,
+   26,
+   25,
+   24,
+   21
+  ],
+  "CXCL10|CXCL11": [
+   29,
+   29,
+   28,
+   28,
+   28,
+   28,
+   28,
+   28
+  ]
+ },
+ "max_abs_median": 0.7310370462393189,
+ "note": "tau thresholds the stored aligned-panel matrices; no refitting. recurrence = directed pairs recovered in >=10 of the cohorts."
+}

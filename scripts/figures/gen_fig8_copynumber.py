@@ -58,6 +58,7 @@ from matplotlib.lines import Line2D
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from _figstyle import PAL, INK, GREY, TICK, FRAME, BOXFC, BOXEC, MM
+from _gene_symbols import canonical
 
 # _figstyle has already fixed the house rcParams (Arial, Type 42 embedding, 8 pt
 # base type).  Only the one token it does not set is added here.
@@ -152,15 +153,19 @@ for e in EDGES:
 
 
 def locus_label(gs):
-    if len(gs) == 1:
-        return gs[0]
+    # Print the HGNC-approved symbol while the co-ordinates and the copy-number table keep the
+    # spelling Xena carries (IL8 for CXCL8, MGC29506 for MZB1), so the plate agrees with Table 4
+    # and with the rest of the paper: see _gene_symbols.
+    disp = [canonical(g) for g in gs]
+    if len(disp) == 1:
+        return disp[0]
     if set(gs) == {'CXCL9', 'CXCL10', 'CXCL11'}:
         return 'CXCL9-11'
     if set(gs) == {'CXCL1', 'IL8'}:
-        return 'CXCL1/IL8'
+        return 'CXCL1/CXCL8'
     if set(gs) == {'C7', 'PLCXD3'}:
         return 'C7/PLCXD3'
-    return '/'.join(gs)
+    return '/'.join(disp)
 
 
 records = []

@@ -174,9 +174,30 @@ write_sheet(ws3, ['Hub gene', 'Own cancer', 'Rank of own cancer (of 33)',
                   'Max median', 'Cancer with max median', 'Top-5 cohorts by median',
                   'Tissue-specificity index tau'], rows3,
             [12, 12, 24, 28, 28, 12, 22, 34, 26])
+# The 22 external markers behind the composition attribution and the composition-adjusted
+# refit.  Same list as scripts/analysis/axis_attribution.py and crossmodal_check.py, drawn
+# from outside the 100-gene panel so that the panel cannot validate itself.
+NONMAL = ['PTPRC', 'CD3D', 'CD3E', 'CD2', 'CD19', 'MS4A1', 'CD79A', 'CD79B',
+          'COL1A1', 'COL1A2', 'COL3A1', 'DCN', 'LUM', 'VWF', 'PECAM1', 'ACTA2',
+          'PDGFRB', 'FAP', 'THY1', 'CD163', 'CSF1R', 'LYZ']
+COMPARTMENT = {
+    'PTPRC': 'pan-leukocyte (CD45)', 'CD3D': 'T cell', 'CD3E': 'T cell', 'CD2': 'T / NK cell',
+    'CD19': 'B cell', 'MS4A1': 'B cell (CD20)', 'CD79A': 'B cell', 'CD79B': 'B cell',
+    'COL1A1': 'stromal collagen', 'COL1A2': 'stromal collagen', 'COL3A1': 'stromal collagen',
+    'DCN': 'fibroblast (decorin)', 'LUM': 'fibroblast (lumican)',
+    'FAP': 'fibroblast activation', 'THY1': 'fibroblast (CD90)',
+    'PDGFRB': 'pericyte / fibroblast', 'ACTA2': 'smooth muscle / myofibroblast',
+    'VWF': 'endothelium', 'PECAM1': 'endothelium (CD31)', 'CD163': 'macrophage',
+    'CSF1R': 'myeloid', 'LYZ': 'myeloid',
+}
+ws4 = wb.create_sheet('non-malignant markers')
+write_sheet(ws4, ['Marker', 'Non-malignant compartment marked', 'Membership'],
+            [[g, COMPARTMENT[g], 'outside the 100-gene panel'] for g in NONMAL],
+            [12, 30, 26])
 p3 = os.path.join(OUT, 'ESM_3.xlsx')
 wb.save(p3)
-print('wrote %s  (%d + %d + %d rows)' % (os.path.basename(p3), len(rows), len(rows2), len(rows3)))
+print('wrote %s  (%d + %d + %d + %d rows)'
+      % (os.path.basename(p3), len(rows), len(rows2), len(rows3), len(NONMAL)))
 
 # ---------------------------------------------------------------- S4
 wb = Workbook()

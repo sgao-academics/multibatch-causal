@@ -358,15 +358,19 @@ def stage_survival():
             log('  %-5s %-9s not found in the expression matrix -- skipped' % (c, g))
             continue
         series = df.loc[key]
-        # expression columns are 15-character sample barcodes (TCGA-OR-A5LC-01); the
-        # survival tables are keyed on the 12-character patient id, so map sample->patient
-        # and keep one primary-tumour sample per patient
-        vals = {}
+        # Expression columns are sample barcodes (TCGA-OR-A5LC-01); the survival tables are
+        # keyed on the patient id.  Every sample of a patient is averaged and no sample-type
+        # filter is applied: this is the convention the KM scan and the cohort tables use, so
+        # the continuous model rests on the same patient set as the split it is compared with.
+        # An earlier draft kept only '-01' primary tumours, which for SKCM -- a matrix that is
+        # mostly metastatic -- dropped 474 samples to 104 and 426 patients to 76, so that row
+        # was fitted on a different subset from the KM curve printed beside it.
+        agg = {}
         for k, v in series.items():
             k = str(k)
-            if not k.endswith('-01'):
-                continue
-            vals.setdefault(k[:12], float(v))
+            kp = k.split('-')
+            agg.setdefault('-'.join(kp[:3]) if len(kp) >= 3 else k, []).append(float(v))
+        vals = {p: float(np.mean(vv)) for p, vv in agg.items()}
         pats = [p for p in vals if p in surv]
         if len(pats) < 30:
             continue

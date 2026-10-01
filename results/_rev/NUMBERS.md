@@ -201,13 +201,13 @@ the rerun above, at a different seed, gives n = 122 / 156 at the same width.
 | cohort | gene | n | events | HR per SD | 95% CI | p | PH p | q (BH) |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
 | ACC | SHOC1 | 78 | 27 | 2.393 | 1.552--3.689 | 0.0001 | 0.946 | 0.0002 |
-| BLCA | SFRP2 | 404 | 177 | 1.261 | 1.076--1.477 | 0.0042 | 0.336 | 0.0063 |
-| HNSC | CHGB | 514 | 216 | 1.296 | 1.136--1.48 | 0.0001 | 0.391 | 0.0002 |
-| KIRC | SLC22A6 | 508 | 168 | 0.679 | 0.585--0.787 | 0 | 0.613 | 0 |
-| LUSC | NAPSA | 477 | 203 | 1.142 | 0.988--1.32 | 0.0718 | 0.104 | 0.0861 |
-| SKCM | FCRL5 | 76 | 27 | 0.786 | 0.527--1.171 | 0.2358 | 0.912 | 0.2358 |
+| BLCA | SFRP2 | 404 | 177 | 1.283 | 1.093--1.505 | 0.0023 | 0.279 | 0.0028 |
+| HNSC | CHGB | 515 | 216 | 1.271 | 1.114--1.45 | 0.0004 | 0.647 | 0.0006 |
+| KIRC | SLC22A6 | 508 | 168 | 0.704 | 0.609--0.815 | 0 | 0.792 | 0 |
+| LUSC | NAPSA | 477 | 203 | 1.204 | 1.038--1.396 | 0.0144 | 0.209 | 0.0144 |
+| SKCM | FCRL5 | 425 | 210 | 0.717 | 0.623--0.824 | 0 | 0.26 | 0 |
 
-FDR-significant hubs: 4 of 6.  PH violations: 0.  Floor sensitivity: n_ge_172->4 hubs ['CHGB', 'NAPSA', 'SFRP2', 'SLC22A6'], n_ge_180->4 hubs ['CHGB', 'NAPSA', 'SFRP2', 'SLC22A6'], n_ge_200->4 hubs ['CHGB', 'NAPSA', 'SFRP2', 'SLC22A6'].
+FDR-significant hubs: 6 of 6.  PH violations: 0.  Floor sensitivity: n_ge_172->5 hubs ['CHGB', 'FCRL5', 'NAPSA', 'SFRP2', 'SLC22A6'], n_ge_180->5 hubs ['CHGB', 'FCRL5', 'NAPSA', 'SFRP2', 'SLC22A6'], n_ge_200->5 hubs ['CHGB', 'FCRL5', 'NAPSA', 'SFRP2', 'SLC22A6'].
 
 ## TRRUST overlap (`trrust_overlap.json`, reported as a negative result)
 
