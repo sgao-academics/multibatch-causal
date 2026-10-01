@@ -10,9 +10,9 @@ The pipeline estimates a NOTEARS graph for each of the 33 TCGA cancer types (10,
 
 1. **Panel alignment, shown to be a precondition for the comparison.** Under the per-cohort top-100 design the selections barely intersect (mean pairwise overlap 7.4 of 100 genes, mean Jaccard 0.040; 1,775 distinct genes across the 33 lists), so two cohorts' adjacency matrices index different gene pairs at the same position and an element-wise comparison between them is not defined. The element-wise median adjacency matrix is then identically zero: no position clears $|\text{median}| > \tau$ and the largest is 0.048. Holding the panel fixed restores it — six positions clear $\tau = 0.3$ and the largest reaches 0.731.
 
-2. **The recurring structure, named and tested against a null.** Of the 9,900 directed pairs the panel admits, 14 recur in ten or more cohorts. Node relabelling gives a maximum of 0 under the null (permutation $p = 5.0 \times 10^{-3}$), and the collision statistic $Q$ falls from 8,037 to 2,715 ± 32 over 500 sample-label permutations ($z = 166.8$, $p \le 0.002$). The two strongest pairs share their middle node and form one chain, CXCL9→CXCL10 (26/33) and CXCL10→CXCL11 (28/33), and each of the 14 sits on one of six non-malignant axes.
+2. **The recurring structure, named and tested against a null.** Of the 9,900 directed pairs the panel admits, 14 recur in ten or more cohorts. The count is significant against the gene-wise permutation null (permutation $p = 5.0 \times 10^{-3}$; the collision statistic $Q$ falls from 8,037 to 2,715 ± 32 over 500 sample-label permutations) but **not** against covariance-matched nulls in count, so the set is identified by its composition rather than by its size (point 5 below). The two strongest pairs share their middle node and form one chain, CXCL9→CXCL10 (26/33) and CXCL10→CXCL11 (28/33), and each of the 14 sits on one of six non-malignant axes.
 
-3. **An attribution for what that structure is.** The dominant axis of the aligned panel is microenvironmental content rather than a tumour-cell programme: PC1 has $\lambda_1 = 16.04$ against a Marchenko–Pastur upper edge of 1.205 (13.3×), fifteen eigenvalues lie above the edge where a null matrix leaves none, and PC1 correlates at a mean $r = 0.803$ (range 0.415–0.912), positive in 33 of 33 cohorts, with 23 stromal, immune and endothelial markers drawn deliberately from outside the panel. Canonical drivers cannot enter: their median dispersion percentile is 50.8 against the 0.487th percentile of the panel cut, and they enter systematically only at $k \gtrsim 1000$ (9 selections at $k = 100$, 114 at $k = 1000$).
+3. **An attribution for what that structure is.** The dominant axis of the aligned panel is microenvironmental content rather than a tumour-cell programme: PC1 has $\lambda_1 = 16.04$ against a Marchenko–Pastur upper edge of 1.205 (13.3×), fifteen eigenvalues lie above the edge where a null matrix leaves none, and PC1 correlates at a mean $r = 0.803$ (range 0.415–0.912), positive in 33 of 33 cohorts, with 22 stromal, immune and endothelial markers drawn deliberately from outside the panel. Canonical drivers cannot enter: their median dispersion percentile is 50.8 against the 0.487th percentile of the panel cut, and they enter systematically only at $k \gtrsim 1000$ (9 selections at $k = 100$, 114 at $k = 1000$).
 
 4. **An operational sample-size rule, measured from a negative control.** Shuffling sample labels abolishes the recurring set (14 → 0) while leaving the sample-size dependence almost unchanged ($r = -0.503$ against $-0.652$), which places the dependence in the fitting regime rather than in the biology. At $d = 100$ the two regimes separate between $n = 122$ and $n = 172$ ($1.2d$ to $1.7d$; two independent shuffle realisations put the boundary at 122/156 and 156/172). Repeating the control at four widths shows the ratio is **not** a constant: the boundary sits at $1.60d$, $1.56d$, $1.15d$ and $0.94d$ for $d = 50$, $100$, $150$ and $200$, and at $d = 200$ the two regimes overlap. The rule is therefore to locate the boundary on the study's own data by shuffling, not to import a multiple of $d$.
 
@@ -86,6 +86,25 @@ The GENIE3 and pooled checkpoints are stored in a compact form — a per-cohort 
 with the edge budget, and the pooled edge count with $h(W)$ — because that is what the
 downstream statistics read. The cache predicates in `run_all.py` recognise both the
 compact and the full form, so neither is recomputed when it is already there.
+
+### Integrity check
+
+Every file in the package is listed with its SHA-256 digest in `SHA256SUMS.txt`, including the shipped checkpoints in `results/` and the derived tables in `supplementary/`. Verify a downloaded copy before running anything:
+
+```bash
+# Linux / macOS
+sha256sum -c SHA256SUMS.txt
+```
+
+```powershell
+# Windows PowerShell
+Get-Content SHA256SUMS.txt | ForEach-Object {
+  $h, $f = $_ -split '  ', 2
+  if ((Get-FileHash $f -Algorithm SHA256).Hash -ne $h) { "FAIL $f" }
+}
+```
+
+A corrupted or truncated download fails here rather than halfway through the pipeline.
 
 ## What This Package Contains
 
