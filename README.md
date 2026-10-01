@@ -38,7 +38,12 @@ The revision adds this analysis layer on top of the previous submission. The per
 #    the package, so the figure rebuilds without them; fetching them again needs
 #      TIL_abundance.zip (TISIDB) and HM450_gencode.tsv.gz in ./data/immune/
 #    (set MULTIBATCH_IMMUNE to read them from somewhere else)
-#    Nothing else is needed: the aligned panels of Stage 5b ship in ./data/panels/
+#    Optional, only to re-derive the Figure 8 copy-number correlations from source instead of
+#    reading the tables that ship in ./results/ (about a minute of download, then offline):
+#      scripts/figures/_fig8_fetch_cna.py        streams the 85 MB pan-cancer GISTIC table
+#      scripts/figures/_fig8_prep_copynumber.py  recomputes the four results/_fig8_*.json
+#    Nothing else is needed: the aligned panels of Stage 5b ship in ./data/panels/, and the two
+#    annotation tables Figure 8 reads ship in ./data/
 
 # 2. Install dependencies
 pip install -r requirements.txt
@@ -88,10 +93,10 @@ compact and the full form, so neither is recomputed when it is already there.
 |:----------|:---------|
 | `run_all.py` | One-command reproduction: 5 analysis stages, the aligned-panel analysis of Stage 5b, and the figure/table stage, all checkpointed |
 | `scripts/analysis/` | The Stage 5b scripts: panel construction (`build_panel_A.py`, `build_panel_B.py`), the NOTEARS re-runs (`fit_panel_A.py`, `fit_panel_B.py`, `shuffle_control_fit.py`) and the downstream analyses (`identifiability.py`, `decompose_aligned_vs_raw.py`, `recurrence_analysis.py`, `permutation_null.py`, `permutation_null_continuous.py`, `shuffle_control_analysis.py`, `latent_axis.py`, `axis_attribution.py`, `driver_screen.py`, `crossmodal_check.py`, `panel_B_robustness.py`, `verify_numbers.py`) |
-| `scripts/figures/` | Data derivation (`_prep_fig_extra.py`, `_prep_tau.py`, `_prep_fig1_landscape.py`), the pan-cancer survival scan (`_km_pancan_scan.py`) and one generator per figure, named after the figure it builds (`gen_fig1_main.py`, `gen_fig2_panels.py`, `gen_fig3_ppi.py` … `gen_fig7_alteration.py`, `gen_figS1_sensitivity.py` … `gen_figS4_immune.py`), plus `_figstyle.py`, the shared drawing language every generator imports (palette, rounded cards, hairline matrix grid, the 174 mm canvas), and the helpers that build no figure of their own (`gen_baseline_stats.py` writes the statistics behind Figure 4b, `gen_km_panel.py` the BRCA Kaplan-Meier panel `figures/km_brca_panel.pdf` and the log-rank values quoted in the text, `_context_robustness.py` the sharing statistics under the alternative counting conventions, and the `_fetch_*`/`_analyze_*`/`_prep_*` scripts the derived tables the generators read) |
+| `scripts/figures/` | Data derivation (`_prep_fig_extra.py`, `_prep_tau.py`, `_prep_fig1_landscape.py`), the pan-cancer survival scan (`_km_pancan_scan.py`) and one generator per figure, named after the figure it builds (`gen_fig1_main.py`, `gen_fig2_panels.py`, `gen_fig3_ppi.py` … `gen_fig7_alteration.py`, `gen_figS1_sensitivity.py` … `gen_figS4_immune.py`), plus `_figstyle.py`, the shared drawing language every generator imports (palette, rounded cards, hairline matrix grid, the 174 mm canvas), and the helpers that build no figure of their own (`gen_baseline_stats.py` writes the statistics behind Figure 4b, `gen_km_panel.py` the BRCA Kaplan-Meier panel `figures/km_brca_panel.pdf` and the log-rank values quoted in the text, `_context_robustness.py` the sharing statistics under the alternative counting conventions, the `_fetch_*`/`_analyze_*`/`_prep_*` scripts the derived tables the generators read, and `_fig8_fetch_cna.py`/`_fig8_prep_copynumber.py`, which recover Figure 8's copy-number side files from source) |
 | `scripts/figures/_make_supplementary.py` | Builds Tables S1–S4 from the result files |
 | `scripts/figures/_gene_symbols.py` | Gene-symbol table imported by the figure scripts. Two hub genes are carried by the source data under symbols HGNC has since replaced (`C9orf84` → `SHOC1`, `MGC29506` → `MZB1`), and the Xena matrices spell the unnamed-reading-frame loci in mixed case; a plain string comparison silently drops those rows, so every lookup goes through this module |
-| `data/panels/` | The two aligned-panel definitions, `panel_A_100genes.json` (the common 100-gene panel of Stage 5b, with the per-cohort top-100 lists and the dispersion percentiles behind Figure 1d) and `panel_B_100genes.json` (the gene-disjoint second panel). These are the design, not measurements, and they are the only part of `data/` that is redistributed |
+| `data/panels/` | The two aligned-panel definitions, `panel_A_100genes.json` (the common 100-gene panel of Stage 5b, with the per-cohort top-100 lists and the dispersion percentiles behind Figure 1d) and `panel_B_100genes.json` (the gene-disjoint second panel). These are the design, not measurements. With the two genome-annotation tables Figure 8 reads (`hg19_cytoBand.txt.gz`, `fig8_gene_coords.json`) they are the only part of `data/` that is redistributed |
 | `supplementary_figures.tex` | LaTeX source of the supplementary figures (S1–S4); compiled with `pdflatex` it reproduces `supplementary/ESM_5.pdf` |
 | `supplementary/` | The five Online Resources as submitted: `ESM_1`–`ESM_4.xlsx` (Tables S1–S4) and `ESM_5.pdf` (Figures S1–S4), rebuilt by the last two steps of `run_all.py` |
 | `scripts/experiments/` | Self-contained V6 synthetic validation (`_synthetic_v6.py`); it writes `synth_ckpt.json` and `_v6_original_output.json`. `_synth_metrics.py` scores that checkpoint against its ground truth and writes `_synth_metrics.json`, the source of Table 2 |
@@ -183,7 +188,7 @@ That agreement is new. Three panels of the previous submission — the DepMap cr
 concordance, the estimator baselines and the pathway over-representation — carried the artwork
 numbers 8, 9 and 4 and appeared as manuscript Figures 4, 5 and 6, so names and citation order ran
 apart after Figure 3. They are now one figure, Figure 4, drawn by `gen_fig4_checks.py`, and the
-seven generators below run in the same order as the text.
+eight generators below run in the same order as the text.
 
 | Figure | Generator → artwork | Content |
 |:-------|:--------------------|:--------|
@@ -194,6 +199,7 @@ seven generators below run in the same order as the text.
 | 5 | `gen_fig5_survival.py` → `Fig5.pdf` | Overall-survival association of the per-cohort network hubs: (a) hazard ratio with 95% confidence interval for every cohort in the scan, ordered by log-rank $p$, dot area the patient count; (b) Kaplan–Meier curves for the six hubs whose intervals exclude 1 |
 | 6 | `gen_fig6_alteration.py` → `Fig6.pdf` | Somatic alteration burden of the hub genes against the canonical drivers: (a) non-synonymous mutation frequency of each cohort's own hub against the highest canonical driver, as a paired comparison; (b) amplification and homozygous deletion frequencies drawn as points, so a measured zero stays visible; (c) mutation frequency across cohorts |
 | 7 | `gen_fig7_tissue.py` → `Fig7.pdf` | Tissue specificity of the per-cohort hub genes: (a) Yanai's τ index for the 30 hubs against the 1,745 non-hubs of the same networks; (b) cumulative rank of each hub's own cohort against a uniform null; (c) the 33 cohort-median densities of seven hub genes, each row marked with the cohort it belongs to |
+| 8 | `gen_fig8_copynumber.py` → `Fig8.pdf` | Copy-number coupling of the 14 recurring pairs: (a) the recurrent loci on the hg19 ideogram, three of them all-cis (squares) and eleven emitting trans chords (circles), chord width tracking the number of cohorts; (b) Spearman ρ between the two genes' thresholded copy-number states against the genomic distance separating them, over 2,000 random pairs in five distance strata, with the stratum medians and 95th percentiles. The four cis pairs sit inside the neighbouring-gene cloud (ρ 0.98–1.00, indistinguishable from co-amplification); the nine trans pairs co-vary no more than the cross-chromosome background (ρ −0.03 to 0.13, Mann–Whitney p = 0.105) |
 
 The previous submission's Figures 1 and 2 — the pan-cancer expression landscape and the per-cancer
 edge analysis — are likewise reproduced by generators the package carries, `gen_fig1_landscape.py`
@@ -210,7 +216,10 @@ The remaining panels of the previous submission — the DepMap cross-platform co
 estimator baselines and the pathway over-representation — are likewise reproduced by generators the
 package carries, `gen_fig8_depmap.py`, `gen_fig9_baselines.py` and `gen_fig4_enrichment.py`. All of
 them have been absorbed into the revised Figure 4, drawn by `gen_fig4_checks.py`, and none of the
-three scripts is part of `run_all.py`. Their artwork is **not** carried here, because the revised
+three scripts is part of `run_all.py`. **The `8` and `9` in those two filenames are
+previous-submission numbers and do not name the current figures**: the current Figure 8 is drawn by
+`gen_fig8_copynumber.py`, which has no connection to `gen_fig8_depmap.py`, and there is no Figure 9.
+Their artwork is **not** carried here, because the revised
 manuscript cites none of it; running one writes the file back into `figures/`. One caveat for anyone
 doing so: `gen_fig4_enrichment.py` writes `figures/Fig4.pdf`, the file the revised Figure 4 now
 occupies, so it overwrites the merged plate — use it only in a scratch copy of the package.
@@ -256,6 +265,31 @@ expression and GISTIC copy number) and `_fetch_meth_samples.py` (PANCAN methylat
 matched control in `_analyze_immune_control.py` reads the TCGA expression tables and a TISIDB TIL
 download placed in `./data/immune/`.
 
+Figure 8 needs no download. Its generator reads `results/_fig8_edges.json`,
+`results/_fig8_null_dist.json` and `results/_fig8_cna_results.json` together with the two
+annotation tables this package carries under `data/` (`fig8_gene_coords.json`, the hg19 gene spans
+from UCSC refGene, and `hg19_cytoBand.txt.gz`, the hg19 cytoband stains), so the published plate
+rebuilds offline, as it is.
+
+The copy-number matrix those correlations summarise is **not** redistributed — it is TCGA data and
+falls under the same `data/*` exclusion as the expression matrices. It is recovered from source in
+two steps, both of which this package carries:
+
+1. `scripts/figures/_fig8_fetch_cna.py` streams the pan-cancer GISTIC 2 thresholded calls from UCSC
+   Xena (84.7 MB gzipped, 10,845 samples × ~24,800 genes) and keeps only two things: the 18 genes
+   the recurring edges touch, and a seeded random sample of genes on the major chromosomes that the
+   distance-stratified null is drawn from. The 85 MB table itself is never written to disk; the two
+   reduced matrices land in `data/`, which is excluded from version control.
+
+2. `scripts/figures/_fig8_prep_copynumber.py` recomputes the four `results/_fig8_*.json` files from
+   those matrices, the 33 per-cohort expression headers and the recurrence table — the cis/trans
+   placement of the 14 edges, the copy-number coupling of each pair, and both nulls. Running it
+   after the fetch reproduces the shipped files field for field.
+
+The download is the one part of the package that needs the network; the null is stratified by
+genomic distance, so both steps also read hg19 positions, which come from the same refGene table
+UCSC publishes (`data/fig8_gene_coords.json` is that table reduced to the 18 panel genes).
+
 Development-version PNG copies of the time-course snapshots are not included; the PDFs are the
 versions referenced by the manuscript.
 
@@ -278,9 +312,12 @@ under the HiSeqV2 RSEM pipeline, and overall-survival records from the TCGA PanC
 [cBioPortal](https://www.cbioportal.org/) (`_fetch_pancan_os.py` records the exact endpoints used).
 DepMap 23Q2 expression and CRISPR data are available from the
 [DepMap portal](https://depmap.org/). The 33 cancer types analyzed and their sample sizes are listed
-in Table 1 of the manuscript. The raw TCGA matrices are not redistributed here; the only files under
-`data/` that ship with the package are the two aligned-panel definitions in `data/panels/`, which
-record which genes every cohort was fitted on rather than any measurement.
+in Table 1 of the manuscript. The raw TCGA matrices and the GISTIC copy-number calls are not
+redistributed here. The only files under `data/` that ship with the package are the two
+aligned-panel definitions in `data/panels/`, which record which genes every cohort was fitted on
+rather than any measurement, and the two hg19 annotation tables Figure 8 reads (gene spans from
+UCSC refGene and the UCSC cytoband stains) — public genome annotation, likewise carrying no sample
+data.
 
 ## Related
 

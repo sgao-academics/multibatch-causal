@@ -17,9 +17,23 @@
 # git cannot re-include a path whose parent directory is excluded.
 data/*
 !data/panels/
+# Exception: the two annotation tables Figure 8 draws on -- the hg19 cytoband
+# stains (6.5 KB, UCSC) and the gene spans (2.8 KB, UCSC refGene).  Neither is a
+# measurement: they are public genome annotation, they carry no sample data, and
+# without them the Figure 8 generator cannot run offline.  The copy-number matrix
+# itself is NOT re-included -- it is TCGA data, it lives under the same `data/*`
+# exclusion, and the script that fetches it is named in the README.
+!data/hg19_cytoBand.txt.gz
+!data/fig8_gene_coords.json
 
 # --- submission packages and archives (not part of the package) ---
 *.zip
+# Exception: the replication package itself.  Data Availability in the manuscript
+# points readers here for the code and the derived results, and a reviewer who
+# would rather not run anything should be able to take the whole package in one
+# file without leaving the repository.  The build script skips archives, so the
+# snapshot never contains itself.
+!MultiBatch_Replication.zip
 *_Upload/
 *_Upload_v2/
 *_Scope_Check/

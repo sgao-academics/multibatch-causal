@@ -554,6 +554,8 @@ STAGE6B = [
     ('Figure 6  somatic alteration burden', 'scripts/figures/gen_fig6_alteration.py'),
     ('Figure 4  independent checks: DepMap platform, estimator and aggregation, pathway',
      'scripts/figures/gen_fig4_checks.py'),
+    ('Figure 8  copy-number coupling of the recurring pairs (reads results/_fig8_*.json and data/fig8_*)',
+     'scripts/figures/gen_fig8_copynumber.py'),
     ('Supplementary Figure S1  parameter sensitivity', 'scripts/figures/gen_figS1_sensitivity.py'),
     ('Supplementary Figure S2  synthetic validation', 'scripts/figures/gen_figS2_synthetic.py'),
     ('Table 2  structure-recovery metrics on the synthetic benchmark',
