@@ -517,7 +517,7 @@ print(f"""
   Synthetic validation: 93% recovery (see scripts/experiments/_synthetic_v6.py)
 
   Checkpoints saved in: {RESULTS}/
-  Supplementary figures: pdflatex supplementary_figures.tex
+  Supplementary figures: pdflatex supplementary_material.tex
 """)
 
 # ===========================================================

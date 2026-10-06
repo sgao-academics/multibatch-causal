@@ -60,7 +60,9 @@ FIG_Figures_SI_TIFF/
 /*.md
 !/README.md
 /*.tex
-!/supplementary_figures.tex
+# the supplementary material is ONE file now -- four figure plates followed by the text
+# sections -- and it is what supplementary/ESM_5.pdf is typeset from, so it ships too
+!/supplementary_material.tex
 /*.pdf
 /*.bbl
 /*.blg

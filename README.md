@@ -61,9 +61,9 @@ python run_all.py
 # 4. Figures, supplementary figures and tables are generated into ./figures/ and ./supplementary/
 #    Set SKIP_FIGURES=1 to reproduce only the analysis stages.
 
-# 5. Compile the supplementary figures.  The manuscript source is not part of
+# 5. Compile the supplementary material.  The manuscript source is not part of
 #    this package, which releases the replication material only.
-pdflatex supplementary_figures.tex  # -> supplementary_figures.pdf (submitted as ESM_5)
+pdflatex supplementary_material.tex  # -> supplementary_material.pdf (submitted as ESM_5)
 ```
 
 `run_all.py` reads the TCGA matrices from `./data/`, or from the folder named by the
@@ -116,8 +116,8 @@ A corrupted or truncated download fails here rather than halfway through the pip
 | `scripts/figures/_make_supplementary.py` | Builds Tables S1–S4 from the result files |
 | `scripts/figures/_gene_symbols.py` | Gene-symbol table imported by the figure scripts. Two hub genes are carried by the source data under symbols HGNC has since replaced (`C9orf84` → `SHOC1`, `MGC29506` → `MZB1`), and the Xena matrices spell the unnamed-reading-frame loci in mixed case; a plain string comparison silently drops those rows, so every lookup goes through this module |
 | `data/panels/` | The two aligned-panel definitions, `panel_A_100genes.json` (the common 100-gene panel of Stage 5b, with the per-cohort top-100 lists and the dispersion percentiles behind Figure 1d) and `panel_B_100genes.json` (the gene-disjoint second panel). These are the design, not measurements. With the two genome-annotation tables Figure 8 reads (`hg19_cytoBand.txt.gz`, `fig8_gene_coords.json`) they are the only part of `data/` that is redistributed |
-| `supplementary_figures.tex` | LaTeX source of the supplementary figures (S1–S4); compiled with `pdflatex` it reproduces `supplementary/ESM_5.pdf` |
-| `supplementary/` | Online Resources 1–5 as submitted: `ESM_1`–`ESM_4.xlsx` (Tables S1–S4) and `ESM_5.pdf` (Figures S1–S4), rebuilt by the last two steps of `run_all.py`. Online Resource 6, the supplementary text, accompanies the manuscript and is not part of this package |
+| `supplementary_material.tex` | LaTeX source of Online Resource 5: the four supplementary figure plates (S1–S4) followed by the supplementary text (sections S1–S24, with Tables S5–S6). Compiled with `pdflatex` it reproduces `supplementary/ESM_5.pdf`. The text half needs `refs.bib`, which ships here |
+| `supplementary/` | Online Resources 1–5 as submitted: `ESM_1`–`ESM_4.xlsx` (Tables S1–S4) and `ESM_5.pdf` (Figures S1–S4 **together with** the supplementary text, sections S1–S24 and Tables S5–S6). `ESM_1`–`ESM_4` are rebuilt by the last two steps of `run_all.py`; `ESM_5.pdf` is typeset from `supplementary_material.tex` |
 | `scripts/experiments/` | Self-contained V6 synthetic validation (`_synthetic_v6.py`); it writes `synth_ckpt.json` and `_v6_original_output.json`. `_synth_metrics.py` scores that checkpoint against its ground truth and writes `_synth_metrics.json`, the source of Table 2 |
 | `scripts/revision/` | The revision compute batch: `_rev_lib.py` (the shared library, carrying a verbatim copy of the NOTEARS solver that `_rev_unit1.py` checks against the cached weights bit-for-bit), `_rev_night.py` (the stage machinery: composition adjustment, bootstrap and multi-initialisation, the threshold grid, the rotation and matched-panel nulls, the low-dispersion panel, the width scans, the per-cohort spectral analysis, the continuous Cox models, the TRRUST count), `_rev_launch.py` (detached launcher), `_rev_extra.py` (Stage-2 projection on the real panel, the per-SD continuous Cox models and the TRRUST count), `_rev_cn.py` (partial correlations of the recurring cis pairs against their own copy-number state), `_rev_tau.py` (the recurrence count as a function of the edge threshold), `_rev_mp.py`, `_rev_proj.py`, `_rev_conv.py`, `_rev_speed2.py`, and `_rev_numbers.py`, which writes `results/_rev/NUMBERS.md` from the artefacts, so the mapping cannot drift from the files by transcription |
 | `results/` | Pre-computed checkpoints and derived data tables. The 46 MB expression cache `_fig1_landscape.npz` is deliberately not shipped; `_prep_fig1_landscape.py` rebuilds it from the TCGA files. `results/_rev/` holds the revision batch's outputs — the JSON summaries and `NUMBERS.md` ship, the per-panel weight matrices do not (see `.gitignore`; `scripts/revision/` regenerates them from the recorded seeds) |
@@ -243,9 +243,9 @@ manuscript cites none of it; running one writes the file back into `figures/`. O
 doing so: `gen_fig4_enrichment.py` writes `figures/Fig4.pdf`, the file the revised Figure 4 now
 occupies, so it overwrites the merged plate — use it only in a scratch copy of the package.
 
-The supplementary figures are shipped as a source file of their own — `supplementary_figures.tex`,
-compiled with `pdflatex` to `supplementary_figures.pdf` and submitted as Online Resource 5 — and
-here the numbering does follow the manuscript:
+The supplementary material is shipped as a source file of its own — `supplementary_material.tex`,
+compiled with `pdflatex` and submitted as Online Resource 5 (`supplementary/ESM_5.pdf`) — and here
+the numbering does follow the manuscript:
 
 | Figure | Generator → artwork | Content |
 |:-------|:--------------------|:--------|
