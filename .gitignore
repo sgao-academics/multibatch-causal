@@ -37,6 +37,19 @@ data/*
 *_Upload/
 *_Upload_v2/
 *_Scope_Check/
+# the graphical abstract: submission artwork, rebuilt by MultiBatch_GA/rebuild_all.py.
+# Same reasoning as the upload folders above -- it is a submission item, not replication
+# material, and without this rule `git add -A` would publish the artwork with the package.
+MultiBatch_GA/
+# figure files prepared for the submission system's separate figure upload:
+# EPS and TIFF 600 dpi of the eight main figures and the four supplementary
+# figures.  Produced by _scratch/export_figures.py from the same generators
+# that make figures/.  TIFF is the deliverable; the SI EPS are kept only for
+# the record (they are uncompressed re-encodings of the same rasters, 66 MB).
+FIG_Figures_EPS/
+FIG_Figures_TIFF/
+FIG_Figures_SI_EPS/
+FIG_Figures_SI_TIFF/
 
 # --- the working folder around the package (never published) ---
 # The manuscript sources, the submission sources, the notes kept while the revision was
@@ -51,10 +64,16 @@ data/*
 /*.pdf
 /*.bbl
 /*.blg
+# submission correspondence.  The cover letter is sent to the editor, never published.
+/*_cover_letter.txt
 
 # --- scratch, archives, tooling caches ---
 _archive/
 _scratch/
+# the review-period working scripts and their intermediate tables.  They write into
+# results/ but are not part of the package; the snapshot built on 2026-10-01 carried none
+# of them, and nothing in the manuscript or the README refers to them.
+MultiBatch_review_scripts/
 _rep_check/
 _zipcheck/
 .playwright-cli/
@@ -134,3 +153,6 @@ results/_single_cell_layer_stats.json
 
 # local literature PDFs (publisher copyright -- never redistribute, never commit)
 /_literature/
+# The search cache the review sat in is named MultiBatch_literature/, not _literature/,
+# so the rule above never matched it.  It holds publisher PDFs and their text dumps.
+/MultiBatch_literature/

@@ -2,7 +2,7 @@
 
 **Shuaidong Gao** — Chongqing Institute of Foreign Studies
 
-Replication package for the manuscript *"What is shared across 33 cancer types is the tissue, not the tumour: a non-malignant axis of the microenvironment"*, submitted to *Functional & Integrative Genomics* (Springer).
+Replication package for the manuscript *"What is shared across 33 cancer types is the tissue, not the tumour: a non-malignant axis of the microenvironment"*, submitted to *Network Modeling Analysis in Health Informatics and Bioinformatics* (Springer).
 
 ## What the analysis delivers
 
@@ -117,12 +117,12 @@ A corrupted or truncated download fails here rather than halfway through the pip
 | `scripts/figures/_gene_symbols.py` | Gene-symbol table imported by the figure scripts. Two hub genes are carried by the source data under symbols HGNC has since replaced (`C9orf84` → `SHOC1`, `MGC29506` → `MZB1`), and the Xena matrices spell the unnamed-reading-frame loci in mixed case; a plain string comparison silently drops those rows, so every lookup goes through this module |
 | `data/panels/` | The two aligned-panel definitions, `panel_A_100genes.json` (the common 100-gene panel of Stage 5b, with the per-cohort top-100 lists and the dispersion percentiles behind Figure 1d) and `panel_B_100genes.json` (the gene-disjoint second panel). These are the design, not measurements. With the two genome-annotation tables Figure 8 reads (`hg19_cytoBand.txt.gz`, `fig8_gene_coords.json`) they are the only part of `data/` that is redistributed |
 | `supplementary_figures.tex` | LaTeX source of the supplementary figures (S1–S4); compiled with `pdflatex` it reproduces `supplementary/ESM_5.pdf` |
-| `supplementary/` | The five Online Resources as submitted: `ESM_1`–`ESM_4.xlsx` (Tables S1–S4) and `ESM_5.pdf` (Figures S1–S4), rebuilt by the last two steps of `run_all.py` |
+| `supplementary/` | Online Resources 1–5 as submitted: `ESM_1`–`ESM_4.xlsx` (Tables S1–S4) and `ESM_5.pdf` (Figures S1–S4), rebuilt by the last two steps of `run_all.py`. Online Resource 6, the supplementary text, accompanies the manuscript and is not part of this package |
 | `scripts/experiments/` | Self-contained V6 synthetic validation (`_synthetic_v6.py`); it writes `synth_ckpt.json` and `_v6_original_output.json`. `_synth_metrics.py` scores that checkpoint against its ground truth and writes `_synth_metrics.json`, the source of Table 2 |
 | `scripts/revision/` | The revision compute batch: `_rev_lib.py` (the shared library, carrying a verbatim copy of the NOTEARS solver that `_rev_unit1.py` checks against the cached weights bit-for-bit), `_rev_night.py` (the stage machinery: composition adjustment, bootstrap and multi-initialisation, the threshold grid, the rotation and matched-panel nulls, the low-dispersion panel, the width scans, the per-cohort spectral analysis, the continuous Cox models, the TRRUST count), `_rev_launch.py` (detached launcher), `_rev_extra.py` (Stage-2 projection on the real panel, the per-SD continuous Cox models and the TRRUST count), `_rev_cn.py` (partial correlations of the recurring cis pairs against their own copy-number state), `_rev_tau.py` (the recurrence count as a function of the edge threshold), `_rev_mp.py`, `_rev_proj.py`, `_rev_conv.py`, `_rev_speed2.py`, and `_rev_numbers.py`, which writes `results/_rev/NUMBERS.md` from the artefacts, so the mapping cannot drift from the files by transcription |
 | `results/` | Pre-computed checkpoints and derived data tables. The 46 MB expression cache `_fig1_landscape.npz` is deliberately not shipped; `_prep_fig1_landscape.py` rebuilds it from the TCGA files. `results/_rev/` holds the revision batch's outputs — the JSON summaries and `NUMBERS.md` ship, the per-panel weight matrices do not (see `.gitignore`; `scripts/revision/` regenerates them from the recorded seeds) |
 | `figures/` | Pre-built figures, vector PDF |
-| `refs.bib` | The 72 references of the manuscript in BibTeX format |
+| `refs.bib` | The bibliography of the manuscript and its Online Resources, in BibTeX format |
 | `sn-jnl.cls` | Springer Nature LaTeX class file |
 | `requirements.txt` | Python dependencies |
 

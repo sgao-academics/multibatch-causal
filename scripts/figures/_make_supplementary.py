@@ -1,4 +1,4 @@
-"""Build the supplementary tables (XLSX) for the Functional & Integrative Genomics submission.
+"""Build the supplementary tables (XLSX) for the manuscript submission.
 
 Everything is derived from the existing result files; no number is typed in by hand.
 
@@ -33,7 +33,7 @@ WRAP = Alignment(vertical='top', wrap_text=False)
 BANNER = [
     'Article title: What is shared across 33 cancer types is the tissue, not the tumour: '
     'a non-malignant axis of the microenvironment',
-    'Journal: Functional & Integrative Genomics',
+    'Journal: Network Modeling Analysis in Health Informatics and Bioinformatics',
     'Author: Shuaidong Gao',
     'Affiliation: Chongqing Institute of Foreign Studies, Qijiang Campus, '
     'Chongqing 401420, China',
